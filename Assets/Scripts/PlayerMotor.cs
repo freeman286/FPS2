@@ -73,7 +73,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.AddForce(Vector3.up * 350f);
+            rb.AddForce(Vector3.up * playerController.jumpForce);
             isGrounded = false;
         }
     }

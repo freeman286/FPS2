@@ -4,6 +4,11 @@ ScriptsOnlyBuild:
     - PlayerController
     - PlayerMotor
     - PlayerSetup
+    Mirror.Components.dll:
+    - Mirror.NetworkTransform
+    - Mirror.NetworkTransformChild
+    Mirror.Editor.dll:
+    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManager
@@ -65,11 +70,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12398}
     - Class: 114
-      Script: {instanceID: 13340}
+      Script: {instanceID: 12854}
     - Class: 114
-      Script: {instanceID: 13554}
+      Script: {instanceID: 13342}
     - Class: 114
-      Script: {instanceID: 24120}
+      Script: {instanceID: 13540}
+    - Class: 114
+      Script: {instanceID: 13556}
+    - Class: 114
+      Script: {instanceID: 13684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -909,6 +918,12 @@ ScriptsOnlyBuild:
     className: TargetFieldOfView
   - hash:
       serializedVersion: 2
+      Hash: 690c0b1a818ad97ab70908d6171d25eb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerSetup
+  - hash:
+      serializedVersion: 2
       Hash: 5284dc3c179b180159e01d4daa4a956d
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Additive
@@ -1263,7 +1278,7 @@ ScriptsOnlyBuild:
     className: Player
   - hash:
       serializedVersion: 2
-      Hash: e2c1183435c1785736cdba6d043d8e49
+      Hash: 882ef3ceaf7df85eed00f49538e949a4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -1429,12 +1444,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
     className: AutoMobileShaderSwitch
-  - hash:
-      serializedVersion: 2
-      Hash: 690c0b1a818ad97ab70908d6171d25eb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerSetup
   platform: 5
   scenePathNames:
   - Assets/MainLevel01.unity

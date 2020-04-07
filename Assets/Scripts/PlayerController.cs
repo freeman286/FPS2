@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float lookSensitivity = 3f;
 
+    [SerializeField]
+    public float jumpForce = 100f;
+
     float rotationY = 0F;
 
     private PlayerMotor motor;
