@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+[RequireComponent(typeof(Player))]
 public class PlayerSetup : NetworkBehaviour
 {
 
@@ -29,15 +30,16 @@ public class PlayerSetup : NetworkBehaviour
                 sceneCamara.gameObject.SetActive(false);
             }
         }
-
-        RegisterPlayer();
-
     }
 
-    void RegisterPlayer()
+    public override void OnStartClient()
     {
-        string _ID = "Player " + GetComponent<NetworkIdentity>().netId;
-        transform.name = _ID;
+        base.OnStartClient();
+
+        string _netID = GetComponent<NetworkIdentity>().netId.ToString();
+        Player _player = GetComponent<Player>();
+
+        GameManager.RegisterPlayer(_netID, _player);
     }
 
     void AssignRemoteLayer()
@@ -59,6 +61,8 @@ public class PlayerSetup : NetworkBehaviour
         {
             sceneCamara.gameObject.SetActive(true);
         }
+
+        GameManager.UnRegisterPlayer(transform.name);
     }
 
 }
