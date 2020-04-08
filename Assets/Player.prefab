@@ -697,12 +697,12 @@ MonoBehaviour:
   syncInterval: 0.1
   weapon:
     name: pistol
-    damage: 10
+    damage: 40
     range: 100
   cam: {fileID: 899551536351255448}
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 567
 --- !u!114 &3543887534676550787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,3 +715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1503233a468e34240bce162d12e388e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  maxHealth: 100
+  disableOnDeath:
+  - {fileID: 600328063753895067}
+  - {fileID: 1506890265112965245}
