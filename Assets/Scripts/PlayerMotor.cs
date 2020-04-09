@@ -99,7 +99,7 @@ public class PlayerMotor : MonoBehaviour
         float _leftDist = Vector3.Distance(leftFootRestingPos, leftFoot.transform.localPosition);
         float _rightDist = Vector3.Distance(rightFootRestingPos, rightFoot.transform.localPosition);
 
-        if (_leftDist > 2f || _rightDist > 2f)
+        if (_leftDist > 4f || _rightDist > 4f)
         {
             leftFoot.transform.localPosition = leftFootRestingPos;
             rightFoot.transform.localPosition = rightFootRestingPos;
@@ -153,6 +153,5 @@ public class PlayerMotor : MonoBehaviour
     {
         leftFoot.transform.localPosition = leftFootRestingPos;
         rightFoot.transform.localPosition = rightFootRestingPos;
-        Debug.Log("Setup");
     }
 }
