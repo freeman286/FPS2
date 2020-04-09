@@ -60,10 +60,6 @@ public class Player : NetworkBehaviour
             disableOnDeath[i].enabled = false;
         }
 
-        Collider _col = GetComponent<Collider>();
-        if (_col != null)
-            _col.enabled = false;
-
         Debug.Log(transform.name + " is Dead!");
 
         StartCoroutine(Respawn());
@@ -93,8 +89,6 @@ public class Player : NetworkBehaviour
             disableOnDeath[i].enabled = wasEnabled[i];
         }
 
-        Collider _col = GetComponent<Collider>();
-        if (_col != null)
-            _col.enabled = true;
+        GetComponent<PlayerController>().SetDefaults();
     }
 }

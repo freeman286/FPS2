@@ -70,12 +70,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 _velocity = (_movHorizontal + _movVertical) * speed;
 
-        //if (!walking.isPlaying && _velocity != Vector3.zero)
-        //{
-        //    walking.Play("Walking");
-        //}
-
-
         motor.Move(_velocity);
 
         //Mouse movement
@@ -101,5 +95,10 @@ public class PlayerController : MonoBehaviour
         {
             motor.Jump();
         }
+    }
+
+    public void SetDefaults()
+    {
+        motor.SetDefaults();
     }
 }

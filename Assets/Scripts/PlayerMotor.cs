@@ -22,8 +22,32 @@ public class PlayerMotor : MonoBehaviour
 
     public bool isGrounded = true;
 
+    [SerializeField]
+    private GameObject leftFoot;
+    [SerializeField]
+    private GameObject rightFoot;
+
+    [SerializeField]
+    private Vector3 leftFootRestingPos;
+    [SerializeField]
+    private Vector3 rightFootRestingPos;
+
+    private Vector3 leftFootPos;
+    private Vector3 rightFootPos;
+
+    [SerializeField]
+    private float snapDist;
+
+    [SerializeField]
+    private float snapSpeed = 100f;
+
+
+    private bool leftFootMoving = true;
+    private bool rightFootMoving = true;
+
     void Start()
     {
+        SetDefaults();
         rb = GetComponent<Rigidbody>();
         playerController = GetComponent<PlayerController>();
     }
@@ -47,6 +71,7 @@ public class PlayerMotor : MonoBehaviour
     {
         PerformMovement();
         PerformRotation();
+        PerformFootMovement();
     }
 
     void PerformMovement()
@@ -69,6 +94,42 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
+    void PerformFootMovement()
+    {
+        float _leftDist = Vector3.Distance(leftFootRestingPos, leftFoot.transform.localPosition);
+        float _rightDist = Vector3.Distance(rightFootRestingPos, rightFoot.transform.localPosition);
+
+        if (_leftDist > 2f || _rightDist > 2f)
+        {
+            leftFoot.transform.localPosition = leftFootRestingPos;
+            rightFoot.transform.localPosition = rightFootRestingPos;
+        }
+
+        leftFootMoving = (_leftDist > snapDist && !rightFootMoving) || !isGrounded;
+
+        rightFootMoving = (_rightDist > snapDist && !leftFootMoving) || !isGrounded;
+
+        if (leftFootMoving)
+        {
+            leftFoot.transform.localPosition = Vector3.Lerp(leftFoot.transform.localPosition, leftFootRestingPos, Time.deltaTime * _leftDist * snapSpeed);
+        } else
+        {
+            leftFoot.transform.position = leftFootPos; 
+        }
+        leftFootPos = leftFoot.transform.position;
+
+        if (rightFootMoving)
+        {
+            rightFoot.transform.localPosition = Vector3.Lerp(rightFoot.transform.localPosition, rightFootRestingPos, Time.deltaTime * _rightDist * snapSpeed);
+        }
+        else
+        {
+            rightFoot.transform.position = rightFootPos;
+        }
+        rightFootPos = rightFoot.transform.position;
+
+    }
+
     public void Jump()
     {
         if (isGrounded)
@@ -81,5 +142,17 @@ public class PlayerMotor : MonoBehaviour
     void OnCollisionEnter(Collision collisionInfo)
     {
         isGrounded = true;
+    }
+
+    void OnCollisionExit(Collision collisionInfo)
+    {
+        isGrounded = false;
+    }
+
+    public void SetDefaults()
+    {
+        leftFoot.transform.localPosition = leftFootRestingPos;
+        rightFoot.transform.localPosition = rightFootRestingPos;
+        Debug.Log("Setup");
     }
 }
