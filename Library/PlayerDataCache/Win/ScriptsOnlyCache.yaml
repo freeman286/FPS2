@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - PlayerMotor
     - PlayerSetup
     - PlayerShoot
+    - WeaponManager
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
@@ -67,33 +68,33 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11216}
     - Class: 114
-      Script: {instanceID: 11222}
+      Script: {instanceID: 11220}
     - Class: 114
-      Script: {instanceID: 11308}
+      Script: {instanceID: 11306}
     - Class: 114
-      Script: {instanceID: 11454}
+      Script: {instanceID: 11452}
     - Class: 114
-      Script: {instanceID: 11458}
+      Script: {instanceID: 11456}
     - Class: 114
-      Script: {instanceID: 11532}
+      Script: {instanceID: 11530}
     - Class: 114
-      Script: {instanceID: 12044}
+      Script: {instanceID: 12042}
     - Class: 114
-      Script: {instanceID: 12284}
+      Script: {instanceID: 12282}
     - Class: 114
-      Script: {instanceID: 12404}
+      Script: {instanceID: 12402}
     - Class: 114
-      Script: {instanceID: 12860}
+      Script: {instanceID: 12858}
     - Class: 114
-      Script: {instanceID: 12912}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 12988}
+      Script: {instanceID: 12986}
     - Class: 114
-      Script: {instanceID: 13290}
+      Script: {instanceID: 13288}
     - Class: 114
-      Script: {instanceID: 13354}
+      Script: {instanceID: 13352}
     - Class: 114
       Script: {instanceID: 13552}
     - Class: 114
@@ -102,6 +103,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13696}
     - Class: 114
       Script: {instanceID: 13812}
+    - Class: 114
+      Script: {instanceID: 23330}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -639,7 +642,7 @@ ScriptsOnlyBuild:
     className: ActivateTrigger
   - hash:
       serializedVersion: 2
-      Hash: 36b02f80315ecfb91c1e6c3604623265
+      Hash: 427fba7773d85104c94c90868fb4109d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerShoot
@@ -1495,6 +1498,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
     className: AutoMobileShaderSwitch
+  - hash:
+      serializedVersion: 2
+      Hash: 4bb29557eca88edbf1c158c1bf367a53
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponManager
   platform: 5
   scenePathNames:
   - Assets/Scenes/MainLevel01.unity
