@@ -30,10 +30,16 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
-    Assets/MainLevel01.unity:
+    Assets/Scenes/MainLevel01.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -65,11 +71,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11216}
     - Class: 114
+      Script: {instanceID: 11220}
+    - Class: 114
       Script: {instanceID: 11306}
     - Class: 114
       Script: {instanceID: 11452}
     - Class: 114
       Script: {instanceID: 11456}
+    - Class: 114
+      Script: {instanceID: 11530}
+    - Class: 114
+      Script: {instanceID: 12042}
     - Class: 114
       Script: {instanceID: 12282}
     - Class: 114
@@ -81,6 +93,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12986}
     - Class: 114
+      Script: {instanceID: 13288}
+    - Class: 114
       Script: {instanceID: 13352}
     - Class: 114
       Script: {instanceID: 13550}
@@ -88,6 +102,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13566}
     - Class: 114
       Script: {instanceID: 13694}
+    - Class: 114
+      Script: {instanceID: 13810}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -97,6 +113,14 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -935,7 +959,7 @@ ScriptsOnlyBuild:
     className: TargetFieldOfView
   - hash:
       serializedVersion: 2
-      Hash: 781cddf76ed0d11b0ca96ec6dd487da7
+      Hash: 900a55474ab2e192a3751e62c3d6d9f9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerSetup
@@ -1475,5 +1499,5 @@ ScriptsOnlyBuild:
     className: AutoMobileShaderSwitch
   platform: 5
   scenePathNames:
-  - Assets/MainLevel01.unity
+  - Assets/Scenes/MainLevel01.unity
   playerPath: C:/Users/Joel/Documents/FPS2/Builds/FPS2.exe

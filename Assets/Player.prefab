@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 7399395440612096653}
   m_Layer: 8
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1526716323568499459}
   m_Layer: 8
   m_Name: LeftEye
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 1099726265418825729}
   m_Layer: 8
   m_Name: LeftFoot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 2199091236012881723}
   m_Layer: 8
   m_Name: PlayerModel
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 9038504887339630435}
   m_Layer: 8
   m_Name: RightFoot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 4654185335261662069}
   m_Layer: 8
   m_Name: Graphics
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 3844147761023396064}
   m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -938,7 +938,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1259516704761575958}
-  - component: {fileID: 3918162887034185551}
   - component: {fileID: 2984415030471143897}
   - component: {fileID: 5738766274489223137}
   - component: {fileID: 600328063753895067}
@@ -973,19 +972,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3918162887034185551
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8973621608414753981}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2984415030471143897
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1208,7 +1194,7 @@ GameObject:
   - component: {fileID: 101760383178992451}
   m_Layer: 8
   m_Name: RightEye
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -39,7 +39,7 @@ public class PlayerShoot : NetworkBehaviour {
         {
             if (_hit.collider.tag == PLAYER_TAG)
             {
-                CmdPlayerShot(_hit.collider.name, weapon.damage);
+                CmdPlayerShot(_hit.collider.transform.root.name, weapon.damage);
             }
 
         }

@@ -70,7 +70,7 @@ public class PlayerSetup : NetworkBehaviour
 
     void AssignRemoteLayer()
     {
-        gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
+        SetLayerRecursively(gameObject, LayerMask.NameToLayer(remoteLayerName));
     }
 
     void DisableComponents()
