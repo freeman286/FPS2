@@ -141,12 +141,18 @@ public class PlayerMotor : MonoBehaviour
 
     void OnCollisionEnter(Collision collisionInfo)
     {
-        isGrounded = true;
+        if (collisionInfo.gameObject.tag == "Floor")
+        {
+            isGrounded = true;
+        }
     }
 
     void OnCollisionExit(Collision collisionInfo)
     {
-        isGrounded = false;
+        if (collisionInfo.gameObject.tag == "Floor")
+        {
+            isGrounded = false;
+        }
     }
 
     public void SetDefaults()
