@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\PlayerWeapon.cs" />
      <Compile Include="Assets\Scripts\Util.cs" />
      <Compile Include="Assets\Scripts\WeaponManager.cs" />
+     <Compile Include="Assets\WeaponGraphics.cs" />
      <None Include="Assets\Toon.shader" />
      <None Include="Assets\ScriptTemplates\51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
      <None Include="Assets\ScriptTemplates\53-Mirror__Network Observer-NewNetworkObserver.cs.txt" />
