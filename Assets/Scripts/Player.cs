@@ -35,6 +35,12 @@ public class Player : NetworkBehaviour
     [SerializeField]
     private PlayerShoot shoot;
 
+    [SyncVar]
+    public int kills;
+
+    [SyncVar]
+    public int deaths;
+
     public void SetupPlayer()
     {
 
@@ -76,13 +82,13 @@ public class Player : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            RpcTakeDamage(1000);
+            RpcTakeDamage(1000, transform.name);
         }
     }
 
 
     [ClientRpc]
-    public void RpcTakeDamage (int _amount)
+    public void RpcTakeDamage (int _amount, string _sourceID)
     {
         if (isDead)
             return;
@@ -93,15 +99,23 @@ public class Player : NetworkBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+            Die(_sourceID);
         }
     }
 
-    private void Die()
+    private void Die(string _sourceID)
     {
         isDead = true;
 
         shoot.CancelInvoke("Shoot");
+
+        Player sourcePlayer = GameManager.GetPlayer(_sourceID);
+        if (sourcePlayer != null)
+        {
+            sourcePlayer.kills++;
+        }
+
+        deaths++;
 
         for (int i = 0; i < disableOnDeath.Length; i++)
         {

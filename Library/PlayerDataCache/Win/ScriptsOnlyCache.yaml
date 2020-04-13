@@ -5,15 +5,16 @@ ScriptsOnlyBuild:
     - Player
     - PlayerController
     - PlayerMotor
+    - PlayerScoreboardItem
     - PlayerSetup
     - PlayerShoot
+    - PlayerUI
+    - Scoreboard
     - WeaponGraphics
     - WeaponManager
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManager
@@ -38,6 +39,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.Text
+    - UnityEngine.UI.VerticalLayoutGroup
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
@@ -77,9 +81,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11458}
     - Class: 114
+      Script: {instanceID: 11478}
+    - Class: 114
       Script: {instanceID: 11536}
     - Class: 114
       Script: {instanceID: 11612}
+    - Class: 114
+      Script: {instanceID: 11702}
     - Class: 114
       Script: {instanceID: 12050}
     - Class: 114
@@ -88,6 +96,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12410}
     - Class: 114
       Script: {instanceID: 12558}
+    - Class: 114
+      Script: {instanceID: 12758}
     - Class: 114
       Script: {instanceID: 12868}
     - Class: 114
@@ -104,7 +114,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13706}
     - Class: 114
       Script: {instanceID: 13822}
+    - Class: 114
+      Script: {instanceID: 29630}
+    - Class: 114
+      Script: {instanceID: 30158}
+    - Class: 114
+      Script: {instanceID: 30256}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -170,9 +188,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11462}
     - Class: 114
+      Script: {instanceID: 11478}
+    - Class: 114
       Script: {instanceID: 11536}
     - Class: 114
       Script: {instanceID: 11612}
+    - Class: 114
+      Script: {instanceID: 11702}
     - Class: 114
       Script: {instanceID: 12050}
     - Class: 114
@@ -181,6 +203,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12410}
     - Class: 114
       Script: {instanceID: 12558}
+    - Class: 114
+      Script: {instanceID: 12758}
     - Class: 114
       Script: {instanceID: 12868}
     - Class: 114
@@ -199,7 +223,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13706}
     - Class: 114
       Script: {instanceID: 13822}
+    - Class: 114
+      Script: {instanceID: 29630}
+    - Class: 114
+      Script: {instanceID: 30158}
+    - Class: 114
+      Script: {instanceID: 30256}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -1102,7 +1134,7 @@ ScriptsOnlyBuild:
     className: Water
   - hash:
       serializedVersion: 2
-      Hash: 0e3cf1dca4c6bec54d05f35633406828
+      Hash: 8e7eee2007d9caaf3468ab675ed83443
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1610,6 +1642,24 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
     className: AutoMobileShaderSwitch
+  - hash:
+      serializedVersion: 2
+      Hash: 6884941d837c60324cb9f459400cd6a5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerUI
+  - hash:
+      serializedVersion: 2
+      Hash: 3b68007be98f3a76e6a47cfa7fc76095
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Scoreboard
+  - hash:
+      serializedVersion: 2
+      Hash: 791ddd6b6a643b34e280f3ad2fbc2977
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerScoreboardItem
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity
