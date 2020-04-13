@@ -32,6 +32,9 @@ public class Player : NetworkBehaviour
 
     private bool firstSetup = true;
 
+    [SerializeField]
+    private PlayerShoot shoot;
+
     public void SetupPlayer()
     {
 
@@ -97,6 +100,8 @@ public class Player : NetworkBehaviour
     private void Die()
     {
         isDead = true;
+
+        shoot.CancelInvoke("Shoot");
 
         for (int i = 0; i < disableOnDeath.Length; i++)
         {

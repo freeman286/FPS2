@@ -12,6 +12,8 @@ ScriptsOnlyBuild:
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
+    Mirror.Editor.dll:
+    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManager
@@ -1100,7 +1102,7 @@ ScriptsOnlyBuild:
     className: Water
   - hash:
       serializedVersion: 2
-      Hash: 88e00441268a04ff5fddcf95a000df51
+      Hash: 0e3cf1dca4c6bec54d05f35633406828
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player

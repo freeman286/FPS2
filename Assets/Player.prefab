@@ -938,6 +938,7 @@ MonoBehaviour:
   disableGameObjectsOnDeath: []
   spawnEffect: {fileID: 4308811345454485748, guid: 1dd9664a5f2f3eb42b140ec1ede46d6b,
     type: 3}
+  shoot: {fileID: 1506890265112965245}
 --- !u!114 &1213332052167060526
 MonoBehaviour:
   m_ObjectHideFlags: 0
