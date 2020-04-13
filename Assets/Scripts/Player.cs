@@ -82,7 +82,7 @@ public class Player : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            RpcTakeDamage(1000, transform.name);
+            shoot.CmdPlayerShot(transform.name, 1000, transform.name);
         }
     }
 

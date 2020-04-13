@@ -32,6 +32,9 @@ public class PlayerShoot : NetworkBehaviour {
     {
         currentWeapon = weaponManager.GetCurrentWeapon();
 
+        if (Pause.IsOn)
+            return;
+
         if (currentWeapon.fireRate <= 0f)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -97,7 +100,7 @@ public class PlayerShoot : NetworkBehaviour {
     }
 
     [Command]
-    void CmdPlayerShot (string _playerID, int _damage, string _sourceID)
+    public void CmdPlayerShot (string _playerID, int _damage, string _sourceID)
     {
         Debug.Log(_playerID + " has been shot");
 

@@ -34,25 +34,25 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    int framesWithCursor = 0;
     void Update()
     {
 
-        //Pressing Esc
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Pause.IsOn)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            framesWithCursor = 0;
-        }
-        else if (Input.GetButtonDown("Fire1") && framesWithCursor > 100)
+
+            motor.Move(Vector3.zero);
+            motor.Rotate(Vector3.zero);
+            motor.RotateCamera(0f);
+
+            return;
+        } else
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            framesWithCursor = 0;
         }
-        framesWithCursor += 1;
-
+            
         //Speed Limit
 
         if (rb.velocity[1] > 8)
