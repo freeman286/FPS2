@@ -41,6 +41,9 @@ public class Player : NetworkBehaviour
     [SyncVar]
     public int deaths;
 
+    [SyncVar]
+    public string username;
+
     public void SetupPlayer()
     {
 
@@ -95,8 +98,6 @@ public class Player : NetworkBehaviour
 
         currentHealth -= _amount;
 
-        Debug.Log(transform.name + " now has " + currentHealth + " health.");
-
         if (currentHealth <= 0)
         {
             Die(_sourceID);
@@ -113,7 +114,10 @@ public class Player : NetworkBehaviour
         if (sourcePlayer != null)
         {
             sourcePlayer.kills++;
+            GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
         }
+
+        
 
         deaths++;
 
@@ -133,8 +137,6 @@ public class Player : NetworkBehaviour
             GetComponent<PlayerSetup>().playerUIInstance.SetActive(false);
         }
 
-        Debug.Log(transform.name + " is Dead!");
-
         StartCoroutine(Respawn());
     }
 
@@ -150,8 +152,6 @@ public class Player : NetworkBehaviour
         yield return new WaitForSeconds(0.1f);
 
         SetupPlayer();
-
-        Debug.Log(transform.name + " respawned.");
     }
 
     public void SetDefaults()

@@ -2,6 +2,8 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - GameManager
+    - Killfeed
+    - KillfeedItem
     - Pause
     - Player
     - PlayerController
@@ -107,25 +109,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12702}
     - Class: 114
-      Script: {instanceID: 12766}
+      Script: {instanceID: 12764}
     - Class: 114
-      Script: {instanceID: 12876}
+      Script: {instanceID: 12874}
     - Class: 114
-      Script: {instanceID: 12900}
+      Script: {instanceID: 12898}
     - Class: 114
-      Script: {instanceID: 12930}
+      Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 13308}
+      Script: {instanceID: 13306}
     - Class: 114
-      Script: {instanceID: 13372}
+      Script: {instanceID: 13370}
     - Class: 114
-      Script: {instanceID: 13572}
+      Script: {instanceID: 13570}
     - Class: 114
-      Script: {instanceID: 13588}
+      Script: {instanceID: 13586}
     - Class: 114
-      Script: {instanceID: 13716}
+      Script: {instanceID: 13714}
     - Class: 114
-      Script: {instanceID: 13832}
+      Script: {instanceID: 13830}
+    - Class: 114
+      Script: {instanceID: 24240}
+    - Class: 114
+      Script: {instanceID: 34386}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -218,27 +224,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12702}
     - Class: 114
-      Script: {instanceID: 12766}
+      Script: {instanceID: 12764}
     - Class: 114
-      Script: {instanceID: 12876}
+      Script: {instanceID: 12874}
     - Class: 114
-      Script: {instanceID: 12900}
+      Script: {instanceID: 12898}
     - Class: 114
-      Script: {instanceID: 12930}
+      Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13004}
     - Class: 114
-      Script: {instanceID: 13308}
+      Script: {instanceID: 13306}
     - Class: 114
-      Script: {instanceID: 13372}
+      Script: {instanceID: 13370}
     - Class: 114
-      Script: {instanceID: 13572}
+      Script: {instanceID: 13570}
     - Class: 114
-      Script: {instanceID: 13588}
+      Script: {instanceID: 13586}
     - Class: 114
-      Script: {instanceID: 13716}
+      Script: {instanceID: 13714}
     - Class: 114
-      Script: {instanceID: 13832}
+      Script: {instanceID: 13830}
+    - Class: 114
+      Script: {instanceID: 24240}
+    - Class: 114
+      Script: {instanceID: 34386}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1168,7 +1178,7 @@ ScriptsOnlyBuild:
     className: Water
   - hash:
       serializedVersion: 2
-      Hash: 8e7eee2007d9caaf3468ab675ed83443
+      Hash: b33fe0d1ad8af0ae371858113132a44d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1676,6 +1686,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
     className: AutoMobileShaderSwitch
+  - hash:
+      serializedVersion: 2
+      Hash: 868ba9d1532e6bb3981bfd92dee84430
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Killfeed
+  - hash:
+      serializedVersion: 2
+      Hash: 4ce15e99c635d2567873d27549d1f16f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KillfeedItem
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity

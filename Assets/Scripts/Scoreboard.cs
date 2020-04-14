@@ -21,7 +21,7 @@ public class Scoreboard : MonoBehaviour
             PlayerScoreboardItem item = itemGO.GetComponent<PlayerScoreboardItem>();
             if (item != null)
             {
-                item.Setup(player.name, player.kills, player.deaths);
+                item.Setup(player.username, player.kills, player.deaths);
             }
         }
     }

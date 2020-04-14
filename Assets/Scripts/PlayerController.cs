@@ -52,13 +52,6 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-            
-        //Speed Limit
-
-        if (rb.velocity[1] > 8)
-        {
-            rb.velocity = new Vector3(5, 3, 0);
-        }
 
         //WASD movement
 

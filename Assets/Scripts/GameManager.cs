@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject sceneCamera;
 
+    public delegate void OnPlayerKilledCallback(string player, string source);
+    public OnPlayerKilledCallback onPlayerKilledCallback;
+
     void Awake ()
     {
         if (instance != null)
@@ -60,21 +63,6 @@ public class GameManager : MonoBehaviour
     {
         return players.Values.ToArray();
     }
-
-    //void OnGUI()
-    //{
-    //    GUILayout.BeginArea(new Rect(200, 200, 200, 500));
-    //    GUILayout.BeginVertical();
-    //
-    //    foreach (string _playerID in players.Keys)
-    //    {
-    //        GUILayout.Label(_playerID + " - " + players[_playerID].transform.name);
-    //    }
-    //
-    //
-    //    GUILayout.EndVertical();
-    //    GUILayout.EndArea();
-    //}
 
     #endregion
 }
