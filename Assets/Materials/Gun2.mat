@@ -8,14 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Gun2
-  m_Shader: {fileID: 4800000, guid: 99bb36e9d2c76874e8e8e2baed6debca, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: acc65c867564c3a448bc3e62d9a70f14,
+    type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -56,6 +59,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_82E42744: 6
+    - Vector1_83A127E5: 0.1
+    - Vector1_E3ABB034: 4
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -75,6 +81,8 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - Color_83DF4905: {r: 0.21342114, g: 0.21813564, b: 0.41509432, a: 0}
+    - Color_E7F2BEFD: {r: 1.3118641, g: 0.41459852, b: 0.41459852, a: 0}
     - _AmbientColor: {r: 0.11322822, g: 0.11271807, b: 0.16037738, a: 1}
     - _Color: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
