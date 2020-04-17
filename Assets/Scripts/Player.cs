@@ -170,7 +170,8 @@ public class Player : NetworkBehaviour
             disableGameObjectsOnDeath[i].SetActive(true);
         }
 
-        GameObject _spawnEffect = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity); 
+        GameObject _spawnEffect = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
+        Destroy(_spawnEffect, 1f);
 
         GetComponent<PlayerController>().SetDefaults();
     }
