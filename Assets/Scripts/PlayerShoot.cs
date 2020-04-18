@@ -22,7 +22,7 @@ public class PlayerShoot : NetworkBehaviour {
         if (cam == null)
         {
             Debug.LogError("PlayerShoot: No camera referenced!");
-                this.enabled = false;
+            this.enabled = false;
         }
 
         weaponManager = GetComponent<WeaponManager>();
@@ -34,6 +34,15 @@ public class PlayerShoot : NetworkBehaviour {
 
         if (Pause.IsOn)
             return;
+
+        if (currentWeapon.bullets < currentWeapon.magSize)
+        {
+            if (Input.GetButtonDown("Reload"))
+            {
+                weaponManager.Reload();
+                return;
+            }
+        }
 
         if (currentWeapon.fireRate <= 0f)
         {
@@ -81,8 +90,16 @@ public class PlayerShoot : NetworkBehaviour {
     [Client]
     void Shoot()
     {
-        if (!isLocalPlayer)
+        if (!isLocalPlayer || weaponManager.isReloading)
             return;
+
+        if (currentWeapon.bullets <= 0)
+        {
+            weaponManager.Reload();
+            return;
+        }
+
+        currentWeapon.bullets--;
 
         CmdOnShoot();
 

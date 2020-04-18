@@ -1,2 +1,74 @@
 Base path: 'C:/Program Files/Unity/Hub/Editor/2019.3.8f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.3.8f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: preprocessCompute
+  insize=8566 outsize=8568 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=8568 outsize=2826 ok=1
+Cmd: preprocessCompute
+  insize=10320 outsize=10322 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 4 at Spawn.vfx(104): comma expression used where a vector constructor may have been intended
+  api=4 insize=10322 outsize=8015 ok=1
+Cmd: preprocessCompute
+  insize=6625 outsize=6627 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 4 at Spawn.vfx(103): use of potentially uninitialized variable (GetParticleIndex)
+  api=4 insize=6627 outsize=1879 ok=1
+Cmd: preprocessCompute
+  insize=7313 outsize=7315 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=7315 outsize=7250 ok=1
+Cmd: preprocess
+  insize=36639 outsize=621 ok=1
+Cmd: preprocessCompute
+  insize=8606 outsize=8608 ok=1
+Cmd: preprocessCompute
+  insize=10296 outsize=10298 ok=1
+Cmd: preprocessCompute
+  insize=6682 outsize=6684 ok=1
+Cmd: preprocessCompute
+  insize=7427 outsize=7429 ok=1
+Cmd: preprocess
+  insize=36639 outsize=621 ok=1
+Cmd: preprocessCompute
+  insize=8606 outsize=8608 ok=1
+Cmd: preprocessCompute
+  insize=10296 outsize=10298 ok=1
+Cmd: preprocessCompute
+  insize=6682 outsize=6684 ok=1
+Cmd: preprocessCompute
+  insize=7427 outsize=7429 ok=1
+Cmd: preprocess
+  insize=36639 outsize=621 ok=1
+Cmd: preprocessCompute
+  insize=8566 outsize=8568 ok=1
+Cmd: preprocessCompute
+  insize=10320 outsize=10322 ok=1
+Cmd: preprocessCompute
+  insize=6625 outsize=6627 ok=1
+Cmd: preprocessCompute
+  insize=7313 outsize=7315 ok=1
+Cmd: preprocess
+  insize=36639 outsize=621 ok=1
+Cmd: preprocessCompute
+  insize=8566 outsize=8568 ok=1
+Cmd: preprocessCompute
+  insize=10320 outsize=10322 ok=1
+Cmd: preprocessCompute
+  insize=6625 outsize=6627 ok=1
+Cmd: preprocessCompute
+  insize=7313 outsize=7315 ok=1
+Cmd: preprocess
+  insize=36639 outsize=621 ok=1
+Cmd: preprocessCompute
+  insize=8566 outsize=8568 ok=1
+Cmd: preprocessCompute
+  insize=10320 outsize=10322 ok=1
+Cmd: preprocessCompute
+  insize=6625 outsize=6627 ok=1
+Cmd: preprocessCompute
+  insize=7313 outsize=7315 ok=1
+Cmd: preprocess
+  insize=36639 outsize=621 ok=1
+
+Quitting shader compiler process

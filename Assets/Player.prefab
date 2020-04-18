@@ -939,6 +939,9 @@ MonoBehaviour:
   spawnEffect: {fileID: 4308811345454485748, guid: 1dd9664a5f2f3eb42b140ec1ede46d6b,
     type: 3}
   shoot: {fileID: 1506890265112965245}
+  kills: 0
+  deaths: 0
+  username: 
 --- !u!114 &1213332052167060526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -998,8 +1001,12 @@ MonoBehaviour:
     damage: 10
     range: 100
     fireRate: 10
+    magSize: 20
+    bullets: 20
+    reloadTime: 2
     graphics: {fileID: 2721180637063796786, guid: d8385fc30ac06744fa8df74a333c6c14,
       type: 3}
+  isReloading: 0
 --- !u!1 &9171293273730006342
 GameObject:
   m_ObjectHideFlags: 0

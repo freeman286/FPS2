@@ -199,6 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7106052487498672474}
   - component: {fileID: -8355754849413422488}
+  - component: {fileID: 8298343836293246914}
   m_Layer: 8
   m_Name: Smg
   m_TagString: Untagged
@@ -237,6 +238,25 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
+--- !u!95 &8298343836293246914
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721180637063796786}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cd063b974dd34140bdd25a85ffd5164, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3301215329987941744
 GameObject:
   m_ObjectHideFlags: 0
