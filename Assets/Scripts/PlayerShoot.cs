@@ -60,6 +60,11 @@ public class PlayerShoot : NetworkBehaviour {
                 CancelInvoke("Shoot");
             }
         }
+
+        if (currentWeapon.bullets <= 0)
+        {
+            weaponManager.Reload();
+        }
     }
 
     [Command]
@@ -114,6 +119,7 @@ public class PlayerShoot : NetworkBehaviour {
             CmdOnHit(_hit.point, _hit.normal);
 
         }
+
     }
 
     [Command]

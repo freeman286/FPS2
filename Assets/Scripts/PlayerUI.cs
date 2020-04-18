@@ -5,6 +5,12 @@ public class PlayerUI : MonoBehaviour
 {
 
     [SerializeField]
+    RectTransform healthBarFill;
+
+    [SerializeField]
+    Text ammoText;
+
+    [SerializeField]
     GameObject scoreboard;
 
     [SerializeField]
@@ -23,6 +29,9 @@ public class PlayerUI : MonoBehaviour
 
     void Update()
     {
+
+        SetHealthAmount(player.GetHealthPct());
+        SetAmmoAmount(weaponManager.GetCurrentWeapon().bullets);
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -43,6 +52,16 @@ public class PlayerUI : MonoBehaviour
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
         Pause.IsOn = pauseMenu.activeSelf;
+    }
+
+    void SetHealthAmount(float _amount)
+    {
+        healthBarFill.localScale = new Vector3(1f, _amount, 1f);
+    }
+
+    void SetAmmoAmount(int _amount)
+    {
+        ammoText.text = _amount.ToString();
     }
 
 
