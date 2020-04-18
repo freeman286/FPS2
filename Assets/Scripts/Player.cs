@@ -90,13 +90,13 @@ public class Player : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            shoot.CmdPlayerShot(transform.name, 1000, transform.name);
+            CmdDie(transform.name);
         }
     }
 
 
     [ClientRpc]
-    public void RpcTakeDamage (int _amount, string _sourceID)
+    public void RpcTakeDamage(int _amount, string _sourceID)
     {
         if (isDead)
             return;
@@ -105,11 +105,18 @@ public class Player : NetworkBehaviour
 
         if (currentHealth <= 0)
         {
-            Die(_sourceID);
+            CmdDie(_sourceID);
         }
     }
 
-    private void Die(string _sourceID)
+    [Command]
+    private void CmdDie(string _sourceID)
+    {
+        RpcDie(_sourceID);
+    }
+
+    [ClientRpc]
+    private void RpcDie(string _sourceID)
     {
         isDead = true;
 
