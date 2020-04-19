@@ -276,7 +276,7 @@ MonoBehaviour:
   fireRate: 10
   magSize: 20
   bullets: 20
-  reloadTime: 1
+  reloadTime: 2
   graphics: {fileID: 2721180637063796786}
 --- !u!1 &3301215329987941744
 GameObject:

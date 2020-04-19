@@ -13,7 +13,10 @@ public class WeaponManager : NetworkBehaviour
     private Transform weaponHolder;
 
     [SerializeField]
-    private GameObject primaryWeapon;
+    private PlayerWeapon primaryWeapon;
+
+    [SerializeField]
+    private PlayerWeapon secondaryWeapon;
 
     private PlayerWeapon currentWeapon;
     private WeaponGraphics currentGraphics;
@@ -23,6 +26,25 @@ public class WeaponManager : NetworkBehaviour
     void Start()
     {
         EquipWeapon(primaryWeapon);
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Switch") && !isReloading && isLocalPlayer)
+        {
+            SwitchWeapon();
+        }
+    }
+
+    void SwitchWeapon()
+    {
+        if (currentWeapon == primaryWeapon)
+        {
+            EquipWeapon(secondaryWeapon);
+        } else
+        {
+            EquipWeapon(primaryWeapon);
+        }
     }
 
     public PlayerWeapon GetCurrentWeapon()
@@ -35,11 +57,32 @@ public class WeaponManager : NetworkBehaviour
         return currentGraphics;
     }
 
-    void EquipWeapon(GameObject _weapon)
+    [Client]
+    void EquipWeapon(PlayerWeapon _weapon)
     {
-        currentWeapon = _weapon.GetComponent<PlayerWeapon>();
 
-        GameObject _weaponIns = (GameObject)Instantiate(_weapon, weaponHolder.position, weaponHolder.rotation);
+        currentWeapon = _weapon;
+
+        CmdEquipWeaponGraphics();
+        
+    }
+
+    [Command]
+    void CmdEquipWeaponGraphics()
+    {
+        RpcEquipWeaponGraphics();
+    }
+
+    [ClientRpc]
+    void RpcEquipWeaponGraphics()
+    {
+
+        foreach (Transform child in weaponHolder)
+        {
+            Destroy(child.gameObject);
+        }
+
+        GameObject _weaponIns = (GameObject)Instantiate(currentWeapon.graphics, weaponHolder.position, weaponHolder.rotation);
         _weaponIns.transform.SetParent(weaponHolder);
 
         currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();

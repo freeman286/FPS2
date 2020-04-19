@@ -819,7 +819,7 @@ ScriptsOnlyBuild:
     className: ChromaticAberration
   - hash:
       serializedVersion: 2
-      Hash: fded9d88c99eff78fd92f45a6e6919ad
+      Hash: 3f9bac0db4ab72ab83a08b0f5333104a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WeaponManager
