@@ -1562,16 +1562,8 @@ MonoBehaviour:
   syncInterval: 0.1
   weaponLayerName: Weapon
   weaponHolder: {fileID: 6384351145343065147}
-  primaryWeapon:
-    name: smg
-    damage: 10
-    range: 100
-    fireRate: 10
-    magSize: 20
-    bullets: 20
-    reloadTime: 2
-    graphics: {fileID: 2721180637063796786, guid: d8385fc30ac06744fa8df74a333c6c14,
-      type: 3}
+  primaryWeapon: {fileID: 2721180637063796786, guid: d8385fc30ac06744fa8df74a333c6c14,
+    type: 3}
   isReloading: 0
 --- !u!1 &9171293273730006342
 GameObject:

@@ -90,7 +90,7 @@ public class Player : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            CmdDie(transform.name);
+            RpcTakeDamage(10, transform.name);
         }
     }
 

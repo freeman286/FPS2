@@ -13,7 +13,7 @@ public class WeaponManager : NetworkBehaviour
     private Transform weaponHolder;
 
     [SerializeField]
-    private PlayerWeapon primaryWeapon;
+    private GameObject primaryWeapon;
 
     private PlayerWeapon currentWeapon;
     private WeaponGraphics currentGraphics;
@@ -35,11 +35,11 @@ public class WeaponManager : NetworkBehaviour
         return currentGraphics;
     }
 
-    void EquipWeapon(PlayerWeapon _weapon)
+    void EquipWeapon(GameObject _weapon)
     {
-        currentWeapon = _weapon;
+        currentWeapon = _weapon.GetComponent<PlayerWeapon>();
 
-        GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
+        GameObject _weaponIns = (GameObject)Instantiate(_weapon, weaponHolder.position, weaponHolder.rotation);
         _weaponIns.transform.SetParent(weaponHolder);
 
         currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();

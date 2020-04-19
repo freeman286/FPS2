@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 7106052487498672474}
   - component: {fileID: -8355754849413422488}
   - component: {fileID: 8298343836293246914}
+  - component: {fileID: 39308611202603318}
   m_Layer: 8
   m_Name: Smg
   m_TagString: Untagged
@@ -257,6 +258,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &39308611202603318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721180637063796786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05dc790f6a4a544798126d07c9c23d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: smg
+  damage: 10
+  range: 100
+  fireRate: 10
+  magSize: 20
+  bullets: 20
+  reloadTime: 1
+  graphics: {fileID: 2721180637063796786}
 --- !u!1 &3301215329987941744
 GameObject:
   m_ObjectHideFlags: 0

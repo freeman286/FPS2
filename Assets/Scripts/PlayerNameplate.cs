@@ -18,7 +18,7 @@ public class PlayerNameplate : MonoBehaviour
     void Update()
     {
         usernameText.text = player.username;
-        healthBarFill.localScale = new Vector3(player.GetHealthPct(), 1f, 1f);
+        healthBarFill.localScale = new Vector3(Mathf.Lerp(healthBarFill.localScale.x, player.GetHealthPct(), 10f * Time.deltaTime), 1f, 1f);
     }
 
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerWeapon
+public class PlayerWeapon : MonoBehaviour
 {
     public string name = "pistol";
 

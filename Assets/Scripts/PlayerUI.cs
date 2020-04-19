@@ -56,7 +56,7 @@ public class PlayerUI : MonoBehaviour
 
     void SetHealthAmount(float _amount)
     {
-        healthBarFill.localScale = new Vector3(1f, _amount, 1f);
+        healthBarFill.localScale = new Vector3(1f, Mathf.Lerp(healthBarFill.localScale.y, _amount, 20f * Time.deltaTime), 1f);
     }
 
     void SetAmmoAmount(int _amount)
