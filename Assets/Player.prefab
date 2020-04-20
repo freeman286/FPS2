@@ -1567,6 +1567,9 @@ MonoBehaviour:
   secondaryWeapon: {fileID: 39308611202603318, guid: de10ced2e44385447884586860e99802,
     type: 3}
   isReloading: 0
+  allWeapons:
+  - {fileID: 39308611202603318, guid: d8385fc30ac06744fa8df74a333c6c14, type: 3}
+  - {fileID: 39308611202603318, guid: de10ced2e44385447884586860e99802, type: 3}
 --- !u!1 &9171293273730006342
 GameObject:
   m_ObjectHideFlags: 0

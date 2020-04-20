@@ -23,8 +23,21 @@ public class WeaponManager : NetworkBehaviour
 
     public bool isReloading = false;
 
+    private PlayerWeapon[] allWeapons;
+
     void Start()
     {
+        Object[] allWeaponObjects = Resources.LoadAll("Prefabs/Weapons", typeof(GameObject));
+
+        allWeapons = new PlayerWeapon[allWeaponObjects.Length];
+
+        for (int i = 0; i < allWeaponObjects.Length; i++)
+        {
+            allWeapons[i] = ((GameObject)allWeaponObjects[i]).GetComponent<PlayerWeapon>();
+        }
+
+        primaryWeapon.Load();
+        secondaryWeapon.Load();
         EquipWeapon(primaryWeapon);
     }
 
@@ -109,7 +122,7 @@ public class WeaponManager : NetworkBehaviour
 
         yield return new WaitForSeconds(currentWeapon.reloadTime);
 
-        currentWeapon.bullets = currentWeapon.magSize;
+        currentWeapon.Load();
 
         isReloading = false;
     }
@@ -129,4 +142,16 @@ public class WeaponManager : NetworkBehaviour
             anim.SetTrigger("Reload");
         }
     }
+
+    //public PlayerWeapon NameToWeapon(string _name)
+    //{
+    //    foreach (var weapon in allWeapons)
+    //    {
+    //        if (weapon.name == _name)
+    //        {
+    //            return weapon;
+    //        }
+    //    }
+    //    return null;
+    //}
 }

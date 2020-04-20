@@ -19,7 +19,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public GameObject graphics;
 
-    public PlayerWeapon()
+    public void Load()
     {
         bullets = magSize;
     }
