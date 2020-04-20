@@ -80,6 +80,7 @@ public class Player : NetworkBehaviour
 
             firstSetup = false;
         }
+        GetComponent<WeaponManager>().Setup();
         SetDefaults();
     }
 

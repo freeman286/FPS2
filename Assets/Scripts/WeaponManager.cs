@@ -49,6 +49,12 @@ public class WeaponManager : NetworkBehaviour
         }
     }
 
+    public void Setup()
+    {
+        Debug.Log(transform.name + " Setup weapon manager");
+        //Todo
+    }
+
     void SwitchWeapon()
     {
         if (currentWeapon == primaryWeapon)
@@ -76,26 +82,29 @@ public class WeaponManager : NetworkBehaviour
 
         currentWeapon = _weapon;
 
-        CmdEquipWeaponGraphics();
+        CmdEquipWeaponGraphics(_weapon.name);
         
     }
 
     [Command]
-    void CmdEquipWeaponGraphics()
+    void CmdEquipWeaponGraphics(string _weaponName)
     {
-        RpcEquipWeaponGraphics();
+        RpcEquipWeaponGraphics(_weaponName);
     }
 
     [ClientRpc]
-    void RpcEquipWeaponGraphics()
+    void RpcEquipWeaponGraphics(string _weaponName)
     {
+        PlayerWeapon newWeapon = NameToWeapon(_weaponName);
+        currentWeapon = newWeapon;
+
 
         foreach (Transform child in weaponHolder)
         {
             Destroy(child.gameObject);
         }
 
-        GameObject _weaponIns = (GameObject)Instantiate(currentWeapon.graphics, weaponHolder.position, weaponHolder.rotation);
+        GameObject _weaponIns = (GameObject)Instantiate(newWeapon.graphics, weaponHolder.position, weaponHolder.rotation);
         _weaponIns.transform.SetParent(weaponHolder);
 
         currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();
@@ -143,15 +152,15 @@ public class WeaponManager : NetworkBehaviour
         }
     }
 
-    //public PlayerWeapon NameToWeapon(string _name)
-    //{
-    //    foreach (var weapon in allWeapons)
-    //    {
-    //        if (weapon.name == _name)
-    //        {
-    //            return weapon;
-    //        }
-    //    }
-    //    return null;
-    //}
+    public PlayerWeapon NameToWeapon(string _name)
+    {
+        foreach (var weapon in allWeapons)
+        {
+            if (weapon.name == _name)
+            {
+                return weapon;
+            }
+        }
+        return null;
+    }
 }

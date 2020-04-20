@@ -30,6 +30,7 @@ public class PlayerSetup : NetworkBehaviour
         {
             DisableComponents();
             AssignRemoteLayer();
+            GetComponent<WeaponManager>().Setup();
         }
         else
         {
