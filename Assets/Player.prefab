@@ -1307,6 +1307,7 @@ GameObject:
   - component: {fileID: 1213332052167060526}
   - component: {fileID: 6167179009222329072}
   - component: {fileID: 6832787154136730258}
+  - component: {fileID: 9210790658628301855}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1562,12 +1563,34 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weaponLayerName: Weapon
+  shoot: {fileID: 1506890265112965245}
   weaponHolder: {fileID: 6384351145343065147}
   primaryWeapon: {fileID: 39308611202603318, guid: d8385fc30ac06744fa8df74a333c6c14,
     type: 3}
   secondaryWeapon: {fileID: 39308611202603318, guid: de10ced2e44385447884586860e99802,
     type: 3}
+  currentWeaponName: 
   isReloading: 0
+  switchingTime: 1
+--- !u!95 &9210790658628301855
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe7448df3b9207e4fb09abda3cc4f1e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9171293273730006342
 GameObject:
   m_ObjectHideFlags: 0

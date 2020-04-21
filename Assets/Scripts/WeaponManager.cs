@@ -10,6 +10,10 @@ public class WeaponManager : NetworkBehaviour
     private string weaponLayerName = "Weapon";
 
     [SerializeField]
+    private PlayerShoot shoot;
+
+
+    [SerializeField]
     private Transform weaponHolder;
 
     [SerializeField]
@@ -27,6 +31,10 @@ public class WeaponManager : NetworkBehaviour
 
     private PlayerWeapon[] allWeapons;
 
+    private Animator anim;
+
+    public float switchingTime;
+
     void Start()
     {
         Object[] allWeaponObjects = Resources.LoadAll("Prefabs/Weapons", typeof(GameObject));
@@ -40,8 +48,10 @@ public class WeaponManager : NetworkBehaviour
 
         primaryWeapon.Load();
         secondaryWeapon.Load();
-        EquipWeapon(primaryWeapon);
-    }
+        EquipWeapon(primaryWeapon, true);
+
+        anim = GetComponent<Animator>();
+    }   
 
     void Update()
     {
@@ -56,20 +66,33 @@ public class WeaponManager : NetworkBehaviour
 
         foreach (var player in GameManager.GetAllPlayers())
         {
-            CmdEquipWeaponGraphics(player.name, player.weaponManager.currentWeaponName);
+            CmdEquipWeapon(player.name, player.weaponManager.currentWeaponName, true);
         }
 
     }
 
     void SwitchWeapon()
     {
+        StartCoroutine(SwitchWeapon_Coroutine());
+    }
+
+    private IEnumerator SwitchWeapon_Coroutine()
+    {
+        shoot.CancelInvoke("Shoot");
+        shoot.enabled = false;
+
         if (currentWeapon == primaryWeapon)
         {
-            EquipWeapon(secondaryWeapon);
-        } else
-        {
-            EquipWeapon(primaryWeapon);
+            EquipWeapon(secondaryWeapon, false);
         }
+        else
+        {
+            EquipWeapon(primaryWeapon, false);
+        }
+
+        yield return new WaitForSeconds(switchingTime);
+
+        shoot.enabled = true;
     }
 
     public PlayerWeapon GetCurrentWeapon()
@@ -83,26 +106,38 @@ public class WeaponManager : NetworkBehaviour
     }
 
     [Client]
-    void EquipWeapon(PlayerWeapon _weapon)
+    void EquipWeapon(PlayerWeapon _weapon, bool _setup)
     {
         currentWeapon = _weapon;
 
-        CmdEquipWeaponGraphics(transform.name, _weapon.name);
+        CmdEquipWeapon(transform.name, _weapon.name, _setup);
     }
 
     [Command]
-    void CmdEquipWeaponGraphics(string _playerID, string _weaponName)
+    void CmdEquipWeapon(string _playerID, string _weaponName, bool _setup)
     {
         currentWeaponName = _weaponName;
-        GameManager.GetPlayer(_playerID).weaponManager.RpcEquipWeaponGraphics(_weaponName);
+        GameManager.GetPlayer(_playerID).weaponManager.RpcEquipWeapon(_weaponName, _setup);
     }
 
     [ClientRpc]
-    void RpcEquipWeaponGraphics(string _weaponName)
+    void RpcEquipWeapon(string _weaponName, bool _setup)
     {
         PlayerWeapon newWeapon = NameToWeapon(_weaponName);
 
         currentWeapon = newWeapon;
+
+
+
+        if (!_setup)
+        {
+            if (anim != null)
+            {
+                anim.SetTrigger("Switching");
+            }
+        }
+
+
 
         foreach (Transform child in weaponHolder)
         {

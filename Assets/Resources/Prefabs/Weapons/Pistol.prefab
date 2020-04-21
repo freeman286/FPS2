@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 1674463040094476523}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.45, y: -0.51899993, z: 0.56}
-  m_LocalScale: {x: 0.09, y: 0.15, z: 0.25}
+  m_LocalScale: {x: 0.08, y: 0.1, z: 0.25}
   m_Children: []
   m_Father: {fileID: 4137815109321089107}
   m_RootOrder: 1
@@ -170,7 +170,7 @@ Animator:
   m_GameObject: {fileID: 2721180637063796786}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1cd063b974dd34140bdd25a85ffd5164, type: 2}
+  m_Controller: {fileID: 9100000, guid: 652b2424d88c53e4baba9fefcb4b9790, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -225,8 +225,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301215329987941744}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -0.392, z: 0.724}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.5}
+  m_LocalPosition: {x: 0.45, y: -0.4, z: 0.725}
+  m_LocalScale: {x: 0.09, y: 0.1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4137815109321089107}
   m_RootOrder: 0
@@ -364,7 +364,7 @@ VisualEffect:
       - m_Value: 1
         m_Name: Noise
         m_Overridden: 1
-      - m_Value: 10
+      - m_Value: 5
         m_Name: Main Trail Length
         m_Overridden: 1
     m_Vector2f:
@@ -377,10 +377,10 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 5
+      - m_Value: 2
         m_Name: Main Trail Count
         m_Overridden: 1
-      - m_Value: 5
+      - m_Value: 0
         m_Name: Side Flash Count
         m_Overridden: 1
     m_Matrix4x4f:
