@@ -129,12 +129,9 @@ public class WeaponManager : NetworkBehaviour
 
 
 
-        if (!_setup)
+        if (!_setup && anim != null)
         {
-            if (anim != null)
-            {
-                anim.SetTrigger("Switching");
-            }
+            anim.SetTrigger("Switching");
         }
 
 

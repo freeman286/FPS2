@@ -9,6 +9,8 @@ public class PlayerWeapon : MonoBehaviour
     public int damage = 10;
     public float range = 100f;
 
+    public bool automatic;
+
     public float fireRate;
 
     public int magSize = 20;

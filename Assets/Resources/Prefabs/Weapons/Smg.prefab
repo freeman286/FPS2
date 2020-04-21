@@ -273,6 +273,7 @@ MonoBehaviour:
   name: Smg
   damage: 10
   range: 100
+  automatic: 1
   fireRate: 10
   magSize: 20
   bullets: 20

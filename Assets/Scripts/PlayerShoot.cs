@@ -16,6 +16,8 @@ public class PlayerShoot : NetworkBehaviour {
     private WeaponManager weaponManager;
     private PlayerWeapon currentWeapon;
 
+    private float timeSinceShot;
+
 
     void Start()
     {
@@ -44,21 +46,27 @@ public class PlayerShoot : NetworkBehaviour {
             }
         }
 
-        if (currentWeapon.fireRate <= 0f)
+        if (currentWeapon.automatic)
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                Shoot();
+                InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
             }
-        } else
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                InvokeRepeating("Shoot", 0f, 1f/currentWeapon.fireRate);
-            } else if (Input.GetButtonUp("Fire1"))
+            else if (Input.GetButtonUp("Fire1"))
             {
                 CancelInvoke("Shoot");
             }
+
+        } else
+        {
+     
+            if (Input.GetButtonDown("Fire1") && timeSinceShot > 1f / currentWeapon.fireRate)
+            {
+                Shoot();
+                timeSinceShot = 0;
+            }
+
+            timeSinceShot += Time.deltaTime;
         }
 
         if (currentWeapon.bullets <= 0)

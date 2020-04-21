@@ -17,11 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float jumpForce = 100f;
 
-    float rotationY = 0F;
-
     private PlayerMotor motor;
-
-    //public Animation walking;
 
     private Rigidbody rb;
 
