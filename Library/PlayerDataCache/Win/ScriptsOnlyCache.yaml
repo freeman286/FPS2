@@ -819,7 +819,7 @@ ScriptsOnlyBuild:
     className: ChromaticAberration
   - hash:
       serializedVersion: 2
-      Hash: 3f9bac0db4ab72ab83a08b0f5333104a
+      Hash: ad622243ae5cccb9b9d35879de5274b2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WeaponManager
@@ -1797,7 +1797,7 @@ ScriptsOnlyBuild:
     className: DiffusionProfileOverride
   - hash:
       serializedVersion: 2
-      Hash: b33fe0d1ad8af0ae371858113132a44d
+      Hash: d67e8e0e898abb799be85f85fed1e1fd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player

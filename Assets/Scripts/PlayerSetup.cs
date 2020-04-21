@@ -30,7 +30,7 @@ public class PlayerSetup : NetworkBehaviour
         {
             DisableComponents();
             AssignRemoteLayer();
-            GetComponent<WeaponManager>().Setup();
+            
         }
         else
         {
@@ -50,7 +50,7 @@ public class PlayerSetup : NetworkBehaviour
             CmdSetUsername(transform.name, transform.name + " name");
         }
 
-        
+        GetComponent<WeaponManager>().SyncAllWepaons();
     }
 
     [Command]

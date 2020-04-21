@@ -20,6 +20,8 @@ public class WeaponManager : NetworkBehaviour
 
     private PlayerWeapon currentWeapon;
     private WeaponGraphics currentGraphics;
+    [SyncVar]
+    public string currentWeaponName;
 
     public bool isReloading = false;
 
@@ -49,10 +51,14 @@ public class WeaponManager : NetworkBehaviour
         }
     }
 
-    public void Setup()
+    public void SyncAllWepaons()
     {
-        Debug.Log(transform.name + " Setup weapon manager");
-        //Todo
+
+        foreach (var player in GameManager.GetAllPlayers())
+        {
+            CmdEquipWeaponGraphics(player.name, player.weaponManager.currentWeaponName);
+        }
+
     }
 
     void SwitchWeapon()
@@ -79,32 +85,31 @@ public class WeaponManager : NetworkBehaviour
     [Client]
     void EquipWeapon(PlayerWeapon _weapon)
     {
-
         currentWeapon = _weapon;
 
-        CmdEquipWeaponGraphics(_weapon.name);
-        
+        CmdEquipWeaponGraphics(transform.name, _weapon.name);
     }
 
     [Command]
-    void CmdEquipWeaponGraphics(string _weaponName)
+    void CmdEquipWeaponGraphics(string _playerID, string _weaponName)
     {
-        RpcEquipWeaponGraphics(_weaponName);
+        currentWeaponName = _weaponName;
+        GameManager.GetPlayer(_playerID).weaponManager.RpcEquipWeaponGraphics(_weaponName);
     }
 
     [ClientRpc]
     void RpcEquipWeaponGraphics(string _weaponName)
     {
         PlayerWeapon newWeapon = NameToWeapon(_weaponName);
-        currentWeapon = newWeapon;
 
+        currentWeapon = newWeapon;
 
         foreach (Transform child in weaponHolder)
         {
             Destroy(child.gameObject);
         }
 
-        GameObject _weaponIns = (GameObject)Instantiate(newWeapon.graphics, weaponHolder.position, weaponHolder.rotation);
+        GameObject _weaponIns = (GameObject)Instantiate(currentWeapon.graphics, weaponHolder.position, weaponHolder.rotation);
         _weaponIns.transform.SetParent(weaponHolder);
 
         currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();

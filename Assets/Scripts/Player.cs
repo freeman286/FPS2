@@ -49,6 +49,8 @@ public class Player : NetworkBehaviour
     [SyncVar]
     public string username;
 
+    public WeaponManager weaponManager;
+
     public void SetupPlayer()
     {
 
@@ -80,7 +82,6 @@ public class Player : NetworkBehaviour
 
             firstSetup = false;
         }
-        GetComponent<WeaponManager>().Setup();
         SetDefaults();
     }
 
