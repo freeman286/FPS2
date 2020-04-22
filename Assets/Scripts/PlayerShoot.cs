@@ -18,7 +18,6 @@ public class PlayerShoot : NetworkBehaviour {
 
     private float timeSinceShot;
 
-
     void Start()
     {
         if (cam == null)
@@ -84,7 +83,19 @@ public class PlayerShoot : NetworkBehaviour {
     [ClientRpc]
     void RpcDoShootEfftect()
     {
-        weaponManager.GetCurrentGraphics().muzzleFlash.Play(); 
+        Animator anim = weaponManager.currentGraphics.GetComponent<Animator>();
+        if (anim != null)
+        {
+            anim.SetTrigger("Shoot");
+        }
+        weaponManager.GetCurrentGraphics().muzzleFlash.Play();
+
+        if (weaponManager.GetCurrentCasing() != null)
+        {
+            GameObject _casing = (GameObject)Instantiate(weaponManager.GetCurrentCasing(), weaponManager.GetCurrentEjectionPort().transform.position, Random.rotation);
+            _casing.GetComponent<Rigidbody>().velocity = weaponManager.GetCurrentEjectionPort().transform.up * Random.Range(5f, 10f);
+            Destroy(_casing, 2f);
+        }
     }
 
     [Command]

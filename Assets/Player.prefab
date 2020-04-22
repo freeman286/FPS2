@@ -780,7 +780,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 823
+    m_Bits: 4919
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1569,6 +1569,7 @@ MonoBehaviour:
     type: 3}
   secondaryWeapon: {fileID: 39308611202603318, guid: de10ced2e44385447884586860e99802,
     type: 3}
+  currentGraphics: {fileID: 0}
   currentWeaponName: 
   isReloading: 0
   switchingTime: 1

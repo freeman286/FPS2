@@ -23,9 +23,11 @@ public class WeaponManager : NetworkBehaviour
     private PlayerWeapon secondaryWeapon;
 
     private PlayerWeapon currentWeapon;
-    private WeaponGraphics currentGraphics;
+    public WeaponGraphics currentGraphics;
     [SyncVar]
     public string currentWeaponName;
+
+    private GameObject currentEjectionPort;
 
     public bool isReloading = false;
 
@@ -148,6 +150,8 @@ public class WeaponManager : NetworkBehaviour
         if (currentGraphics == null)
             Debug.LogError("No WeaponGraphics component on weapon object: " + _weaponIns.name);
 
+        currentEjectionPort = _weaponIns.transform.Find("EjectionPort").gameObject;
+
         if (isLocalPlayer)
             Util.SetLayerRecursively(_weaponIns, LayerMask.NameToLayer(weaponLayerName));
     }
@@ -200,4 +204,15 @@ public class WeaponManager : NetworkBehaviour
         }
         return null;
     }
+
+    public GameObject GetCurrentCasing()
+    {
+        return currentWeapon.casing;
+    }
+
+    public GameObject GetCurrentEjectionPort()
+    {
+        return currentEjectionPort;
+    }
+
 }
