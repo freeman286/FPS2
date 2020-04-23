@@ -27,8 +27,6 @@ public class WeaponManager : NetworkBehaviour
     [SyncVar]
     public string currentWeaponName;
 
-    private GameObject currentEjectionPort;
-
     public bool isReloading = false;
 
     private PlayerWeapon[] allWeapons;
@@ -129,14 +127,10 @@ public class WeaponManager : NetworkBehaviour
 
         currentWeapon = newWeapon;
 
-
-
         if (!_setup && anim != null)
         {
             anim.SetTrigger("Switching");
         }
-
-
 
         foreach (Transform child in weaponHolder)
         {
@@ -149,8 +143,6 @@ public class WeaponManager : NetworkBehaviour
         currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();
         if (currentGraphics == null)
             Debug.LogError("No WeaponGraphics component on weapon object: " + _weaponIns.name);
-
-        currentEjectionPort = _weaponIns.transform.Find("EjectionPort").gameObject;
 
         if (isLocalPlayer)
             Util.SetLayerRecursively(_weaponIns, LayerMask.NameToLayer(weaponLayerName));
@@ -207,12 +199,17 @@ public class WeaponManager : NetworkBehaviour
 
     public GameObject GetCurrentCasing()
     {
-        return currentWeapon.casing;
+        return currentGraphics.casing;
     }
 
     public GameObject GetCurrentEjectionPort()
     {
-        return currentEjectionPort;
+        return currentGraphics.ejectionPort;
     }
 
+
+    public GameObject GetcurrentShootSound()
+    {
+        return currentGraphics.shootSound;
+    }
 }

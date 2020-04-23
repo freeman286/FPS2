@@ -96,6 +96,10 @@ public class PlayerShoot : NetworkBehaviour {
             _casing.GetComponent<Rigidbody>().velocity = weaponManager.GetCurrentEjectionPort().transform.up * Random.Range(5f, 10f);
             Destroy(_casing, 2f);
         }
+
+        GameObject _shootSound = (GameObject)Instantiate(weaponManager.GetcurrentShootSound(), weaponManager.GetCurrentEjectionPort().transform.position, Quaternion.identity);
+        Destroy(_shootSound, _shootSound.GetComponent<AudioSource>().clip.length);
+
     }
 
     [Command]

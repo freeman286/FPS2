@@ -21,9 +21,6 @@ public class PlayerWeapon : MonoBehaviour
 
     public GameObject graphics;
 
-    public GameObject ejectionPort;
-    public GameObject casing;
-
 
     public void Load()
     {

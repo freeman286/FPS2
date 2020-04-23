@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - KillfeedItem
     - LightBlender
     - Pause
+    - PlayAudio
     - Player
     - PlayerController
     - PlayerMotor
@@ -136,6 +137,10 @@ ScriptsOnlyBuild:
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -277,6 +282,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17388}
     - Class: 114
       Script: {instanceID: 17396}
+    - Class: 114
+      Script: {instanceID: 40272}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -337,6 +344,10 @@ ScriptsOnlyBuild:
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -432,6 +443,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17170}
     - Class: 114
       Script: {instanceID: 17334}
+    - Class: 114
+      Script: {instanceID: 40272}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -551,7 +564,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerHUD
   - hash:
       serializedVersion: 2
-      Hash: 7c5eedad690c01d993c829d4d2a93f5d
+      Hash: 644c3e27a2358b62eb5eaf277248cb66
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeapon
@@ -1517,7 +1530,7 @@ ScriptsOnlyBuild:
     className: CarController
   - hash:
       serializedVersion: 2
-      Hash: ca0e8b68bfa373801b7b76253cac4e37
+      Hash: 7c7a65f1b82c8420f639aaf2d917ec6b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WeaponGraphics
@@ -2631,6 +2644,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayAudio
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity
