@@ -83,10 +83,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -219,71 +217,71 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14702}
     - Class: 114
-      Script: {instanceID: 14842}
+      Script: {instanceID: 14728}
     - Class: 114
-      Script: {instanceID: 15038}
+      Script: {instanceID: 14844}
     - Class: 114
-      Script: {instanceID: 15084}
+      Script: {instanceID: 15040}
     - Class: 114
-      Script: {instanceID: 15116}
+      Script: {instanceID: 15086}
     - Class: 114
-      Script: {instanceID: 15136}
+      Script: {instanceID: 15118}
     - Class: 114
-      Script: {instanceID: 15176}
+      Script: {instanceID: 15138}
     - Class: 114
-      Script: {instanceID: 15194}
+      Script: {instanceID: 15178}
     - Class: 114
-      Script: {instanceID: 15220}
+      Script: {instanceID: 15196}
     - Class: 114
-      Script: {instanceID: 15422}
+      Script: {instanceID: 15222}
     - Class: 114
-      Script: {instanceID: 15470}
+      Script: {instanceID: 15424}
     - Class: 114
-      Script: {instanceID: 15478}
+      Script: {instanceID: 15472}
     - Class: 114
-      Script: {instanceID: 15956}
+      Script: {instanceID: 15480}
     - Class: 114
-      Script: {instanceID: 15976}
+      Script: {instanceID: 15958}
     - Class: 114
-      Script: {instanceID: 16054}
+      Script: {instanceID: 15978}
     - Class: 114
-      Script: {instanceID: 16142}
+      Script: {instanceID: 16056}
     - Class: 114
-      Script: {instanceID: 16454}
+      Script: {instanceID: 16144}
     - Class: 114
-      Script: {instanceID: 16590}
+      Script: {instanceID: 16456}
     - Class: 114
-      Script: {instanceID: 16620}
+      Script: {instanceID: 16592}
     - Class: 114
-      Script: {instanceID: 16634}
+      Script: {instanceID: 16622}
     - Class: 114
-      Script: {instanceID: 16694}
+      Script: {instanceID: 16636}
     - Class: 114
-      Script: {instanceID: 16770}
+      Script: {instanceID: 16696}
     - Class: 114
-      Script: {instanceID: 16924}
+      Script: {instanceID: 16772}
     - Class: 114
-      Script: {instanceID: 17104}
+      Script: {instanceID: 16926}
     - Class: 114
-      Script: {instanceID: 17110}
+      Script: {instanceID: 17106}
     - Class: 114
-      Script: {instanceID: 17120}
+      Script: {instanceID: 17112}
     - Class: 114
-      Script: {instanceID: 17164}
+      Script: {instanceID: 17122}
     - Class: 114
-      Script: {instanceID: 17170}
+      Script: {instanceID: 17166}
     - Class: 114
-      Script: {instanceID: 17198}
+      Script: {instanceID: 17172}
     - Class: 114
-      Script: {instanceID: 17204}
+      Script: {instanceID: 17200}
     - Class: 114
-      Script: {instanceID: 17334}
+      Script: {instanceID: 17206}
     - Class: 114
-      Script: {instanceID: 17388}
+      Script: {instanceID: 17336}
     - Class: 114
-      Script: {instanceID: 17396}
+      Script: {instanceID: 17390}
     - Class: 114
-      Script: {instanceID: 40272}
+      Script: {instanceID: 17398}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -410,41 +408,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14702}
     - Class: 114
-      Script: {instanceID: 14842}
+      Script: {instanceID: 14728}
     - Class: 114
-      Script: {instanceID: 15038}
+      Script: {instanceID: 14844}
     - Class: 114
-      Script: {instanceID: 15116}
+      Script: {instanceID: 15040}
     - Class: 114
-      Script: {instanceID: 15136}
+      Script: {instanceID: 15118}
     - Class: 114
-      Script: {instanceID: 15176}
+      Script: {instanceID: 15138}
     - Class: 114
-      Script: {instanceID: 15314}
+      Script: {instanceID: 15178}
     - Class: 114
-      Script: {instanceID: 15976}
+      Script: {instanceID: 15316}
     - Class: 114
-      Script: {instanceID: 16142}
+      Script: {instanceID: 15978}
     - Class: 114
-      Script: {instanceID: 16590}
+      Script: {instanceID: 16144}
     - Class: 114
-      Script: {instanceID: 16620}
+      Script: {instanceID: 16592}
     - Class: 114
-      Script: {instanceID: 16634}
+      Script: {instanceID: 16622}
     - Class: 114
-      Script: {instanceID: 16794}
+      Script: {instanceID: 16636}
     - Class: 114
-      Script: {instanceID: 16924}
+      Script: {instanceID: 16796}
     - Class: 114
-      Script: {instanceID: 17120}
+      Script: {instanceID: 16926}
     - Class: 114
-      Script: {instanceID: 17164}
+      Script: {instanceID: 17122}
     - Class: 114
-      Script: {instanceID: 17170}
+      Script: {instanceID: 17166}
     - Class: 114
-      Script: {instanceID: 17334}
+      Script: {instanceID: 17172}
     - Class: 114
-      Script: {instanceID: 40272}
+      Script: {instanceID: 17336}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1680,6 +1678,12 @@ ScriptsOnlyBuild:
     className: VFXLightBinder
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayAudio
+  - hash:
+      serializedVersion: 2
       Hash: c820f405e2d19503f1a28586dd67898b
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Chat
@@ -2644,12 +2648,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayAudio
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity
