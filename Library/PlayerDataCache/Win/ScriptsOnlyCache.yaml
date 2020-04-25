@@ -1762,7 +1762,7 @@ ScriptsOnlyBuild:
     className: TargetFieldOfView
   - hash:
       serializedVersion: 2
-      Hash: 14dcb605f7e711143f223a2fcbda86b8
+      Hash: c7225d255ccfec58b05e58dcbecdbabb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerSetup
@@ -1786,7 +1786,7 @@ ScriptsOnlyBuild:
     className: InputField
   - hash:
       serializedVersion: 2
-      Hash: 44a73e1eef24da8a074ba42803bddc7f
+      Hash: 7f21512e6e2ec951c5d633b5e3f72852
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerUI

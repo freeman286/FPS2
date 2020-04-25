@@ -5,7 +5,16 @@ public class PlayerUI : MonoBehaviour
 {
 
     [SerializeField]
+    GameObject crosshair;
+
+    [SerializeField]
+    GameObject healthBar;
+
+    [SerializeField]
     RectTransform healthBarFill;
+
+    [SerializeField]
+    GameObject ammo;
 
     [SerializeField]
     Text ammoText;
@@ -62,6 +71,22 @@ public class PlayerUI : MonoBehaviour
     void SetAmmoAmount(int _amount)
     {
         ammoText.text = _amount.ToString();
+    }
+
+    public void Alive()
+    {
+        Debug.Log("Alive");
+        crosshair.SetActive(true);
+        healthBar.SetActive(true);
+        ammo.SetActive(true);
+    }
+
+    public void Death()
+    {
+        Debug.Log("Death");
+        crosshair.SetActive(false);
+        healthBar.SetActive(false);
+        ammo.SetActive(false);
     }
 
 
