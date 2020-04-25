@@ -7,13 +7,16 @@ using Mirror;
 public class Pause : MonoBehaviour
 {
 
+    [SerializeField]
+    private PlayerUI ui;
+
     public static bool IsOn = false;
 
     private NetworkManager networkManager;
 
     void Start()
     {
-        networkManager = NetworkManager.singleton;
+        networkManager = ui.networkManager;
     }
 
     public void Disconnect()

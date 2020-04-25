@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\KillfeedItem.cs" />
      <Compile Include="Assets\Scripts\LightBlender.cs" />
      <Compile Include="Assets\Scripts\MatchSettings.cs" />
+     <Compile Include="Assets\Scripts\OfflineUI.cs" />
      <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\PlayAudio.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

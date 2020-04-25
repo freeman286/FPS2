@@ -35,6 +35,8 @@ public class WeaponManager : NetworkBehaviour
 
     public float switchingTime;
 
+    private bool switchingWeapon = false;
+
     void Start()
     {
         Object[] allWeaponObjects = Resources.LoadAll("Prefabs/Weapons", typeof(GameObject));
@@ -55,9 +57,10 @@ public class WeaponManager : NetworkBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Switch") && !isReloading && isLocalPlayer)
+        if (Input.GetButtonDown("Switch") && !isReloading && isLocalPlayer && !switchingWeapon)
         {
             SwitchWeapon();
+            switchingWeapon = true;
         }
     }
 
@@ -93,6 +96,7 @@ public class WeaponManager : NetworkBehaviour
         yield return new WaitForSeconds(switchingTime);
 
         shoot.enabled = true;
+        switchingWeapon = false;
     }
 
     public PlayerWeapon GetCurrentWeapon()
@@ -131,6 +135,14 @@ public class WeaponManager : NetworkBehaviour
         {
             anim.SetTrigger("Switching");
         }
+
+        StartCoroutine(ShowWeapon());
+    }
+
+    private IEnumerator ShowWeapon()
+    {
+
+        yield return new WaitForSeconds(0.1f);
 
         foreach (Transform child in weaponHolder)
         {

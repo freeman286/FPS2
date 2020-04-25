@@ -1,39 +1,62 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
+
+using System.Net;
+using System.Net.Sockets;
 
 public class PlayerUI : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject crosshair;
+    private GameObject crosshair;
 
     [SerializeField]
-    GameObject healthBar;
+    private GameObject healthBar;
 
     [SerializeField]
-    RectTransform healthBarFill;
+    private RectTransform healthBarFill;
 
     [SerializeField]
-    GameObject ammo;
+    private GameObject ammo;
 
     [SerializeField]
-    Text ammoText;
+    private Text ammoText;
 
     [SerializeField]
-    GameObject scoreboard;
+    private GameObject scoreboard;
 
     [SerializeField]
-    GameObject pauseMenu;
+    private GameObject pauseMenu;
+
+    [SerializeField]
+    private GameObject ipAddress;
+
+    [SerializeField]
+    private Text IpAddressText;
 
     private Player player;
     private PlayerController controller;
     private WeaponManager weaponManager;
+
+    [HideInInspector]
+    public NetworkManager networkManager;
+    [HideInInspector]
+    public NetworkManagerHUD networkManagerHUD;
+
+    
 
     public void SetPlayer(Player _player)
     {
         player = _player;
         controller = player.GetComponent<PlayerController>();
         weaponManager = player.GetComponent<WeaponManager>();
+
+        networkManager = NetworkManager.singleton;
+        networkManagerHUD = networkManager.GetComponent<NetworkManagerHUD>();
+        networkManagerHUD.enabled = false;
+
+        IpAddressText.text = "IP Address: " + Util.LocalIPAddress();
     }
 
     void Update()
@@ -55,6 +78,8 @@ public class PlayerUI : MonoBehaviour
         {
             scoreboard.SetActive(false);
         }
+
+        ipAddress.SetActive(scoreboard.activeSelf || pauseMenu.activeSelf);
     }
 
     public void TogglePauseMenu()
@@ -75,7 +100,6 @@ public class PlayerUI : MonoBehaviour
 
     public void Alive()
     {
-        Debug.Log("Alive");
         crosshair.SetActive(true);
         healthBar.SetActive(true);
         ammo.SetActive(true);
@@ -83,11 +107,10 @@ public class PlayerUI : MonoBehaviour
 
     public void Death()
     {
-        Debug.Log("Death");
         crosshair.SetActive(false);
         healthBar.SetActive(false);
         ammo.SetActive(false);
     }
 
-
+    
 }
