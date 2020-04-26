@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using Mirror;
 
+using System;
 using System.Net;
 using System.Net.Sockets;
 
@@ -35,6 +36,14 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Text IpAddressText;
 
+    [SerializeField]
+    private Slider lookSensitivitySlider;
+
+    [SerializeField]
+    private Text lookSensitivityText;
+
+    public float lookSensitivity;
+
     private Player player;
     private PlayerController controller;
     private WeaponManager weaponManager;
@@ -65,7 +74,7 @@ public class PlayerUI : MonoBehaviour
         SetHealthAmount(player.GetHealthPct());
         SetAmmoAmount(weaponManager.GetCurrentWeapon().bullets);
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
         {
             TogglePauseMenu();
         }
@@ -112,5 +121,12 @@ public class PlayerUI : MonoBehaviour
         ammo.SetActive(false);
     }
 
-    
+    public void UpdateLookSensitivity()
+    {
+        lookSensitivity = (float)System.Math.Round(lookSensitivitySlider.value, 1);
+        controller.lookSensitivity = lookSensitivity;
+        lookSensitivityText.text = String.Format("Sensitivity: {0:F1}", lookSensitivity); ;
+    }
+
+
 }

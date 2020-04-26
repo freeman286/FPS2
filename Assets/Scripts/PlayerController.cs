@@ -11,19 +11,21 @@ public class PlayerController : MonoBehaviour
 
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
     public RotationAxes axes = RotationAxes.MouseXAndY;
-    [SerializeField]
-    private float lookSensitivity = 3f;
+
+    public float lookSensitivity = 3f;
 
     [SerializeField]
     public float jumpForce = 100f;
 
     private PlayerMotor motor;
+    private PlayerSetup setup;
 
     private Rigidbody rb;
 
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
+        setup = GetComponent<PlayerSetup>();
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

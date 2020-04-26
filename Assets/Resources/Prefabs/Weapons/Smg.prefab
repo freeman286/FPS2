@@ -440,7 +440,7 @@ MonoBehaviour:
   automatic: 1
   fireRate: 10
   magSize: 20
-  bullets: 20
+  bullets: 3
   reloadTime: 2
   graphics: {fileID: 2721180637063796786}
 --- !u!82 &792773704839598559

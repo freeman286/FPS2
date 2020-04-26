@@ -47,8 +47,9 @@ public class PlayerShoot : NetworkBehaviour {
 
         if (currentWeapon.automatic)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && timeSinceShot > 1f / currentWeapon.fireRate)
             {
+                CancelInvoke("Shoot");
                 InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
             }
             else if (Input.GetButtonUp("Fire1"))
@@ -58,15 +59,13 @@ public class PlayerShoot : NetworkBehaviour {
 
         } else
         {
-     
             if (Input.GetButtonDown("Fire1") && timeSinceShot > 1f / currentWeapon.fireRate)
             {
                 Shoot();
-                timeSinceShot = 0;
             }
-
-            timeSinceShot += Time.deltaTime;
         }
+
+        timeSinceShot += Time.deltaTime;
 
         if (currentWeapon.bullets <= 0)
         {
@@ -142,6 +141,8 @@ public class PlayerShoot : NetworkBehaviour {
             CmdOnHit(_hit.point, _hit.normal);
 
         }
+
+        timeSinceShot = 0;
 
     }
 

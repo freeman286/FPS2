@@ -361,8 +361,8 @@ MonoBehaviour:
   automatic: 0
   fireRate: 2
   magSize: 6
-  bullets: 10
-  reloadTime: 3.5
+  bullets: 4
+  reloadTime: 4
   graphics: {fileID: 2721180637063796786}
 --- !u!82 &3317242424504107631
 AudioSource:
