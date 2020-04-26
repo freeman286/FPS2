@@ -1622,6 +1622,7 @@ MonoBehaviour:
   deaths: 0
   username: 
   weaponManager: {fileID: 6832787154136730258}
+  playerController: {fileID: 600328063753895067}
 --- !u!114 &1213332052167060526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1677,10 +1678,6 @@ MonoBehaviour:
   weaponLayerName: Weapon
   shoot: {fileID: 1506890265112965245}
   weaponHolder: {fileID: 6384351145343065147}
-  primaryWeapon: {fileID: 39308611202603318, guid: d8385fc30ac06744fa8df74a333c6c14,
-    type: 3}
-  secondaryWeapon: {fileID: 39308611202603318, guid: 6f039b653105735479d2b9a38fdcb477,
-    type: 3}
   currentGraphics: {fileID: 0}
   currentWeaponName: 
   isReloading: 0

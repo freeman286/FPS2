@@ -50,6 +50,7 @@ public class Player : NetworkBehaviour
     public string username;
 
     public WeaponManager weaponManager;
+    public PlayerController playerController;
 
     public void SetupPlayer()
     {
@@ -187,6 +188,7 @@ public class Player : NetworkBehaviour
         GameObject _spawnEffect = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
         Destroy(_spawnEffect, 1f);
 
-        GetComponent<PlayerController>().SetDefaults();
+        playerController.SetDefaults();
+        weaponManager.SetDefaults();
     }
 }

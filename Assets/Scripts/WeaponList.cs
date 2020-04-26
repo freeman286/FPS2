@@ -32,7 +32,18 @@ public class WeaponList : MonoBehaviour
             items[i] = item;
         }
 
-        Select(allWeapons[0].name);
+        if (string.IsNullOrEmpty(PlayerInfo.primaryWeaponName) && primary)
+        {
+            PlayerInfo.primaryWeaponName = allWeapons[0].name;
+        }
+
+        if (string.IsNullOrEmpty(PlayerInfo.secondaryWeaponName) && !primary)
+        {
+            PlayerInfo.secondaryWeaponName = allWeapons[0].name;
+        }
+
+
+        Select(primary ? PlayerInfo.primaryWeaponName : PlayerInfo.secondaryWeaponName);
     }
 
     public void Select(string _weaponName)

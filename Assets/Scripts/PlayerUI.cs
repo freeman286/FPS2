@@ -70,6 +70,17 @@ public class PlayerUI : MonoBehaviour
     void Update()
     {
 
+        if (Pause.IsOn)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
         SetHealthAmount(player.GetHealthPct());
         SetAmmoAmount(weaponManager.GetCurrentWeapon().bullets);
 

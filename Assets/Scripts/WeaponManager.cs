@@ -38,14 +38,7 @@ public class WeaponManager : NetworkBehaviour
     void Start()
     {
         allWeapons = Util.AllWeapons();
-
-        primaryWeapon = NameToWeapon(PlayerInfo.primaryWeaponName);
-        secondaryWeapon = NameToWeapon(PlayerInfo.secondaryWeaponName);
-
-        primaryWeapon.Load();
-        secondaryWeapon.Load();
-        EquipWeapon(primaryWeapon, true);
-
+        SetDefaults();
         anim = GetComponent<Animator>();
     }   
 
@@ -55,6 +48,19 @@ public class WeaponManager : NetworkBehaviour
         {
             SwitchWeapon();
             switchingWeapon = true;
+        }
+    }
+
+    public void SetDefaults()
+    {
+        if (isLocalPlayer)
+        {
+            primaryWeapon = NameToWeapon(PlayerInfo.primaryWeaponName);
+            secondaryWeapon = NameToWeapon(PlayerInfo.secondaryWeaponName);
+
+            primaryWeapon.Load();
+            secondaryWeapon.Load();
+            EquipWeapon(primaryWeapon, true);
         }
     }
 

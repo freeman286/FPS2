@@ -37,18 +37,11 @@ public class PlayerController : MonoBehaviour
 
         if (Pause.IsOn)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-
             motor.Move(Vector3.zero);
             motor.Rotate(Vector3.zero);
             motor.RotateCamera(0f);
 
             return;
-        } else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
         }
 
         //WASD movement
