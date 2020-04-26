@@ -36,7 +36,6 @@ public class PlayerSetup : NetworkBehaviour
         }
         else
         {
-
             Util.SetLayerRecursively(playerGraphics, LayerMask.NameToLayer(dontDrawLayerName));
 
             playerUIInstance = Instantiate(playerUIPrefab);
@@ -49,7 +48,7 @@ public class PlayerSetup : NetworkBehaviour
 
             GetComponent<Player>().SetupPlayer();
 
-            CmdSetUsername(transform.name, transform.name + " name");
+            CmdSetUsername(transform.name, PlayerInfo.playerName);
         }
 
         GetComponent<WeaponManager>().SyncAllWepaons();

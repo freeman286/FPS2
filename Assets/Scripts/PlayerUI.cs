@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using Mirror;
 
-using System;
 using System.Net;
 using System.Net.Sockets;
 
@@ -125,7 +124,7 @@ public class PlayerUI : MonoBehaviour
     {
         lookSensitivity = (float)System.Math.Round(lookSensitivitySlider.value, 1);
         controller.lookSensitivity = lookSensitivity;
-        lookSensitivityText.text = String.Format("Sensitivity: {0:F1}", lookSensitivity); ;
+        lookSensitivityText.text = string.Format("Sensitivity: {0:F1}", lookSensitivity); ;
     }
 
 

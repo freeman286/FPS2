@@ -35,12 +35,18 @@ public class OfflineUI : MonoBehaviour
 
     public void Host()
     {
+        if (string.IsNullOrEmpty(PlayerInfo.playerName))
+            return;
+
         networkManager.StartHost();
         InvokeRepeating("Loading", 0f, 0.01f);
     }
 
     public void Client()
     {
+        if (string.IsNullOrEmpty(PlayerInfo.playerName))
+            return;
+
         if (ipValueChanged)
         {
             networkManager.networkAddress = ipAddress.text;

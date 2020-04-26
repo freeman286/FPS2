@@ -16,10 +16,8 @@ public class WeaponManager : NetworkBehaviour
     [SerializeField]
     private Transform weaponHolder;
 
-    [SerializeField]
     private PlayerWeapon primaryWeapon;
 
-    [SerializeField]
     private PlayerWeapon secondaryWeapon;
 
     private PlayerWeapon currentWeapon;
@@ -39,14 +37,10 @@ public class WeaponManager : NetworkBehaviour
 
     void Start()
     {
-        Object[] allWeaponObjects = Resources.LoadAll("Prefabs/Weapons", typeof(GameObject));
+        allWeapons = Util.AllWeapons();
 
-        allWeapons = new PlayerWeapon[allWeaponObjects.Length];
-
-        for (int i = 0; i < allWeaponObjects.Length; i++)
-        {
-            allWeapons[i] = ((GameObject)allWeaponObjects[i]).GetComponent<PlayerWeapon>();
-        }
+        primaryWeapon = NameToWeapon(PlayerInfo.primaryWeaponName);
+        secondaryWeapon = NameToWeapon(PlayerInfo.secondaryWeaponName);
 
         primaryWeapon.Load();
         secondaryWeapon.Load();
@@ -66,12 +60,10 @@ public class WeaponManager : NetworkBehaviour
 
     public void SyncAllWepaons()
     {
-
         foreach (var player in GameManager.GetAllPlayers())
         {
             CmdEquipWeapon(player.name, player.weaponManager.currentWeaponName, true);
         }
-
     }
 
     void SwitchWeapon()

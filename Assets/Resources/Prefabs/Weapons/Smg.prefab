@@ -435,12 +435,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Smg
+  primary: 1
   damage: 10
   range: 100
   automatic: 1
   fireRate: 10
   magSize: 20
-  bullets: 3
+  bullets: 20
   reloadTime: 2
   graphics: {fileID: 2721180637063796786}
 --- !u!82 &792773704839598559

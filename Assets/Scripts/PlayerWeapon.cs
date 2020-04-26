@@ -6,6 +6,8 @@ public class PlayerWeapon : MonoBehaviour
 {
     public string name = "pistol";
 
+    public bool primary;
+
     public int damage = 10;
     public float range = 100f;
 

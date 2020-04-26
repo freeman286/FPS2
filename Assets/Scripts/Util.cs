@@ -35,4 +35,18 @@ public class Util
         }
         return localIP;
     }
+
+    public static PlayerWeapon[] AllWeapons()
+    {
+        Object[] allWeaponObjects = Resources.LoadAll("Prefabs/Weapons", typeof(GameObject));
+
+        PlayerWeapon[] allWeapons = new PlayerWeapon[allWeaponObjects.Length];
+
+        for (int i = 0; i < allWeaponObjects.Length; i++)
+        {
+            allWeapons[i] = ((GameObject)allWeaponObjects[i]).GetComponent<PlayerWeapon>();
+        }
+
+        return allWeapons;
+    }
 }

@@ -74,7 +74,9 @@
      <Compile Include="Assets\Scripts\PlayAudio.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
      <Compile Include="Assets\Scripts\PlayerMotor.cs" />
+     <Compile Include="Assets\Scripts\PlayerName.cs" />
      <Compile Include="Assets\Scripts\PlayerNameplate.cs" />
      <Compile Include="Assets\Scripts\PlayerScoreboardItem.cs" />
      <Compile Include="Assets\Scripts\PlayerSetup.cs" />
@@ -84,6 +86,8 @@
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
      <Compile Include="Assets\Scripts\Util.cs" />
      <Compile Include="Assets\Scripts\WeaponGraphics.cs" />
+     <Compile Include="Assets\Scripts\WeaponItem.cs" />
+     <Compile Include="Assets\Scripts\WeaponList.cs" />
      <Compile Include="Assets\Scripts\WeaponManager.cs" />
      <None Include="Assets\Toon.shader" />
      <None Include="Assets\ScriptTemplates\51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />

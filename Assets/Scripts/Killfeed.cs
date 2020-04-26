@@ -6,7 +6,7 @@ public class Killfeed : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject killfeedItemPrefab;
+    private GameObject killfeedItemPrefab;
 
     // Use this for initialization
     void Start()
