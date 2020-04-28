@@ -615,7 +615,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerHUD
   - hash:
       serializedVersion: 2
-      Hash: 38a60433ba7924176c88c38fce30f8f4
+      Hash: 366b84f6ed9dbfb8310e6bb04db0a321
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeapon
