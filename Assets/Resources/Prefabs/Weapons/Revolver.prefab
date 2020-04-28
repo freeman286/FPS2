@@ -357,12 +357,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Revolver
   primary: 0
-  damage: 40
+  damage: 55
   range: 150
+  damageFallOff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.38797277
+      outSlope: -0.38797277
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.844924
+      value: 0.6721925
+      inSlope: -0.34662646
+      outSlope: -0.34662646
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13887815
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -4.3346
+      outSlope: -4.3346
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   automatic: 0
   fireRate: 2
+  roundsPerShot: 1
+  coneOfFire: 0
+  spreadDefault: 0
+  spreadWhileMoving: 0.1
+  spreadWhileJumping: 0.4
   magSize: 6
-  bullets: 4
+  speed: 1.2
+  bullets: 5
   reloadTime: 4
   graphics: {fileID: 2721180637063796786}
 --- !u!82 &3317242424504107631

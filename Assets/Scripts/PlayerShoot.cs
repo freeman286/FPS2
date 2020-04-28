@@ -15,6 +15,7 @@ public class PlayerShoot : NetworkBehaviour {
 
     private WeaponManager weaponManager;
     private PlayerWeapon currentWeapon;
+    private PlayerMotor motor;
 
     private float timeSinceShot;
 
@@ -27,6 +28,7 @@ public class PlayerShoot : NetworkBehaviour {
         }
 
         weaponManager = GetComponent<WeaponManager>();
+        motor = GetComponent<PlayerMotor>();
     }
 
     void Update()
@@ -130,16 +132,38 @@ public class PlayerShoot : NetworkBehaviour {
 
         CmdOnShoot();
 
-        RaycastHit _hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))
+        float _spread;
+
+        if (!motor.IsGrounded())
         {
-            if (_hit.collider.tag == PLAYER_TAG)
+            _spread = currentWeapon.spreadWhileJumping;
+        } else if (motor.IsMoving())
+        {
+            _spread = currentWeapon.spreadWhileMoving;
+        } else
+        {
+            _spread = currentWeapon.spreadDefault;
+        }
+
+        Vector3 _devience = Random.insideUnitSphere * _spread;
+
+        for (int i = 0; i < currentWeapon.roundsPerShot; i++)
+        {
+
+            Vector3 _cone = new Vector3(Random.Range(-currentWeapon.coneOfFire, currentWeapon.coneOfFire), Random.Range(-currentWeapon.coneOfFire, currentWeapon.coneOfFire), 0);
+
+            RaycastHit _hit;
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward + _devience + _cone, out _hit, currentWeapon.range, mask))
             {
-                CmdPlayerShot(_hit.collider.transform.root.name, currentWeapon.damage, transform.name);
+                if (_hit.collider.tag == PLAYER_TAG)
+                {
+                    int _damage = Mathf.RoundToInt(currentWeapon.damageFallOff.Evaluate(_hit.distance / currentWeapon.range) * currentWeapon.damage);
+                    CmdPlayerShot(_hit.collider.transform.root.name, _damage, transform.name);
+                }
+
+                CmdOnHit(_hit.point, _hit.normal);
+
             }
-
-            CmdOnHit(_hit.point, _hit.normal);
-
         }
 
         timeSinceShot = 0;

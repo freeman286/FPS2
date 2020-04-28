@@ -280,10 +280,49 @@ MonoBehaviour:
   primary: 0
   damage: 30
   range: 100
+  damageFallOff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.022328826
+      outSlope: -0.022328826
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.39632902
+    - serializedVersion: 3
+      time: 0.55871665
+      value: 0.7298919
+      inSlope: -0.8767637
+      outSlope: -0.8767637
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.054597486
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.6540209
+      outSlope: -1.6540209
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   automatic: 0
   fireRate: 5
+  roundsPerShot: 1
+  coneOfFire: 0
+  spreadDefault: 0.06
+  spreadWhileMoving: 0.07
+  spreadWhileJumping: 0.1
   magSize: 10
-  bullets: 7
+  speed: 1.4
+  bullets: 10
   reloadTime: 2.5
   graphics: {fileID: 2721180637063796786}
 --- !u!82 &3317242424504107631

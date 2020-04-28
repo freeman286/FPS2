@@ -357,10 +357,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Assult Rifle
   primary: 1
-  damage: 30
+  damage: 40
   range: 100
+  damageFallOff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.16199654
+      outSlope: -0.16199654
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.21346976
+      value: 0.96541864
+      inSlope: -0.27352273
+      outSlope: -0.27352273
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.060387
+    - serializedVersion: 3
+      time: 0.7721915
+      value: 0.60143006
+      inSlope: -1.6457677
+      outSlope: -1.6457677
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.6400688
+      outSlope: -2.6400688
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   automatic: 1
   fireRate: 8
+  roundsPerShot: 1
+  coneOfFire: 0
+  spreadDefault: 0.03
+  spreadWhileMoving: 0.12
+  spreadWhileJumping: 0.4
   magSize: 30
   bullets: 4
   reloadTime: 3.65

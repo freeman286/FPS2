@@ -41,20 +41,23 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField]
     private float snapSpeed = 100f;
 
-
     private bool leftFootMoving = true;
     private bool rightFootMoving = true;
+
+    private WeaponManager weaponManager;
+
 
     void Start()
     {
         SetDefaults();
         rb = GetComponent<Rigidbody>();
         playerController = GetComponent<PlayerController>();
+        weaponManager = GetComponent<WeaponManager>();
     }
 
     public void Move(Vector3 _velocity)
     {
-        velocity = _velocity.normalized * playerController.speed;
+        velocity = _velocity.normalized * playerController.speed * weaponManager.GetCurrentWeapon().speed;
     }
 
     public void Rotate(Vector3 _rotation)
@@ -160,4 +163,15 @@ public class PlayerMotor : MonoBehaviour
         leftFoot.transform.localPosition = leftFootRestingPos;
         rightFoot.transform.localPosition = rightFootRestingPos;
     }
+
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public bool IsMoving()
+    {
+        return leftFootMoving || rightFootMoving;
+    }
+
 }
