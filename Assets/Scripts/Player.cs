@@ -121,6 +121,9 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     private void RpcDie(string _sourceID)
     {
+        if (isDead)
+            return;
+
         isDead = true;
 
         shoot.CancelInvoke("Shoot");

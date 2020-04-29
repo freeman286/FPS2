@@ -150,7 +150,7 @@ public class PlayerShoot : NetworkBehaviour {
         for (int i = 0; i < currentWeapon.roundsPerShot; i++)
         {
 
-            Vector3 _cone = new Vector3(Random.Range(-currentWeapon.coneOfFire, currentWeapon.coneOfFire), Random.Range(-currentWeapon.coneOfFire, currentWeapon.coneOfFire), 0);
+            Vector3 _cone = Random.insideUnitSphere * currentWeapon.coneOfFire;
 
             RaycastHit _hit;
             if (Physics.Raycast(cam.transform.position, cam.transform.forward + _devience + _cone, out _hit, currentWeapon.range, mask))

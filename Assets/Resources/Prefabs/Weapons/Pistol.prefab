@@ -279,7 +279,7 @@ MonoBehaviour:
   name: Pistol
   primary: 0
   damage: 30
-  range: 100
+  range: 150
   damageFallOff:
     serializedVersion: 2
     m_Curve:
@@ -317,7 +317,7 @@ MonoBehaviour:
   fireRate: 5
   roundsPerShot: 1
   coneOfFire: 0
-  spreadDefault: 0.06
+  spreadDefault: 0.03
   spreadWhileMoving: 0.07
   spreadWhileJumping: 0.1
   magSize: 10

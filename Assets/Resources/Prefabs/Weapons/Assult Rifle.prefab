@@ -357,23 +357,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Assult Rifle
   primary: 1
-  damage: 40
-  range: 100
+  damage: 25
+  range: 250
   damageFallOff:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.16199654
-      outSlope: -0.16199654
+      inSlope: -0.4790628
+      outSlope: -0.4790628
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.21346976
-      value: 0.96541864
+      time: 0.0537118
+      value: 0.9742687
       inSlope: -0.27352273
       outSlope: -0.27352273
       tangentMode: 0
@@ -381,10 +381,10 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.060387
     - serializedVersion: 3
-      time: 0.7721915
-      value: 0.60143006
-      inSlope: -1.6457677
-      outSlope: -1.6457677
+      time: 0.8041426
+      value: 0.49523535
+      inSlope: -1.5834475
+      outSlope: -1.5834475
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -392,8 +392,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -2.6400688
-      outSlope: -2.6400688
+      inSlope: -2.5285506
+      outSlope: -2.5285506
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -405,11 +405,12 @@ MonoBehaviour:
   fireRate: 8
   roundsPerShot: 1
   coneOfFire: 0
-  spreadDefault: 0.03
-  spreadWhileMoving: 0.12
+  spreadDefault: 0.02
+  spreadWhileMoving: 0.08
   spreadWhileJumping: 0.4
   magSize: 30
-  bullets: 4
+  speed: 1
+  bullets: 30
   reloadTime: 3.65
   graphics: {fileID: 2721180637063796786}
 --- !u!82 &792773704839598559
