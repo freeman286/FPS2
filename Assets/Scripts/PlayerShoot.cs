@@ -73,6 +73,8 @@ public class PlayerShoot : NetworkBehaviour {
         {
             weaponManager.Reload();
         }
+
+        Recoil();
     }
 
     [Command]
@@ -176,5 +178,16 @@ public class PlayerShoot : NetworkBehaviour {
 
         Player _player = GameManager.GetPlayer(_playerID);
         _player.RpcTakeDamage(_damage, _sourceID);
+    }
+
+    void Recoil()
+    {
+        
+        float _recoil = Mathf.Clamp(currentWeapon.recoilTime - timeSinceShot, 0, currentWeapon.recoilTime) * currentWeapon.recoilAmount;
+        if (_recoil > 0)
+        {
+            motor.AddRotation(new Vector3(0, Random.Range(-1.0f, 1.0f) * _recoil, 0));
+            motor.AddRotationCamera(_recoil);
+        }
     }
 }

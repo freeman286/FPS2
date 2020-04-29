@@ -23,9 +23,13 @@ public class PlayerWeapon : MonoBehaviour
     public float spreadWhileMoving;
     public float spreadWhileJumping;
 
+    public float recoilAmount;
+    public float recoilTime;
+
     public int magSize = 20;
 
     public float speed = 1;
+
 
     [HideInInspector]
     public int bullets;

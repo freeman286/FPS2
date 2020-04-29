@@ -65,9 +65,19 @@ public class PlayerMotor : MonoBehaviour
         rotation = _rotation;
     }
 
+    public void AddRotation(Vector3 _rotation)
+    {
+        rotation += _rotation;
+    }
+
     public void RotateCamera(float _cameraRotationX)
     {
         cameraRotationX = _cameraRotationX;
+    }
+
+    public void AddRotationCamera(float _cameraRotationX)
+    {
+        cameraRotationX += _cameraRotationX;
     }
 
     void FixedUpdate()

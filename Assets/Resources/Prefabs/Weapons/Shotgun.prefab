@@ -636,6 +636,8 @@ MonoBehaviour:
   spreadDefault: 0.03
   spreadWhileMoving: 0.1
   spreadWhileJumping: 0.2
+  recoilAmount: 2
+  recoilTime: 0.4
   magSize: 8
   speed: 1
   bullets: 8

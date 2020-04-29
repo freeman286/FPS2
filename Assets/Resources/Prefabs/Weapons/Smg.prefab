@@ -436,7 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Smg
   primary: 1
-  damage: 20
+  damage: 22
   range: 150
   damageFallOff:
     serializedVersion: 2
@@ -451,17 +451,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.34180206
-      value: 0.9657384
-      inSlope: -0.2523056
-      outSlope: -0.2523056
+      time: 0.22825299
+      value: 0.8374245
+      inSlope: -0.03153565
+      outSlope: -0.03153565
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.048150934
+      outWeight: 0.1255812
     - serializedVersion: 3
-      time: 0.6666765
-      value: 0.43746093
+      time: 0.7102061
+      value: 0.3091474
       inSlope: -3.689535
       outSlope: -3.689535
       tangentMode: 0
@@ -481,15 +481,17 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   automatic: 1
-  fireRate: 10
+  fireRate: 11
   roundsPerShot: 1
   coneOfFire: 0
-  spreadDefault: 0.05
+  spreadDefault: 0.04
   spreadWhileMoving: 0.06
   spreadWhileJumping: 0.2
-  magSize: 20
+  recoilAmount: 10
+  recoilTime: 0.1
+  magSize: 25
   speed: 1.2
-  bullets: 19
+  bullets: 24
   reloadTime: 2
   graphics: {fileID: 2721180637063796786}
 --- !u!82 &792773704839598559
