@@ -66,8 +66,8 @@ MonoBehaviour:
     y: 0
     width: 633
     height: 974
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -96,10 +96,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1307
-  m_MinSize: {x: 579, y: 492}
-  m_MaxSize: {x: 12004, y: 14042}
+  m_MinSize: {x: 578, y: 492}
+  m_MaxSize: {x: 12003, y: 14042}
   vertical: 1
-  controlID: 96
+  controlID: 103
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,10 +243,10 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 974
-  m_MinSize: {x: 579, y: 221}
-  m_MaxSize: {x: 12004, y: 4021}
+  m_MinSize: {x: 578, y: 221}
+  m_MaxSize: {x: 12003, y: 4021}
   vertical: 0
-  controlID: 97
+  controlID: 104
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -341,7 +341,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: 50756
+  m_LastInspectedObjectInstanceID: 24782
   m_LastVerticalScrollValue: 0
 --- !u!114 &14
 MonoBehaviour:
@@ -444,9 +444,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.566, y: 1.2514, z: 0.636}
+    m_Target: {x: -1.5511103, y: -4.759219, z: 3.4997406}
     speed: 2
-    m_Value: {x: 0.566, y: 1.2514, z: 0.636}
+    m_Value: {x: -1.5511103, y: -4.759219, z: 3.4997406}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -492,13 +492,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.18185803, y: 0.14105473, z: -0.026370885, w: 0.9728014}
+    m_Target: {x: -0.05254783, y: 0.947182, z: -0.23511669, w: -0.21169356}
     speed: 2
-    m_Value: {x: 0.18185742, y: 0.14105426, z: -0.026370797, w: 0.97279817}
+    m_Value: {x: -0.0525476, y: 0.9471778, z: -0.23511565, w: -0.21169262}
   m_Size:
-    m_Target: 0.12124979
+    m_Target: 22.43315
     speed: 2
-    m_Value: 0.12124979
+    m_Value: 22.43315
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -559,9 +559,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.566, y: 1.2514, z: 0.636}
+    m_Target: {x: -8.137605, y: 2.924345, z: 5.7405844}
     speed: 2
-    m_Value: {x: 0.566, y: 1.2514, z: 0.636}
+    m_Value: {x: -8.137605, y: 2.924345, z: 5.7405844}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -607,13 +607,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.19312188, y: -0.15382786, z: 0.03067843, w: 0.9685666}
+    m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
     speed: 2
-    m_Value: {x: 0.19311981, y: -0.1538262, z: 0.0306781, w: 0.9685562}
+    m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
-    m_Target: 0.12124979
+    m_Target: 22.00714
     speed: 2
-    m_Value: 0.12124979
+    m_Value: 22.00714
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -808,10 +808,10 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 1cd063b974dd34140bdd25a85ffd5164,
+  m_AnimatorController: {fileID: 9100000, guid: fe7448df3b9207e4fb09abda3cc4f1e8,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 2849470711578885552, guid: 1cd063b974dd34140bdd25a85ffd5164,
+  - m_Target: {fileID: 8978396236323685622, guid: fe7448df3b9207e4fb09abda3cc4f1e8,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -853,7 +853,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -70926
+  m_LastSelectedObjectID: -108314
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -893,20 +893,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Prefabs/Casings
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Prefabs/Casings
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Joel\Documents\FPS2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 108}
-    m_SelectedIDs: ae640000
-    m_LastClickedID: 25774
-    m_ExpandedIDs: 00000000f0630000f2630000f4630000f6630000f8630000fa630000fc630000fe6300000064000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: f4630000
+    m_LastClickedID: 25588
+    m_ExpandedIDs: 00000000f4630000f6630000f8630000fa630000fc630000fe63000000640000026400000464000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -934,7 +934,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f0630000f2630000f4630000f6630000f8630000fa630000fc630000fe63000000640000
+    m_ExpandedIDs: 00000000f4630000f6630000f8630000fa630000fc630000fe630000006400000264000004640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1019,23 +1019,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 44c60000
-      m_LastClickedID: 50756
-      m_ExpandedIDs: 4ef4fdff4cc60000
+      m_SelectedIDs: ce600000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 103dfeff7459feff5c8efeff6654ffffee54ffff1855ffffa055ffff2e56ffffa881ffff3082ffff5a82ffffe282ffff7083ffffd094ffff5895ffff9496ffff84b2ffffcab3ffffcab6ffffceb6ffffc2bdffff4abeffffd8beffff52d2ffff68d3ffff5cebffffe4ebffff72ecffffe4f2ffff2af4ffff2af7ffff50f7ffff66fbfffff2790000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: SpawnPoint1
+        m_OriginalName: SpawnPoint1
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 48170
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 

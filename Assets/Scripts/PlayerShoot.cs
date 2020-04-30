@@ -157,6 +157,8 @@ public class PlayerShoot : NetworkBehaviour {
             RaycastHit _hit;
             if (Physics.Raycast(cam.transform.position, cam.transform.forward + _devience + _cone, out _hit, currentWeapon.range, mask))
             {
+                Debug.Log(_hit.collider.name);
+
                 if (_hit.collider.tag == PLAYER_TAG)
                 {
                     int _damage = Mathf.RoundToInt(currentWeapon.damageFallOff.Evaluate(_hit.distance / currentWeapon.range) * currentWeapon.damage);

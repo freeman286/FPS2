@@ -13,7 +13,7 @@ public class Util
 
         foreach (Transform _child in _obj.transform)
         {
-            if (_child == null)
+            if (_child == null || LayerMask.LayerToName(_child.gameObject.layer) == "Collider")
                 continue;
 
             SetLayerRecursively(_child.gameObject, _newLayer);
