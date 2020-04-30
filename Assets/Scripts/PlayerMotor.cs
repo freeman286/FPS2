@@ -46,6 +46,8 @@ public class PlayerMotor : MonoBehaviour
 
     private WeaponManager weaponManager;
 
+    [SerializeField]
+    private LayerMask mask;
 
     void Start()
     {
@@ -85,6 +87,7 @@ public class PlayerMotor : MonoBehaviour
         PerformMovement();
         PerformRotation();
         PerformFootMovement();
+        CheckGrounded();
     }
 
     void PerformMovement()
@@ -152,19 +155,12 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+    void CheckGrounded()
     {
-        if (collisionInfo.gameObject.tag == "Floor")
+        RaycastHit _hit;
+        if (Physics.Raycast(transform.position + transform.forward * 0.3f, -Vector3.up, out _hit, 2f, mask));
         {
-            isGrounded = true;
-        }
-    }
-
-    void OnCollisionExit(Collision collisionInfo)
-    {
-        if (collisionInfo.gameObject.tag == "Floor")
-        {
-            isGrounded = false;
+            isGrounded = _hit.distance < 1.7f && _hit.distance != 0f;
         }
     }
 

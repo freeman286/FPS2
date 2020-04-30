@@ -17,7 +17,7 @@ public class PlayerShoot : NetworkBehaviour {
     private PlayerWeapon currentWeapon;
     private PlayerMotor motor;
 
-    private float timeSinceShot;
+    private float timeSinceShot = 100f;
 
     void Start()
     {
@@ -183,7 +183,7 @@ public class PlayerShoot : NetworkBehaviour {
     void Recoil()
     {
         
-        float _recoil = Mathf.Clamp(currentWeapon.recoilTime - timeSinceShot, 0, currentWeapon.recoilTime) * currentWeapon.recoilAmount;
+        float _recoil = Mathf.Clamp(currentWeapon.recoilTime - timeSinceShot, 0, currentWeapon.recoilTime) * currentWeapon.recoilAmount * Time.deltaTime;
         if (_recoil > 0)
         {
             motor.AddRotation(new Vector3(0, Random.Range(-1.0f, 1.0f) * _recoil, 0));

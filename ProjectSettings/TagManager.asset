@@ -19,8 +19,8 @@ TagManager:
   - DontDraw
   - Weapon
   - Casing
-  - 
-  - 
+  - Environment
+  - Collider
   - 
   - 
   - 
