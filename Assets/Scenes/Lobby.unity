@@ -1918,6 +1918,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: _NetworkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1140310388320865851, guid: cfec2edaa2a4e9242936c8cccd4def6b,
+        type: 3}
+      propertyPath: serverTickRate
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140310388320865851, guid: cfec2edaa2a4e9242936c8cccd4def6b,
+        type: 3}
+      propertyPath: showDebugMessages
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1140310388320865860, guid: cfec2edaa2a4e9242936c8cccd4def6b,
         type: 3}
       propertyPath: m_LocalPosition.x

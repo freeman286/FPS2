@@ -31,6 +31,8 @@ public class OfflineUI : MonoBehaviour
         ipAddress.text = "localhost";
         loadingImage.enabled = false;
         ipAddress.onValueChanged.AddListener(delegate { IpValueChange(); });
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Host()

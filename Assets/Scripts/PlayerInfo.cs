@@ -6,7 +6,7 @@ public class PlayerInfo : MonoBehaviour
 {
     public static PlayerInfo instance;
 
-    static public string playerName;
+    static public string playerName = "Player";
 
     static public string primaryWeaponName;
 

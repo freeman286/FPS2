@@ -158,9 +158,9 @@ public class PlayerMotor : MonoBehaviour
     void CheckGrounded()
     {
         RaycastHit _hit;
-        if (Physics.Raycast(transform.position, -Vector3.up, out _hit, 3f, mask));
+        if (Physics.Raycast(transform.position, -Vector3.up, out _hit, 2f, mask));
         {
-            isGrounded = (_hit.distance < 2.5f && isGrounded) || (_hit.distance < 1.9f && !isGrounded && !Input.GetButton("Jump")) && _hit.distance != 0f;
+            isGrounded = _hit.distance < 2.1f && rb.velocity.y < 1f && _hit.distance != 0f;
         }
     }
 

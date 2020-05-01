@@ -10,7 +10,7 @@ public class PlayerName : MonoBehaviour
 
     void Start()
     {
-        playerName.text = "Player";
+        playerName.text = PlayerInfo.playerName;
     }
 
     public void Changed()
