@@ -197,7 +197,7 @@ public class PlayerShoot : NetworkBehaviour {
 
     void ProjectileShoot(Vector3 _direction, Vector3 _devience)
     {
-        CmdProjectileShot(weaponManager.GetCurrentGraphics().firePoint.transform.position, Quaternion.LookRotation(_direction), transform.name);
+        CmdProjectileShot(weaponManager.GetCurrentGraphics().firePoint.transform.position, Quaternion.LookRotation(_direction + _devience), transform.name);
     }
 
     [Command]
