@@ -14,6 +14,8 @@ public class PlayerWeapon : MonoBehaviour
 
     public bool automatic;
 
+    public bool projectileWeapon;
+
     public float fireRate;
 
     public int roundsPerShot;
@@ -38,6 +40,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public GameObject graphics;
 
+    public GameObject projectile;
 
     public void Load()
     {

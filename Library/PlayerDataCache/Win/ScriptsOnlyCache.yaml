@@ -20,6 +20,7 @@ ScriptsOnlyBuild:
     - PlayerShoot
     - PlayerUI
     - PlayerWeapon
+    - ProjectileController
     - Scoreboard
     - WeaponGraphics
     - WeaponItem
@@ -97,7 +98,6 @@ ScriptsOnlyBuild:
     - UnityEditor.VFX.Operator.Multiply
     - UnityEditor.VFX.Operator.Random
     - UnityEditor.VFX.Operator.SampleCurve
-    - UnityEditor.VFX.UI.VFXGraphUndoCursor
     - UnityEditor.VFX.UI.VFXViewWindow
     - UnityEditor.VFX.VFXBasicGPUEvent
     - UnityEditor.VFX.VFXBasicInitialize
@@ -121,8 +121,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -338,6 +340,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17402}
     - Class: 114
       Script: {instanceID: 17410}
+    - Class: 114
+      Script: {instanceID: 37346}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -505,6 +509,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17274}
     - Class: 114
       Script: {instanceID: 17348}
+    - Class: 114
+      Script: {instanceID: 37346}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -622,7 +628,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerHUD
   - hash:
       serializedVersion: 2
-      Hash: 00718c7c57c315e81a8e32ea5eb937a2
+      Hash: 72e69bb45cf4d3aeba970ab66281636d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeapon
@@ -1612,7 +1618,7 @@ ScriptsOnlyBuild:
     className: CarController
   - hash:
       serializedVersion: 2
-      Hash: 7c7a65f1b82c8420f639aaf2d917ec6b
+      Hash: 1b645e458de81a61056fa6307f81a6b7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WeaponGraphics
@@ -2738,6 +2744,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 0d09a1c73c8b62513a0eb2870edd8b61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProjectileController
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity

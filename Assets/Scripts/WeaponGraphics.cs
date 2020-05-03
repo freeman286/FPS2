@@ -10,5 +10,6 @@ public class WeaponGraphics : MonoBehaviour
     public GameObject ejectionPort;
     public GameObject casing;
     public GameObject shootSound;
+    public GameObject firePoint;
 
 }

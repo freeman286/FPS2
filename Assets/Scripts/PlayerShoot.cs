@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -151,27 +152,41 @@ public class PlayerShoot : NetworkBehaviour {
 
         for (int i = 0; i < currentWeapon.roundsPerShot; i++)
         {
-
-            Vector3 _cone = Random.insideUnitSphere * currentWeapon.coneOfFire;
-
-            RaycastHit _hit;
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward + _devience + _cone, out _hit, currentWeapon.range, mask))
+            if (currentWeapon.projectileWeapon)
             {
-                Debug.Log(_hit.collider.name);
-
-                if (_hit.collider.tag == PLAYER_TAG)
-                {
-                    int _damage = Mathf.RoundToInt(currentWeapon.damageFallOff.Evaluate(_hit.distance / currentWeapon.range) * currentWeapon.damage);
-                    CmdPlayerShot(_hit.collider.transform.root.name, _damage, transform.name);
-                }
-
-                CmdOnHit(_hit.point, _hit.normal);
-
+                ProjectileShoot(_devience);
+            }
+            else
+            {
+                RaycastShoot(_devience);
             }
         }
 
         timeSinceShot = 0;
 
+    }
+
+    void RaycastShoot(Vector3 _devience)
+    {
+        Vector3 _cone = Random.insideUnitSphere * currentWeapon.coneOfFire;
+
+        RaycastHit _hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + _devience + _cone, out _hit, currentWeapon.range, mask))
+        {
+            if (_hit.collider.tag == PLAYER_TAG)
+            {
+                int _damage = Mathf.RoundToInt(currentWeapon.damageFallOff.Evaluate(_hit.distance / currentWeapon.range) * currentWeapon.damage);
+                CmdPlayerShot(_hit.collider.transform.root.name, _damage, transform.name);
+            }
+
+            CmdOnHit(_hit.point, _hit.normal);
+
+        }
+    }
+
+    void ProjectileShoot(Vector3 _devience)
+    {
+        CmdProjectileShot(weaponManager.GetCurrentGraphics().firePoint.transform.position, cam.transform.rotation, transform.name);
     }
 
     [Command]
@@ -180,6 +195,14 @@ public class PlayerShoot : NetworkBehaviour {
 
         Player _player = GameManager.GetPlayer(_playerID);
         _player.RpcTakeDamage(_damage, _sourceID);
+    }
+
+    [Command]
+    void CmdProjectileShot(Vector3 _pos, Quaternion _rot, string _playerID)
+    {
+        GameObject _projectile = (GameObject)Instantiate(weaponManager.GetCurrentProjectile(), _pos, _rot);
+        NetworkServer.Spawn(_projectile, connectionToClient);
+        _projectile.GetComponent<ProjectileController>().playerID = _playerID;
     }
 
     void Recoil()

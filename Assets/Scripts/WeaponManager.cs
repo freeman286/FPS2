@@ -107,6 +107,12 @@ public class WeaponManager : NetworkBehaviour
         return currentGraphics;
     }
 
+    public GameObject GetCurrentProjectile()
+    {
+        return currentWeapon.projectile;
+    }
+
+
     [Client]
     void EquipWeapon(PlayerWeapon _weapon, bool _setup)
     {
