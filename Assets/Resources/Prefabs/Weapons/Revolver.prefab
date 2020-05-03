@@ -366,15 +366,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -1.451104
-      outSlope: -1.451104
+      inSlope: -3.0922422
+      outSlope: -3.0922422
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.20480987
-      value: 0.70279956
+      time: 0.09468071
+      value: 0.7072243
       inSlope: -0.3987452
       outSlope: -0.3987452
       tangentMode: 0
@@ -404,18 +404,17 @@ MonoBehaviour:
     m_RotationOrder: 4
   automatic: 0
   projectileWeapon: 0
-  throwPower: 0
-  fireRate: 2
+  fireRate: 1.5
   roundsPerShot: 1
   coneOfFire: 0
   spreadDefault: 0
   spreadWhileMoving: 0.07
   spreadWhileJumping: 0.4
-  recoilAmount: 800
-  recoilTime: 0.12
+  recoilAmount: 400
+  recoilTime: 0.35
   magSize: 6
   speed: 1.2
-  bullets: 0
+  bullets: 3
   reloadTime: 4
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 0}

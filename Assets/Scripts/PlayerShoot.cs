@@ -150,15 +150,26 @@ public class PlayerShoot : NetworkBehaviour {
 
         Vector3 _devience = Random.insideUnitSphere * _spread;
 
+        Vector3 _direction;
+
+        RaycastHit _hit;
+        if (Physics.Raycast(cam.transform.position + cam.transform.forward * 2f, cam.transform.forward, out _hit, currentWeapon.range, mask))
+        {
+            _direction = (_hit.point - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized;   
+        } else
+        {
+            _direction = cam.transform.forward;
+        }
+
         for (int i = 0; i < currentWeapon.roundsPerShot; i++)
         {
             if (currentWeapon.projectileWeapon)
             {
-                ProjectileShoot(_devience);
+                ProjectileShoot(_direction, _devience);
             }
             else
             {
-                RaycastShoot(_devience);
+                RaycastShoot(_direction, _devience);
             }
         }
 
@@ -166,12 +177,12 @@ public class PlayerShoot : NetworkBehaviour {
 
     }
 
-    void RaycastShoot(Vector3 _devience)
+    void RaycastShoot(Vector3 _direction, Vector3 _devience)
     {
         Vector3 _cone = Random.insideUnitSphere * currentWeapon.coneOfFire;
 
         RaycastHit _hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + _devience + _cone, out _hit, currentWeapon.range, mask))
+        if (Physics.Raycast(weaponManager.GetCurrentGraphics().firePoint.transform.position, _direction + _devience + _cone, out _hit, currentWeapon.range, mask))
         {
             if (_hit.collider.tag == PLAYER_TAG)
             {
@@ -184,9 +195,9 @@ public class PlayerShoot : NetworkBehaviour {
         }
     }
 
-    void ProjectileShoot(Vector3 _devience)
+    void ProjectileShoot(Vector3 _direction, Vector3 _devience)
     {
-        CmdProjectileShot(weaponManager.GetCurrentGraphics().firePoint.transform.position, cam.transform.rotation, transform.name);
+        CmdProjectileShot(weaponManager.GetCurrentGraphics().firePoint.transform.position, Quaternion.LookRotation(_direction), transform.name);
     }
 
     [Command]
