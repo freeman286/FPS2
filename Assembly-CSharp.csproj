@@ -64,6 +64,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
      <Compile Include="Assets\Scripts\CameraFacingBillboard.cs" />
+     <Compile Include="Assets\Scripts\ExplosiveController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Killfeed.cs" />
      <Compile Include="Assets\Scripts\KillfeedItem.cs" />

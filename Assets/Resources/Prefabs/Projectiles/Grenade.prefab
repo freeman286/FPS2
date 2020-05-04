@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 156444120250483798}
   - component: {fileID: 156444120250483797}
   - component: {fileID: 1881696763795136771}
+  - component: {fileID: -6569690525480866274}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Untagged
@@ -100,6 +101,65 @@ MonoBehaviour:
   syncInterval: 0.1
   playerID: 
   initialVelocity: 15
+--- !u!114 &-6569690525480866274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfee570574d652e4ebbbfd1fdad66a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  impact: {fileID: 4308811345454485748, guid: 223257955eea54549acbfa283875726c, type: 3}
+  damage: 110
+  range: 6
+  damageFallOff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.4798445
+      outSlope: -0.4798445
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5330756
+      value: 0.7442066
+      inSlope: -0.7556039
+      outSlope: -0.7556039
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6907655
+      value: 0.581571
+      inSlope: -1.4560214
+      outSlope: -1.4560214
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.8806795
+      outSlope: -1.8806795
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &156444120682222017
 GameObject:
   m_ObjectHideFlags: 0

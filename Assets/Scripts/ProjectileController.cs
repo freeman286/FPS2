@@ -15,4 +15,6 @@ public class ProjectileController : NetworkBehaviour
     {
         GetComponent<Rigidbody>().velocity = transform.forward * initialVelocity;
     }
+
+    
 }
