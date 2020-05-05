@@ -438,7 +438,7 @@ MonoBehaviour:
   name: Grenade Launcher
   primary: 1
   damage: 25
-  range: 250
+  range: 40
   damageFallOff:
     serializedVersion: 2
     m_Curve:

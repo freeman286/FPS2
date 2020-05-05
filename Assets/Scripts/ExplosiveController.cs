@@ -59,7 +59,7 @@ public class ExplosiveController : NetworkBehaviour
     {
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
 
-        Destroy(_impact, 2f);
+        Destroy(_impact, 4f);
         Destroy(gameObject);
     }
 

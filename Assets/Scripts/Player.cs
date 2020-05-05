@@ -189,7 +189,7 @@ public class Player : NetworkBehaviour
         }
 
         GameObject _spawnEffect = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
-        Destroy(_spawnEffect, 1f);
+        Destroy(_spawnEffect, 5f);
 
         playerController.SetDefaults();
         weaponManager.SetDefaults();

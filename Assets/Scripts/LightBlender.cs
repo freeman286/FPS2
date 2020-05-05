@@ -5,8 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(Light))]
 public class LightBlender : MonoBehaviour
 {
-    public float duration = 1.0f;
+    [SerializeField]
+    private float duration = 1.0f;
+
     private Light lt;
+
+    [SerializeField]
+    private float maxLightLevel;
+
+    [SerializeField]
+    private AnimationCurve lightLevel;
+
+    private float time;
 
     void Start()
     {
@@ -15,9 +25,8 @@ public class LightBlender : MonoBehaviour
 
     void Update()
     {
-        float phi = Time.time / duration * 2 * Mathf.PI;
-        float amplitude = Mathf.Cos(phi) * 0.5f + 0.5f;
-        lt.intensity = amplitude;
+        lt.intensity = lightLevel.Evaluate(time / duration) * maxLightLevel;
+        time += Time.deltaTime; 
     }
 }
     

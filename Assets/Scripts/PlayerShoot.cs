@@ -155,10 +155,11 @@ public class PlayerShoot : NetworkBehaviour {
         RaycastHit _hit;
         if (Physics.Raycast(cam.transform.position + cam.transform.forward * 2f, cam.transform.forward, out _hit, currentWeapon.range, mask))
         {
-            _direction = (_hit.point - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized;   
-        } else
+            _direction = (_hit.point - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized; 
+        }
+        else
         {
-            _direction = cam.transform.forward;
+            _direction = (cam.transform.position + cam.transform.forward * currentWeapon.range - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized;
         }
 
         for (int i = 0; i < currentWeapon.roundsPerShot; i++)
