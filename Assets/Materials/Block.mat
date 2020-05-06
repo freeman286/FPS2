@@ -82,7 +82,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_83DF4905: {r: 1, g: 0.91838396, b: 0, a: 0}
-    - Color_E7F2BEFD: {r: 16, g: 1.4431373, b: 0, a: 0}
+    - Color_E7F2BEFD: {r: 2.9960785, g: 0.28235295, b: 0, a: 0}
     - _AmbientColor: {r: 0.34841812, g: 0.3584906, b: 0.16740833, a: 1}
     - _Color: {r: 0.31959775, g: 0.37595537, b: 0.509434, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
