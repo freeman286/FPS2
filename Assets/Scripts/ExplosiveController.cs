@@ -17,6 +17,9 @@ public class ExplosiveController : NetworkBehaviour
     private float range;
 
     [SerializeField]
+    private float fuse;
+
+    [SerializeField]
     private AnimationCurve damageFallOff;
 
 
@@ -24,6 +27,15 @@ public class ExplosiveController : NetworkBehaviour
     void Start()
     {
         projectileController = GetComponent<ProjectileController>();
+    }
+
+    void Update()
+    {
+        fuse -= Time.deltaTime;
+        if (fuse <= 0)
+        {
+            CmdExplode(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up));
+        }
     }
 
     void OnCollisionEnter(Collision collision)

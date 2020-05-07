@@ -118,6 +118,7 @@ MonoBehaviour:
   impact: {fileID: 4308811345454485748, guid: 223257955eea54549acbfa283875726c, type: 3}
   damage: 110
   range: 6
+  fuse: 2
   damageFallOff:
     serializedVersion: 2
     m_Curve:

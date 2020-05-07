@@ -22,7 +22,7 @@ public class Player : NetworkBehaviour
 
     public float GetHealthPct()
     {
-        return (float)currentHealth / maxHealth;
+        return Mathf.Clamp((float)currentHealth / maxHealth, 0, 1);
     }
 
     [SerializeField]

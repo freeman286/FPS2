@@ -9,12 +9,21 @@ public class ProjectileController : NetworkBehaviour
     [SyncVar]
     public string playerID;
 
+    private Rigidbody rb;
+
     public float initialVelocity;
+
+    public float constantForce;
 
     void Start()
     {
-        GetComponent<Rigidbody>().velocity = transform.forward * initialVelocity;
+        rb = GetComponent<Rigidbody>();
+        rb.velocity = transform.forward * initialVelocity;
     }
 
+    void Update()
+    {
+        rb.AddForce(transform.forward * constantForce);
+    }
     
 }
