@@ -21,7 +21,7 @@ public class ProjectileController : NetworkBehaviour
         rb.velocity = transform.forward * initialVelocity;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         rb.AddForce(transform.forward * constantForce);
     }

@@ -101,6 +101,7 @@ MonoBehaviour:
   syncInterval: 0.1
   playerID: 
   initialVelocity: 15
+  constantForce: 0
 --- !u!114 &-6569690525480866274
 MonoBehaviour:
   m_ObjectHideFlags: 0
