@@ -1032,7 +1032,7 @@ VisualEffect:
       - m_Value: 1
         m_Name: Noise
         m_Overridden: 1
-      - m_Value: 30
+      - m_Value: 0
         m_Name: Main Trail Length
         m_Overridden: 1
     m_Vector2f:
@@ -1045,7 +1045,7 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 20
+      - m_Value: 0
         m_Name: Main Trail Count
         m_Overridden: 1
       - m_Value: 0

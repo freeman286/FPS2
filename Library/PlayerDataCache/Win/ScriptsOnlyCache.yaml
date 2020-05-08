@@ -31,7 +31,7 @@ ScriptsOnlyBuild:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
     Mirror.Editor.dll:
-    - Mirror.NetworkManagerEditor
+    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManager
@@ -97,6 +97,8 @@ ScriptsOnlyBuild:
     - UnityEditor.VFX.Block.PositionCircle
     - UnityEditor.VFX.Block.SetAttribute
     - UnityEditor.VFX.Block.Turbulence
+    - UnityEditor.VFX.Operator.Multiply
+    - UnityEditor.VFX.UI.VFXGraphUndoCursor
     - UnityEditor.VFX.UI.VFXViewWindow
     - UnityEditor.VFX.VFXBasicGPUEvent
     - UnityEditor.VFX.VFXBasicInitialize
@@ -104,6 +106,7 @@ ScriptsOnlyBuild:
     - UnityEditor.VFX.VFXBasicUpdate
     - UnityEditor.VFX.VFXDataParticle
     - UnityEditor.VFX.VFXGraph
+    - UnityEditor.VFX.VFXParameter
     - UnityEditor.VFX.VFXQuadStripOutput
     - UnityEditor.VFX.VFXSlot
     - UnityEditor.VFX.VFXSlotAnimationCurve
@@ -114,15 +117,13 @@ ScriptsOnlyBuild:
     - UnityEditor.VFX.VFXSlotTexture2D
     - UnityEditor.VFX.VFXSlotTransform
     - UnityEditor.VFX.VFXSlotVector
-    - UnityEditor.VFX.VFXSpawnerBurst
+    - UnityEditor.VFX.VFXSpawnerConstantRate
     - UnityEditor.VFX.VFXUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
