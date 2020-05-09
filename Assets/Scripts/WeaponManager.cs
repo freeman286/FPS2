@@ -35,6 +35,9 @@ public class WeaponManager : NetworkBehaviour
 
     private bool switchingWeapon = false;
 
+    private IEnumerator reload;
+
+
     void Start()
     {
         allWeapons = Util.AllWeapons();
@@ -44,8 +47,12 @@ public class WeaponManager : NetworkBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Switch") && !isReloading && isLocalPlayer && !switchingWeapon)
+        if (Input.GetButtonDown("Switch") && isLocalPlayer && !switchingWeapon)
         {
+            if (reload != null)
+                StopCoroutine(reload);
+                isReloading = false;
+
             SwitchWeapon();
             switchingWeapon = true;
         }
@@ -169,7 +176,8 @@ public class WeaponManager : NetworkBehaviour
         if (isReloading)
             return;
 
-        StartCoroutine(Reload_Coroutine());
+        reload = Reload_Coroutine();
+        StartCoroutine(reload);
     }
 
     private IEnumerator Reload_Coroutine()
