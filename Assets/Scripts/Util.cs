@@ -50,19 +50,19 @@ public class Util
         return allWeapons;
     }
 
-    public static T[] ShuffleArray<T>(T[] array, int seed)
+    public static Vector2 SnapTo(Vector2 _vector)
     {
-        System.Random prng = new System.Random(seed);
+        Vector2[] basis = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
 
-        for (int i = 0; i < array.Length - 1; i++)
+        for (int i = 0; i < basis.Length; i++)
         {
-            int randomIndex = prng.Next(i, array.Length);
-            T tempItem = array[randomIndex];
-            array[randomIndex] = array[i];
-            array[i] = tempItem;
+            if (Mathf.Abs(Vector2.Angle(_vector, basis[i])) <= 45)
+            {
+                return basis[i];
+            }
         }
 
-        return array;
+        return basis[0];
     }
 
 }
