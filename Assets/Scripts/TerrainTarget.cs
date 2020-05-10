@@ -5,7 +5,7 @@ using UnityEngine;
 public class TerrainTarget : MonoBehaviour
 {
 
-    public int[,,] Ids;
+    public int[,,] ids;
     public int[,,] targetIds;
     public float spawnProbability = 1f;
 
@@ -17,7 +17,7 @@ public class TerrainTarget : MonoBehaviour
         {
             TerrainId terrainId = child.GetComponent<TerrainId>();
             targetIds[(int)(child.localPosition.x / _gridSize), (int)(child.localPosition.z / _gridSize), (int)(child.localPosition.y / _gridSize)] = terrainId.targetId;
-            Ids[(int)(child.localPosition.x / _gridSize), (int)(child.localPosition.z / _gridSize), (int)(child.localPosition.y / _gridSize)] = terrainId.id;
+            ids[(int)(child.localPosition.x / _gridSize), (int)(child.localPosition.z / _gridSize), (int)(child.localPosition.y / _gridSize)] = terrainId.id;
         }
 
     }
@@ -48,6 +48,6 @@ public class TerrainTarget : MonoBehaviour
         }
 
         targetIds = new int[_maxX + 1, _maxY + 1, _maxZ + 1];
-        Ids = new int[_maxX + 1, _maxY + 1, _maxZ + 1];
+        ids = new int[_maxX + 1, _maxY + 1, _maxZ + 1];
     }
 }

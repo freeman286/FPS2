@@ -26,7 +26,9 @@ public class MapGenerator : MonoBehaviour
 
     public GameObject[,,] blocks;
 
-    public GameObject[] allTerrain;
+    private GameObject[] allTerrain;
+
+    private Transform mapHolder;
 
     void Start()
     {
@@ -60,7 +62,7 @@ public class MapGenerator : MonoBehaviour
             DestroyImmediate(transform.Find(holderName).gameObject);
         }
 
-        Transform mapHolder = new GameObject(holderName).transform;
+        mapHolder = new GameObject(holderName).transform;
         mapHolder.parent = transform;       
 
 
@@ -94,6 +96,8 @@ public class MapGenerator : MonoBehaviour
 
         ClearLoop(_randomCoord, Util.SnapTo(_randomCoord.ToVector2()) - mapCentre.ToVector2());
 
+        
+
         for (int x = 0; x < mapSize.x; x++)
         {
             for (int y = 0; y < mapSize.y; y++)
@@ -115,17 +119,90 @@ public class MapGenerator : MonoBehaviour
                         Transform newBlock = Instantiate(blockPrefab, blockPosition, Quaternion.identity) as Transform;
                         newBlock.parent = mapHolder;
                         blocks[x, y, z] = newBlock.gameObject;
+
+                        if (!InPlayArea(new Coord(x, y)))
+                            blockMap[x, y, z] = -1; // So terrain can't spawn at edge of map
+
+
                     }
                     else if (blockMap[x, y, z] == 1)
                     {
                         Transform newVoid = Instantiate(voidPrefab, blockPosition, Quaternion.identity) as Transform;
                         newVoid.parent = mapHolder;
                         blocks[x, y, z] = newVoid.gameObject;
+
                     }
                 }
             }
         }
 
+        InsertTerrain();
+
+    }
+
+    private void InsertTerrain()
+    {
+        for (int i = 0; i < allTerrain.Length; i++)
+        {
+
+            TerrainTarget terrainTarget = allTerrain[i].GetComponent<TerrainTarget>();
+
+            for (int x = 0; x < mapSize.x; x++)
+            {
+                for (int y = 0; y < mapSize.y; y++)
+                {
+                    for (int z = 0; z < mapSize.z; z++)
+                    {
+
+                        if (Random.Range(0f, 1.0f) < terrainTarget.spawnProbability && CheckLocation(x,y,z,terrainTarget.targetIds))
+                        {
+                            InsertLocation(x, y, z, allTerrain[i]);
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    private bool CheckLocation(int _x, int _y, int _z, int[,,]  _targetIds)
+    {
+        for (int i = 0; i < _targetIds.GetLength(0); i++)
+        {
+            for (int j = 0; j < _targetIds.GetLength(1); j++)
+            {
+                for (int k = 0; k < _targetIds.GetLength(2); k++)
+                {
+                    if (_targetIds[i, j, k] != blockMap[_x+i, _y+j, _z+k])
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private void InsertLocation(int _x, int _y, int _z, GameObject _terrain)
+    {
+
+        TerrainTarget _terrainTarget = _terrain.GetComponent<TerrainTarget>();
+
+        GameObject newTerrain = (GameObject)Instantiate(_terrain, CoordToPosition(_x, _y, _z), Quaternion.identity);
+        newTerrain.transform.parent = mapHolder;
+
+        for (int i = 0; i < _terrainTarget.ids.GetLength(0); i++)
+        {
+            for (int j = 0; j < _terrainTarget.ids.GetLength(1); j++)
+            {
+                for (int k = 0; k < _terrainTarget.ids.GetLength(2); k++)
+                {
+                    blockMap[_x + i, _y + j, _z + k] = _terrainTarget.ids[i, j, k];
+                    DestroyImmediate(blocks[_x + i, _y + j, _z + k]);
+                }
+            }
+        }
     }
 
     Vector3 CoordToPosition(int x, int y, int z)
