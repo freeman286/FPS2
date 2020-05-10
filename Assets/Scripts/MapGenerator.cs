@@ -37,6 +37,7 @@ public class MapGenerator : MonoBehaviour
 
     public void GenerateMap()
     {
+
         Random.seed = seed;
 
         if (mapSize.z < 2)
@@ -57,9 +58,9 @@ public class MapGenerator : MonoBehaviour
         mapCentre = new Coord((int)mapSize.x / 2, (int)mapSize.y / 2);
 
         string holderName = "Generated Map";
-        if (transform.Find(holderName))
+        if (transform.FindChild(holderName))
         {
-            DestroyImmediate(transform.Find(holderName).gameObject);
+            DestroyImmediate(transform.FindChild(holderName).gameObject);
         }
 
         mapHolder = new GameObject(holderName).transform;
