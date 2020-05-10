@@ -71,7 +71,7 @@ public class Util
         int y = _matrix.GetLength(1);
         int z = _matrix.GetLength(2);
 
-        int[,,] result = new int[x, y, z];
+        int[,,] result = new int[y, x, z];
 
         for (int i = 0; i < x; i++)
         {

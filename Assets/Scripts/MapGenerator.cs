@@ -58,9 +58,9 @@ public class MapGenerator : MonoBehaviour
         mapCentre = new Coord((int)mapSize.x / 2, (int)mapSize.y / 2);
 
         string holderName = "Generated Map";
-        if (transform.FindChild(holderName))
+        if (transform.Find(holderName))
         {
-            DestroyImmediate(transform.FindChild(holderName).gameObject);
+            DestroyImmediate(transform.Find(holderName).gameObject);
         }
 
         mapHolder = new GameObject(holderName).transform;
@@ -155,7 +155,7 @@ public class MapGenerator : MonoBehaviour
                     for (int z = 0; z < mapSize.z; z++)
                     {
 
-                        if (Random.Range(0f, 1.0f) < terrainTarget.spawnProbability && CheckLocation(x,y,z,terrainTarget.targetIds))
+                        if (Random.Range(0f, 1.0f) < terrainTarget.spawnProbability && CheckLocation(x, y, z, terrainTarget.targetIds))
                         {
                             InsertLocation(x, y, z, allTerrain[i]);
                         }
@@ -163,6 +163,9 @@ public class MapGenerator : MonoBehaviour
                     }
                 }
             }
+          
+            
+
         }
     }
 
@@ -174,7 +177,8 @@ public class MapGenerator : MonoBehaviour
             {
                 for (int k = 0; k < _targetIds.GetLength(2); k++)
                 {
-                    if (_targetIds[i, j, k] != blockMap[_x+i, _y+j, _z+k])
+
+                    if (!InPlayArea(new Coord(_x + i, _y + j)) || _targetIds[i, j, k] != blockMap[_x + i, _y + j, _z + k])
                     {
                         return false;
                     }
@@ -193,14 +197,14 @@ public class MapGenerator : MonoBehaviour
         GameObject newTerrain = (GameObject)Instantiate(_terrain, CoordToPosition(_x, _y, _z), Quaternion.identity);
         newTerrain.transform.parent = mapHolder;
 
-        for (int i = 0; i < _terrainTarget.ids.GetLength(0); i++)
+        for (int i = 0; i < _terrainTarget.targetIds.GetLength(0); i++)
         {
-            for (int j = 0; j < _terrainTarget.ids.GetLength(1); j++)
+            for (int j = 0; j < _terrainTarget.targetIds.GetLength(1); j++)
             {
-                for (int k = 0; k < _terrainTarget.ids.GetLength(2); k++)
+                for (int k = 0; k < _terrainTarget.targetIds.GetLength(2); k++)
                 {
-                    blockMap[_x + i, _y + j, _z + k] = _terrainTarget.ids[i, j, k];
-                    DestroyImmediate(blocks[_x + i, _y + j, _z + k]);
+                    blockMap[_x, _y, _z] = _terrainTarget.targetIds[i, j, k];
+                    DestroyImmediate(blocks[_x, _y, _z]);
                 }
             }
         }
