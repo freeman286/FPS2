@@ -24,6 +24,10 @@ public class MapGenerator : MonoBehaviour
 
     public int[,,] blockMap;
 
+    public GameObject[,,] blocks;
+
+    public GameObject[] allTerrain;
+
     void Start()
     {
         GenerateMap();
@@ -35,6 +39,8 @@ public class MapGenerator : MonoBehaviour
 
         if (mapSize.z < 2)
             mapSize.z = 2;
+
+        GetAllTerrain();
 
 
         allTileCoords = new List<Coord>();
@@ -49,9 +55,9 @@ public class MapGenerator : MonoBehaviour
         mapCentre = new Coord((int)mapSize.x / 2, (int)mapSize.y / 2);
 
         string holderName = "Generated Map";
-        if (transform.FindChild(holderName))
+        if (transform.Find(holderName))
         {
-            DestroyImmediate(transform.FindChild(holderName).gameObject);
+            DestroyImmediate(transform.Find(holderName).gameObject);
         }
 
         Transform mapHolder = new GameObject(holderName).transform;
@@ -70,8 +76,9 @@ public class MapGenerator : MonoBehaviour
         {
             emptyCoords.Clear();
             blockMap = new int[(int)mapSize.x, (int)mapSize.y, (int)mapSize.z];
+            blocks = new GameObject[(int)mapSize.x, (int)mapSize.y, (int)mapSize.z];
 
-            
+
             while (!InPlayArea(_randomCoord))
             {
                 _randomCoord = GetRandomCoord();
@@ -98,6 +105,8 @@ public class MapGenerator : MonoBehaviour
 
                 blockMap[x, y, 0] = 2;
 
+                blocks[x, y, 0] = newTile.gameObject;
+
                 for (int z = 1; z < mapSize.z; z++)
                 {
                     Vector3 blockPosition = CoordToPosition(x, y, z);
@@ -105,16 +114,17 @@ public class MapGenerator : MonoBehaviour
                     {
                         Transform newBlock = Instantiate(blockPrefab, blockPosition, Quaternion.identity) as Transform;
                         newBlock.parent = mapHolder;
+                        blocks[x, y, z] = newBlock.gameObject;
                     }
                     else if (blockMap[x, y, z] == 1)
                     {
                         Transform newVoid = Instantiate(voidPrefab, blockPosition, Quaternion.identity) as Transform;
                         newVoid.parent = mapHolder;
+                        blocks[x, y, z] = newVoid.gameObject;
                     }
                 }
             }
         }
-
 
     }
 
@@ -181,6 +191,19 @@ public class MapGenerator : MonoBehaviour
     private bool InPlayArea(Coord _coord)
     {
         return _coord.x > 0 && _coord.y > 0 && _coord.x < mapSize.x - 1 && _coord.y < mapSize.y - 1;
+    }
+
+    private void GetAllTerrain()
+    {
+        Object[] allTerrainObjects = Resources.LoadAll("Prefabs/Map/Terrain", typeof(GameObject));
+
+        allTerrain = new GameObject[allTerrainObjects.Length];
+
+        for (int i = 0; i < allTerrainObjects.Length; i++)
+        {
+            allTerrain[i] = ((GameObject)allTerrainObjects[i]);
+            allTerrain[i].GetComponent<TerrainTarget>().SetTerrainTarget(tilePrefab.localScale.x);
+        }
     }
 
     public struct Coord
