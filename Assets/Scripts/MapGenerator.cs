@@ -188,7 +188,7 @@ public class MapGenerator : MonoBehaviour
                 for (int k = 0; k < _targetIds.GetLength(2); k++)
                 {
 
-                    if (!InPlayArea(new Coord(_x + i, _y + j)) || _targetIds[i, j, k] != blockMap[_x + i, _y + j, _z + k])
+                    if (!InPlayArea(new Coord(_x + i, _y + j)) || _z + k > mapSize.z-1 || _targetIds[i, j, k] != blockMap[_x + i, _y + j, _z + k])
                     {
                         return false;
                     }
