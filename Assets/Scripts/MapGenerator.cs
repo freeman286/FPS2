@@ -58,9 +58,9 @@ public class MapGenerator : MonoBehaviour
         mapCentre = new Coord((int)mapSize.x / 2, (int)mapSize.y / 2);
 
         string holderName = "Generated Map";
-        if (transform.Find(holderName))
+        if (transform.FindChild(holderName))
         {
-            DestroyImmediate(transform.Find(holderName).gameObject);
+            DestroyImmediate(transform.FindChild(holderName).gameObject);
         }
 
         mapHolder = new GameObject(holderName).transform;
@@ -148,22 +148,32 @@ public class MapGenerator : MonoBehaviour
 
             TerrainTarget terrainTarget = allTerrain[i].GetComponent<TerrainTarget>();
 
-            for (int x = 0; x < mapSize.x; x++)
+            int[,,] targetIds = terrainTarget.targetIds;
+            int[,,] ids = terrainTarget.ids;
+
+
+            for (int r = 0; r < 4; r++)
             {
-                for (int y = 0; y < mapSize.y; y++)
+                for (int x = 0; x < mapSize.x; x++)
                 {
-                    for (int z = 0; z < mapSize.z; z++)
+                    for (int y = 0; y < mapSize.y; y++)
                     {
-
-                        if (Random.Range(0f, 1.0f) < terrainTarget.spawnProbability && CheckLocation(x, y, z, terrainTarget.targetIds))
+                        for (int z = 0; z < mapSize.z; z++)
                         {
-                            InsertLocation(x, y, z, allTerrain[i]);
-                        }
 
+                            if (Random.Range(0f, 1.0f) < terrainTarget.spawnProbability && CheckLocation(x, y, z, targetIds))
+                            {
+                                InsertLocation(x, y, z, r, targetIds, ids, allTerrain[i]);
+                            }
+
+                        }
                     }
                 }
+
+
+                targetIds = Util.RotateMatrix(targetIds);
+                ids = Util.RotateMatrix(ids);
             }
-          
             
 
         }
@@ -189,25 +199,32 @@ public class MapGenerator : MonoBehaviour
         return true;
     }
 
-    private void InsertLocation(int _x, int _y, int _z, GameObject _terrain)
+    private void InsertLocation(int _x, int _y, int _z, int r, int[,,] _targetIds, int[,,] _ids, GameObject _terrain)
     {
 
         TerrainTarget _terrainTarget = _terrain.GetComponent<TerrainTarget>();
 
-        GameObject newTerrain = (GameObject)Instantiate(_terrain, CoordToPosition(_x, _y, _z), Quaternion.identity);
+        Coord _pos = OfsetPostion(new Coord(_x, _y), r, _targetIds);
+
+        GameObject newTerrain = (GameObject)Instantiate(_terrain, CoordToPosition(_pos.x, _pos.y, _z), Quaternion.Euler(0, r * -90f, 0));
         newTerrain.transform.parent = mapHolder;
 
-        for (int i = 0; i < _terrainTarget.targetIds.GetLength(0); i++)
+        for (int i = 0; i < _targetIds.GetLength(0); i++)
         {
-            for (int j = 0; j < _terrainTarget.targetIds.GetLength(1); j++)
+            for (int j = 0; j < _targetIds.GetLength(1); j++)
             {
-                for (int k = 0; k < _terrainTarget.targetIds.GetLength(2); k++)
+                for (int k = 0; k < _targetIds.GetLength(2); k++)
                 {
-                    blockMap[_x, _y, _z] = _terrainTarget.targetIds[i, j, k];
-                    DestroyImmediate(blocks[_x, _y, _z]);
+                    blockMap[_x + i, _y + j, _z + k] = _ids[i, j, k];
+                    DestroyImmediate(blocks[_x+i, _y+j, _z+k]);
                 }
             }
         }
+    }
+
+    private Coord OfsetPostion(Coord _pos, int r, int[,,] _targetIds)
+    {
+        return _pos + new Vector2(((r == 1 || r == 2) ? _targetIds.GetLength(0) - 1 : 0), ((r == 2 || r == 3) ? _targetIds.GetLength(1) - 1 : 0));
     }
 
     Vector3 CoordToPosition(int x, int y, int z)
