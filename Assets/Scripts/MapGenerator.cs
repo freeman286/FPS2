@@ -58,9 +58,9 @@ public class MapGenerator : MonoBehaviour
         mapCentre = new Coord((int)mapSize.x / 2, (int)mapSize.y / 2);
 
         string holderName = "Generated Map";
-        if (transform.FindChild(holderName))
+        if (transform.Find(holderName))
         {
-            DestroyImmediate(transform.FindChild(holderName).gameObject);
+            DestroyImmediate(transform.Find(holderName).gameObject);
         }
 
         mapHolder = new GameObject(holderName).transform;
@@ -143,6 +143,7 @@ public class MapGenerator : MonoBehaviour
 
     private void InsertTerrain()
     {
+
         for (int i = 0; i < allTerrain.Length; i++)
         {
 
@@ -150,7 +151,6 @@ public class MapGenerator : MonoBehaviour
 
             int[,,] targetIds = terrainTarget.targetIds;
             int[,,] ids = terrainTarget.ids;
-
 
             for (int r = 0; r < 4; r++)
             {
@@ -209,6 +209,20 @@ public class MapGenerator : MonoBehaviour
         GameObject newTerrain = (GameObject)Instantiate(_terrain, CoordToPosition(_pos.x, _pos.y, _z), Quaternion.Euler(0, r * -90f, 0));
         newTerrain.transform.parent = mapHolder;
 
+        _terrainTarget.SetTerrainTarget(tilePrefab.localScale.x);
+
+        GameObject[,,] newBlocks = new GameObject[_terrainTarget.ids.GetLength(0), _terrainTarget.ids.GetLength(1), _terrainTarget.ids.GetLength(2)];
+
+        foreach (Transform child in newTerrain.transform)
+        {
+            newBlocks[(int)(child.localPosition.x / tilePrefab.localScale.x), (int)(child.localPosition.z / tilePrefab.localScale.x), (int)(child.localPosition.y / tilePrefab.localScale.x)] = child.gameObject;
+        }
+
+        for (int a = 1; a < r + 1; a++)
+        {
+            newBlocks = Util.RotateGameObjectMatrix(newBlocks);
+        }
+
         for (int i = 0; i < _targetIds.GetLength(0); i++)
         {
             for (int j = 0; j < _targetIds.GetLength(1); j++)
@@ -216,7 +230,12 @@ public class MapGenerator : MonoBehaviour
                 for (int k = 0; k < _targetIds.GetLength(2); k++)
                 {
                     blockMap[_x + i, _y + j, _z + k] = _ids[i, j, k];
-                    DestroyImmediate(blocks[_x+i, _y+j, _z+k]);
+
+                    GameObject oldBlock = blocks[_x + i, _y + j, _z + k];
+
+                    DestroyImmediate(oldBlock);
+
+                    blocks[_x + i, _y + j, _z + k] = newBlocks[i, j, k];
                 }
             }
         }

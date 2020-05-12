@@ -137,4 +137,53 @@ public class Util
         result += "]";
         return result;
     }
+
+    public static GameObject[,,] TransposeGameObjectMatrix(GameObject[,,] _matrix)
+    {
+        int x = _matrix.GetLength(0);
+        int y = _matrix.GetLength(1);
+        int z = _matrix.GetLength(2);
+
+        GameObject[,,] result = new GameObject[y, x, z];
+
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                for (int k = 0; k < z; k++)
+                {
+                    result[j, i, k] = _matrix[i, j, k];
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static GameObject[,,] FlipGameObjectMatrix(GameObject[,,] _matrix)
+    {
+        int x = _matrix.GetLength(0);
+        int y = _matrix.GetLength(1);
+        int z = _matrix.GetLength(2);
+
+        GameObject[,,] result = new GameObject[x, y, z];
+
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                for (int k = 0; k < z; k++)
+                {
+                    result[i, j, k] = _matrix[(x - 1) - i, j, k];
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static GameObject[,,] RotateGameObjectMatrix(GameObject[,,] _matrix)
+    {
+        return FlipGameObjectMatrix(TransposeGameObjectMatrix(_matrix));
+    }
 }
