@@ -229,13 +229,17 @@ public class MapGenerator : MonoBehaviour
             {
                 for (int k = 0; k < _targetIds.GetLength(2); k++)
                 {
-                    blockMap[_x + i, _y + j, _z + k] = _ids[i, j, k];
+                    if (_ids[i, j, k] != -2)
+                    {
 
-                    GameObject oldBlock = blocks[_x + i, _y + j, _z + k];
+                        blockMap[_x + i, _y + j, _z + k] = _ids[i, j, k];
 
-                    DestroyImmediate(oldBlock);
+                        GameObject oldBlock = blocks[_x + i, _y + j, _z + k];
 
-                    blocks[_x + i, _y + j, _z + k] = newBlocks[i, j, k];
+                        DestroyImmediate(oldBlock);
+
+                        blocks[_x + i, _y + j, _z + k] = newBlocks[i, j, k];
+                    }
                 }
             }
         }
