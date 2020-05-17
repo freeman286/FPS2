@@ -51,7 +51,7 @@ MonoBehaviour:
   showDebugMessages: 0
   serverTickRate: 60
   offlineScene: Assets/Scenes/Lobby.unity
-  onlineScene: Assets/Scenes/MapGen.unity
+  onlineScene: Assets/Scenes/MainMap.unity
   transport: {fileID: 1140310388320865850}
   networkAddress: localhost
   maxConnections: 4

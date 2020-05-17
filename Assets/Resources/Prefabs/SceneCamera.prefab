@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9096853361341719545}
   - component: {fileID: 9096853361341719544}
   - component: {fileID: 9096853361341719546}
-  - component: {fileID: 9096853361341719547}
+  - component: {fileID: 4564118826751416479}
   m_Layer: 0
   m_Name: SceneCamera
   m_TagString: MainCamera
@@ -180,15 +180,11 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
---- !u!114 &9096853361341719547
-MonoBehaviour:
+--- !u!81 &4564118826751416479
+AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9096853361341719550}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5ade317c46030448320cfeac784975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

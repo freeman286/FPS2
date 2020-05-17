@@ -52,8 +52,6 @@ public class PlayerUI : MonoBehaviour
     [HideInInspector]
     public NetworkManagerHUD networkManagerHUD;
 
-    
-
     public void SetPlayer(Player _player)
     {
         player = _player;
