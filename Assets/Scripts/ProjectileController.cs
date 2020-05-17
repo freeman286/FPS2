@@ -9,7 +9,7 @@ public class ProjectileController : NetworkBehaviour
     [SyncVar]
     public string playerID;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     public float initialVelocity;
 

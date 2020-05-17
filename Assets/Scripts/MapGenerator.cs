@@ -30,11 +30,6 @@ public class MapGenerator : MonoBehaviour
 
     private Transform mapHolder;
 
-    void Start()
-    {
-        GenerateMap();
-    }
-
     public void GenerateMap()
     {
 

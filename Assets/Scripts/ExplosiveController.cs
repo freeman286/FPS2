@@ -40,12 +40,15 @@ public class ExplosiveController : NetworkBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        projectileController.rb.isKinematic = true;
         CmdExplode(Quaternion.LookRotation(collision.contacts[0].normal));
     }
 
     [Command]
     void CmdExplode(Quaternion _rot)
     {
+        RpcExplode(_rot);
+
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, range);
 
         foreach (var _hit in hitColliders)
@@ -61,9 +64,7 @@ public class ExplosiveController : NetworkBehaviour
             }
 
         }
-
-        RpcExplode(_rot);
-       
+        
     }
 
     [ClientRpc]
@@ -72,7 +73,7 @@ public class ExplosiveController : NetworkBehaviour
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
 
         Destroy(_impact, 4f);
-        Destroy(gameObject);
+        NetworkServer.Destroy(gameObject);
     }
 
 }

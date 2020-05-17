@@ -910,7 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3942678328699765522}
   - component: {fileID: 3968708877516200468}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: OpenTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}

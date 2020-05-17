@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\LightBlender.cs" />
      <Compile Include="Assets\Scripts\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\MatchSettings.cs" />
+     <Compile Include="Assets\Scripts\NetworkMapGenerator.cs" />
      <Compile Include="Assets\Scripts\OfflineUI.cs" />
      <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\PlayAudio.cs" />

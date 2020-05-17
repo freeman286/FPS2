@@ -24,13 +24,4 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log(primaryWeaponName);
-            Debug.Log(secondaryWeaponName);
-        }
-    }
-
 }
