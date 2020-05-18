@@ -19,7 +19,6 @@ public class TerrainTarget : MonoBehaviour
             targetIds[(int)(child.localPosition.x / _gridSize), (int)(child.localPosition.z / _gridSize), (int)(child.localPosition.y / _gridSize)] = terrainId.targetId;
             ids[(int)(child.localPosition.x / _gridSize), (int)(child.localPosition.z / _gridSize), (int)(child.localPosition.y / _gridSize)] = terrainId.id;
         }
-
     }
     
     private void SetTargetBounds(float _gridSize)
