@@ -84,10 +84,11 @@ public class PlayerMotor : MonoBehaviour
 
     void FixedUpdate()
     {
+        CheckGrounded();
         PerformMovement();
         PerformRotation();
         PerformFootMovement();
-        CheckGrounded();
+        
     }
 
     void PerformMovement()
@@ -161,7 +162,12 @@ public class PlayerMotor : MonoBehaviour
         if (Physics.Raycast(transform.position, -Vector3.up, out _hit, 3f, mask));
         {
             isGrounded = _hit.distance < 2.5f && Mathf.Abs(rb.velocity.y) < 1f && _hit.distance != 0f;
+            if (Physics.Raycast(transform.position, Vector3.up, out _hit, 1f, mask))
+            {
+                isGrounded = _hit.distance > 1f;
+            }
         }
+        
     }
 
     public void SetDefaults()
