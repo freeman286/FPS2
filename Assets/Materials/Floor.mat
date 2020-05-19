@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Floor
-  m_Shader: {fileID: -6465566751694194690, guid: acc65c867564c3a448bc3e62d9a70f14,
+  m_Shader: {fileID: -6465566751694194690, guid: fb40951a089a403458d59095ea6088f0,
     type: 3}
   m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
