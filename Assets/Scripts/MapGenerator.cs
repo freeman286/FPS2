@@ -147,6 +147,9 @@ public class MapGenerator : MonoBehaviour
             int[,,] targetIds = terrainTarget.targetIds;
             int[,,] ids = terrainTarget.ids;
 
+            Debug.Log(allTerrain[i].transform.name);
+            Debug.Log(Util.FormatMatrix(targetIds));
+
             for (int r = 0; r < 4; r++)
             {
                 for (int x = 0; x < mapSize.x; x++)
@@ -183,7 +186,7 @@ public class MapGenerator : MonoBehaviour
                 for (int k = 0; k < _targetIds.GetLength(2); k++)
                 {
 
-                    if (!InPlayArea(new Coord(_x + i, _y + j)) || _z + k > mapSize.z-1 || _targetIds[i, j, k] != blockMap[_x + i, _y + j, _z + k])
+                    if (!InPlayArea(new Coord(_x + i, _y + j)) || _z + k > mapSize.z-1 || (_targetIds[i, j, k] != blockMap[_x + i, _y + j, _z + k] && _targetIds[i, j, k] != -3))
                     {
                         return false;
                     }

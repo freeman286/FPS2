@@ -183,7 +183,7 @@ public class PlayerShoot : NetworkBehaviour {
         Vector3 _cone = Random.insideUnitSphere * currentWeapon.coneOfFire;
 
         RaycastHit _hit;
-        if (Physics.Raycast(weaponManager.GetCurrentGraphics().firePoint.transform.position, _direction + _devience + _cone, out _hit, currentWeapon.range, mask))
+        if (Physics.Raycast(weaponManager.GetCurrentGraphics().firePoint.transform.position + _direction * 0.2f, _direction + _devience + _cone, out _hit, currentWeapon.range, mask))
         {
             if (_hit.collider.tag == PLAYER_TAG)
             {
