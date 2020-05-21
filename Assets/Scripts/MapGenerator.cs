@@ -206,6 +206,7 @@ public class MapGenerator : MonoBehaviour
 
         GameObject newTerrain = (GameObject)Instantiate(_terrain, CoordToPosition(_pos.x, _pos.y, _z), Quaternion.Euler(0, r * -90f, 0));
         newTerrain.transform.parent = mapHolder;
+        newTerrain.transform.SetAsFirstSibling();
 
         _terrainTarget.SetTerrainTarget(tilePrefab.localScale.x);
 
