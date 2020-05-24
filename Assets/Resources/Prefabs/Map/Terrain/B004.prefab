@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 1741005450591267716}
   - component: {fileID: 5908164528860245870}
   m_Layer: 13
-  m_Name: A004
+  m_Name: B004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efac4decc8c7b0148bd69b71261a422b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnProbability: 0.07
+  spawnProbability: 0.2
 --- !u!1 &2023725705453167830
 GameObject:
   m_ObjectHideFlags: 0
