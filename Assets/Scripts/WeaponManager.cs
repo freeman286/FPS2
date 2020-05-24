@@ -190,6 +190,9 @@ public class WeaponManager : NetworkBehaviour
 
         currentWeapon.Load();
 
+        anim.enabled = false;
+        anim.enabled = true;
+
         isReloading = false;
     }
 

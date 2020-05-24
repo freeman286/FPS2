@@ -816,7 +816,7 @@ MonoBehaviour:
   magSize: 8
   speed: 1
   bullets: 7
-  reloadTime: 5.75
+  reloadTime: 6
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 0}
 --- !u!82 &792773704839598559

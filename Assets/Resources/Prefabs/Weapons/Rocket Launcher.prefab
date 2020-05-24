@@ -668,7 +668,7 @@ MonoBehaviour:
   magSize: 1
   speed: 0.6
   bullets: 1
-  reloadTime: 6
+  reloadTime: 6.5
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 156444120250483795, guid: 7e4bb9f3f4fac224e9deda6ee89d1d1c,
     type: 3}
