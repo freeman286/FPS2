@@ -190,9 +190,6 @@ public class WeaponManager : NetworkBehaviour
 
         currentWeapon.Load();
 
-        anim.enabled = false;
-        anim.enabled = true;
-
         isReloading = false;
     }
 
@@ -209,10 +206,17 @@ public class WeaponManager : NetworkBehaviour
         if (anim != null)
         {
             anim.SetTrigger("Reload");
+            StartCoroutine(ReloadAmin_Coroutine());
         }
     }
 
-    public PlayerWeapon NameToWeapon(string _name)
+    private IEnumerator ReloadAmin_Coroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        anim.ResetTrigger("Shoot"); // Kills the shoot animation so it doesn't play after the reload animation finishes
+    }
+
+        public PlayerWeapon NameToWeapon(string _name)
     {
         foreach (var weapon in allWeapons)
         {
