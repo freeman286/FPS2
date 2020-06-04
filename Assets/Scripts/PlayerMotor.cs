@@ -161,7 +161,7 @@ public class PlayerMotor : MonoBehaviour
         RaycastHit _hit;
         if (Physics.Raycast(transform.position, -Vector3.up, out _hit, 3f, mask));
         {
-            isGrounded = _hit.distance < 2.5f && Mathf.Abs(rb.velocity.y) < 1f && _hit.distance != 0f;
+            isGrounded = _hit.distance < 2.15f && Mathf.Abs(rb.velocity.y) < 1f && _hit.distance != 0f;   
             if (Physics.Raycast(transform.position, Vector3.up, out _hit, 1f, mask))
             {
                 isGrounded = _hit.distance > 1f;

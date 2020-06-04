@@ -1772,7 +1772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efac4decc8c7b0148bd69b71261a422b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnProbability: 0.6
+  spawnProbability: 0.7
 --- !u!1 &1755546194176706049
 GameObject:
   m_ObjectHideFlags: 0
