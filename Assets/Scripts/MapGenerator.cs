@@ -70,7 +70,7 @@ public class MapGenerator : MonoBehaviour
 
         //Create Main
 
-        while (emptyCoords.Count < mapFill && _esc < 1000)
+        while (emptyCoords.Count < mapFill && _esc < 10000)
         {
             emptyCoords.Clear();
             blockMap = new int[(int)mapSize.x, (int)mapSize.y, (int)mapSize.z];
@@ -147,8 +147,8 @@ public class MapGenerator : MonoBehaviour
             int[,,] targetIds = terrainTarget.targetIds;
             int[,,] ids = terrainTarget.ids;
 
-            Debug.Log(allTerrain[i].transform.name);
-            Debug.Log(Util.FormatMatrix(targetIds));
+            //Debug.Log(allTerrain[i].transform.name);
+            //Debug.Log(Util.FormatMatrix(targetIds));
 
             for (int r = 0; r < 4; r++)
             {
@@ -282,10 +282,10 @@ public class MapGenerator : MonoBehaviour
                 _dir = _dir.Rotate(-90f);
             }
 
-            if (!InPlayArea(_currentCoord + 4 * _dir))
+            if (!InPlayArea(_currentCoord + 6 * _dir))
             {
                 _dir = Util.SnapTo(mapCentre.ToVector2() - _currentCoord.ToVector2());
-                if (emptyCoords.Contains(_currentCoord + 2 * _dir))
+                if (emptyCoords.Contains(_currentCoord + 3 * _dir))
                 {
                     _dir = _dir.Rotate(90f);
                 }

@@ -53,8 +53,8 @@ MonoBehaviour:
     type: 3}
   mapSize: {x: 20, y: 20, z: 4}
   mapFill: 160
-  turnLeftThreshold: 0.87
-  turnRightThreshold: 0.95
+  turnLeftThreshold: 0.8
+  turnRightThreshold: 0.85
   seed: 1
 --- !u!114 &1289998211442839126
 MonoBehaviour:
