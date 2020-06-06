@@ -212,7 +212,7 @@ public class WeaponManager : NetworkBehaviour
 
     private IEnumerator ReloadAmin_Coroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(currentWeapon.reloadTime - 0.5f);
         anim.ResetTrigger("Shoot"); // Kills the shoot animation so it doesn't play after the reload animation finishes
     }
 

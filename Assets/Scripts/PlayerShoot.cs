@@ -88,7 +88,7 @@ public class PlayerShoot : NetworkBehaviour {
     void RpcDoShootEfftect()
     {
         Animator anim = weaponManager.currentGraphics.GetComponent<Animator>();
-        if (anim != null)
+        if (anim != null && !anim.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
         {
             anim.SetTrigger("Shoot");
         }
