@@ -659,14 +659,14 @@ MonoBehaviour:
   fireRate: 11
   roundsPerShot: 1
   coneOfFire: 0
-  spreadDefault: 0.06
-  spreadWhileMoving: 0.08
+  spreadDefault: 0.02
+  spreadWhileMoving: 0.04
   spreadWhileJumping: 0.2
-  recoilAmount: 280
-  recoilTime: 0.2
+  recoilAmount: 800
+  recoilTime: 0.1
   magSize: 25
   speed: 1.2
-  bullets: 0
+  bullets: 4
   reloadTime: 2.5
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 0}

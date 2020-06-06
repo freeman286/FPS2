@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraFacingBillboard
+    - CustomNetworkManager
     - ExplosiveController
     - GameManager
     - Killfeed
@@ -36,7 +37,6 @@ ScriptsOnlyBuild:
     - Mirror.NetworkTransformChild
     Mirror.dll:
     - Mirror.NetworkIdentity
-    - Mirror.NetworkManager
     - Mirror.NetworkManagerHUD
     - Mirror.NetworkStartPosition
     - Mirror.TelepathyTransport
@@ -194,8 +194,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11876}
     - Class: 114
-      Script: {instanceID: 11982}
-    - Class: 114
       Script: {instanceID: 11992}
     - Class: 114
       Script: {instanceID: 12020}
@@ -335,6 +333,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17426}
     - Class: 114
       Script: {instanceID: 17434}
+    - Class: 114
+      Script: {instanceID: 682076}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -427,8 +427,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11868}
     - Class: 114
-      Script: {instanceID: 11982}
-    - Class: 114
       Script: {instanceID: 11992}
     - Class: 114
       Script: {instanceID: 12020}
@@ -514,6 +512,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17298}
     - Class: 114
       Script: {instanceID: 17372}
+    - Class: 114
+      Script: {instanceID: 682076}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -604,8 +604,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11868}
     - Class: 114
-      Script: {instanceID: 11982}
-    - Class: 114
       Script: {instanceID: 11992}
     - Class: 114
       Script: {instanceID: 12020}
@@ -691,6 +689,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17298}
     - Class: 114
       Script: {instanceID: 17372}
+    - Class: 114
+      Script: {instanceID: 682076}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2960,6 +2960,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 569f44603c5fc1ef4285f087a255c45a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CustomNetworkManager
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity
