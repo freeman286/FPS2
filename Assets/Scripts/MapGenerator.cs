@@ -233,11 +233,14 @@ public class MapGenerator : MonoBehaviour
 
                         blockMap[_x + i, _y + j, _z + k] = _ids[i, j, k];
 
-                        GameObject oldBlock = blocks[_x + i, _y + j, _z + k];
+                        if (_ids[i, j, k] != -4)
+                        {
+                            GameObject oldBlock = blocks[_x + i, _y + j, _z + k];
 
-                        DestroyImmediate(oldBlock);
+                            DestroyImmediate(oldBlock);
 
-                        blocks[_x + i, _y + j, _z + k] = newBlocks[i, j, k];
+                            blocks[_x + i, _y + j, _z + k] = newBlocks[i, j, k];
+                        }
                     }
                 }
             }
