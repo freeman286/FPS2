@@ -36,7 +36,7 @@ public class CustomNetworkManager : NetworkManager
             foreach (Player player in players)
             {
                 RaycastHit _hit;
-                if (Physics.Raycast(startPos.position, player.transform.position - startPos.position, out _hit, spawnDistance + spawnRange, mask))
+                if (Physics.Raycast(startPos.position + (2 * Vector3.up), player.transform.position - startPos.position - (2 * Vector3.up), out _hit, spawnDistance + spawnRange, mask))
                 {
                     if (_hit.collider.tag == PLAYER_TAG)
                     {

@@ -33,6 +33,9 @@ public class Player : NetworkBehaviour
     private GameObject[] disableGameObjectsOnDeath;
 
     [SerializeField]
+    private Collider[] disableCollidersOnDeath;
+
+    [SerializeField]
     private GameObject spawnEffect;
 
     private bool firstSetup = true;
@@ -51,6 +54,17 @@ public class Player : NetworkBehaviour
 
     public WeaponManager weaponManager;
     public PlayerController playerController;
+
+    [Header("Rigidbody On Death Info")]
+
+    [SerializeField]
+    private GameObject[] rigidbodyOnDeath;
+
+    [SerializeField]
+    private Vector3[] rigidbodyPosition;
+
+    [SerializeField]
+    private float[] rigidbodyMass;
 
     public void SetupPlayer()
     {
@@ -149,6 +163,19 @@ public class Player : NetworkBehaviour
             disableGameObjectsOnDeath[i].SetActive(false);
         }
 
+        for (int i = 0; i < disableCollidersOnDeath.Length; i++)
+        {
+            disableCollidersOnDeath[i].enabled = false;
+        }
+
+        for (int i = 0; i < rigidbodyOnDeath.Length; i++)
+        {
+            Rigidbody rigidbody = rigidbodyOnDeath[i].AddComponent<Rigidbody>();
+            rigidbody.mass = rigidbodyMass[i];
+            rigidbody.drag = 1;
+            rigidbody.velocity = Vector3.zero;
+        }
+
         if (isLocalPlayer)
         {
             GameManager.instance.SetSceneCameraActive(true);
@@ -187,6 +214,19 @@ public class Player : NetworkBehaviour
         {
             disableGameObjectsOnDeath[i].SetActive(true);
         }
+
+        for (int i = 0; i < disableCollidersOnDeath.Length; i++)
+        {
+            disableCollidersOnDeath[i].enabled = true;
+        }
+
+        for (int i = 0; i < rigidbodyOnDeath.Length; i++)
+        {
+            Destroy(rigidbodyOnDeath[i].GetComponent<Rigidbody>());
+            rigidbodyOnDeath[i].transform.localPosition = rigidbodyPosition[i];
+            rigidbodyOnDeath[i].transform.localRotation = Quaternion.identity;
+        }
+
 
         GameObject _spawnEffect = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
         Destroy(_spawnEffect, 5f);

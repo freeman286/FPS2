@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375526062058986501}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1177,50 +1177,6 @@ Transform:
   m_Father: {fileID: 4654185335261662069}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6135621075879826347
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1886677708089713496}
-  - component: {fileID: 3904623758403897084}
-  m_Layer: 14
-  m_Name: Floor
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1886677708089713496
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6135621075879826347}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.625, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1932107640876628747}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3904623758403897084
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6135621075879826347}
-  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.05, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6416331504652519073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1300,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1932107640876628747}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3534165101480003966
 CapsuleCollider:
@@ -1356,7 +1312,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.7
+  m_Radius: 0.6
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1581,8 +1537,8 @@ MonoBehaviour:
   rightFoot: {fileID: 6416331504652519073}
   leftFootRestingPos: {x: -0.4, y: -1.5, z: 0}
   rightFootRestingPos: {x: 0.4, y: -1.5, z: 0}
-  snapDist: 0.05
-  snapSpeed: 100
+  snapDist: 0.1
+  snapSpeed: 65
   mask:
     serializedVersion: 2
     m_Bits: 8192
@@ -1723,6 +1679,9 @@ MonoBehaviour:
   - {fileID: 1293655893664764981}
   disableGameObjectsOnDeath:
   - {fileID: 4338212503390514524}
+  disableCollidersOnDeath:
+  - {fileID: 3534165101480003966}
+  - {fileID: 8382058299198231781}
   spawnEffect: {fileID: 4308811345454485748, guid: 1dd9664a5f2f3eb42b140ec1ede46d6b,
     type: 3}
   shoot: {fileID: 1506890265112965245}
@@ -1731,6 +1690,21 @@ MonoBehaviour:
   username: 
   weaponManager: {fileID: 6832787154136730258}
   playerController: {fileID: 600328063753895067}
+  rigidbodyOnDeath:
+  - {fileID: 375526062058986501}
+  - {fileID: 8845826571951273012}
+  - {fileID: 6416331504652519073}
+  - {fileID: 3917416763378249837}
+  rigidbodyPosition:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: -0.75, z: 0}
+  - {x: 0.4, y: -1.5, z: 0}
+  - {x: -0.4, y: -1.5, z: 0}
+  rigidbodyMass:
+  - 0.8
+  - 0.8
+  - 0.2
+  - 0.2
 --- !u!114 &1213332052167060526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1746,7 +1720,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.05
   clientAuthority: 1
-  localPositionSensitivity: 0.01
+  localPositionSensitivity: 0.001
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
   target: {fileID: 5531572964217236876}
@@ -1765,7 +1739,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.05
   clientAuthority: 1
-  localPositionSensitivity: 0.01
+  localPositionSensitivity: 0.001
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
   target: {fileID: 4330082499614742377}
@@ -1836,7 +1810,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1886677708089713496}
   - {fileID: 2827405987574823094}
   m_Father: {fileID: 1259516704761575958}
   m_RootOrder: 1
