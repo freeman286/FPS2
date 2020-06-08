@@ -11,4 +11,5 @@ public class WeaponGraphics : MonoBehaviour
     public GameObject casing;
     public GameObject shootSound;
     public GameObject firePoint;
+    public Collider[] colliders;
 }

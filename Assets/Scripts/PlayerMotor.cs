@@ -27,10 +27,6 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField]
     private LayerMask mask;
 
-    private Vector3 lastPos;
-
-    private Vector3 currentPos;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -76,7 +72,6 @@ public class PlayerMotor : MonoBehaviour
         {
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }
-        lastPos = rb.transform.position;
     }
 
     void PerformRotation()
@@ -121,13 +116,23 @@ public class PlayerMotor : MonoBehaviour
 
     public bool IsMoving()
     {
-        currentPos = rb.position;
-        return currentPos != lastPos;
+        return velocity.magnitude > 0f;
     }
 
     public void SetDefaults()
     {
+        rb.isKinematic = false;
         rb.velocity = Vector3.zero;
+    }
+
+    public void Die()
+    {
+        rb.isKinematic = true;
+    }
+
+    public Vector3 GetCurrentVelocity()
+    {
+        return rb.velocity.y * Vector3.up + velocity;
     }
 
 }

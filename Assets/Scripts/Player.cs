@@ -66,6 +66,13 @@ public class Player : NetworkBehaviour
     [SerializeField]
     private float[] rigidbodyMass;
 
+    private PlayerMotor motor;
+
+    void Start()
+    {
+        motor = GetComponent<PlayerMotor>();
+    }
+
     public void SetupPlayer()
     {
 
@@ -173,9 +180,12 @@ public class Player : NetworkBehaviour
             Rigidbody rigidbody = rigidbodyOnDeath[i].AddComponent<Rigidbody>();
             rigidbody.mass = rigidbodyMass[i];
             rigidbody.drag = 1;
-            rigidbody.velocity = Vector3.zero;
             rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+            rigidbody.velocity = motor.GetCurrentVelocity();
         }
+
+        weaponManager.Die();
+        motor.Die();
 
         if (isLocalPlayer)
         {

@@ -37,12 +37,17 @@ public class WeaponManager : NetworkBehaviour
 
     private IEnumerator reload;
 
+    private GameObject weaponIns;
+
+    private PlayerMotor motor;
+
 
     void Start()
     {
         allWeapons = Util.AllWeapons();
         SetDefaults();
         anim = GetComponent<Animator>();
+        motor = GetComponent<PlayerMotor>();
     }   
 
     void Update()
@@ -160,15 +165,20 @@ public class WeaponManager : NetworkBehaviour
             Destroy(child.gameObject);
         }
 
-        GameObject _weaponIns = (GameObject)Instantiate(currentWeapon.graphics, weaponHolder.position, weaponHolder.rotation);
-        _weaponIns.transform.SetParent(weaponHolder);
+        weaponIns = (GameObject)Instantiate(currentWeapon.graphics, weaponHolder.position, weaponHolder.rotation);
+        weaponIns.transform.SetParent(weaponHolder);
 
-        currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();
+        currentGraphics = weaponIns.GetComponent<WeaponGraphics>();
         if (currentGraphics == null)
-            Debug.LogError("No WeaponGraphics component on weapon object: " + _weaponIns.name);
+            Debug.LogError("No WeaponGraphics component on weapon object: " + weaponIns.name);
 
         if (isLocalPlayer)
-            Util.SetLayerRecursively(_weaponIns, LayerMask.NameToLayer(weaponLayerName));
+            Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer(weaponLayerName));
+
+        for (int i = 0; i < currentGraphics.colliders.Length; i++)
+        {
+            currentGraphics.colliders[i].enabled = false;
+        }
     }
 
     public void Reload()
@@ -242,5 +252,24 @@ public class WeaponManager : NetworkBehaviour
     public GameObject GetcurrentShootSound()
     {
         return currentGraphics.shootSound;
+    }
+
+    public void Die()
+    {
+        // Change the current weapon into a prop
+
+        for (int i = 0; i < currentGraphics.colliders.Length; i++)
+        {
+            currentGraphics.colliders[i].enabled = true;
+        }
+
+        Rigidbody rigidbody = weaponIns.AddComponent<Rigidbody>();
+        rigidbody.mass = 0.5f;
+        rigidbody.drag = 1;
+        rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+        rigidbody.velocity = motor.GetCurrentVelocity();
+
+        Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer("Collider"));
+        Destroy(weaponIns.GetComponent<Animator>());
     }
 }
