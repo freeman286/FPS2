@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AnimateFeet
     - CameraFacingBillboard
     - CustomNetworkManager
     - ExplosiveController
@@ -26,7 +27,6 @@ ScriptsOnlyBuild:
     - PlayerWeapon
     - ProjectileController
     - Scoreboard
-    - StallCollision
     - TerrainId
     - TerrainTarget
     - WeaponGraphics
@@ -36,6 +36,8 @@ ScriptsOnlyBuild:
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
+    Mirror.Editor.dll:
+    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
@@ -99,8 +101,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -335,7 +339,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17436}
     - Class: 114
-      Script: {instanceID: 2527580}
+      Script: {instanceID: 136572}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -518,7 +522,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17374}
     - Class: 114
-      Script: {instanceID: 2527580}
+      Script: {instanceID: 136572}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -697,7 +701,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17374}
     - Class: 114
-      Script: {instanceID: 2527580}
+      Script: {instanceID: 136572}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1691,7 +1695,7 @@ ScriptsOnlyBuild:
     className: VolumetricFog
   - hash:
       serializedVersion: 2
-      Hash: 57cc56a250b91af1491cbfd2a6573f50
+      Hash: 4e1b7baee11bea5928149ec2d44ece9c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMotor
@@ -2975,10 +2979,10 @@ ScriptsOnlyBuild:
     className: VFXUISliderBinder
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 2cd1ab9e7849695d19f10d3c9be56d39
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: StallCollision
+    className: AnimateFeet
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity

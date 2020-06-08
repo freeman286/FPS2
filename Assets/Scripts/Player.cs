@@ -174,6 +174,7 @@ public class Player : NetworkBehaviour
             rigidbody.mass = rigidbodyMass[i];
             rigidbody.drag = 1;
             rigidbody.velocity = Vector3.zero;
+            rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
         }
 
         if (isLocalPlayer)

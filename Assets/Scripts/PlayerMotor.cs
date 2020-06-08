@@ -22,36 +22,17 @@ public class PlayerMotor : MonoBehaviour
 
     public bool isGrounded = true;
 
-    [SerializeField]
-    private GameObject leftFoot;
-    [SerializeField]
-    private GameObject rightFoot;
-
-    [SerializeField]
-    private Vector3 leftFootRestingPos;
-    [SerializeField]
-    private Vector3 rightFootRestingPos;
-
-    private Vector3 leftFootPos;
-    private Vector3 rightFootPos;
-
-    [SerializeField]
-    private float snapDist;
-
-    [SerializeField]
-    private float snapSpeed = 100f;
-
-    private bool leftFootMoving = true;
-    private bool rightFootMoving = true;
-
     private WeaponManager weaponManager;
 
     [SerializeField]
     private LayerMask mask;
 
+    private Vector3 lastPos;
+
+    private Vector3 currentPos;
+
     void Start()
     {
-        SetDefaults();
         rb = GetComponent<Rigidbody>();
         playerController = GetComponent<PlayerController>();
         weaponManager = GetComponent<WeaponManager>();
@@ -87,8 +68,6 @@ public class PlayerMotor : MonoBehaviour
         CheckGrounded();
         PerformMovement();
         PerformRotation();
-        PerformFootMovement();
-        
     }
 
     void PerformMovement()
@@ -97,6 +76,7 @@ public class PlayerMotor : MonoBehaviour
         {
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }
+        lastPos = rb.transform.position;
     }
 
     void PerformRotation()
@@ -109,42 +89,6 @@ public class PlayerMotor : MonoBehaviour
 
             cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
         }
-    }
-
-    void PerformFootMovement()
-    {
-        float _leftDist = Vector3.Distance(leftFootRestingPos, leftFoot.transform.localPosition);
-        float _rightDist = Vector3.Distance(rightFootRestingPos, rightFoot.transform.localPosition);
-
-        if (_leftDist > 4f || _rightDist > 4f)
-        {
-            leftFoot.transform.localPosition = leftFootRestingPos;
-            rightFoot.transform.localPosition = rightFootRestingPos;
-        }
-
-        leftFootMoving = (_leftDist > snapDist && !rightFootMoving) || !isGrounded;
-
-        rightFootMoving = (_rightDist > snapDist && !leftFootMoving) || !isGrounded;
-
-        if (leftFootMoving)
-        {
-            leftFoot.transform.localPosition = Vector3.Lerp(leftFoot.transform.localPosition, leftFootRestingPos, Time.deltaTime * _leftDist * snapSpeed);
-        } else
-        {
-            leftFoot.transform.position = leftFootPos; 
-        }
-        leftFootPos = leftFoot.transform.position;
-
-        if (rightFootMoving)
-        {
-            rightFoot.transform.localPosition = Vector3.Lerp(rightFoot.transform.localPosition, rightFootRestingPos, Time.deltaTime * _rightDist * snapSpeed);
-        }
-        else
-        {
-            rightFoot.transform.position = rightFootPos;
-        }
-        rightFootPos = rightFoot.transform.position;
-
     }
 
     public void Jump()
@@ -170,12 +114,6 @@ public class PlayerMotor : MonoBehaviour
         
     }
 
-    public void SetDefaults()
-    {
-        leftFoot.transform.localPosition = leftFootRestingPos;
-        rightFoot.transform.localPosition = rightFootRestingPos;
-    }
-
     public bool IsGrounded()
     {
         return isGrounded;
@@ -183,7 +121,13 @@ public class PlayerMotor : MonoBehaviour
 
     public bool IsMoving()
     {
-        return leftFootMoving || rightFootMoving;
+        currentPos = rb.position;
+        return currentPos != lastPos;
+    }
+
+    public void SetDefaults()
+    {
+        rb.velocity = Vector3.zero;
     }
 
 }
