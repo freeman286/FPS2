@@ -68,6 +68,9 @@ public class Player : NetworkBehaviour
 
     private PlayerMotor motor;
 
+    private Vector3 lastPosition;
+    private Vector3 velocity; // The velocity that other players think this player is travelling at
+
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
@@ -82,11 +85,11 @@ public class Player : NetworkBehaviour
             GetComponent<PlayerSetup>().ui.Alive();
         }
 
-        CmdBroadcastNewPlayerSetup();
+        CmdBroadcastPlayerSetup();
     }
 
     [Command]
-    private void CmdBroadcastNewPlayerSetup ()
+    private void CmdBroadcastPlayerSetup ()
     {
         RpcSetupPlayerOnAllClients();
     }
@@ -109,6 +112,9 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
+        velocity = (transform.position - lastPosition) / Time.deltaTime;
+        lastPosition = transform.position;
+
         if (!isLocalPlayer)
             return;
 
@@ -181,7 +187,7 @@ public class Player : NetworkBehaviour
             rigidbody.mass = rigidbodyMass[i];
             rigidbody.drag = 1;
             rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-            rigidbody.velocity = motor.GetCurrentVelocity();
+            rigidbody.velocity = velocity;
         }
 
         weaponManager.Die();
@@ -244,5 +250,12 @@ public class Player : NetworkBehaviour
 
         playerController.SetDefaults();
         weaponManager.SetDefaults();
+    }
+
+
+    // We need this as we can't access it through the player motor for other players
+    public Vector3 GetCurrentVelocity()
+    {
+        return velocity;
     }
 }

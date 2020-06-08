@@ -890,7 +890,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 29495
+    m_Bits: 45879
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1647,7 +1647,7 @@ MonoBehaviour:
   cam: {fileID: 899551536351255448}
   mask:
     serializedVersion: 2
-    m_Bits: 8759
+    m_Bits: 41527
 --- !u!114 &3543887534676550787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1670,7 +1670,6 @@ MonoBehaviour:
   - {fileID: 9075518313636580678}
   - {fileID: 5738766274489223137}
   - {fileID: 1293655893664764981}
-  - {fileID: 2139900448668095581}
   disableGameObjectsOnDeath:
   - {fileID: 4338212503390514524}
   disableCollidersOnDeath:

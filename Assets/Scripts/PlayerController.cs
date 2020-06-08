@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
 
     private PlayerMotor motor;
     private PlayerSetup setup;
-    private AnimateFeet feet;
 
     private Rigidbody rb;
 
@@ -28,7 +27,6 @@ public class PlayerController : MonoBehaviour
         motor = GetComponent<PlayerMotor>();
         setup = GetComponent<PlayerSetup>();
         rb = GetComponent<Rigidbody>();
-        feet = GetComponent<AnimateFeet>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -85,7 +83,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetDefaults()
     {
-        feet.SetDefaults();
         motor.SetDefaults();
     }
 }

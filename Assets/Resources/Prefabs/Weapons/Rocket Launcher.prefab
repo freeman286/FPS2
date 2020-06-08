@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 5797772061409865057}
   - component: {fileID: 2675397737237997166}
   - component: {fileID: 5685953521601545155}
+  - component: {fileID: 342058460196373346}
   m_Layer: 8
   m_Name: Barrel
   m_TagString: Untagged
@@ -159,6 +160,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &342058460196373346
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462565539636178836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.9999995
+  m_Direction: 1
+  m_Center: {x: 0.00000005960464, y: 0, z: -0.000000089406946}
 --- !u!1 &1624401382056576474
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +185,7 @@ GameObject:
   - component: {fileID: 2292050513891818317}
   - component: {fileID: 2432979911884907425}
   - component: {fileID: 709053899419979047}
+  - component: {fileID: 3459472670977490050}
   m_Layer: 8
   m_Name: Barrel (1)
   m_TagString: Untagged
@@ -238,6 +254,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &3459472670977490050
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624401382056576474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.50000006
+  m_Height: 1.9999998
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940695}
 --- !u!1 &1626188674828420661
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +483,7 @@ GameObject:
   - component: {fileID: 5795151523378307339}
   - component: {fileID: 6933300044910665667}
   - component: {fileID: 3341027985521722617}
+  - component: {fileID: 7067162318345856909}
   m_Layer: 8
   m_Name: Rail
   m_TagString: Untagged
@@ -521,6 +552,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7067162318345856909
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235952828762216355}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &2721180637063796786
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +622,13 @@ MonoBehaviour:
   casing: {fileID: 0}
   shootSound: {fileID: 185320, guid: 79006053447eef74da4a597445b24959, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  colliders:
+  - {fileID: 342058460196373346}
+  - {fileID: 3459472670977490050}
+  - {fileID: 632646578034646213}
+  - {fileID: 7067162318345856909}
+  - {fileID: 4977900642932346419}
+  - {fileID: 7738167681878601209}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -791,6 +842,7 @@ GameObject:
   - component: {fileID: 8150144213880052756}
   - component: {fileID: 1087250679998481649}
   - component: {fileID: 840049496888586188}
+  - component: {fileID: 4977900642932346419}
   m_Layer: 8
   m_Name: Rail (2)
   m_TagString: Untagged
@@ -859,6 +911,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4977900642932346419
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2991188101511732139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: -0.00000017881393, z: 0.00000011920929}
 --- !u!1 &4100126418251506976
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +975,7 @@ GameObject:
   - component: {fileID: 2709599438888086465}
   - component: {fileID: 8698227799455958178}
   - component: {fileID: 4944438304994909312}
+  - component: {fileID: 632646578034646213}
   m_Layer: 8
   m_Name: Cover
   m_TagString: Untagged
@@ -978,6 +1044,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &632646578034646213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934620084351334154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2.0000007, z: 1.0000005}
+  m_Center: {x: 0.000000059604645, y: -4.2632564e-14, z: -0.00000008940699}
 --- !u!1 &4993812565778371099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1380,7 @@ GameObject:
   - component: {fileID: 559009924993952209}
   - component: {fileID: 4326904598876491050}
   - component: {fileID: 6834443448182409264}
+  - component: {fileID: 7738167681878601209}
   m_Layer: 8
   m_Name: Rail (3)
   m_TagString: Untagged
@@ -1369,6 +1449,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7738167681878601209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6343362390308344527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 5}
+  m_Center: {x: 0, y: 0.5, z: 1.2}
 --- !u!1 &8111633750248764221
 GameObject:
   m_ObjectHideFlags: 0

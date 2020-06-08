@@ -26,11 +26,11 @@ public class AnimateFeet : MonoBehaviour
     private bool leftFootMoving = true;
     private bool rightFootMoving = true;
 
-    private PlayerMotor motor;
+    private Rigidbody rb;
 
     void Start()
     {
-        motor = GetComponent<PlayerMotor>();
+        rb = GetComponent<Rigidbody>();
         SetDefaults();
     }
 
@@ -50,9 +50,9 @@ public class AnimateFeet : MonoBehaviour
             rightFoot.transform.localPosition = rightFootRestingPos;
         }
 
-        leftFootMoving = (_leftDist > snapDist && !rightFootMoving) || !motor.isGrounded;
+        leftFootMoving = (_leftDist > snapDist && !rightFootMoving) || Mathf.Abs(rb.velocity.y) > 0.01f;
 
-        rightFootMoving = (_rightDist > snapDist && !leftFootMoving) || !motor.isGrounded;
+        rightFootMoving = (_rightDist > snapDist && !leftFootMoving) || Mathf.Abs(rb.velocity.y) > 0.01f;
 
         if (leftFootMoving)
         {

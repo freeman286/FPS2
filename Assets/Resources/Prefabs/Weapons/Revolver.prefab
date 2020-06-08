@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 4606882193907305178}
   - component: {fileID: 809277089027656739}
   - component: {fileID: 3887032296068066254}
+  - component: {fileID: 4145755278530785478}
   m_Layer: 8
   m_Name: Barrel
   m_TagString: Untagged
@@ -441,6 +442,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4145755278530785478
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331543066228969250}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 1.9999996, z: 1.0000001}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940695}
 --- !u!1 &2721180637063796786
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +512,11 @@ MonoBehaviour:
   casing: {fileID: 0}
   shootSound: {fileID: 185320, guid: 550ac9df4ad6b1c4aae59c89d46c797d, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  colliders:
+  - {fileID: 4145755278530785478}
+  - {fileID: 8238910437661078734}
+  - {fileID: 1729483327383449718}
+  - {fileID: 5755004223841372545}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -1205,6 +1224,7 @@ GameObject:
   - component: {fileID: 2206100246111652934}
   - component: {fileID: 8845144115538852413}
   - component: {fileID: 5915922586218574598}
+  - component: {fileID: 1729483327383449718}
   m_Layer: 8
   m_Name: Hammer
   m_TagString: Untagged
@@ -1274,6 +1294,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1729483327383449718
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740888246819135929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.0000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7042363548210796968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,6 +1476,7 @@ GameObject:
   - component: {fileID: 2800853441736588179}
   - component: {fileID: 8146820404605461485}
   - component: {fileID: 6516198302081513513}
+  - component: {fileID: 8238910437661078734}
   m_Layer: 8
   m_Name: Drum
   m_TagString: Untagged
@@ -1511,6 +1545,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &8238910437661078734
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238106279836181072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.50000006
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.000000089406946}
 --- !u!1 &8413013489126735368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1807,7 @@ GameObject:
   - component: {fileID: 8026546356445636312}
   - component: {fileID: 5648217909607191120}
   - component: {fileID: 2547141617666205095}
+  - component: {fileID: 5755004223841372545}
   m_Layer: 8
   m_Name: LowerHandle
   m_TagString: Untagged
@@ -1827,3 +1876,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5755004223841372545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194535843868529022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -27,11 +27,14 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField]
     private LayerMask mask;
 
+    private AnimateFeet feet;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerController = GetComponent<PlayerController>();
         weaponManager = GetComponent<WeaponManager>();
+        feet = GetComponent<AnimateFeet>();
     }
 
     public void Move(Vector3 _velocity)
@@ -106,7 +109,6 @@ public class PlayerMotor : MonoBehaviour
                 isGrounded = _hit.distance > 1f;
             }
         }
-        
     }
 
     public bool IsGrounded()
@@ -121,6 +123,8 @@ public class PlayerMotor : MonoBehaviour
 
     public void SetDefaults()
     {
+        feet.SetDefaults();
+        feet.enabled = true;
         rb.isKinematic = false;
         rb.velocity = Vector3.zero;
     }
@@ -128,11 +132,7 @@ public class PlayerMotor : MonoBehaviour
     public void Die()
     {
         rb.isKinematic = true;
-    }
-
-    public Vector3 GetCurrentVelocity()
-    {
-        return rb.velocity.y * Vector3.up + velocity;
+        feet.enabled = false;
     }
 
 }

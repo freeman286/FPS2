@@ -39,7 +39,7 @@ public class WeaponManager : NetworkBehaviour
 
     private GameObject weaponIns;
 
-    private PlayerMotor motor;
+    private Player currentPlayer;
 
 
     void Start()
@@ -47,7 +47,7 @@ public class WeaponManager : NetworkBehaviour
         allWeapons = Util.AllWeapons();
         SetDefaults();
         anim = GetComponent<Animator>();
-        motor = GetComponent<PlayerMotor>();
+        currentPlayer = GetComponent<Player>();
     }   
 
     void Update()
@@ -267,9 +267,9 @@ public class WeaponManager : NetworkBehaviour
         rigidbody.mass = 0.5f;
         rigidbody.drag = 1;
         rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-        rigidbody.velocity = motor.GetCurrentVelocity();
+        rigidbody.velocity = currentPlayer.GetCurrentVelocity();
 
-        Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer("Collider"));
+        Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer("Prop"));
         Destroy(weaponIns.GetComponent<Animator>());
     }
 }
