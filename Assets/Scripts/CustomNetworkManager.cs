@@ -31,7 +31,27 @@ public class CustomNetworkManager : NetworkManager
             usableStartPositions.RemoveAll(t => Mathf.Abs(Vector3.Distance(t.position, player.transform.position) - spawnDistance) > spawnRange);
         }
 
-        foreach (Transform startPos in usableStartPositions.ToList())
+        usableStartPositions = LineOfSight(usableStartPositions, players);
+
+        if (usableStartPositions.Count > 0)
+            return usableStartPositions[Random.Range(0, usableStartPositions.Count)];
+
+
+        usableStartPositions = new List<Transform>(startPositions);
+        usableStartPositions = LineOfSight(usableStartPositions, players);
+
+        if (usableStartPositions.Count > 0)
+            return usableStartPositions[Random.Range(0, usableStartPositions.Count)];
+
+
+        return startPositions[Random.Range(0, startPositions.Count)];
+    }
+
+    private List<Transform> LineOfSight(List<Transform> positions, Player[] players)
+    {
+        List<Transform> usablePositions = new List<Transform>(positions);
+
+        foreach (Transform startPos in usablePositions.ToList())
         {
             foreach (Player player in players)
             {
@@ -40,16 +60,13 @@ public class CustomNetworkManager : NetworkManager
                 {
                     if (_hit.collider.tag == PLAYER_TAG)
                     {
-                        usableStartPositions.Remove(startPos);
-                    } 
+                        usablePositions.Remove(startPos);
+                    }
                 }
             }
         }
 
-        if (usableStartPositions.Count > 0)
-            return usableStartPositions[Random.Range(0, usableStartPositions.Count)];
-
-        return startPositions[Random.Range(0, startPositions.Count)];
+        return usablePositions;
     }
 }
 
