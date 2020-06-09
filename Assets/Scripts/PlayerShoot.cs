@@ -17,6 +17,7 @@ public class PlayerShoot : NetworkBehaviour {
     private WeaponManager weaponManager;
     private PlayerWeapon currentWeapon;
     private PlayerMotor motor;
+    private PlayerMetrics metrics;
 
     private float timeSinceShot = 100f;
 
@@ -30,6 +31,7 @@ public class PlayerShoot : NetworkBehaviour {
 
         weaponManager = GetComponent<WeaponManager>();
         motor = GetComponent<PlayerMotor>();
+        metrics = GetComponent<PlayerMetrics>();
     }
 
     void Update()
@@ -137,10 +139,10 @@ public class PlayerShoot : NetworkBehaviour {
 
         float _spread;
 
-        if (!motor.IsGrounded())
+        if (!metrics.IsGrounded())
         {
             _spread = currentWeapon.spreadWhileJumping;
-        } else if (motor.IsMoving())
+        } else if (metrics.IsMoving())
         {
             _spread = currentWeapon.spreadWhileMoving;
         } else

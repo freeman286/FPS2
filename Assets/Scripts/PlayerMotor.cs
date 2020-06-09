@@ -20,20 +20,18 @@ public class PlayerMotor : MonoBehaviour
     private Rigidbody rb;
     private PlayerController playerController;
 
-    public bool isGrounded = true;
-
     private WeaponManager weaponManager;
 
-    [SerializeField]
-    private LayerMask mask;
-
     private AnimateFeet feet;
+
+    private PlayerMetrics metrics;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerController = GetComponent<PlayerController>();
         weaponManager = GetComponent<WeaponManager>();
+        metrics = GetComponent<PlayerMetrics>();
         feet = GetComponent<AnimateFeet>();
     }
 
@@ -64,7 +62,6 @@ public class PlayerMotor : MonoBehaviour
 
     void FixedUpdate()
     {
-        CheckGrounded();
         PerformMovement();
         PerformRotation();
     }
@@ -91,42 +88,18 @@ public class PlayerMotor : MonoBehaviour
 
     public void Jump()
     {
-        if (isGrounded)
+        if (metrics.IsGrounded())
         {
             rb.AddForce(Vector3.up * playerController.jumpForce);
-            isGrounded = false;
         }
-    }
-
-    void CheckGrounded()
-    {
-        RaycastHit _hit;
-        if (Physics.Raycast(transform.position, -Vector3.up, out _hit, 3f, mask));
-        {
-            isGrounded = _hit.distance < 2.15f && Mathf.Abs(rb.velocity.y) < 1f && _hit.distance != 0f;   
-            if (Physics.Raycast(transform.position, Vector3.up, out _hit, 1f, mask))
-            {
-                isGrounded = _hit.distance > 1f;
-            }
-        }
-    }
-
-    public bool IsGrounded()
-    {
-        return isGrounded;
-    }
-
-    public bool IsMoving()
-    {
-        return velocity.magnitude > 0f;
     }
 
     public void SetDefaults()
     {
-        feet.SetDefaults();
-        feet.enabled = true;
         rb.isKinematic = false;
         rb.velocity = Vector3.zero;
+        feet.enabled = true;
+        feet.SetDefaults();
     }
 
     public void Die()

@@ -9,9 +9,7 @@ public class AnimateFeet : MonoBehaviour
     [SerializeField]
     private GameObject rightFoot;
 
-    [SerializeField]
     private Vector3 leftFootRestingPos;
-    [SerializeField]
     private Vector3 rightFootRestingPos;
 
     private Vector3 leftFootPos;
@@ -30,6 +28,9 @@ public class AnimateFeet : MonoBehaviour
 
     void Start()
     {
+        leftFootRestingPos = leftFoot.transform.localPosition;
+        rightFootRestingPos = rightFoot.transform.localPosition;
+
         rb = GetComponent<Rigidbody>();
         SetDefaults();
     }
@@ -80,5 +81,7 @@ public class AnimateFeet : MonoBehaviour
     {
         leftFoot.transform.localPosition = leftFootRestingPos;
         rightFoot.transform.localPosition = rightFootRestingPos;
+        leftFootPos = leftFoot.transform.position;
+        rightFootPos = rightFoot.transform.position;
     }
 }

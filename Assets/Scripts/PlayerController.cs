@@ -22,6 +22,11 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
 
+    [SerializeField]
+    private float jumpCooldown;
+
+    private float timeSinceJumped;
+
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
@@ -75,14 +80,11 @@ public class PlayerController : MonoBehaviour
 
         //Jump
 
-        if (Input.GetButton("Jump"))
+        if (Input.GetButton("Jump") && timeSinceJumped > jumpCooldown)
         {
             motor.Jump();
+            timeSinceJumped = 0;
         }
-    }
-
-    public void SetDefaults()
-    {
-        motor.SetDefaults();
+        timeSinceJumped += Time.deltaTime;
     }
 }

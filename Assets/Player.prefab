@@ -1477,6 +1477,7 @@ GameObject:
   - component: {fileID: 6832787154136730258}
   - component: {fileID: 9210790658628301855}
   - component: {fileID: 2139900448668095581}
+  - component: {fileID: 3059421112803731098}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1531,10 +1532,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 899551536351255448}
   cameraRotationLimit: 50
-  isGrounded: 1
-  mask:
-    serializedVersion: 2
-    m_Bits: 8192
 --- !u!114 &600328063753895067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,7 +1547,8 @@ MonoBehaviour:
   speed: 2.5
   axes: 0
   lookSensitivity: 3
-  jumpForce: 160
+  jumpForce: 300
+  jumpCooldown: 0.05
 --- !u!114 &1331238722095369265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,6 +1754,23 @@ MonoBehaviour:
   rightFootRestingPos: {x: 0.4, y: -1.5, z: 0}
   snapDist: 0.1
   snapSpeed: 65
+--- !u!114 &3059421112803731098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e37128d6f47fa4bb7547644284b5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 8192
+  lastPosition: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &9012694868525747722
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,7 +39,7 @@ public class WeaponManager : NetworkBehaviour
 
     private GameObject weaponIns;
 
-    private Player currentPlayer;
+    private PlayerMetrics metrics;
 
 
     void Start()
@@ -47,7 +47,7 @@ public class WeaponManager : NetworkBehaviour
         allWeapons = Util.AllWeapons();
         SetDefaults();
         anim = GetComponent<Animator>();
-        currentPlayer = GetComponent<Player>();
+        metrics = GetComponent<PlayerMetrics>();
     }   
 
     void Update()
@@ -267,7 +267,7 @@ public class WeaponManager : NetworkBehaviour
         rigidbody.mass = 0.5f;
         rigidbody.drag = 1;
         rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-        rigidbody.velocity = currentPlayer.GetCurrentVelocity();
+        rigidbody.velocity = metrics.velocity;
 
         Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer("Prop"));
         Destroy(weaponIns.GetComponent<Animator>());

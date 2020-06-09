@@ -68,12 +68,12 @@ public class Player : NetworkBehaviour
 
     private PlayerMotor motor;
 
-    private Vector3 lastPosition;
-    private Vector3 velocity; // The velocity that other players think this player is travelling at
+    private PlayerMetrics metrics;
 
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
+        metrics = GetComponent<PlayerMetrics>();
     }
 
     public void SetupPlayer()
@@ -112,9 +112,6 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
-        velocity = (transform.position - lastPosition) / Time.deltaTime;
-        lastPosition = transform.position;
-
         if (!isLocalPlayer)
             return;
 
@@ -187,7 +184,7 @@ public class Player : NetworkBehaviour
             rigidbody.mass = rigidbodyMass[i];
             rigidbody.drag = 1;
             rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-            rigidbody.velocity = velocity;
+            rigidbody.velocity = metrics.velocity;
         }
 
         weaponManager.Die();
@@ -248,14 +245,7 @@ public class Player : NetworkBehaviour
         GameObject _spawnEffect = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
         Destroy(_spawnEffect, 5f);
 
-        playerController.SetDefaults();
+        motor.SetDefaults();
         weaponManager.SetDefaults();
-    }
-
-
-    // We need this as we can't access it through the player motor for other players
-    public Vector3 GetCurrentVelocity()
-    {
-        return velocity;
     }
 }
