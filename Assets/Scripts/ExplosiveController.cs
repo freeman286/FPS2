@@ -22,6 +22,14 @@ public class ExplosiveController : NetworkBehaviour
     [SerializeField]
     private AnimationCurve damageFallOff;
 
+    [SerializeField]
+    private float force;
+
+    [SerializeField]
+    private LayerMask mask;
+
+    private const string PLAYER_TAG = "Player";
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,18 +57,27 @@ public class ExplosiveController : NetworkBehaviour
     {
         RpcExplode(_rot);
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
 
-        foreach (var _hit in hitColliders)
+        foreach (var _collider in colliders)
         {
 
-            if (_hit.transform.name == "Area" && _hit.transform.root.GetComponent<Player>())
+            if (_collider.tag == PLAYER_TAG)
             {
 
-                float _distance = Vector3.Distance(_hit.transform.position, transform.position);
+                RaycastHit _hit;
+                if (Physics.Raycast(transform.position, _collider.transform.position - transform.position, out _hit, range, mask))
+                {
+                    if (_collider.tag == PLAYER_TAG)
+                    {
+                        float _distance = Vector3.Distance(_hit.transform.position, transform.position);
 
-                _hit.transform.root.GetComponent<Player>().RpcTakeDamage((int)(damageFallOff.Evaluate(_distance / range) * damage), projectileController.playerID);
+                        Player player = _hit.transform.root.GetComponent<Player>();
 
+                        if (player != null)
+                            player.RpcTakeDamage((int)(damageFallOff.Evaluate(_distance / range) * damage), projectileController.playerID);
+                    }
+                }
             }
 
         }
@@ -71,6 +88,15 @@ public class ExplosiveController : NetworkBehaviour
     public void RpcExplode(Quaternion _rot)
     {
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
+        foreach (Collider _collider in colliders)
+        {
+            Rigidbody rb = _collider.attachedRigidbody;
+
+            if (rb != null)
+                rb.AddExplosionForce(force, transform.position, range, 1.0f);
+        }
 
         Destroy(_impact, 4f);
         NetworkServer.Destroy(gameObject);

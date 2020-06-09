@@ -1446,7 +1446,7 @@ ScriptsOnlyBuild:
     className: VFXPositionBinder
   - hash:
       serializedVersion: 2
-      Hash: 6cbbcb926c54c2fd7c0bd8ab459ab996
+      Hash: 8d332abe574c978ba94a292ebd40db69
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ExplosiveController

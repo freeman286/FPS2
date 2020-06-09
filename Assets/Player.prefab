@@ -890,7 +890,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 45879
+    m_Bits: 111415
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1547,7 +1547,7 @@ MonoBehaviour:
   speed: 2.5
   axes: 0
   lookSensitivity: 3
-  jumpForce: 300
+  jumpForce: 6
   jumpCooldown: 0.05
 --- !u!114 &1331238722095369265
 MonoBehaviour:
@@ -1645,7 +1645,7 @@ MonoBehaviour:
   cam: {fileID: 899551536351255448}
   mask:
     serializedVersion: 2
-    m_Bits: 41527
+    m_Bits: 107063
 --- !u!114 &3543887534676550787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1750,8 +1750,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftFoot: {fileID: 3917416763378249837}
   rightFoot: {fileID: 6416331504652519073}
-  leftFootRestingPos: {x: -0.4, y: -1.5, z: 0}
-  rightFootRestingPos: {x: 0.4, y: -1.5, z: 0}
   snapDist: 0.1
   snapSpeed: 65
 --- !u!114 &3059421112803731098

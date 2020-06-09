@@ -700,9 +700,9 @@ MonoBehaviour:
   recoilAmount: 750
   recoilTime: 0.2
   magSize: 8
-  speed: 0.6
+  speed: 0.8
   bullets: 0
-  reloadTime: 6
+  reloadTime: 6.5
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 156444120250483795, guid: 13d92738dc3f6f14ab918aa5b0b4d1ff,
     type: 3}
