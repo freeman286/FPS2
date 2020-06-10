@@ -566,7 +566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Assault Rifle
   primary: 1
-  damage: 25
+  damage: 35
+  headShotMultiplier: 1.8
   range: 250
   damageFallOff:
     serializedVersion: 2
@@ -574,15 +575,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.4790628
-      outSlope: -0.4790628
+      inSlope: -1.7932289
+      outSlope: -1.7932289
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.0537118
-      value: 0.9742687
+      time: 0.12373977
+      value: 0.7781063
       inSlope: -0.27352273
       outSlope: -0.27352273
       tangentMode: 0
@@ -590,8 +591,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.060387
     - serializedVersion: 3
-      time: 0.72460485
-      value: 0.8728164
+      time: 0.50977564
+      value: 0.7282771
       inSlope: -0.5529251
       outSlope: -0.5529251
       tangentMode: 0
@@ -601,8 +602,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -3.1693237
-      outSlope: -3.1693237
+      inSlope: -1.4855995
+      outSlope: -1.4855995
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -622,7 +623,7 @@ MonoBehaviour:
   recoilTime: 0.1
   magSize: 30
   speed: 1
-  bullets: 23
+  bullets: 12
   reloadTime: 3.65
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 0}

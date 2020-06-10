@@ -805,8 +805,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shotgun
   primary: 1
-  damage: 20
-  range: 40
+  damage: 25
+  headShotMultiplier: 1
+  range: 50
   damageFallOff:
     serializedVersion: 2
     m_Curve:

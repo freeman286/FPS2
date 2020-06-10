@@ -14,16 +14,28 @@ public class Player : NetworkBehaviour
         protected set { _isDead = value; }
     }
 
+    [Header("Health")]
+
     [SerializeField]
     private int maxHealth = 100;
 
     [SyncVar]
-    private int currentHealth;
+    private float currentHealth;
 
     public float GetHealthPct()
     {
         return Mathf.Clamp((float)currentHealth / maxHealth, 0, 1);
     }
+
+    [SerializeField]
+    private float healthRegenTime;
+
+    [SerializeField]
+    private float healthRegenSpeed;
+
+    private float timeSinceDamaged = 0f;
+
+    [Header("Behaviours")]
 
     [SerializeField]
     private Behaviour[] disableOnDeath;
@@ -42,6 +54,8 @@ public class Player : NetworkBehaviour
 
     [SerializeField]
     private PlayerShoot shoot;
+
+    [Header("Score")]
 
     [SyncVar]
     public int kills;
@@ -112,12 +126,11 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
-        if (!isLocalPlayer)
-            return;
+        timeSinceDamaged += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (timeSinceDamaged > healthRegenTime && currentHealth < maxHealth)
         {
-            RpcTakeDamage(10, transform.name);
+            currentHealth += healthRegenSpeed * Time.deltaTime;
         }
     }
 
@@ -129,6 +142,8 @@ public class Player : NetworkBehaviour
             return;
 
         currentHealth -= _amount;
+
+        timeSinceDamaged = 0f;
 
         if (currentHealth <= 0)
         {

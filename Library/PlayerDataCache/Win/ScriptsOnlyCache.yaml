@@ -100,8 +100,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -822,7 +824,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerHUD
   - hash:
       serializedVersion: 2
-      Hash: 72e69bb45cf4d3aeba970ab66281636d
+      Hash: 9821de8bb926006591092064fdfc094e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeapon
@@ -2148,7 +2150,7 @@ ScriptsOnlyBuild:
     className: DiffusionProfileOverride
   - hash:
       serializedVersion: 2
-      Hash: 1e9e08e0989a527b174617d24a7cc93b
+      Hash: 76af4dab9fb2eb6f0139052c6ecb2e02
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player

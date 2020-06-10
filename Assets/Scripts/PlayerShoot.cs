@@ -57,7 +57,7 @@ public class PlayerShoot : NetworkBehaviour {
                 CancelInvoke("Shoot");
                 InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
             }
-            else if (Input.GetButtonUp("Fire1"))
+            else if (Input.GetButtonUp("Fire1") || Input.GetButtonDown("Cancel"))
             {
                 CancelInvoke("Shoot");
             }
@@ -187,11 +187,25 @@ public class PlayerShoot : NetworkBehaviour {
         RaycastHit _hit;
         if (Physics.Raycast(weaponManager.GetCurrentGraphics().firePoint.transform.position + _direction * 0.2f, _direction + _devience + _cone, out _hit, currentWeapon.range, mask))
         {
+
+            int _damage = Mathf.RoundToInt(currentWeapon.damageFallOff.Evaluate(_hit.distance / currentWeapon.range) * currentWeapon.damage);
+
+            Rigidbody rb = _hit.collider.attachedRigidbody;
+
+            if (rb != null && rb.GetComponent<Player>() == null)
+                rb.AddForceAtPosition((_direction + _devience + _cone) * _damage, _hit.point);
+
             if (_hit.collider.tag == PLAYER_TAG)
             {
-                int _damage = Mathf.RoundToInt(currentWeapon.damageFallOff.Evaluate(_hit.distance / currentWeapon.range) * currentWeapon.damage);
+                
+                if (_hit.collider.transform.name == "Head")
+                {
+                    _damage = (int)(_damage * currentWeapon.headShotMultiplier);
+                }
+
                 CmdPlayerShot(_hit.collider.transform.root.name, _damage, transform.name);
             }
+            
 
             CmdOnHit(_hit.point, _hit.normal);
 

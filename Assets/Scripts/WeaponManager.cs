@@ -186,6 +186,7 @@ public class WeaponManager : NetworkBehaviour
         if (isReloading)
             return;
 
+        anim.ResetTrigger("Shoot");
         reload = Reload_Coroutine();
         StartCoroutine(reload);
     }
@@ -216,17 +217,11 @@ public class WeaponManager : NetworkBehaviour
         if (anim != null)
         {
             anim.SetTrigger("Reload");
-            StartCoroutine(ReloadAmin_Coroutine());
+            anim.ResetTrigger("Shoot"); // Sometimes the shoot trigger is still set and a phantom animation could play
         }
     }
 
-    private IEnumerator ReloadAmin_Coroutine()
-    {
-        yield return new WaitForSeconds(currentWeapon.reloadTime - 0.5f);
-        anim.ResetTrigger("Shoot"); // Kills the shoot animation so it doesn't play after the reload animation finishes
-    }
-
-        public PlayerWeapon NameToWeapon(string _name)
+    public PlayerWeapon NameToWeapon(string _name)
     {
         foreach (var weapon in allWeapons)
         {

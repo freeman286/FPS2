@@ -9,6 +9,7 @@ public class PlayerWeapon : MonoBehaviour
     public bool primary;
 
     public int damage = 10;
+    public float headShotMultiplier = 1f;
     public float range = 100f;
     public AnimationCurve damageFallOff;
 

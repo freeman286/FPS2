@@ -469,7 +469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pistol
   primary: 0
-  damage: 30
+  damage: 35
+  headShotMultiplier: 1.5
   range: 150
   damageFallOff:
     serializedVersion: 2
@@ -484,19 +485,19 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.39632902
     - serializedVersion: 3
-      time: 0.55871665
-      value: 0.7298919
-      inSlope: -0.8767637
-      outSlope: -0.8767637
+      time: 0.08352969
+      value: 0.9437562
+      inSlope: -1.8037381
+      outSlope: -1.8037381
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.054597486
-      outWeight: 0.33333334
+      outWeight: 0.027117867
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1.6540209
-      outSlope: -1.6540209
+      inSlope: -1.0297729
+      outSlope: -1.0297729
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

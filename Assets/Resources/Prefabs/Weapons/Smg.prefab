@@ -643,6 +643,7 @@ MonoBehaviour:
   name: Smg
   primary: 1
   damage: 30
+  headShotMultiplier: 1.8
   range: 150
   damageFallOff:
     serializedVersion: 2
