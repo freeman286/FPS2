@@ -217,8 +217,14 @@ public class WeaponManager : NetworkBehaviour
         if (anim != null)
         {
             anim.SetTrigger("Reload");
-            anim.ResetTrigger("Shoot"); // Sometimes the shoot trigger is still set and a phantom animation could play
+            StartCoroutine(CancelShoot_Coroutine());
         }
+    }
+
+    private IEnumerator CancelShoot_Coroutine()
+    {
+        yield return new WaitForSeconds(1/currentWeapon.fireRate);
+        anim.ResetTrigger("Shoot"); // Sometimes the shoot trigger is still set and a phantom animation could play
     }
 
     public PlayerWeapon NameToWeapon(string _name)
