@@ -17,6 +17,8 @@ public class PlayerWeapon : MonoBehaviour
 
     public bool projectileWeapon;
 
+    public bool scoped;
+
     public float fireRate;
 
     public int roundsPerShot;
@@ -25,6 +27,7 @@ public class PlayerWeapon : MonoBehaviour
     public float spreadDefault;
     public float spreadWhileMoving;
     public float spreadWhileJumping;
+    public float spreadWhileScoped;
 
     public float recoilAmount;
     public float recoilTime;
@@ -32,6 +35,7 @@ public class PlayerWeapon : MonoBehaviour
     public int magSize = 20;
 
     public float speed = 1;
+    public float scopedSpeed = 1;
 
 
     [HideInInspector]

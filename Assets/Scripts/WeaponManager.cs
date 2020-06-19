@@ -72,6 +72,11 @@ public class WeaponManager : NetworkBehaviour
             primaryWeapon.Load();
             secondaryWeapon.Load();
             EquipWeapon(primaryWeapon, true);
+
+            if (shoot != null)
+            {
+                shoot.Unscope();
+            }
         }
     }
 
@@ -129,6 +134,12 @@ public class WeaponManager : NetworkBehaviour
     {
         currentWeapon = _weapon;
 
+        if (shoot != null)
+        {
+            shoot.Unscope();
+            shoot.isScoped = false;
+        }
+
         CmdEquipWeapon(transform.name, _weapon.name, _setup);
     }
 
@@ -156,12 +167,15 @@ public class WeaponManager : NetworkBehaviour
 
     private IEnumerator ShowWeapon()
     {
-
-        yield return new WaitForSeconds(0.1f);
-
         foreach (Transform child in weaponHolder)
         {
             Destroy(child.gameObject);
+        }
+
+        yield return new WaitForEndOfFrame();
+
+        if (weaponHolder.childCount > 0) {
+            yield break;
         }
 
         weaponIns = (GameObject)Instantiate(currentWeapon.graphics, weaponHolder.position, weaponHolder.rotation);
@@ -178,6 +192,8 @@ public class WeaponManager : NetworkBehaviour
         {
             currentGraphics.colliders[i].enabled = false;
         }
+
+        shoot.localAnim = currentGraphics.GetComponent<Animator>();
     }
 
     public void Reload()
@@ -254,6 +270,12 @@ public class WeaponManager : NetworkBehaviour
         return currentGraphics.shootSound;
     }
 
+    public float GetCurrentSpeed()
+    {
+        return shoot.isScoped ? currentWeapon.scopedSpeed : currentWeapon.speed;
+
+    }
+
     public void Die()
     {
         // Change the current weapon into a prop
@@ -271,5 +293,8 @@ public class WeaponManager : NetworkBehaviour
 
         Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer("Prop"));
         Destroy(weaponIns.GetComponent<Animator>());
+
+        shoot.Unscope(); // Scope out
+        shoot.weaponCam.enabled = false;
     }
 }

@@ -96,7 +96,7 @@ ScriptsOnlyBuild:
     Unity.ShaderGraph.Editor.dll:
     - UnityEditor.ShaderGraph.Drawing.MaterialGraphEditWindow
     Unity.VisualEffectGraph.Editor.dll:
-    - UnityEditor.VFX.UI.VFXViewWindow
+    - UnityEditor.VFX.UI.VFXGraphUndoCursor
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -824,7 +824,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerHUD
   - hash:
       serializedVersion: 2
-      Hash: 9821de8bb926006591092064fdfc094e
+      Hash: cca4ac9009f5c576db4832a2f8e1f301
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeapon
@@ -1556,7 +1556,7 @@ ScriptsOnlyBuild:
     className: Exposure
   - hash:
       serializedVersion: 2
-      Hash: 55894eaaaa8728052ca0908bbc248c28
+      Hash: 2716f94eefc6a3f7ff39f9d61f85ad10
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerShoot

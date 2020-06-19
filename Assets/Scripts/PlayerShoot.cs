@@ -12,6 +12,9 @@ public class PlayerShoot : NetworkBehaviour {
     private Camera cam;
 
     [SerializeField]
+    public Camera weaponCam;
+
+    [SerializeField]
     private LayerMask mask;
 
     private WeaponManager weaponManager;
@@ -21,6 +24,37 @@ public class PlayerShoot : NetworkBehaviour {
 
     [HideInInspector]
     public float timeSinceShot = 100f;
+
+    [HideInInspector]
+    public float timeSinceScoped = 100f;
+
+    [HideInInspector]
+    public Animator localAnim;
+
+    [Header("Scope")]
+
+    [SerializeField]
+    private GameObject scopeUIPrefab;
+
+    [HideInInspector]
+    public GameObject scopeUIInstance;
+
+    [HideInInspector]
+    public bool isScoped;
+
+    [SerializeField]
+    private float scopeTime;
+
+    [SerializeField]
+    private float scopeCooldown;
+
+    [SerializeField]
+    public float scopedFOV;
+
+    [HideInInspector]
+    public float defaultFOV;
+
+    private PlayerUI ui;
 
     void Start()
     {
@@ -33,6 +67,13 @@ public class PlayerShoot : NetworkBehaviour {
         weaponManager = GetComponent<WeaponManager>();
         motor = GetComponent<PlayerMotor>();
         metrics = GetComponent<PlayerMetrics>();
+        ui = GetComponent<PlayerSetup>().ui;
+
+        scopeUIInstance = Instantiate(scopeUIPrefab);
+        scopeUIInstance.name = scopeUIPrefab.name;
+        scopeUIInstance.SetActive(false);
+
+        defaultFOV = cam.fieldOfView;
     }
 
     void Update()
@@ -72,10 +113,30 @@ public class PlayerShoot : NetworkBehaviour {
         }
 
         timeSinceShot += Time.deltaTime;
+        timeSinceScoped += Time.deltaTime;
 
         if (currentWeapon.bullets <= 0 && timeSinceShot > 1f / currentWeapon.fireRate)
         {
             weaponManager.Reload();
+        }
+
+        if (currentWeapon.scoped && localAnim != null && isLocalPlayer)
+        {
+            if (Input.GetButtonDown("Fire2") && timeSinceScoped > scopeCooldown)
+            {
+                timeSinceScoped = 0f;
+
+                isScoped = !isScoped;
+
+                if (isScoped)
+                {
+                    StartCoroutine(OnScoped());
+                } else
+                {
+                    StartCoroutine(OnUnscoped());
+                }
+            }
+
         }
 
         Recoil();
@@ -146,6 +207,9 @@ public class PlayerShoot : NetworkBehaviour {
         } else if (metrics.IsMoving())
         {
             _spread = currentWeapon.spreadWhileMoving;
+        } else if (isScoped)
+        {
+            _spread = currentWeapon.spreadWhileScoped;
         } else
         {
             _spread = currentWeapon.spreadDefault;
@@ -243,5 +307,32 @@ public class PlayerShoot : NetworkBehaviour {
             motor.AddRotation(new Vector3(0, Random.Range(-1.0f, 1.0f) * _recoil, 0));
             motor.AddRotationCamera(_recoil);
         }
+    }
+
+    private IEnumerator OnScoped()
+    {
+        localAnim.SetBool("Scoped", true);
+
+        yield return new WaitForSeconds(scopeTime);
+        scopeUIInstance.SetActive(true);
+        ui.crosshair.SetActive(false);
+        weaponCam.enabled = false;
+
+        cam.fieldOfView = scopedFOV;
+    }
+
+    private IEnumerator OnUnscoped()
+    {
+        localAnim.SetBool("Scoped", false);
+        yield return new WaitForSeconds(scopeTime);
+        Unscope();
+    }
+
+    public void Unscope()
+    {
+        scopeUIInstance.SetActive(false);
+        ui.crosshair.SetActive(true);
+        weaponCam.enabled = true;
+        cam.fieldOfView = defaultFOV;
     }
 }

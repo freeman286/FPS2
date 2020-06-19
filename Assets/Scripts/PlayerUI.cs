@@ -9,7 +9,7 @@ public class PlayerUI : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject crosshair;
+    public GameObject crosshair;
 
     [SerializeField]
     private GameObject healthBar;
@@ -132,7 +132,10 @@ public class PlayerUI : MonoBehaviour
     public void UpdateLookSensitivity()
     {
         lookSensitivity = (float)System.Math.Round(lookSensitivitySlider.value, 1);
-        controller.lookSensitivity = lookSensitivity;
+        if (controller != null)
+        {
+            controller.lookSensitivity = lookSensitivity;
+        }
         lookSensitivityText.text = string.Format("Sensitivity: {0:F1}", lookSensitivity); ;
     }
 

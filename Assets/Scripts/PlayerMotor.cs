@@ -37,7 +37,7 @@ public class PlayerMotor : MonoBehaviour
 
     public void Move(Vector3 _velocity)
     {
-        velocity = _velocity.normalized * playerController.speed * weaponManager.GetCurrentWeapon().speed;
+        velocity = _velocity.normalized * playerController.speed * weaponManager.GetCurrentSpeed();
     }
 
     public void Rotate(Vector3 _rotation)

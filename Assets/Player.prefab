@@ -1629,9 +1629,20 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   cam: {fileID: 899551536351255448}
+  weaponCam: {fileID: 9075518313636580678}
   mask:
     serializedVersion: 2
     m_Bits: 107063
+  timeSinceShot: 100
+  timeSinceScoped: 100
+  localAnim: {fileID: 0}
+  scopeUIPrefab: {fileID: 7027932364431142805, guid: 988d5f999506b9c489793e763c747566,
+    type: 3}
+  scopeUIInstance: {fileID: 0}
+  isScoped: 0
+  scopeTime: 0.15
+  scopeCooldown: 0.5
+  scopedFOV: 25
 --- !u!114 &3543887534676550787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1699,7 +1710,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weaponLayerName: Weapon
-  shoot: {fileID: 1506890265112965245}
   weaponHolder: {fileID: 6384351145343065147}
   currentGraphics: {fileID: 0}
   currentWeaponName: 

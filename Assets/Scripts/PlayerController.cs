@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerMotor motor;
     private PlayerSetup setup;
+    private PlayerShoot shoot;
 
     private Rigidbody rb;
 
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         motor = GetComponent<PlayerMotor>();
         setup = GetComponent<PlayerSetup>();
+        shoot = GetComponent<PlayerShoot>();
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -67,13 +69,20 @@ public class PlayerController : MonoBehaviour
 
         Vector3 _rotation = new Vector3(0f, _yRot, 0f) * lookSensitivity;
 
-        //Apply rotation
-        motor.Rotate(_rotation);
-
         //Calculate camera rotation as a 3D vector (turning around)
         float _xRot = Input.GetAxisRaw("Mouse Y");
 
         float _cameraRotationX = _xRot * lookSensitivity;
+
+        if (shoot.isScoped)
+        {
+            float _scopedSensitivityFactor = shoot.scopedFOV / shoot.defaultFOV;
+            _rotation *= _scopedSensitivityFactor;
+            _cameraRotationX *= _scopedSensitivityFactor;
+        }
+
+        //Apply rotation
+        motor.Rotate(_rotation);
 
         //Apply camera rotation
         motor.RotateCamera(_cameraRotationX);

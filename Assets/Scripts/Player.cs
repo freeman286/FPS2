@@ -132,6 +132,11 @@ public class Player : NetworkBehaviour
         {
             currentHealth += healthRegenSpeed * Time.deltaTime;
         }
+
+        if (Input.GetKeyDown("k"))
+        {
+            CmdDie(transform.name);
+        }
     }
 
 
