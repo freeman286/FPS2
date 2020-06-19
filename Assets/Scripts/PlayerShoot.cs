@@ -19,7 +19,8 @@ public class PlayerShoot : NetworkBehaviour {
     private PlayerMotor motor;
     private PlayerMetrics metrics;
 
-    private float timeSinceShot = 100f;
+    [HideInInspector]
+    public float timeSinceShot = 100f;
 
     void Start()
     {
@@ -38,7 +39,7 @@ public class PlayerShoot : NetworkBehaviour {
     {
         currentWeapon = weaponManager.GetCurrentWeapon();
 
-        if (Pause.IsOn)
+        if (Pause.IsOn || currentWeapon == null)
             return;
 
         if (currentWeapon.bullets < currentWeapon.magSize)
@@ -72,7 +73,7 @@ public class PlayerShoot : NetworkBehaviour {
 
         timeSinceShot += Time.deltaTime;
 
-        if (currentWeapon.bullets <= 0)
+        if (currentWeapon.bullets <= 0 && timeSinceShot > 1f / currentWeapon.fireRate)
         {
             weaponManager.Reload();
         }

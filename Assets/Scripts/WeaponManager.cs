@@ -10,10 +10,6 @@ public class WeaponManager : NetworkBehaviour
     private string weaponLayerName = "Weapon";
 
     [SerializeField]
-    private PlayerShoot shoot;
-
-
-    [SerializeField]
     private Transform weaponHolder;
 
     private PlayerWeapon primaryWeapon;
@@ -24,6 +20,8 @@ public class WeaponManager : NetworkBehaviour
     public WeaponGraphics currentGraphics;
     [SyncVar]
     public string currentWeaponName;
+
+    private PlayerShoot shoot;
 
     public bool isReloading = false;
 
@@ -46,6 +44,7 @@ public class WeaponManager : NetworkBehaviour
     {
         allWeapons = Util.AllWeapons();
         SetDefaults();
+        shoot = GetComponent<PlayerShoot>();
         anim = GetComponent<Animator>();
         metrics = GetComponent<PlayerMetrics>();
     }   
@@ -197,7 +196,7 @@ public class WeaponManager : NetworkBehaviour
 
         CmdOnReload();
 
-        yield return new WaitForSeconds(currentWeapon.reloadTime);
+        yield return new WaitForSeconds(currentWeapon.reloadTime + Mathf.Clamp(1f / currentWeapon.fireRate - shoot.timeSinceShot, 0, 1f / currentWeapon.fireRate));
 
         currentWeapon.Load();
 
