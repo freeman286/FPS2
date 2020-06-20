@@ -112,7 +112,6 @@ public class PlayerShoot : NetworkBehaviour {
             }
         }
 
-        timeSinceShot += Time.deltaTime;
         timeSinceScoped += Time.deltaTime;
 
         if (currentWeapon.bullets <= 0 && timeSinceShot > 1f / currentWeapon.fireRate)
@@ -139,7 +138,12 @@ public class PlayerShoot : NetworkBehaviour {
 
         }
 
+    }
+
+    void FixedUpdate()
+    {
         Recoil();
+        timeSinceShot += Time.fixedDeltaTime;
     }
 
     [Command]
@@ -304,7 +308,7 @@ public class PlayerShoot : NetworkBehaviour {
     void Recoil()
     {
         
-        float _recoil = Mathf.Clamp(currentWeapon.recoilTime - timeSinceShot, 0, currentWeapon.recoilTime) * currentWeapon.recoilAmount * Time.deltaTime;
+        float _recoil = Mathf.Clamp(currentWeapon.recoilTime - timeSinceShot, 0, currentWeapon.recoilTime) * currentWeapon.recoilAmount * Time.fixedDeltaTime;
         if (_recoil > 0)
         {
             motor.AddRotation(new Vector3(0, Random.Range(-1.0f, 1.0f) * _recoil, 0));

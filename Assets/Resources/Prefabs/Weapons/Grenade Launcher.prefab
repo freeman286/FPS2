@@ -646,6 +646,7 @@ MonoBehaviour:
   name: Grenade Launcher
   primary: 1
   damage: 25
+  headShotMultiplier: 1
   range: 40
   damageFallOff:
     serializedVersion: 2
@@ -691,17 +692,20 @@ MonoBehaviour:
     m_RotationOrder: 4
   automatic: 0
   projectileWeapon: 1
+  scoped: 0
   fireRate: 1
   roundsPerShot: 1
   coneOfFire: 0
   spreadDefault: 0.02
   spreadWhileMoving: 0.08
   spreadWhileJumping: 0.2
-  recoilAmount: 750
+  spreadWhileScoped: 0
+  recoilAmount: 1000
   recoilTime: 0.2
   magSize: 8
   speed: 0.8
-  bullets: 0
+  scopedSpeed: 1
+  bullets: 5
   reloadTime: 6.5
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 156444120250483795, guid: 13d92738dc3f6f14ab918aa5b0b4d1ff,

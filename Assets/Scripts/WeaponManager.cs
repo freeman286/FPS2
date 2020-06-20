@@ -282,7 +282,10 @@ public class WeaponManager : NetworkBehaviour
 
         for (int i = 0; i < currentGraphics.colliders.Length; i++)
         {
-            currentGraphics.colliders[i].enabled = true;
+            if (currentGraphics.colliders[i] != null)
+            {
+                currentGraphics.colliders[i].enabled = true;
+            }
         }
 
         Rigidbody rigidbody = weaponIns.AddComponent<Rigidbody>();

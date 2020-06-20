@@ -843,17 +843,20 @@ MonoBehaviour:
     m_RotationOrder: 4
   automatic: 0
   projectileWeapon: 0
+  scoped: 0
   fireRate: 1
   roundsPerShot: 12
   coneOfFire: 0.1
   spreadDefault: 0.03
   spreadWhileMoving: 0.1
   spreadWhileJumping: 0.2
-  recoilAmount: 175
-  recoilTime: 0.4
+  spreadWhileScoped: 0
+  recoilAmount: 750
+  recoilTime: 0.2
   magSize: 8
   speed: 1
-  bullets: 7
+  scopedSpeed: 1
+  bullets: 6
   reloadTime: 5.8
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 0}
