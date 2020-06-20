@@ -294,7 +294,10 @@ public class WeaponManager : NetworkBehaviour
         Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer("Prop"));
         Destroy(weaponIns.GetComponent<Animator>());
 
-        shoot.Unscope(); // Scope out
-        shoot.weaponCam.enabled = false;
+        if (isLocalPlayer)
+        {
+            shoot.Unscope(); // Scope out
+            shoot.weaponCam.enabled = false;
+        }
     }
 }

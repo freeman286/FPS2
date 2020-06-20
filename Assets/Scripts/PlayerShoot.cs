@@ -156,7 +156,10 @@ public class PlayerShoot : NetworkBehaviour {
         {
             anim.SetTrigger("Shoot");
         }
-        weaponManager.GetCurrentGraphics().muzzleFlash.Play();
+
+        if (!(isLocalPlayer && isScoped)) {
+            weaponManager.GetCurrentGraphics().muzzleFlash.Play();
+        }
 
         if (weaponManager.GetCurrentCasing() != null)
         {
