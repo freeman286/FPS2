@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\CustomNetworkManager.cs" />
      <Compile Include="Assets\Scripts\ExplosiveController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\ImpactController.cs" />
      <Compile Include="Assets\Scripts\Killfeed.cs" />
      <Compile Include="Assets\Scripts\KillfeedItem.cs" />
      <Compile Include="Assets\Scripts\LightBlender.cs" />

@@ -31,7 +31,6 @@ public class ExplosiveController : NetworkBehaviour
     private const string PLAYER_TAG = "Player";
 
 
-    // Start is called before the first frame update
     void Start()
     {
         projectileController = GetComponent<ProjectileController>();
