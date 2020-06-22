@@ -90,7 +90,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (metrics.IsGrounded())
         {
-            rb.AddForce(Vector3.up * playerController.jumpForce, ForceMode.VelocityChange);
+            rb.velocity = new Vector3(0, playerController.jumpForce, 0);
         }
     }
 

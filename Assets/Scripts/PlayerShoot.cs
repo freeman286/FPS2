@@ -113,6 +113,8 @@ public class PlayerShoot : NetworkBehaviour {
         }
 
         timeSinceScoped += Time.deltaTime;
+        timeSinceShot += Time.deltaTime;
+
 
         if (currentWeapon.bullets <= 0 && timeSinceShot > 1f / currentWeapon.fireRate)
         {
@@ -143,7 +145,6 @@ public class PlayerShoot : NetworkBehaviour {
     void FixedUpdate()
     {
         Recoil();
-        timeSinceShot += Time.fixedDeltaTime;
     }
 
     [Command]
@@ -155,12 +156,6 @@ public class PlayerShoot : NetworkBehaviour {
     [ClientRpc]
     void RpcDoShootEfftect()
     {
-        Animator anim = weaponManager.currentGraphics.GetComponent<Animator>();
-        if (anim != null && !anim.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
-        {
-            anim.SetTrigger("Shoot");
-        }
-
         if (!(isLocalPlayer && isScoped)) {
             weaponManager.GetCurrentGraphics().muzzleFlash.Play();
         }
@@ -172,9 +167,23 @@ public class PlayerShoot : NetworkBehaviour {
             Destroy(_casing, 2f);
         }
 
+        if (!isLocalPlayer)
+        {
+            LocalShootEfftect();
+        }
+
+    }
+
+    void LocalShootEfftect() // We need to do this not over the network or we'll be able to feel lag
+    {
+        Animator anim = weaponManager.currentGraphics.GetComponent<Animator>();
+        if (anim != null && !anim.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
+        {
+            anim.SetTrigger("Shoot");
+        }
+
         GameObject _shootSound = (GameObject)Instantiate(weaponManager.GetcurrentShootSound(), weaponManager.GetCurrentEjectionPort().transform.position, Quaternion.identity);
         Destroy(_shootSound, _shootSound.GetComponent<AudioSource>().clip.length);
-
     }
 
     [Command]
@@ -250,6 +259,7 @@ public class PlayerShoot : NetworkBehaviour {
 
         timeSinceShot = 0;
 
+        LocalShootEfftect();
     }
 
     void RaycastShoot(Vector3 _direction, Vector3 _devience)
@@ -307,7 +317,9 @@ public class PlayerShoot : NetworkBehaviour {
 
     void Recoil()
     {
-        
+        if (!isLocalPlayer || currentWeapon == null)
+            return;
+
         float _recoil = Mathf.Clamp(currentWeapon.recoilTime - timeSinceShot, 0, currentWeapon.recoilTime) * currentWeapon.recoilAmount * Time.fixedDeltaTime;
         if (_recoil > 0)
         {
