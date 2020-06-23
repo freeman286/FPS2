@@ -16,6 +16,8 @@ public class ImpactController : NetworkBehaviour
     [SerializeField]
     private float fuse;
 
+    private bool impacted = false;
+
     void Start()
     {
         projectileController = GetComponent<ProjectileController>();
@@ -42,7 +44,11 @@ public class ImpactController : NetworkBehaviour
             _playerID = _player.transform.name;
         }
 
-        CmdImpact(Quaternion.LookRotation(collision.contacts[0].normal), _playerID);
+        if (!impacted)
+        {
+            impacted = true;
+            CmdImpact(Quaternion.LookRotation(collision.contacts[0].normal), _playerID);
+        }
     }
 
     [Command]
