@@ -631,7 +631,7 @@ MonoBehaviour:
     type: 3}
   ejectionPort: {fileID: 3876431200991625207}
   casing: {fileID: 0}
-  shootSound: {fileID: 185320, guid: df2a3b1387fdd08489e2987cb281e43f, type: 3}
+  shootSound: {fileID: 185320, guid: a4e3c7cf796da2a4db289dce4095d718, type: 3}
   firePoint: {fileID: 1626188674828420661}
   colliders:
   - {fileID: 4480587198276807306}
@@ -731,7 +731,7 @@ MonoBehaviour:
   magSize: 1
   speed: 1.2
   scopedSpeed: 1
-  bullets: 0
+  bullets: 1
   reloadTime: 3
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 156444120250483795, guid: 65294eefcb901dd4492dc222cf5da945,

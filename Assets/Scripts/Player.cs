@@ -72,7 +72,7 @@ public class Player : NetworkBehaviour
     [Header("Rigidbody On Death Info")]
 
     [SerializeField]
-    private GameObject[] rigidbodyOnDeath;
+    public GameObject[] rigidbodyOnDeath;
 
     [SerializeField]
     private Vector3[] rigidbodyPosition;
@@ -261,6 +261,7 @@ public class Player : NetworkBehaviour
             rigidbodyOnDeath[i].transform.localRotation = Quaternion.identity;
         }
 
+        Util.DeleteTagRecursively(gameObject, "Projectile");
 
         GameObject _spawnEffect = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
         Destroy(_spawnEffect, 5f);

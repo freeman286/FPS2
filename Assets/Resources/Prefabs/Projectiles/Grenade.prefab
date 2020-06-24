@@ -103,6 +103,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   initialVelocity: 15
   constantForce: 0
+  colliders:
+  - {fileID: 156444120682222019}
 --- !u!114 &-6569690525480866274
 MonoBehaviour:
   m_ObjectHideFlags: 0

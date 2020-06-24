@@ -9,11 +9,14 @@ public class ProjectileController : NetworkBehaviour
     [SyncVar]
     public string playerID;
 
+    [HideInInspector]
     public Rigidbody rb;
 
     public float initialVelocity;
 
     public float constantForce;
+
+    public Collider[] colliders;
 
     void Start()
     {
@@ -23,7 +26,10 @@ public class ProjectileController : NetworkBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(transform.forward * constantForce);
+        if (rb != null)
+        {
+            rb.AddForce(transform.forward * constantForce);
+        }
     }
     
 }

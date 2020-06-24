@@ -19,6 +19,9 @@ public class ImpactController : NetworkBehaviour
     [SerializeField]
     private float fuse;
 
+    [SerializeField]
+    private bool sticky;
+
     private bool impacted = false;
 
     void Start()
@@ -29,7 +32,7 @@ public class ImpactController : NetworkBehaviour
     void Update()
     {
         fuse -= Time.deltaTime;
-        if (fuse <= 0)
+        if (fuse <= 0 && !impacted)
         {
             CmdImpact(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up), null, 0);
         }
@@ -65,7 +68,13 @@ public class ImpactController : NetworkBehaviour
     [Command]
     void CmdImpact(Quaternion _rot, string _playerID, int _damage)
     {
-        RpcImpact(_rot);
+        if (sticky && _playerID != null)
+        { 
+            RpcStick(_playerID, _rot);
+        } else
+        {
+            RpcImpact(_rot);
+        }
 
         if (_playerID != null)
         {
@@ -77,10 +86,59 @@ public class ImpactController : NetworkBehaviour
     [ClientRpc]
     public void RpcImpact(Quaternion _rot)
     {
+        impacted = true;
+
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
 
         Destroy(_impact, 10f);
         NetworkServer.Destroy(gameObject);
+    }
+
+    [ClientRpc]
+    public void RpcStick(string _playerID, Quaternion _rot)
+    {
+        impacted = true;
+
+        Player _player = GameManager.GetPlayer(_playerID);
+
+        Transform _stick = null;
+        float _target = 0.6f;
+
+        Vector3 _centre;
+        if (GetComponent<CentreOfMass>() == null)
+        {
+            _centre = transform.position;
+        } else
+        {
+            _centre = transform.TransformPoint(GetComponent<CentreOfMass>().centre);
+        }
+
+        for(int i = 0; i < _player.rigidbodyOnDeath.Length; i++)
+        {
+            float _distance = Vector3.Distance(_player.rigidbodyOnDeath[i].transform.position, _centre);
+            if (_distance < _target)
+            {
+                _stick = _player.rigidbodyOnDeath[i].transform;
+                _target = _distance;
+            }
+        }
+
+        if (_stick == null)
+        {
+            NetworkServer.Destroy(gameObject);
+            GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
+            Destroy(_impact, 10f);
+            return;
+        }
+
+        transform.SetParent(_stick);
+        Util.SetLayerRecursively(gameObject, _stick.gameObject.layer);
+        Destroy(projectileController.rb);
+
+        for (int i = 0; i < projectileController.colliders.Length; i++)
+        {
+            projectileController.colliders[i].enabled = false;
+        }
     }
 
 }

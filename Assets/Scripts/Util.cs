@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using System.Net;
 using System.Net.Sockets;
 
-public class Util
+public class Util : MonoBehaviour
 {
 
     public static void SetLayerRecursively(GameObject _obj, int _newLayer)
@@ -17,6 +19,23 @@ public class Util
                 continue;
 
             SetLayerRecursively(_child.gameObject, _newLayer);
+        }
+    }
+
+    public static void DeleteTagRecursively(GameObject _obj, string _tag)
+    {
+        if (_obj == null)
+            return;
+
+        if (_obj.tag == _tag)
+            Destroy(_obj);
+
+        foreach (Transform _child in _obj.transform)
+        {
+            if (_child == null)
+                continue;
+
+            DeleteTagRecursively(_child.gameObject, _tag);
         }
     }
 

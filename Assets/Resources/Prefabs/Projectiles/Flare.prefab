@@ -105,6 +105,8 @@ MonoBehaviour:
   rb: {fileID: 156444120250483798}
   initialVelocity: 20
   constantForce: 5
+  colliders:
+  - {fileID: 4085050231816812046}
 --- !u!114 &1963822241130455570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +125,7 @@ MonoBehaviour:
   damage: 100
   headShotMultiplier: 1
   fuse: 4
+  sticky: 0
 --- !u!1 &1644004890568498132
 GameObject:
   m_ObjectHideFlags: 0
