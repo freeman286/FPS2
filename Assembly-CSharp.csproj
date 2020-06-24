@@ -65,6 +65,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
      <Compile Include="Assets\Scripts\AnimateFeet.cs" />
      <Compile Include="Assets\Scripts\CameraFacingBillboard.cs" />
+     <Compile Include="Assets\Scripts\CentreOfMass.cs" />
      <Compile Include="Assets\Scripts\CustomNetworkManager.cs" />
      <Compile Include="Assets\Scripts\ExplosiveController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />

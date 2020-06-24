@@ -121,6 +121,7 @@ MonoBehaviour:
   syncInterval: 0.1
   impact: {fileID: 1734203832338817589, guid: c2d71cbe6cabfeb4b94d23a5628b0302, type: 3}
   damage: 100
+  headShotMultiplier: 1
   fuse: 4
 --- !u!1 &1644004890568498132
 GameObject:

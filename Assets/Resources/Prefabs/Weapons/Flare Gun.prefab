@@ -599,7 +599,7 @@ MonoBehaviour:
   primary: 0
   damage: 35
   headShotMultiplier: 1.5
-  range: 150
+  range: 35
   damageFallOff:
     serializedVersion: 2
     m_Curve:

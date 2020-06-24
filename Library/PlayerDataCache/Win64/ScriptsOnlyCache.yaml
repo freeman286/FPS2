@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AnimateFeet
     - CameraFacingBillboard
+    - CentreOfMass
     - CustomNetworkManager
     - ExplosiveController
     - GameManager
@@ -38,8 +39,6 @@ ScriptsOnlyBuild:
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
@@ -75,8 +74,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.HighDefinition.Editor.dll:
     - UnityEditor.Rendering.HighDefinition.HDProjectSettings
-    - UnityEditor.VFX.VFXHDRPSubOutput
-    - UnityEditor.VFX.VFXLitPlanarPrimitiveOutput
     Unity.RenderPipelines.HighDefinition.Runtime.dll:
     - UnityEngine.Rendering.HighDefinition.AmbientOcclusion
     - UnityEngine.Rendering.HighDefinition.Bloom
@@ -99,34 +96,16 @@ ScriptsOnlyBuild:
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.VisualEffectGraph.Editor.dll:
-    - UnityEditor.VFX.Block.Orient
-    - UnityEditor.VFX.Block.SetAttribute
-    - UnityEditor.VFX.UI.VFXGraphUndoCursor
     - UnityEditor.VFX.UI.VFXViewWindow
-    - UnityEditor.VFX.VFXBasicInitialize
-    - UnityEditor.VFX.VFXBasicSpawner
-    - UnityEditor.VFX.VFXBasicUpdate
-    - UnityEditor.VFX.VFXDataParticle
-    - UnityEditor.VFX.VFXGraph
-    - UnityEditor.VFX.VFXParameter
-    - UnityEditor.VFX.VFXPlanarPrimitiveOutput
-    - UnityEditor.VFX.VFXResources
-    - UnityEditor.VFX.VFXSlot
-    - UnityEditor.VFX.VFXSlotColor
-    - UnityEditor.VFX.VFXSlotFloat
-    - UnityEditor.VFX.VFXSlotFloat3
-    - UnityEditor.VFX.VFXSlotInt
-    - UnityEditor.VFX.VFXSlotTexture2D
-    - UnityEditor.VFX.VFXSpawnerConstantRate
-    - UnityEditor.VFX.VFXSpawnerCustomWrapper
-    - UnityEditor.VFX.VFXUI
     Unity.VisualEffectGraph.Runtime.dll:
     - UnityEditor.VFX.LoopAndDelay
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -366,6 +345,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17440}
     - Class: 114
       Script: {instanceID: 17448}
+    - Class: 114
+      Script: {instanceID: 266112}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -553,6 +534,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17312}
     - Class: 114
       Script: {instanceID: 17386}
+    - Class: 114
+      Script: {instanceID: 266112}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -566,6 +549,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -736,6 +723,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17312}
     - Class: 114
       Script: {instanceID: 17386}
+    - Class: 114
+      Script: {instanceID: 266112}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -749,6 +738,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -2395,7 +2388,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerPong
   - hash:
       serializedVersion: 2
-      Hash: 0f813d23c4b852a85c68e31d40f3a1ef
+      Hash: aa6990e5260da56a15a6b61ad920a11e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ImpactController
@@ -3035,6 +3028,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: f6a4286068ee7b5505176345c0096cd4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CentreOfMass
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity
