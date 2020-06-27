@@ -1633,7 +1633,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 107063
-  timeSinceShot: 100
+  timeSinceShot: 1
   timeSinceScoped: 100
   localAnim: {fileID: 0}
   scopeUIPrefab: {fileID: 7027932364431142805, guid: 988d5f999506b9c489793e763c747566,
@@ -1643,6 +1643,7 @@ MonoBehaviour:
   scopeTime: 0.15
   scopeCooldown: 0.5
   scopedFOV: 25
+  defaultFOV: 0
 --- !u!114 &3543887534676550787
 MonoBehaviour:
   m_ObjectHideFlags: 0

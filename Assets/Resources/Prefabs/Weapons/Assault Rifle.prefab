@@ -621,12 +621,12 @@ MonoBehaviour:
   spreadWhileMoving: 0.1
   spreadWhileJumping: 0.4
   spreadWhileScoped: 0
-  recoilAmount: 350
+  recoilAmount: 100
   recoilTime: 0.2
   magSize: 30
   speed: 1
   scopedSpeed: 1
-  bullets: 14
+  bullets: 0
   reloadTime: 4
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 0}

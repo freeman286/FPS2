@@ -515,12 +515,12 @@ MonoBehaviour:
   spreadWhileMoving: 0.07
   spreadWhileJumping: 0.1
   spreadWhileScoped: 0
-  recoilAmount: 250
+  recoilAmount: 150
   recoilTime: 0.3
   magSize: 10
   speed: 1.4
   scopedSpeed: 1
-  bullets: 10
+  bullets: 0
   reloadTime: 2.5
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 0}

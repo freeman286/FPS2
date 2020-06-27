@@ -43,11 +43,35 @@ public class ImpactController : NetworkBehaviour
         projectileController.rb.isKinematic = true;
 
         Player _player = collision.transform.root.GetComponent<Player>();
+        int _rigidbodyIndex = 0;
 
         string _playerID = null;
         if (_player != null)
         {
-            _playerID = _player.transform.name;
+
+            if (sticky)
+            {
+                foreach (Collider _collider in projectileController.colliders)
+                {
+                    if (collision.collider.gameObject.GetComponent<Collider>().bounds.Intersects(_collider.bounds))
+                    {
+                        _playerID = _player.transform.name;
+                        transform.SetParent(collision.collider.gameObject.transform);
+                        Util.SetLayerRecursively(gameObject, collision.collider.gameObject.layer);
+                        Destroy(projectileController.rb);
+
+                        for (int i = 0; i < projectileController.colliders.Length; i++)
+                        {
+                            projectileController.colliders[i].enabled = false;
+                        }
+
+                        break;
+                    }
+                }
+            } else
+            {
+                _playerID = _player.transform.name;
+            }
         }
 
         if (!impacted)
@@ -60,7 +84,6 @@ public class ImpactController : NetworkBehaviour
                 _damage = (int)(_damage * headShotMultiplier);
             }
 
-
             CmdImpact(Quaternion.LookRotation(collision.contacts[0].normal), _playerID, _damage);
         }
     }
@@ -68,10 +91,7 @@ public class ImpactController : NetworkBehaviour
     [Command]
     void CmdImpact(Quaternion _rot, string _playerID, int _damage)
     {
-        if (sticky && _playerID != null)
-        { 
-            RpcStick(_playerID, _rot);
-        } else
+        if (!(sticky && _playerID != null))
         {
             RpcImpact(_rot);
         }
@@ -91,54 +111,7 @@ public class ImpactController : NetworkBehaviour
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
 
         Destroy(_impact, 10f);
-        NetworkServer.Destroy(gameObject);
-    }
-
-    [ClientRpc]
-    public void RpcStick(string _playerID, Quaternion _rot)
-    {
-        impacted = true;
-
-        Player _player = GameManager.GetPlayer(_playerID);
-
-        Transform _stick = null;
-        float _target = 0.6f;
-
-        Vector3 _centre;
-        if (GetComponent<CentreOfMass>() == null)
-        {
-            _centre = transform.position;
-        } else
-        {
-            _centre = transform.TransformPoint(GetComponent<CentreOfMass>().centre);
-        }
-
-        for(int i = 0; i < _player.rigidbodyOnDeath.Length; i++)
-        {
-            float _distance = Vector3.Distance(_player.rigidbodyOnDeath[i].transform.position, _centre);
-            if (_distance < _target)
-            {
-                _stick = _player.rigidbodyOnDeath[i].transform;
-                _target = _distance;
-            }
-        }
-
-        if (_stick == null)
-        {
-            NetworkServer.Destroy(gameObject);
-            GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
-            Destroy(_impact, 10f);
-            return;
-        }
-
-        transform.SetParent(_stick);
-        Util.SetLayerRecursively(gameObject, _stick.gameObject.layer);
-        Destroy(projectileController.rb);
-
-        for (int i = 0; i < projectileController.colliders.Length; i++)
-        {
-            projectileController.colliders[i].enabled = false;
-        }
+        Destroy(gameObject);
     }
 
 }

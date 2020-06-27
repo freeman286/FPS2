@@ -717,7 +717,7 @@ MonoBehaviour:
   spreadWhileMoving: 0.1
   spreadWhileJumping: 0.2
   spreadWhileScoped: 0
-  recoilAmount: 1200
+  recoilAmount: 500
   recoilTime: 0.2
   magSize: 1
   speed: 0.7

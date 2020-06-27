@@ -43,15 +43,16 @@ public class WeaponManager : NetworkBehaviour
     void Start()
     {
         allWeapons = Util.AllWeapons();
-        SetDefaults();
         shoot = GetComponent<PlayerShoot>();
         anim = GetComponent<Animator>();
         metrics = GetComponent<PlayerMetrics>();
+
+        SetDefaults();
     }   
 
     void Update()
     {
-        if (Input.GetButtonDown("Switch") && isLocalPlayer && !switchingWeapon)
+        if (Input.GetButtonDown("Switch") && isLocalPlayer && !switchingWeapon && !Pause.IsOn)
         {
             if (reload != null)
                 StopCoroutine(reload);
@@ -72,6 +73,8 @@ public class WeaponManager : NetworkBehaviour
             primaryWeapon.Load();
             secondaryWeapon.Load();
             EquipWeapon(primaryWeapon, true);
+
+            shoot.CancelInvoke("Shoot");
 
             if (shoot != null)
             {

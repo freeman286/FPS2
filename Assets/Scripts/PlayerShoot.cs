@@ -22,7 +22,7 @@ public class PlayerShoot : NetworkBehaviour {
     private PlayerMotor motor;
     private PlayerMetrics metrics;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float timeSinceShot = 100f;
 
     [HideInInspector]
@@ -78,9 +78,22 @@ public class PlayerShoot : NetworkBehaviour {
 
     void Update()
     {
+        timeSinceScoped += Time.deltaTime;
+        timeSinceShot += Time.deltaTime;
+
         currentWeapon = weaponManager.GetCurrentWeapon();
 
-        if (Pause.IsOn || currentWeapon == null)
+        if (currentWeapon == null)
+            return;
+
+        Recoil();
+
+        if (currentWeapon.bullets <= 0 && timeSinceShot > 1f / currentWeapon.fireRate)
+        {
+            weaponManager.Reload();
+        }
+
+        if (Pause.IsOn)
             return;
 
         if (currentWeapon.bullets < currentWeapon.magSize)
@@ -96,7 +109,6 @@ public class PlayerShoot : NetworkBehaviour {
         {
             if (Input.GetButtonDown("Fire1") && timeSinceShot > 1f / currentWeapon.fireRate)
             {
-                CancelInvoke("Shoot");
                 InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
             }
             else if (!Input.GetButton("Fire1") || Input.GetButton("Cancel"))
@@ -111,16 +123,7 @@ public class PlayerShoot : NetworkBehaviour {
                 Shoot();
             }
         }
-
-        timeSinceScoped += Time.deltaTime;
-        timeSinceShot += Time.deltaTime;
-
-
-        if (currentWeapon.bullets <= 0 && timeSinceShot > 1f / currentWeapon.fireRate)
-        {
-            weaponManager.Reload();
-        }
-
+    
         if (currentWeapon.scoped && localAnim != null && isLocalPlayer)
         {
             if (Input.GetButtonDown("Fire2") && timeSinceScoped > scopeCooldown)
@@ -139,12 +142,6 @@ public class PlayerShoot : NetworkBehaviour {
             }
 
         }
-
-    }
-
-    void FixedUpdate()
-    {
-        Recoil();
     }
 
     [Command]
@@ -320,7 +317,8 @@ public class PlayerShoot : NetworkBehaviour {
         if (!isLocalPlayer || currentWeapon == null)
             return;
 
-        float _recoil = Mathf.Clamp(currentWeapon.recoilTime - timeSinceShot, 0, currentWeapon.recoilTime) * currentWeapon.recoilAmount * Time.fixedDeltaTime;
+        float _recoil = Mathf.Clamp(currentWeapon.recoilTime - timeSinceShot, 0, currentWeapon.recoilTime) * currentWeapon.recoilAmount * Time.deltaTime;
+
         if (_recoil > 0)
         {
             motor.AddRotation(new Vector3(0, Random.Range(-1.0f, 1.0f) * _recoil, 0));
