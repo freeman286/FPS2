@@ -40,8 +40,17 @@ public class OfflineUI : MonoBehaviour
         if (string.IsNullOrEmpty(PlayerInfo.playerName))
             return;
 
-        networkManager.StartHost();
         InvokeRepeating("Loading", 0f, 0.01f);
+
+        StartCoroutine(Host_Coroutine());
+
+    }
+
+    private IEnumerator Host_Coroutine()
+    {
+        LevelLoader.instance.DoTransition();
+        yield return new WaitForSeconds(1f);
+        networkManager.StartHost();
     }
 
     public void Client()
@@ -51,13 +60,20 @@ public class OfflineUI : MonoBehaviour
 
         if (ipValueChanged)
         {
-            networkManager.networkAddress = ipAddress.text;
-            loadingImage.enabled = true;
             InvokeRepeating("Loading", 0f, 0.01f);
-            networkManager.StartClient();
-            ipValueChanged = false;
+            StartCoroutine(Client_Coroutine());
         }
         
+    }
+
+    private IEnumerator Client_Coroutine()
+    {
+        LevelLoader.instance.DoTransition();
+        yield return new WaitForSeconds(1f);
+        networkManager.networkAddress = ipAddress.text;
+        loadingImage.enabled = true;
+        networkManager.StartClient();
+        ipValueChanged = false;
     }
 
     void Loading()

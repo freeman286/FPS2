@@ -4,6 +4,8 @@ using Mirror;
 
 using System.Net;
 using System.Net.Sockets;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -45,7 +47,9 @@ public class PlayerUI : MonoBehaviour
 
     private Player player;
     private PlayerController controller;
+    private PlayerShoot shoot;
     private WeaponManager weaponManager;
+
 
     [HideInInspector]
     public NetworkManager networkManager;
@@ -56,6 +60,7 @@ public class PlayerUI : MonoBehaviour
     {
         player = _player;
         controller = player.GetComponent<PlayerController>();
+        shoot = player.GetComponent<PlayerShoot>();
         weaponManager = player.GetComponent<WeaponManager>();
 
         networkManager = NetworkManager.singleton;
@@ -139,5 +144,26 @@ public class PlayerUI : MonoBehaviour
         lookSensitivityText.text = string.Format("Sensitivity: {0:F1}", lookSensitivity); ;
     }
 
+    public void Disconnect()
+    {
+        crosshair.SetActive(false);
+        healthBar.SetActive(false);
+        ammo.SetActive(false);
+        scoreboard.SetActive(false);
+        pauseMenu.SetActive(false);
+        ipAddress.SetActive(false);
+        controller.enabled = false;
+        shoot.enabled = false;
+
+        StartCoroutine(Disconnect_Coroutine());
+    }
+
+    private IEnumerator Disconnect_Coroutine()
+    {
+        LevelLoader.instance.DoTransition();
+        yield return new WaitForSeconds(1f);
+        networkManager.StopClient();
+        networkManager.StopHost();
+    }
 
 }

@@ -1706,7 +1706,7 @@ RectTransform:
   - {fileID: 6452553123188715121}
   - {fileID: 1355291484442214229}
   - {fileID: 6896811353990309292}
-  - {fileID: 3325820908676337900}
+  - {fileID: 6135457685380574233}
   m_Father: {fileID: 4452862453348152231}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1983,7 +1983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7168483065661175308
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2310,7 +2310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ff0e1f2dcc902c4183585374eb52b0e, type: 3}
---- !u!224 &3325820908676337900 stripped
+--- !u!224 &6135457685380574233 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8863706661495561978, guid: 4ff0e1f2dcc902c4183585374eb52b0e,
     type: 3}

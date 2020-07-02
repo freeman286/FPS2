@@ -111,7 +111,7 @@ public class PlayerShoot : NetworkBehaviour {
             {
                 InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
             }
-            else if (!Input.GetButton("Fire1") || Input.GetButton("Cancel"))
+            else if ((!Input.GetButton("Fire1") && timeSinceShot > 1f / currentWeapon.fireRate) || Input.GetButton("Cancel"))
             {
                 CancelInvoke("Shoot");
             }

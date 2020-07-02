@@ -12,18 +12,11 @@ public class Pause : MonoBehaviour
 
     public static bool IsOn = false;
 
-    private NetworkManager networkManager;
-
-    void Start()
-    {
-        networkManager = ui.networkManager;
-    }
-
     public void Disconnect()
     {
+        LevelLoader.instance.DoTransition();
         IsOn = false;
-        networkManager.StopClient();
-        networkManager.StopHost();
+        ui.Disconnect();
     }
 
 }
