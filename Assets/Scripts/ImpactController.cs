@@ -32,7 +32,7 @@ public class ImpactController : NetworkBehaviour
     void Update()
     {
         fuse -= Time.deltaTime;
-        if (fuse <= 0 && !impacted)
+        if (fuse <= 0 && transform.parent == null)
         {
             CmdImpact(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up), null, 0);
         }
@@ -40,6 +40,7 @@ public class ImpactController : NetworkBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+
         projectileController.rb.isKinematic = true;
 
         Player _player = collision.transform.root.GetComponent<Player>();
@@ -111,7 +112,7 @@ public class ImpactController : NetworkBehaviour
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
 
         Destroy(_impact, 10f);
-        Destroy(gameObject);
+        NetworkServer.Destroy(gameObject);
     }
 
 }

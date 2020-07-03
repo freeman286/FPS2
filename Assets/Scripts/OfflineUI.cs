@@ -71,13 +71,13 @@ public class OfflineUI : MonoBehaviour
         LevelLoader.instance.DoTransition();
         yield return new WaitForSeconds(1f);
         networkManager.networkAddress = ipAddress.text;
-        loadingImage.enabled = true;
         networkManager.StartClient();
         ipValueChanged = false;
     }
 
     void Loading()
     {
+        loadingImage.enabled = true;
         loadingRectTransform.Rotate(new Vector3(0, 0, 1));
     }
 
