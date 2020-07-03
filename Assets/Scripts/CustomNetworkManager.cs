@@ -68,5 +68,14 @@ public class CustomNetworkManager : NetworkManager
 
         return usablePositions;
     }
+
+    public override void OnStartClient() {
+        //Stuff that happens when the client connects
+        LevelLoader.instance.DoTransition();
+    }
+
+    public override void OnStartHost() {
+        //Stuff that happens when the host starts
+    }
 }
 

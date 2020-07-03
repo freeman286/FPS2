@@ -10,6 +10,8 @@ public class LevelLoader : MonoBehaviour
 
     public Animator transition;
 
+    private float timeSinceCreated;
+
     void Awake()
     {
         if (instance != null)
@@ -24,6 +26,14 @@ public class LevelLoader : MonoBehaviour
 
     public void DoTransition()
     {
-        transition.SetTrigger("Start");
-    } 
+        if (timeSinceCreated > 0.1f) // If something is trying to trigger this before we've even faded in something is wrong
+        {
+            transition.SetTrigger("Start");
+        }
+    }
+
+    void Update()
+    {
+        timeSinceCreated += Time.deltaTime;
+    }
 }
