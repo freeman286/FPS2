@@ -204,6 +204,7 @@ public class Player : NetworkBehaviour
             rigidbody.mass = rigidbodyMass[i];
             rigidbody.drag = 1;
             rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+            rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rigidbody.velocity = metrics.velocity;
         }
 

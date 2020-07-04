@@ -54,10 +54,14 @@ public class ImpactController : NetworkBehaviour
             {
                 foreach (Collider _collider in projectileController.colliders)
                 {
-                    if (collision.collider.gameObject.GetComponent<Collider>().bounds.Intersects(_collider.bounds))
+                    if (collision.collider.bounds.Intersects(_collider.bounds))
                     {
+                        GetComponent<NetworkTransform>().enabled = false;
+
                         _playerID = _player.transform.name;
-                        transform.SetParent(collision.collider.gameObject.transform);
+
+                        CmdSetParent(System.Array.IndexOf(_player.rigidbodyOnDeath, collision.collider.gameObject), _playerID, collision.collider.transform.InverseTransformPoint(transform.position));
+
                         Util.SetLayerRecursively(gameObject, collision.collider.gameObject.layer);
                         Destroy(projectileController.rb);
 
@@ -115,5 +119,18 @@ public class ImpactController : NetworkBehaviour
         NetworkServer.Destroy(gameObject);
     }
 
+    [Command]
+    void CmdSetParent(int _index, string _playerID, Vector3 _pos)
+    {
+        RpcSetParent(_index, _playerID, _pos);
+    }
+
+    [ClientRpc]
+    void RpcSetParent(int _index, string _playerID, Vector3 _pos)
+    {
+        Player _player = GameManager.GetPlayer(_playerID);
+        transform.SetParent(_player.rigidbodyOnDeath[_index].transform);
+        transform.localPosition = _pos;
+    }
 }
 
