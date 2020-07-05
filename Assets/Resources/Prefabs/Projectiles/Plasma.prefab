@@ -122,9 +122,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   impact: {fileID: 1734203832338817589, guid: 2d6670cde9e1c014b9a95d420d70d425, type: 3}
-  damage: 40
+  damage: 30
   headShotMultiplier: 2
-  fuse: 4
+  fuse: 2
   sticky: 0
 --- !u!1 &1644004890568498132
 GameObject:
