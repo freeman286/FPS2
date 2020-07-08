@@ -75,7 +75,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.HighDefinition.Editor.dll:
     - UnityEditor.Rendering.HighDefinition.HDProjectSettings
-    - UnityEditor.VFX.VFXHDRPSubOutput
     Unity.RenderPipelines.HighDefinition.Runtime.dll:
     - UnityEngine.Rendering.HighDefinition.AmbientOcclusion
     - UnityEngine.Rendering.HighDefinition.Bloom
@@ -97,44 +96,13 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.HighDefinition.VisualEnvironment
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.VisualEffectGraph.Editor.dll:
-    - UnityEditor.VFX.AdvancedVisualEffectEditor
-    - UnityEditor.VFX.Block.AttributeFromCurve
-    - UnityEditor.VFX.Block.GPUEventRate
-    - UnityEditor.VFX.Block.PositionLine
-    - UnityEditor.VFX.Block.SetAttribute
-    - UnityEditor.VFX.Block.Turbulence
-    - UnityEditor.VFX.Operator.Multiply
-    - UnityEditor.VFX.Operator.Random
-    - UnityEditor.VFX.Operator.SampleCurve
-    - UnityEditor.VFX.VFXBasicGPUEvent
-    - UnityEditor.VFX.VFXBasicInitialize
-    - UnityEditor.VFX.VFXBasicSpawner
-    - UnityEditor.VFX.VFXBasicUpdate
-    - UnityEditor.VFX.VFXDataParticle
-    - UnityEditor.VFX.VFXGraph
-    - UnityEditor.VFX.VFXParameter
-    - UnityEditor.VFX.VFXQuadStripOutput
-    - UnityEditor.VFX.VFXSlot
-    - UnityEditor.VFX.VFXSlotAnimationCurve
-    - UnityEditor.VFX.VFXSlotFloat
-    - UnityEditor.VFX.VFXSlotFloat3
-    - UnityEditor.VFX.VFXSlotGradient
-    - UnityEditor.VFX.VFXSlotInt
-    - UnityEditor.VFX.VFXSlotTexture2D
-    - UnityEditor.VFX.VFXSlotTransform
-    - UnityEditor.VFX.VFXSlotVector
-    - UnityEditor.VFX.VFXSpawnerBurst
-    - UnityEditor.VFX.VFXUI
     Unity.VisualEffectGraph.Runtime.dll:
     - UnityEditor.VFX.LoopAndDelay
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -249,8 +217,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12536}
     - Class: 114
-      Script: {instanceID: 12868}
-    - Class: 114
       Script: {instanceID: 12878}
     - Class: 114
       Script: {instanceID: 13032}
@@ -258,8 +224,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13084}
     - Class: 114
       Script: {instanceID: 13138}
-    - Class: 114
-      Script: {instanceID: 13140}
     - Class: 114
       Script: {instanceID: 13340}
     - Class: 114
@@ -293,15 +257,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14538}
     - Class: 114
-      Script: {instanceID: 14576}
-    - Class: 114
       Script: {instanceID: 14620}
     - Class: 114
       Script: {instanceID: 14632}
     - Class: 114
       Script: {instanceID: 14656}
-    - Class: 114
-      Script: {instanceID: 14704}
     - Class: 114
       Script: {instanceID: 14742}
     - Class: 114
@@ -362,8 +322,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16748}
     - Class: 114
       Script: {instanceID: 16824}
-    - Class: 114
-      Script: {instanceID: 16848}
     - Class: 114
       Script: {instanceID: 16978}
     - Class: 114
@@ -673,6 +631,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11872}
     - Class: 114
+      Script: {instanceID: 11996}
+    - Class: 114
       Script: {instanceID: 12024}
     - Class: 114
       Script: {instanceID: 12144}
@@ -746,6 +706,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16028}
     - Class: 114
       Script: {instanceID: 16194}
+    - Class: 114
+      Script: {instanceID: 16266}
     - Class: 114
       Script: {instanceID: 16644}
     - Class: 114

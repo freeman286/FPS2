@@ -16,8 +16,11 @@ public class TerrainTarget : MonoBehaviour
         foreach (Transform child in transform)
         {
             TerrainId terrainId = child.GetComponent<TerrainId>();
-            targetIds[(int)(child.localPosition.x / _gridSize), (int)(child.localPosition.z / _gridSize), (int)(child.localPosition.y / _gridSize)] = terrainId.targetId;
-            ids[(int)(child.localPosition.x / _gridSize), (int)(child.localPosition.z / _gridSize), (int)(child.localPosition.y / _gridSize)] = terrainId.id;
+            if (terrainId != null)
+            {
+                targetIds[(int)(child.localPosition.x / _gridSize), (int)(child.localPosition.z / _gridSize), (int)(child.localPosition.y / _gridSize)] = terrainId.targetId;
+                ids[(int)(child.localPosition.x / _gridSize), (int)(child.localPosition.z / _gridSize), (int)(child.localPosition.y / _gridSize)] = terrainId.id;
+            }
         }
     }
     
