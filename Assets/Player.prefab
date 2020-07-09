@@ -1642,7 +1642,7 @@ MonoBehaviour:
   isScoped: 0
   scopeTime: 0.15
   scopeCooldown: 0.5
-  scopedFOV: 25
+  scopedFOV: 20
   defaultFOV: 0
 --- !u!114 &3543887534676550787
 MonoBehaviour:

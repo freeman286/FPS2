@@ -543,7 +543,7 @@ Animator:
   m_GameObject: {fileID: 2721180637063796786}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c2f037560eb782746b230abd5e078b97, type: 2}
+  m_Controller: {fileID: 9100000, guid: bb29280d60aee344fac7c46b8ae1c520, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
   magSize: 30
   speed: 1
   scopedSpeed: 1
-  bullets: 0
+  bullets: 20
   reloadTime: 4
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 0}

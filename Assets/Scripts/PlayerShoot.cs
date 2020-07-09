@@ -335,6 +335,7 @@ public class PlayerShoot : NetworkBehaviour {
         ui.crosshair.SetActive(false);
         weaponCam.enabled = false;
 
+        Environment.instance.Scope();
         cam.fieldOfView = scopedFOV;
     }
 
@@ -351,5 +352,6 @@ public class PlayerShoot : NetworkBehaviour {
         ui.crosshair.SetActive(true);
         weaponCam.enabled = true;
         cam.fieldOfView = defaultFOV;
+        Environment.instance.UnScope();
     }
 }
