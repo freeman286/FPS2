@@ -199,7 +199,7 @@ public class PlayerShoot : NetworkBehaviour {
     [Client]
     void Shoot()
     {
-        if (!isLocalPlayer || weaponManager.isReloading)
+        if (!isLocalPlayer || weaponManager.isReloading || !Input.GetButton("Fire1"))
             return;
 
         if (currentWeapon.bullets <= 0)

@@ -147,8 +147,8 @@ public class MapGenerator : MonoBehaviour
             int[,,] targetIds = terrainTarget.targetIds;
             int[,,] ids = terrainTarget.ids;
 
-            //Debug.Log(allTerrain[i].transform.name);
-            //Debug.Log(Util.FormatMatrix(targetIds));
+            Debug.Log(allTerrain[i].transform.name);
+            Debug.Log(Util.FormatMatrix(targetIds));
 
             for (int r = 0; r < 4; r++)
             {
