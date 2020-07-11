@@ -21,6 +21,23 @@ public class ProjectileController : NetworkBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Launch();
+    }
+
+    public void Launch()
+    {
+        CmdLaunch();
+    }
+
+    [Command]
+    void CmdLaunch()
+    {
+        RpcLaunch();
+    }
+
+    [ClientRpc]
+    void RpcLaunch()
+    {
         rb.velocity = transform.forward * initialVelocity;
     }
 

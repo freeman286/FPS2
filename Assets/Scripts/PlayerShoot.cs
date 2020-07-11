@@ -126,6 +126,13 @@ public class PlayerShoot : NetworkBehaviour {
             }
         }
 
+        ShootInput();
+
+        ScopeInput();
+    }
+
+    void ShootInput()
+    {
         if (currentWeapon.automatic)
         {
             if (Input.GetButtonDown("Fire1") && timeSinceShot > 1f / currentWeapon.fireRate && !IsInvoking("Shoot"))
@@ -137,14 +144,18 @@ public class PlayerShoot : NetworkBehaviour {
                 CancelInvoke("Shoot");
             }
 
-        } else
+        }
+        else
         {
             if (Input.GetButtonDown("Fire1") && timeSinceShot > 1f / currentWeapon.fireRate)
             {
                 Shoot();
             }
         }
-    
+    }
+
+    void ScopeInput()
+    {
         if (currentWeapon.scoped && localAnim != null && isLocalPlayer)
         {
             if (Input.GetButtonDown("Fire2") && timeSinceScoped > scopeCooldown)
@@ -156,7 +167,8 @@ public class PlayerShoot : NetworkBehaviour {
                 if (isScoped)
                 {
                     StartCoroutine(OnScoped());
-                } else
+                }
+                else
                 {
                     StartCoroutine(OnUnscoped());
                 }
