@@ -28,6 +28,8 @@ public class PlayerShoot : NetworkBehaviour {
     [HideInInspector]
     public float timeSinceScoped = 100f;
 
+    private float timeSinceBurst = 0f;
+
     [HideInInspector]
     public Animator localAnim;
 
@@ -86,6 +88,19 @@ public class PlayerShoot : NetworkBehaviour {
         if (currentWeapon == null)
             return;
 
+        if (timeSinceShot <= 1f / currentWeapon.fireRate)
+        {
+            timeSinceBurst += Time.deltaTime;
+        }
+        else if (timeSinceBurst > 0)
+        {
+            timeSinceBurst -= Time.deltaTime;
+        }
+        else
+        {
+            timeSinceBurst = 0;
+        }
+
         Recoil();
 
         if (currentWeapon.bullets <= 0 && timeSinceShot > 1f / currentWeapon.fireRate)
@@ -94,7 +109,13 @@ public class PlayerShoot : NetworkBehaviour {
         }
 
         if (Pause.IsOn)
+        {
+            if (timeSinceShot >= 1f / currentWeapon.fireRate && IsInvoking("Shoot"))
+            {
+                CancelInvoke("Shoot");
+            }   
             return;
+        }
 
         if (currentWeapon.bullets < currentWeapon.magSize)
         {
@@ -111,7 +132,7 @@ public class PlayerShoot : NetworkBehaviour {
             {
                 InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
             }
-            else if ((!Input.GetButton("Fire1") && timeSinceShot >= 1f / currentWeapon.fireRate) || Input.GetButton("Cancel"))
+            else if (!Input.GetButton("Fire1") && timeSinceShot >= 1f / currentWeapon.fireRate)
             {
                 CancelInvoke("Shoot");
             }
@@ -228,6 +249,8 @@ public class PlayerShoot : NetworkBehaviour {
             _spread = currentWeapon.spreadDefault;
         }
 
+        _spread *= currentWeapon.spreadCurve.Evaluate(timeSinceBurst / currentWeapon.timeTillMaxSpread);
+
         Vector3 _devience = Random.insideUnitSphere * _spread;
 
         Vector3 _direction;
@@ -321,7 +344,7 @@ public class PlayerShoot : NetworkBehaviour {
 
         if (_recoil > 0)
         {
-            motor.AddRotation(new Vector3(0, Random.Range(-1.0f, 1.0f) * _recoil, 0));
+            motor.AddRotation(new Vector3(0, Random.Range(-currentWeapon.horizontalRecoilMultiplier, currentWeapon.horizontalRecoilMultiplier) * _recoil, 0));
             motor.AddRotationCamera(_recoil);
         }
     }

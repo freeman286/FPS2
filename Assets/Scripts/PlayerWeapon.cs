@@ -29,7 +29,11 @@ public class PlayerWeapon : MonoBehaviour
     public float spreadWhileJumping;
     public float spreadWhileScoped;
 
+    public float timeTillMaxSpread;
+    public AnimationCurve spreadCurve;
+
     public float recoilAmount;
+    public float horizontalRecoilMultiplier;
     public float recoilTime;
 
     public int magSize = 20;

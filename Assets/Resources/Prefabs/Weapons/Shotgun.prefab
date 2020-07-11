@@ -847,10 +847,53 @@ MonoBehaviour:
   fireRate: 1
   roundsPerShot: 12
   coneOfFire: 0.1
-  spreadDefault: 0.03
-  spreadWhileMoving: 0.1
-  spreadWhileJumping: 0.2
+  spreadDefault: 0.2
+  spreadWhileMoving: 0.6
+  spreadWhileJumping: 0.8
   spreadWhileScoped: 0
+  timeTillMaxSpread: 2
+  spreadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.25
+      inSlope: 0.058322813
+      outSlope: 0.058322813
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.33990484
+      value: 0.2698242
+      inSlope: 0.25057524
+      outSlope: 0.25057524
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.746446
+      value: 0.4498519
+      inSlope: 1.3062876
+      outSlope: 1.3062876
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.1697476
+      outSlope: 2.1697476
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   recoilAmount: 600
   recoilTime: 0.2
   magSize: 8

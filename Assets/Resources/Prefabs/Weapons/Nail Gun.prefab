@@ -875,16 +875,41 @@ MonoBehaviour:
   fireRate: 8
   roundsPerShot: 1
   coneOfFire: 0
-  spreadDefault: 0.02
-  spreadWhileMoving: 0.04
-  spreadWhileJumping: 0.1
+  spreadDefault: 0.08
+  spreadWhileMoving: 0.12
+  spreadWhileJumping: 0.3
   spreadWhileScoped: 0
+  timeTillMaxSpread: 0.6
+  spreadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.35
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   recoilAmount: 100
   recoilTime: 0.1
   magSize: 30
   speed: 1.1
   scopedSpeed: 1
-  bullets: 9
+  bullets: 30
   reloadTime: 2.5
   graphics: {fileID: 2721180637063796786}
   projectile: {fileID: 156444120250483795, guid: 1fcbbb0d18d393b46bc671873802fcee,
