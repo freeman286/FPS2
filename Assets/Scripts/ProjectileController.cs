@@ -12,8 +12,6 @@ public class ProjectileController : NetworkBehaviour
     [HideInInspector]
     public Rigidbody rb;
 
-    public float initialVelocity;
-
     public float constantForce;
 
     public Collider[] colliders;
@@ -21,24 +19,19 @@ public class ProjectileController : NetworkBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Launch();
-    }
-
-    public void Launch()
-    {
-        CmdLaunch();
     }
 
     [Command]
-    void CmdLaunch()
+    public void CmdLaunch(float _velocity)
     {
-        RpcLaunch();
+        RpcLaunch(_velocity);
     }
 
     [ClientRpc]
-    void RpcLaunch()
+    public void RpcLaunch(float _velocity)
     {
-        rb.velocity = transform.forward * initialVelocity;
+        rb = GetComponent<Rigidbody>(); // Make sure rb is defined if we call this as soon as the projectile is spawned
+        rb.velocity = transform.forward * _velocity;
     }
 
     void FixedUpdate()

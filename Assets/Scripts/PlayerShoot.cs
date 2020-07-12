@@ -281,7 +281,7 @@ public class PlayerShoot : NetworkBehaviour {
         {
             if (currentWeapon.projectileWeapon)
             {
-                ProjectileShoot(_direction, _devience);
+                ProjectileShoot(_direction, _devience, currentWeapon.throwPower);
             }
             else
             {
@@ -326,9 +326,9 @@ public class PlayerShoot : NetworkBehaviour {
         }
     }
 
-    void ProjectileShoot(Vector3 _direction, Vector3 _devience)
+    void ProjectileShoot(Vector3 _direction, Vector3 _devience, float _velocity)
     {
-        CmdProjectileShot(weaponManager.GetCurrentGraphics().firePoint.transform.position, Quaternion.LookRotation(_direction + _devience), transform.name);
+        CmdProjectileShot(weaponManager.GetCurrentGraphics().firePoint.transform.position, Quaternion.LookRotation(_direction + _devience), transform.name, _velocity);
     }
 
     [Command]
@@ -340,11 +340,15 @@ public class PlayerShoot : NetworkBehaviour {
     }
 
     [Command]
-    void CmdProjectileShot(Vector3 _pos, Quaternion _rot, string _playerID)
+    void CmdProjectileShot(Vector3 _pos, Quaternion _rot, string _playerID, float _velocity)
     {
         GameObject _projectile = (GameObject)Instantiate(weaponManager.GetCurrentProjectile(), _pos, _rot);
         NetworkServer.Spawn(_projectile, connectionToClient);
-        _projectile.GetComponent<ProjectileController>().playerID = _playerID;
+
+        ProjectileController _projectileController = _projectile.GetComponent<ProjectileController>();
+
+        _projectileController.playerID = _playerID;
+        _projectileController.RpcLaunch(_velocity);
     }
 
     void Recoil()
