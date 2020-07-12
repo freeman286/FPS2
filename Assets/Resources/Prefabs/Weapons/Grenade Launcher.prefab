@@ -693,10 +693,11 @@ MonoBehaviour:
   automatic: 0
   fireRate: 1
   scoped: 0
+  special: 0
   roundsPerShot: 1
   projectileWeapon: 1
   throwPower: 15
-  projectile: {fileID: 156444120250483795, guid: 13d92738dc3f6f14ab918aa5b0b4d1ff,
+  projectile: {fileID: 156444120250483795, guid: a30bdb4ad2a1f25428c6975b01778b75,
     type: 3}
   coneOfFire: 0
   spreadDefault: 0.1

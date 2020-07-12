@@ -5,9 +5,11 @@ ScriptsOnlyBuild:
     - CameraFacingBillboard
     - CentreOfMass
     - CustomNetworkManager
+    - EnableGravityGun
     - Environment
     - ExplosiveController
     - GameManager
+    - GravityGun
     - ImpactController
     - Killfeed
     - KillfeedItem
@@ -372,6 +374,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17446}
     - Class: 114
       Script: {instanceID: 17454}
+    - Class: 114
+      Script: {instanceID: 277256}
+    - Class: 114
+      Script: {instanceID: 715034}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -571,6 +577,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17318}
     - Class: 114
       Script: {instanceID: 17392}
+    - Class: 114
+      Script: {instanceID: 277256}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -772,6 +780,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17318}
     - Class: 114
       Script: {instanceID: 17392}
+    - Class: 114
+      Script: {instanceID: 277256}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -895,7 +905,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerHUD
   - hash:
       serializedVersion: 2
-      Hash: 8a7d63e1d1213f9f1f87192e66ac8da5
+      Hash: 6efc635a6af865a13b31719b783410df
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeapon
@@ -1279,7 +1289,7 @@ ScriptsOnlyBuild:
     className: HDAdditionalReflectionData
   - hash:
       serializedVersion: 2
-      Hash: c306f6468e28f3f562a5bf311cd9d239
+      Hash: c36ff600642e760e75e8d0fa5dfdc26f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ProjectileController
@@ -3101,6 +3111,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: bea9e8cb3b2b326f128dac949e9a1c1a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GravityGun
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnableGravityGun
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

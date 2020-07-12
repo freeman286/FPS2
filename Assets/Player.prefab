@@ -1464,6 +1464,7 @@ GameObject:
   - component: {fileID: 9210790658628301855}
   - component: {fileID: 2139900448668095581}
   - component: {fileID: 3059421112803731098}
+  - component: {fileID: 3794130788770680765}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1768,6 +1769,29 @@ MonoBehaviour:
     m_Bits: 8192
   lastPosition: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &3794130788770680765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5772e3fe6c27dbc45b2789cd97b97dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cam: {fileID: 899551536351255448}
+  fireButton: Fire1
+  catchButton: Fire2
+  grabDistance: 5
+  throwForce: 20
+  throwForceMode: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 65536
 --- !u!1 &9012694868525747722
 GameObject:
   m_ObjectHideFlags: 0

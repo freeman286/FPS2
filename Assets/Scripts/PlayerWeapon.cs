@@ -18,6 +18,7 @@ public class PlayerWeapon : MonoBehaviour
     public bool automatic;
     public float fireRate;
     public bool scoped;
+    public bool special;
 
     public int roundsPerShot;
     [Header("Projectile")]

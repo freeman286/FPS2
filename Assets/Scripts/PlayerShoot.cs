@@ -101,6 +101,9 @@ public class PlayerShoot : NetworkBehaviour {
             timeSinceBurst = 0;
         }
 
+        if (currentWeapon.special)
+            return;
+
         Recoil();
 
         if (currentWeapon.bullets <= 0 && timeSinceShot > 1f / currentWeapon.fireRate)
@@ -344,6 +347,7 @@ public class PlayerShoot : NetworkBehaviour {
     {
         GameObject _projectile = (GameObject)Instantiate(weaponManager.GetCurrentProjectile(), _pos, _rot);
         NetworkServer.Spawn(_projectile, connectionToClient);
+        
 
         ProjectileController _projectileController = _projectile.GetComponent<ProjectileController>();
 
