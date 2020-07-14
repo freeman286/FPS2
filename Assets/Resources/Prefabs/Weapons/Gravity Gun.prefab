@@ -44,7 +44,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8086437, b: 0, a: 1}
+  m_Color: {r: 0.13573885, g: 1, b: 0, a: 1}
   m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
@@ -309,7 +309,6 @@ GameObject:
   - component: {fileID: 8611157478501245204}
   - component: {fileID: 4019172861636863061}
   - component: {fileID: 3491092756969410924}
-  - component: {fileID: 757358259296314714}
   - component: {fileID: 2156374604898238335}
   m_Layer: 8
   m_Name: Cube (2)
@@ -379,19 +378,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &757358259296314714
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674463040094476523}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &2156374604898238335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -494,7 +480,7 @@ BoxCollider:
   m_GameObject: {fileID: 2153054901166464207}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -725,16 +711,16 @@ MonoBehaviour:
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
   ejectionPort: {fileID: 3876431200991625207}
-  casing: {fileID: 6886093808969423702, guid: e05d827ffbe69f542b17110865015960, type: 3}
-  shootSound: {fileID: 185320, guid: af1331253d3a9ac479d81676a6347b5b, type: 3}
+  casing: {fileID: 0}
+  shootSound: {fileID: 185320, guid: e888a700a02f01e4ea21c1c3f6789a4b, type: 3}
   firePoint: {fileID: 1626188674828420661}
   colliders:
   - {fileID: 8995972216420247034}
   - {fileID: 620521297901704382}
   - {fileID: 5069471091630406527}
-  - {fileID: 757358259296314714}
+  - {fileID: 2156374604898238335}
   - {fileID: 3349475022667692543}
-  - {fileID: 9205871388774572541}
+  - {fileID: 3716081276732856437}
   - {fileID: 1600252161226272641}
   - {fileID: 4197419276581531267}
 --- !u!95 &8298343836293246914
@@ -798,7 +784,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   range: 150
   automatic: 0
-  fireRate: 5
+  fireRate: 1
   scoped: 0
   special: 1
   roundsPerShot: 1
@@ -993,7 +979,6 @@ GameObject:
   - component: {fileID: 552632496277397487}
   - component: {fileID: 8408541553980736935}
   - component: {fileID: 9044745450753017794}
-  - component: {fileID: 9205871388774572541}
   - component: {fileID: 3716081276732856437}
   m_Layer: 8
   m_Name: Slide
@@ -1063,19 +1048,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &9205871388774572541
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3301215329987941744}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.5, z: 1.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &3716081276732856437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1178,7 +1150,7 @@ BoxCollider:
   m_GameObject: {fileID: 3808015971290820350}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1387,7 +1359,7 @@ VisualEffect:
       - m_Value: 1
         m_Name: Noise
         m_Overridden: 1
-      - m_Value: 5
+      - m_Value: 12
         m_Name: Main Trail Length
         m_Overridden: 1
     m_Vector2f:
@@ -1400,7 +1372,7 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 2
+      - m_Value: 4
         m_Name: Main Trail Count
         m_Overridden: 1
       - m_Value: 0
@@ -1414,9 +1386,9 @@ VisualEffect:
       m_Array:
       - m_Value:
           serializedVersion: 2
-          key0: {r: 64, g: 45.36528, b: 0, a: 1}
-          key1: {r: 60.981133, g: 19.67495, b: 2.5888205, a: 1}
-          key2: {r: 47.937256, g: 0, b: 0.5019608, a: 0}
+          key0: {r: 14.313544, g: 63.999992, b: 0, a: 1}
+          key1: {r: 31.032385, g: 60.981136, b: 2.873455, a: 1}
+          key2: {r: 47.937256, g: 46.430862, b: 0, a: 0}
           key3: {r: 47.937256, g: 0, b: 0.5019608, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
           key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1445,10 +1417,10 @@ VisualEffect:
         m_Overridden: 1
       - m_Value:
           serializedVersion: 2
-          key0: {r: 47.937256, g: 41.913727, b: 12.298039, a: 1}
-          key1: {r: 47.937256, g: 23.843138, b: 0, a: 1}
+          key0: {r: 12.298038, g: 47.937256, b: 13.196303, a: 1}
+          key1: {r: 0, g: 47.937256, b: 31.74589, a: 1}
           key2: {r: 47.937256, g: 39.905884, b: 0, a: 0}
-          key3: {r: 0, g: 0, b: 0, a: 0}
+          key3: {r: 47.937256, g: 39.905884, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
           key5: {r: 0, g: 0, b: 0, a: 0}
           key6: {r: 0, g: 0, b: 0, a: 0}
@@ -1456,7 +1428,7 @@ VisualEffect:
           ctime0: 0
           ctime1: 33773
           ctime2: 65535
-          ctime3: 0
+          ctime3: 65535
           ctime4: 0
           ctime5: 0
           ctime6: 0

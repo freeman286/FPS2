@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-
+using UnityEngine.VFX;
 
 public class ProjectileController : NetworkBehaviour
 {
@@ -12,34 +12,46 @@ public class ProjectileController : NetworkBehaviour
     [HideInInspector]
     public Rigidbody rb;
 
+    public VisualEffect particles;
+    public Light light;
+
     public float constantForce;
 
     public Collider[] colliders;
 
-    [SyncVar]
-    private string name;
+    private float fuse;
+
+    private ExplosiveController explosiveController;
+    private ImpactController impactController;
+
 
     void Start()
     {
-
-        bool _named = false;
         int _index = 0;
-
-        while (!_named) {
-
-            if (playerID != null && GameObject.Find(playerID + "_Projectile_" + _index) == null)
+        
+        while (true)
+        {
+        
+            if (GameObject.Find("Projectile_" + _index) == null)
             {
-                name = playerID + "_Projectile_" + _index;
-                _named = true;
+                transform.name = "Projectile_" + _index;
+                break;
             }
-
-            if (playerID != null)
-                _index++;
+        
+            _index++;
         }
 
-        transform.name = name;
-
         rb = GetComponent<Rigidbody>();
+        explosiveController = GetComponent<ExplosiveController>();
+        impactController = GetComponent<ImpactController>();
+
+        if (explosiveController != null)
+        {
+            fuse = explosiveController.fuse;
+        } else if (impactController != null)
+        {
+            fuse = impactController.fuse;
+        }
     }
 
     [Command]
@@ -62,5 +74,26 @@ public class ProjectileController : NetworkBehaviour
             rb.AddForce(transform.forward * constantForce);
         }
     }
-    
+
+    public void Activate(string _playerID, bool _active)
+    {
+        if (explosiveController != null)
+        {
+            explosiveController.fuse = fuse;
+            explosiveController.enabled = _active;
+        }
+        else if (impactController != null)
+        {
+            impactController.fuse = fuse;
+            impactController.enabled = _active;
+        }
+
+        playerID = _playerID;
+
+        if (particles != null)
+            particles.enabled = _active;
+
+        if (light != null)
+            light.enabled = _active;
+    }
 }

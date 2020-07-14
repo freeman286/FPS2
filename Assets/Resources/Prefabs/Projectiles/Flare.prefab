@@ -100,10 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.01
   playerID: 
+  name: 
   rb: {fileID: 156444120250483798}
-  initialVelocity: 20
+  particles: {fileID: 0}
+  light: {fileID: 0}
   constantForce: 5
   colliders:
   - {fileID: 4085050231816812046}
@@ -124,7 +126,7 @@ MonoBehaviour:
   impact: {fileID: 1734203832338817589, guid: c2d71cbe6cabfeb4b94d23a5628b0302, type: 3}
   damage: 100
   headShotMultiplier: 1
-  fuse: 4
+  fuse: 10
   sticky: 0
 --- !u!1 &1644004890568498132
 GameObject:
@@ -137,7 +139,7 @@ GameObject:
   - component: {fileID: 3221867499581125216}
   - component: {fileID: 5726407141149405607}
   - component: {fileID: 4011523416258955688}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2966133056826480148}
   - component: {fileID: 4085050231816812046}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -16,8 +16,7 @@ public class ExplosiveController : NetworkBehaviour
     [SerializeField]
     private float range;
 
-    [SerializeField]
-    private float fuse;
+    public float fuse;
 
     [SerializeField]
     private AnimationCurve damageFallOff;

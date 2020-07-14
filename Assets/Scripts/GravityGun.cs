@@ -14,7 +14,6 @@ public class GravityGun : NetworkBehaviour
     private string catchButton = "Fire2";
     [SerializeField]
     private float grabDistance = 10.0f;
-
     [SerializeField]
     private float grabRadius = 1.0f;
 
@@ -30,12 +29,12 @@ public class GravityGun : NetworkBehaviour
 
     private GameObject heldObject;
 
-    private Rigidbody rb;
-
     private ProjectileController projectileController;
+    private PlayerShoot shoot;
 
     void Start()
     {
+        shoot = GetComponent<PlayerShoot>();
         weaponManager = GetComponent<WeaponManager>();
     }
 
@@ -48,17 +47,19 @@ public class GravityGun : NetworkBehaviour
 
         if (heldObject == null)
         {
-            if (Input.GetButton(catchButton) && !Pause.IsOn)
+            if (Input.GetButton(catchButton) && shoot.CanShoot() && !Pause.IsOn)
             {
                 RaycastHit hit;
                 if (Physics.SphereCast(transform.position, grabRadius, cam.transform.forward, out hit, grabDistance, layerMask))
                 {
                     heldObject = hit.collider.transform.root.gameObject;
-                    projectileController = heldObject.GetComponent<ProjectileController>();
-                    rb = heldObject.GetComponent<Rigidbody>();
+                    if (!string.IsNullOrEmpty(heldObject.name))
+                    {
+                        projectileController = heldObject.GetComponent<ProjectileController>();
 
 
-                    CmdServerAssignClient(heldObject.name);
+                        CmdServerAssignClient(heldObject.name, transform.name);
+                    }
                 }
             }
         }
@@ -67,15 +68,18 @@ public class GravityGun : NetworkBehaviour
             heldObject.transform.position = holdPosition.position;
             heldObject.transform.rotation = holdPosition.rotation;
 
-            if (Input.GetButtonDown(fireButton) && !Pause.IsOn)
+            if (Input.GetButton(fireButton) && shoot.CanShoot() && !Pause.IsOn)
             {
-                CmdActivateProjectile(heldObject.name, true);
+                CmdActivateProjectile(heldObject.name, transform.name, true);
 
                 projectileController.CmdLaunch(throwForce);
 
                 heldObject = null;
                 projectileController = null;
-                rb = null;
+
+                shoot.CmdOnShoot();
+                shoot.LocalShootEfftect();
+                shoot.timeSinceShot = 0;
             }
         }
     }
@@ -84,12 +88,14 @@ public class GravityGun : NetworkBehaviour
     {
         if (heldObject != null)
         {
-            CmdActivateProjectile(heldObject.name, true);
+            CmdActivateProjectile(heldObject.name, transform.name, true);
+            heldObject = null;
+            projectileController = null;
         }
     }
 
     [Command]
-    void CmdServerAssignClient(string _name)
+    void CmdServerAssignClient(string _name, string _playerID)
     {
         GameObject obj = GameObject.Find(_name);
 
@@ -101,20 +107,28 @@ public class GravityGun : NetworkBehaviour
         {
             obj.GetComponent<NetworkIdentity>().RemoveClientAuthority();
             obj.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
-            RpcActivateProjectile(_name, false);
+            RpcActivateProjectile(_name, _playerID, false);
         } 
     }
 
     [Command]
-    void CmdActivateProjectile(string _name, bool _active)
+    void CmdActivateProjectile(string _name, string _playerID, bool _active)
     {
-        RpcActivateProjectile(_name, _active);
+        RpcActivateProjectile(_name, _playerID, _active);
     }
 
     [ClientRpc]
-    void RpcActivateProjectile(string _name, bool _active)
+    void RpcActivateProjectile(string _name, string _playerID, bool _active)
     {
-        ProjectileController _projectileController = GameObject.Find(_name).GetComponent<ProjectileController>();
+
+        GameObject _projectile = GameObject.Find(_name);
+
+        if (_projectile == null)
+        {
+            Debug.LogError("No game object found with name " + _name);
+        }
+
+        ProjectileController _projectileController = _projectile.GetComponent<ProjectileController>();
 
         if (_projectileController == null)
         {
@@ -122,6 +136,8 @@ public class GravityGun : NetworkBehaviour
         }
         else
         {
+
+            _projectileController.Activate(_playerID, _active);
 
             foreach (Collider _collider in _projectileController.colliders)
             {

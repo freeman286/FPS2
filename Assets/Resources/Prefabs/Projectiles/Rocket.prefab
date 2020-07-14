@@ -103,10 +103,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.01
   playerID: 
+  name: 
   rb: {fileID: 0}
-  initialVelocity: 25
+  particles: {fileID: 1624294047822376102}
+  light: {fileID: 6140156983436394091}
   constantForce: 50
   colliders:
   - {fileID: 1461152745488781506}

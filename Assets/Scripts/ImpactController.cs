@@ -16,8 +16,7 @@ public class ImpactController : NetworkBehaviour
     [SerializeField]
     private float headShotMultiplier;
 
-    [SerializeField]
-    private float fuse;
+    public float fuse;
 
     [SerializeField]
     private bool sticky;
@@ -40,7 +39,6 @@ public class ImpactController : NetworkBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-
         projectileController.rb.isKinematic = true;
 
         Player _player = collision.transform.root.GetComponent<Player>();

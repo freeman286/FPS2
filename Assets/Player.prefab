@@ -1786,7 +1786,8 @@ MonoBehaviour:
   cam: {fileID: 899551536351255448}
   fireButton: Fire1
   catchButton: Fire2
-  grabDistance: 5
+  grabDistance: 7
+  grabRadius: 1.5
   throwForce: 20
   throwForceMode: 0
   layerMask:

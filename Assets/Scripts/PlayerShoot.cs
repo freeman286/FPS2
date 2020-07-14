@@ -22,7 +22,7 @@ public class PlayerShoot : NetworkBehaviour {
     private PlayerMotor motor;
     private PlayerMetrics metrics;
 
-    //[HideInInspector]
+    [HideInInspector]
     public float timeSinceShot = 100f;
 
     [HideInInspector]
@@ -106,7 +106,7 @@ public class PlayerShoot : NetworkBehaviour {
 
         Recoil();
 
-        if (currentWeapon.bullets <= 0 && timeSinceShot > 1f / currentWeapon.fireRate)
+        if (currentWeapon.bullets <= 0 && CanShoot())
         {
             weaponManager.Reload();
         }
@@ -138,7 +138,7 @@ public class PlayerShoot : NetworkBehaviour {
     {
         if (currentWeapon.automatic)
         {
-            if (Input.GetButtonDown("Fire1") && timeSinceShot > 1f / currentWeapon.fireRate && !IsInvoking("Shoot"))
+            if (Input.GetButtonDown("Fire1") && CanShoot() && !IsInvoking("Shoot"))
             {
                 InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
             }
@@ -150,7 +150,7 @@ public class PlayerShoot : NetworkBehaviour {
         }
         else
         {
-            if (Input.GetButtonDown("Fire1") && timeSinceShot > 1f / currentWeapon.fireRate)
+            if (Input.GetButtonDown("Fire1") && CanShoot())
             {
                 Shoot();
             }
@@ -181,7 +181,7 @@ public class PlayerShoot : NetworkBehaviour {
     }
 
     [Command]
-    void CmdOnShoot()
+    public void CmdOnShoot()
     {
         RpcDoShootEfftect();
     }
@@ -207,7 +207,7 @@ public class PlayerShoot : NetworkBehaviour {
 
     }
 
-    void LocalShootEfftect() // We need to do this not over the network or we'll be able to feel lag
+    public void LocalShootEfftect() // We need to do this not over the network or we'll be able to feel lag
     {
         Animator anim = weaponManager.currentGraphics.GetComponent<Animator>();
         if (anim != null && !anim.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
@@ -348,9 +348,7 @@ public class PlayerShoot : NetworkBehaviour {
         GameObject _projectile = (GameObject)Instantiate(weaponManager.GetCurrentProjectile(), _pos, _rot);
         NetworkServer.Spawn(_projectile, connectionToClient);
         
-
         ProjectileController _projectileController = _projectile.GetComponent<ProjectileController>();
-
         _projectileController.playerID = _playerID;
         _projectileController.RpcLaunch(_velocity);
     }
@@ -367,6 +365,11 @@ public class PlayerShoot : NetworkBehaviour {
             motor.AddRotation(new Vector3(0, Random.Range(-currentWeapon.horizontalRecoilMultiplier, currentWeapon.horizontalRecoilMultiplier) * _recoil, 0));
             motor.AddRotationCamera(_recoil);
         }
+    }
+
+    public bool CanShoot()
+    {
+        return timeSinceShot > 1f / currentWeapon.fireRate;
     }
 
     private IEnumerator OnScoped()
