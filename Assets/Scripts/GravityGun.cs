@@ -66,10 +66,24 @@ public class GravityGun : NetworkBehaviour
         else
         {
             heldObject.transform.position = holdPosition.position;
-            heldObject.transform.rotation = holdPosition.rotation;
 
             if (Input.GetButton(fireButton) && shoot.CanShoot() && !Pause.IsOn)
             {
+                Vector3 _direction;
+
+                RaycastHit _hit;
+                if (Physics.Raycast(cam.transform.position + cam.transform.forward * 2f, cam.transform.forward, out _hit, weaponManager.GetCurrentWeapon().range, shoot.mask))
+                {
+                    _direction = (_hit.point - holdPosition.position).normalized;
+                }
+                else
+                {
+                    _direction = (cam.transform.position + cam.transform.forward * weaponManager.GetCurrentWeapon().range - holdPosition.position).normalized;
+                }
+
+                heldObject.transform.rotation = Quaternion.LookRotation(_direction);
+
+
                 CmdActivateProjectile(heldObject.name, transform.name, true);
 
                 projectileController.CmdLaunch(throwForce);
@@ -80,7 +94,12 @@ public class GravityGun : NetworkBehaviour
                 shoot.CmdOnShoot();
                 shoot.LocalShootEfftect();
                 shoot.timeSinceShot = 0;
+
+            } else
+            {
+                heldObject.transform.rotation = holdPosition.rotation;
             }
+
         }
     }
 
@@ -97,16 +116,16 @@ public class GravityGun : NetworkBehaviour
     [Command]
     void CmdServerAssignClient(string _name, string _playerID)
     {
-        GameObject obj = GameObject.Find(_name);
+        GameObject _projectile = GameManager.GetProjectile(_name);
 
-        if (obj == null)
+        if (_projectile == null)
         {
             Debug.LogError("No object found with name " + _name);
         }
         else
         {
-            obj.GetComponent<NetworkIdentity>().RemoveClientAuthority();
-            obj.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
+            _projectile.GetComponent<NetworkIdentity>().RemoveClientAuthority();
+            _projectile.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
             RpcActivateProjectile(_name, _playerID, false);
         } 
     }
@@ -121,7 +140,7 @@ public class GravityGun : NetworkBehaviour
     void RpcActivateProjectile(string _name, string _playerID, bool _active)
     {
 
-        GameObject _projectile = GameObject.Find(_name);
+        GameObject _projectile = GameManager.GetProjectile(_name);
 
         if (_projectile == null)
         {

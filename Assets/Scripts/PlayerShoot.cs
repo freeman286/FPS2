@@ -14,8 +14,7 @@ public class PlayerShoot : NetworkBehaviour {
     [SerializeField]
     public Camera weaponCam;
 
-    [SerializeField]
-    private LayerMask mask;
+    public LayerMask mask;
 
     private WeaponManager weaponManager;
     private PlayerWeapon currentWeapon;
@@ -350,6 +349,7 @@ public class PlayerShoot : NetworkBehaviour {
         
         ProjectileController _projectileController = _projectile.GetComponent<ProjectileController>();
         _projectileController.playerID = _playerID;
+
         _projectileController.RpcLaunch(_velocity);
     }
 

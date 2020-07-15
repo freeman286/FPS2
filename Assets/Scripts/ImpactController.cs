@@ -21,8 +21,6 @@ public class ImpactController : NetworkBehaviour
     [SerializeField]
     private bool sticky;
 
-    private bool impacted = false;
-
     void Start()
     {
         projectileController = GetComponent<ProjectileController>();
@@ -33,7 +31,7 @@ public class ImpactController : NetworkBehaviour
         fuse -= Time.deltaTime;
         if (fuse <= 0 && transform.parent == null)
         {
-            CmdImpact(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up), null, 0);
+            CmdImpact(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up), null, 0, false);
         }
     }
 
@@ -45,71 +43,68 @@ public class ImpactController : NetworkBehaviour
         int _rigidbodyIndex = 0;
 
         string _playerID = null;
+
         if (_player != null)
-        {
+            _playerID = _player.transform.name;
 
-            if (sticky)
+        bool _stick = false;
+
+        if (sticky && _playerID != null)
+        {
+            foreach (Collider _collider in projectileController.colliders)
             {
-                foreach (Collider _collider in projectileController.colliders)
+                if (collision.collider.bounds.Intersects(_collider.bounds))
                 {
-                    if (collision.collider.bounds.Intersects(_collider.bounds))
+                    GetComponent<NetworkTransform>().enabled = false;
+
+                    _playerID = _player.transform.name;
+
+                    CmdSetParent(System.Array.IndexOf(_player.rigidbodyOnDeath, collision.collider.gameObject), _playerID, collision.collider.transform.InverseTransformPoint(transform.position));
+
+                    Util.SetLayerRecursively(gameObject, collision.collider.gameObject.layer);
+                    Destroy(projectileController.rb);
+
+                    for (int i = 0; i < projectileController.colliders.Length; i++)
                     {
-                        GetComponent<NetworkTransform>().enabled = false;
-
-                        _playerID = _player.transform.name;
-
-                        CmdSetParent(System.Array.IndexOf(_player.rigidbodyOnDeath, collision.collider.gameObject), _playerID, collision.collider.transform.InverseTransformPoint(transform.position));
-
-                        Util.SetLayerRecursively(gameObject, collision.collider.gameObject.layer);
-                        Destroy(projectileController.rb);
-
-                        for (int i = 0; i < projectileController.colliders.Length; i++)
-                        {
-                            projectileController.colliders[i].enabled = false;
-                        }
-
-                        break;
+                        projectileController.colliders[i].enabled = false;
                     }
+
+                    _stick = true;
+
+                    break;
                 }
-            } else
-            {
-                _playerID = _player.transform.name;
             }
-        }
+        } 
+            
 
-        if (!impacted)
+        int _damage = damage;
+        if (collision.collider.name == "Head")
         {
-            impacted = true;
-
-            int _damage = damage;
-            if (collision.collider.name == "Head")
-            {
-                _damage = (int)(_damage * headShotMultiplier);
-            }
-
-            CmdImpact(Quaternion.LookRotation(collision.contacts[0].normal), _playerID, _damage);
+            _damage = (int)(_damage * headShotMultiplier);
         }
+
+        CmdImpact(Quaternion.LookRotation(collision.contacts[0].normal), _playerID, _damage, _stick);
     }
 
     [Command]
-    void CmdImpact(Quaternion _rot, string _playerID, int _damage)
+    void CmdImpact(Quaternion _rot, string _playerID, int _damage, bool _stick)
     {
-        if (!(sticky && _playerID != null))
-        {
-            RpcImpact(_rot);
-        }
 
         if (_playerID != null)
         {
             Player _player = GameManager.GetPlayer(_playerID);
             _player.RpcTakeDamage(_damage, projectileController.playerID);
         }
+
+        if (!_stick)
+        {
+            RpcImpact(_rot);
+        }
     }
 
     [ClientRpc]
     public void RpcImpact(Quaternion _rot)
     {
-        impacted = true;
 
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
 

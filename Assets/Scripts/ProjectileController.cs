@@ -24,23 +24,8 @@ public class ProjectileController : NetworkBehaviour
     private ExplosiveController explosiveController;
     private ImpactController impactController;
 
-
     void Start()
     {
-        int _index = 0;
-        
-        while (true)
-        {
-        
-            if (GameObject.Find("Projectile_" + _index) == null)
-            {
-                transform.name = "Projectile_" + _index;
-                break;
-            }
-        
-            _index++;
-        }
-
         rb = GetComponent<Rigidbody>();
         explosiveController = GetComponent<ExplosiveController>();
         impactController = GetComponent<ImpactController>();
@@ -52,6 +37,13 @@ public class ProjectileController : NetworkBehaviour
         {
             fuse = impactController.fuse;
         }
+    }
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+
+        GameManager.RegisterProjectile(GetComponent<NetworkIdentity>().netId.ToString(), gameObject);
     }
 
     [Command]
@@ -95,5 +87,10 @@ public class ProjectileController : NetworkBehaviour
 
         if (light != null)
             light.enabled = _active;
+    }
+
+    void OnDestroy()
+    {
+        GameManager.UnRegisterProjectile(transform.name);
     }
 }

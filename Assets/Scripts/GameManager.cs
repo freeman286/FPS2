@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     #region Player tracking
 
-    private const string PLAYER_ID_PREFIX = "Player ";
+    private const string PLAYER_ID_PREFIX = "Player_";
 
     private static Dictionary<string, Player> players = new Dictionary<string, Player>();
 
@@ -63,6 +63,32 @@ public class GameManager : MonoBehaviour
     {
         return players.Values.ToArray();
     }
+
+    #endregion
+
+    #region Projectile tracking
+
+    private const string PROJECTILE_ID_PREFIX = "Projectile_";
+
+    private static Dictionary<string, GameObject> projectiles = new Dictionary<string, GameObject>();
+
+    public static void RegisterProjectile(string _netID, GameObject _projectile)
+    {
+        string _projectileID = PROJECTILE_ID_PREFIX + _netID;
+        projectiles.Add(_projectileID, _projectile);
+        _projectile.transform.name = _projectileID;
+    }
+
+    public static void UnRegisterProjectile(string _projectileID)
+    {
+        projectiles.Remove(_projectileID);
+    }
+
+    public static GameObject GetProjectile(string _projectileID)
+    {
+        return projectiles[_projectileID];
+    } 
+
 
     #endregion
 }
