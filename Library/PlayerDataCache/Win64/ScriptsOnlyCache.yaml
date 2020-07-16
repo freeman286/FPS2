@@ -40,6 +40,7 @@ ScriptsOnlyBuild:
     - WeaponItem
     - WeaponList
     - WeaponManager
+    - Wiggle
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
@@ -378,6 +379,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17452}
     - Class: 114
       Script: {instanceID: 17460}
+    - Class: 114
+      Script: {instanceID: 1894596}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -579,6 +582,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17324}
     - Class: 114
       Script: {instanceID: 17398}
+    - Class: 114
+      Script: {instanceID: 1894596}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -782,6 +787,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17324}
     - Class: 114
       Script: {instanceID: 17398}
+    - Class: 114
+      Script: {instanceID: 1894596}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3123,6 +3130,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 0aee2f0ab1b4a604dd2ae8fa7064fadd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Wiggle
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

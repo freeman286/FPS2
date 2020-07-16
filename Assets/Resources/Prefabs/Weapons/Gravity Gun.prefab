@@ -784,7 +784,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   range: 150
   automatic: 0
-  fireRate: 2
+  fireRate: 2.5
   scoped: 0
   special: 1
   roundsPerShot: 1
