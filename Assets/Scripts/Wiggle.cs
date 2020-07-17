@@ -16,22 +16,24 @@ public class Wiggle : MonoBehaviour
     [SerializeField]
     private float maxWiggleAmplitude;
 
-    private float initializationTime;
-
+    private float time;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        initializationTime = Time.timeSinceLevelLoad;
     }
 
     void Update()
     {
         if (rb.isKinematic)
-            initializationTime = Time.timeSinceLevelLoad;
-
-        float time = Time.timeSinceLevelLoad - initializationTime;
-        float wiggle = wiggleAmplitude.Evaluate(time) * maxWiggleAmplitude;
-        rb.velocity += transform.right * Mathf.Sin(time * wiggleRate) * wiggle + transform.up * Mathf.Cos(time * wiggleRate) * wiggle;
+        {
+            time = 0;
+        }
+        else
+        {
+            float wiggle = wiggleAmplitude.Evaluate(time) * maxWiggleAmplitude;
+            rb.velocity += transform.right * Mathf.Sin(time * wiggleRate) * wiggle + transform.up * Mathf.Cos(time * wiggleRate) * wiggle;
+            time += Time.deltaTime;
+        }
     }
 }

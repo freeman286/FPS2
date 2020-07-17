@@ -37,7 +37,10 @@ public class ImpactController : NetworkBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        projectileController.rb.isKinematic = true;
+        if (!GetComponent<NetworkIdentity>().hasAuthority)
+            return;
+
+        Destroy(projectileController.rb);
 
         Player _player = collision.transform.root.GetComponent<Player>();
         int _rigidbodyIndex = 0;
@@ -49,31 +52,20 @@ public class ImpactController : NetworkBehaviour
 
         bool _stick = false;
 
-        if (sticky && _playerID != null)
+        if (sticky && _playerID != null && collision.collider.bounds.IntersectRay(new Ray(transform.position, transform.forward)))
         {
-            foreach (Collider _collider in projectileController.colliders)
+                                            
+            _playerID = _player.transform.name;
+
+            CmdSetParent(System.Array.IndexOf(_player.rigidbodyOnDeath, collision.collider.gameObject), _playerID, collision.collider.transform.InverseTransformPoint(transform.position));
+
+            for (int i = 0; i < projectileController.colliders.Length; i++)
             {
-                if (collision.collider.bounds.Intersects(_collider.bounds))
-                {
-                    GetComponent<NetworkTransform>().enabled = false;
-
-                    _playerID = _player.transform.name;
-
-                    CmdSetParent(System.Array.IndexOf(_player.rigidbodyOnDeath, collision.collider.gameObject), _playerID, collision.collider.transform.InverseTransformPoint(transform.position));
-
-                    Util.SetLayerRecursively(gameObject, collision.collider.gameObject.layer);
-                    Destroy(projectileController.rb);
-
-                    for (int i = 0; i < projectileController.colliders.Length; i++)
-                    {
-                        projectileController.colliders[i].enabled = false;
-                    }
-
-                    _stick = true;
-
-                    break;
-                }
+                projectileController.colliders[i].enabled = false;
             }
+
+            _stick = true;
+       
         } 
             
 
@@ -121,9 +113,15 @@ public class ImpactController : NetworkBehaviour
     [ClientRpc]
     void RpcSetParent(int _index, string _playerID, Vector3 _pos)
     {
+        Destroy(GetComponent<Rigidbody>());
+        Destroy(GetComponent<NetworkTransform>());
+
         Player _player = GameManager.GetPlayer(_playerID);
-        transform.SetParent(_player.rigidbodyOnDeath[_index].transform);
+        GameObject _parent = _player.rigidbodyOnDeath[_index];
+            
+        transform.SetParent(_parent.transform);
         transform.localPosition = _pos;
+        Util.SetLayerRecursively(gameObject, _parent.layer);
     }
 }
 

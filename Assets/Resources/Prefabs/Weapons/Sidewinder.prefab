@@ -654,7 +654,7 @@ MonoBehaviour:
   spreadWhileMoving: 0.8
   spreadWhileJumping: 2
   spreadWhileScoped: 0
-  timeTillMaxSpread: 6
+  timeTillMaxSpread: 2
   spreadCurve:
     serializedVersion: 2
     m_Curve:
@@ -694,7 +694,7 @@ MonoBehaviour:
   magSize: 9
   speed: 1
   scopedSpeed: 1
-  bullets: 1
+  bullets: 6
   reloadTime: 3.5
   graphics: {fileID: 2721180637063796786}
 --- !u!82 &792773704839598559
