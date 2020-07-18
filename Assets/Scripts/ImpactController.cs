@@ -116,6 +116,11 @@ public class ImpactController : NetworkBehaviour
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<NetworkTransform>());
 
+        foreach (Collider _collider in projectileController.colliders)
+        {
+            _collider.enabled = false;
+        }
+
         Player _player = GameManager.GetPlayer(_playerID);
         GameObject _parent = _player.rigidbodyOnDeath[_index];
             
