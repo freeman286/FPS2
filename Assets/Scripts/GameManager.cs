@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         _player.transform.name = _playerID;
     }
 
-    public static void UnRegisterPlayer (string _playerID)
+    public static void UnRegisterPlayer(string _playerID)
     {
         players.Remove(_playerID);
     }
@@ -87,8 +87,52 @@ public class GameManager : MonoBehaviour
     public static GameObject GetProjectile(string _projectileID)
     {
         return projectiles[_projectileID];
-    } 
+    }
 
+
+    #endregion
+
+    #region Laser tracking
+
+    private const string PARTICLE_ID_PREFIX = "Particle_";
+
+    private static Dictionary<string, GameObject> particles = new Dictionary<string, GameObject>();
+
+    public static void RegisterParticle(string _netID, GameObject _particle)
+    {
+        string _particleID = PARTICLE_ID_PREFIX + _netID;
+        particles.Add(_particleID, _particle);
+        _particle.transform.name = _particleID;
+    }
+
+    public static void UnRegisterParticle(string _particleID)
+    {
+        particles.Remove(_particleID);
+    }
+
+    public static GameObject GetParticle(string _particleID)
+    {
+        if (!particles.ContainsKey(_particleID))
+            return null;
+
+        return particles[_particleID];
+    }
+
+    #endregion
+
+    #region Laser tracking
+
+    private static GameObject laser;
+
+    public static void RegisterLaser(GameObject _laser)
+    {
+        laser = _laser;
+    }
+
+    public static GameObject GetLaser()
+    {
+        return laser;
+    }
 
     #endregion
 }

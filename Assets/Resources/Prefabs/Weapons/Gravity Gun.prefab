@@ -968,6 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca38973a6d86a8045b7cdd9aaaecda5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScriptName: GravityGun
 --- !u!1 &3301215329987941744
 GameObject:
   m_ObjectHideFlags: 0

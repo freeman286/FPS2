@@ -13,15 +13,15 @@ public class GravityGun : NetworkBehaviour
     [SerializeField]
     private string catchButton = "Fire2";
     [SerializeField]
-    private float grabDistance = 10.0f;
+    private float grabDistance = 7.0f;
     [SerializeField]
-    private float grabRadius = 1.0f;
+    private float grabRadius = 1.5f;
 
     private Transform holdPosition;
     private WeaponManager weaponManager;
 
     [SerializeField]
-    private float throwForce = 100.0f;
+    private float throwForce = 20.0f;
     [SerializeField]
     private ForceMode throwForceMode;
     [SerializeField]

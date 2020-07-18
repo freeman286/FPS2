@@ -1465,6 +1465,7 @@ GameObject:
   - component: {fileID: 2139900448668095581}
   - component: {fileID: 3059421112803731098}
   - component: {fileID: 3794130788770680765}
+  - component: {fileID: -4093087858480041485}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1794,6 +1795,27 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 65536
+--- !u!114 &-4093087858480041485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e9827b60b170740b3dfeb90b0c60e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cam: {fileID: 899551536351255448}
+  mask:
+    serializedVersion: 2
+    m_Bits: 109111
+  range: 100
+  laserParticle: {fileID: 1734203832338817589, guid: faa8a56e1662d164985a098673f90336,
+    type: 3}
 --- !u!1 &9012694868525747722
 GameObject:
   m_ObjectHideFlags: 0
