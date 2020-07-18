@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6569690525480866274}
   - component: {fileID: 5847957784755376110}
   m_Layer: 16
-  m_Name: Missle
+  m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,7 +508,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.510552, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.96762514, b: 0.5330188, a: 1}
   m_Intensity: 636.61975
   m_Range: 10
   m_SpotAngle: 30
@@ -746,9 +746,9 @@ VisualEffect:
       m_Array:
       - m_Value:
           serializedVersion: 2
-          key0: {r: 47.937256, g: 41.913727, b: 12.298039, a: 1}
-          key1: {r: 106.26415, g: 15.525148, b: 3.508724, a: 1}
-          key2: {r: 47.937256, g: 39.905884, b: 0, a: 0}
+          key0: {r: 44.679245, g: 8.3926735, b: 1.0537556, a: 1}
+          key1: {r: 136.51736, g: 131.84683, b: 5.003256, a: 1}
+          key2: {r: 40.50852, g: 47.937256, b: 0, a: 0}
           key3: {r: 0, g: 0, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
           key5: {r: 0, g: 0, b: 0, a: 0}

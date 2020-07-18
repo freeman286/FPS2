@@ -15,7 +15,10 @@ public class PlayerMotor : MonoBehaviour
     private float currentCameraRotationX = 0f;
 
     [SerializeField]
-    private float cameraRotationLimit = 50f;
+    private float minCameraRotationLimit;
+
+    [SerializeField]
+    private float maxCameraRotationLimit;
 
     private Rigidbody rb;
     private PlayerController playerController;
@@ -80,7 +83,7 @@ public class PlayerMotor : MonoBehaviour
         if (cam != null)
         {
             currentCameraRotationX -= cameraRotationX;
-            currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
+            currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -minCameraRotationLimit, maxCameraRotationLimit);
 
             cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
         }

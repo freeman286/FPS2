@@ -1518,7 +1518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 899551536351255448}
-  cameraRotationLimit: 50
+  minCameraRotationLimit: 70
+  maxCameraRotationLimit: 50
 --- !u!114 &600328063753895067
 MonoBehaviour:
   m_ObjectHideFlags: 0
