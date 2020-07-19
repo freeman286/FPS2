@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    #region Laser tracking
+    #region Particle tracking
 
     private const string PARTICLE_ID_PREFIX = "Particle_";
 

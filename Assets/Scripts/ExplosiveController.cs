@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+[RequireComponent(typeof(ProjectileController))]
 public class ExplosiveController : NetworkBehaviour
 {
     private ProjectileController projectileController;
@@ -22,6 +23,9 @@ public class ExplosiveController : NetworkBehaviour
     private AnimationCurve damageFallOff;
 
     [SerializeField]
+    private AnimationCurve damageOverTime;
+
+    [SerializeField]
     private float force;
 
     [SerializeField]
@@ -29,6 +33,9 @@ public class ExplosiveController : NetworkBehaviour
 
     private const string PLAYER_TAG = "Player";
 
+    private float timeSinceCreated;
+
+    private bool impacted = false;
 
     void Start()
     {
@@ -37,21 +44,26 @@ public class ExplosiveController : NetworkBehaviour
 
     void Update()
     {
+        timeSinceCreated += Time.deltaTime;
         fuse -= Time.deltaTime;
-        if (fuse <= 0)
+        if (fuse <= 0 && GetComponent<NetworkIdentity>().hasAuthority)
         {
-            CmdExplode(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up));
+            CmdExplode(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up), timeSinceCreated);
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        projectileController.rb.isKinematic = true;
-        CmdExplode(Quaternion.LookRotation(collision.contacts[0].normal));
+        if (!impacted && GetComponent<NetworkIdentity>().hasAuthority)
+        {
+            impacted = true;
+            projectileController.rb.isKinematic = true;
+            CmdExplode(Quaternion.LookRotation(collision.contacts[0].normal), timeSinceCreated);
+        }
     }
 
     [Command]
-    void CmdExplode(Quaternion _rot)
+    void CmdExplode(Quaternion _rot, float _timeSinceCreated)
     {
         RpcExplode(_rot);
 
@@ -60,7 +72,7 @@ public class ExplosiveController : NetworkBehaviour
         foreach (var _collider in colliders)
         {
 
-            if (_collider.tag == PLAYER_TAG)
+            if (_collider.tag == PLAYER_TAG && _collider.name == "Head")
             {
 
                 RaycastHit _hit;
@@ -73,7 +85,9 @@ public class ExplosiveController : NetworkBehaviour
                         Player player = _hit.transform.root.GetComponent<Player>();
 
                         if (player != null)
-                            player.RpcTakeDamage((int)(damageFallOff.Evaluate(_distance / range) * damage), projectileController.playerID);
+                        {
+                            player.RpcTakeDamage((int)(damageFallOff.Evaluate(_distance / range) * damage * damageOverTime.Evaluate(_timeSinceCreated)), projectileController.playerID); 
+                        }
                     }
                 }
             }

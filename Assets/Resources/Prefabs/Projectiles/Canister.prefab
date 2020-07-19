@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1881696763795136771}
   - component: {fileID: -6569690525480866274}
   - component: {fileID: 833927932199842696}
+  - component: {fileID: 6434843467373894407}
   m_Layer: 16
   m_Name: Canister
   m_TagString: Untagged
@@ -112,7 +113,6 @@ MonoBehaviour:
   constantForce: 50
   colliders:
   - {fileID: 1404854323977864280}
-  - {fileID: 1798766975024116638}
 --- !u!114 &-6569690525480866274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,9 +128,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   impact: {fileID: 4308811345454485748, guid: edffa93f12c89e14d8e40a9f966ff5d7, type: 3}
-  damage: 150
-  range: 8
-  fuse: 10
+  damage: 600
+  range: 15
+  fuse: 20
   damageFallOff:
     serializedVersion: 2
     m_Curve:
@@ -173,7 +173,40 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  force: 60
+  damageOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2
+      value: 1
+      inSlope: 0.9
+      outSlope: 0.9
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  force: 10
   mask:
     serializedVersion: 2
     m_Bits: 58167
@@ -189,12 +222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab39b4a107a0454088b0d3d58cc7545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wiggleRate: 10
+  wiggleRate: 12
   wiggleAmplitude:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.1
+      time: 0.2
       value: 0
       inSlope: 0
       outSlope: 0
@@ -203,7 +236,7 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5
+      time: 0.6
       value: 1
       inSlope: 0
       outSlope: 0
@@ -223,7 +256,24 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxWiggleAmplitude: 4
+  maxWiggleAmplitude: 6
+--- !u!114 &6434843467373894407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05724d3c6b7571b43b3a3035f2a44259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  homingness: 240
+  homingInterval: 0.02
+  delay: 1
 --- !u!1 &1797291569636143139
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +365,6 @@ GameObject:
   - component: {fileID: 6638656075761336967}
   - component: {fileID: 561855950580772206}
   - component: {fileID: 1404854323977864280}
-  - component: {fileID: 1798766975024116638}
   m_Layer: 16
   m_Name: Cylinder
   m_TagString: Untagged
@@ -398,19 +447,6 @@ CapsuleCollider:
   m_Height: 25
   m_Direction: 1
   m_Center: {x: 0, y: 12, z: 0}
---- !u!135 &1798766975024116638
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050490298472579373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3
-  m_Center: {x: 0, y: 15, z: 0}
 --- !u!1 &2505228646483480676
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,13 +9,17 @@ public class EnableScriptOnParent : MonoBehaviour
 
     void Start()
     {
-        var comp = transform.root.gameObject.GetComponent(ScriptName);
-        (comp as Behaviour).enabled = true;
+        EnableScipt(true);
     }
 
     void OnDestroy()
     {
+        EnableScipt(false);
+    }
+
+    void EnableScipt(bool _enable)
+    {
         var comp = transform.root.gameObject.GetComponent(ScriptName);
-        (comp as Behaviour).enabled = false;
+        (comp as Behaviour).enabled = _enable;
     }
 }

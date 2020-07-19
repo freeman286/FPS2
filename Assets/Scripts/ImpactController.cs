@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+[RequireComponent(typeof(ProjectileController))]
 public class ImpactController : NetworkBehaviour
 {
     private ProjectileController projectileController;

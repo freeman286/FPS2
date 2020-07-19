@@ -8,7 +8,7 @@ public class LaserController : NetworkBehaviour
     [SyncVar]
     public string playerID;
 
-    private bool ready = false;
+    public bool active = true;
 
     public override void OnStartClient()
     {
@@ -19,6 +19,17 @@ public class LaserController : NetworkBehaviour
         if (GetComponent<NetworkIdentity>().hasAuthority)
             GameManager.RegisterLaser(gameObject);
 
+    }
+
+    public void Activate(bool _active)
+    {
+        active = _active;
+
+        foreach (Transform _child in transform)
+        {
+            _child.gameObject.SetActive(_active);
+        }
+        
     }
 
 }

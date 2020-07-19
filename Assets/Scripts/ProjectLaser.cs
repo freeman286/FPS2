@@ -25,37 +25,47 @@ public class ProjectLaser : NetworkBehaviour
 
     private bool laserExists = false;
 
+    private bool laserActive = false;
+
     void Update()
     {
         if (!isLocalPlayer)
             return;
 
         RaycastHit _hit;
-        if (Input.GetButton(laseButton) && !Pause.IsOn && Physics.Raycast(transform.position, cam.transform.forward, out _hit, range, mask))
+        if (Input.GetButton(laseButton) && !Pause.IsOn)
         {
-            if (!laserExists)
+            if (Physics.Raycast(transform.position, cam.transform.forward, out _hit, range, mask))
             {
-                CmdInstantiateLaser(_hit.point, Quaternion.LookRotation(_hit.normal), transform.name);
-                laserExists = true;
-            } else if (laserInstance == null)
-            {
-                laserInstance = GameManager.GetLaser();
-            }
-            else
-            {
-                laserInstance.transform.position = _hit.point;
-                laserInstance.transform.rotation = Quaternion.LookRotation(_hit.normal);
-            }
-        }
+                if (!laserExists)
+                {
+                    CmdInstantiateLaser(_hit.point, Quaternion.LookRotation(_hit.normal), transform.name);
+                    laserExists = true;
+                }
+                else if (laserInstance == null)
+                {
+                    laserInstance = GameManager.GetLaser();
+                }
+                else
+                {
+                    laserInstance.transform.position = _hit.point;
+                    laserInstance.transform.rotation = Quaternion.LookRotation(_hit.normal);
+                }
 
-        if (laserInstance != null && Input.GetButtonDown(laseButton) && !Pause.IsOn)
-        {
-            CmdActivate(laserInstance.transform.name, true);
-        }
+                if (laserInstance != null && !laserActive) {
+                    CmdActivate(laserInstance.transform.name, true);
+                    laserActive = true;
+                }
 
-        if (laserInstance != null && (Input.GetButtonUp(laseButton)))
+            } else if (laserInstance != null && laserActive)
+            {
+                CmdActivate(laserInstance.transform.name, false);
+                laserActive = false;
+            }
+        } else if (laserInstance != null && laserActive)
         {
             CmdActivate(laserInstance.transform.name, false);
+            laserActive = false;
         }
     }
 
@@ -82,16 +92,11 @@ public class ProjectLaser : NetworkBehaviour
     [ClientRpc]
     void RpcActivate(string _particleID, bool _active)
     {
-        Debug.Log(_particleID);
-
         GameObject _particle = GameManager.GetParticle(_particleID);
 
         if (_particle != null)
         {
-            foreach (Transform _child in _particle.transform)
-            {
-                _child.gameObject.SetActive(_active);
-            }
+            _particle.GetComponent<LaserController>().Activate(_active);
         }
     }
 }
