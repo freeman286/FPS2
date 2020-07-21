@@ -15,12 +15,11 @@ public class Homing : NetworkBehaviour
     private float homingness;
 
     [SerializeField]
-    private float homingInterval;
-
-    [SerializeField]
     private float delay;
 
     private float timeSinceCreated;
+
+    private bool target = false;
 
     void Start()
     {
@@ -32,30 +31,36 @@ public class Homing : NetworkBehaviour
     {
         timeSinceCreated += Time.deltaTime;
 
-        if (!networkIdentity.hasAuthority || timeSinceCreated < delay)
+        if (!networkIdentity.hasAuthority)
             return;
 
-        if (laser == null)
+        if (laser == null && timeSinceCreated > delay)
         {
+
             laser = GameManager.GetLaser();
 
             if (laser != null)
                 laserController = laser.GetComponent<LaserController>();
 
+        }
 
-        } else if (laserController.active && !IsInvoking("Home"))
+        if (laserController != null && laserController.active)
         {
-            InvokeRepeating("Home", 0f, homingInterval);
-        } else if (IsInvoking("Home"))
+            Home(laser.transform.position);
+            target = true;
+        } else if (!target)
         {
-            CancelInvoke("Home");
+            Home(transform.position + Vector3.up);
+        } else
+        {
+            rb.angularVelocity = Vector3.zero;
         }
     }
 
-    void Home()
+    void Home(Vector3 _pos)
     {
-        Quaternion targetRotation = Quaternion.LookRotation(laser.transform.position - transform.position);
-        rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, homingInterval * homingness));
+        Vector3 rotate = Vector3.Cross(transform.forward, (_pos - transform.position).normalized);
+        rb.angularVelocity = rotate.normalized * homingness * Time.deltaTime * Mathf.Pow(rotate.magnitude, 0.3f);
         rb.velocity = transform.forward * rb.velocity.magnitude;
     }
 }

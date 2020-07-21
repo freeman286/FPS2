@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 156444120250483797}
   - component: {fileID: 1881696763795136771}
   - component: {fileID: -6569690525480866274}
-  - component: {fileID: 833927932199842696}
   - component: {fileID: 6434843467373894407}
+  - component: {fileID: -4360252622466301272}
   m_Layer: 16
   m_Name: Canister
   m_TagString: Untagged
@@ -130,7 +130,7 @@ MonoBehaviour:
   impact: {fileID: 4308811345454485748, guid: edffa93f12c89e14d8e40a9f966ff5d7, type: 3}
   damage: 600
   range: 15
-  fuse: 20
+  fuse: 40
   damageFallOff:
     serializedVersion: 2
     m_Curve:
@@ -210,53 +210,6 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 58167
---- !u!114 &833927932199842696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156444120250483795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab39b4a107a0454088b0d3d58cc7545, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wiggleRate: 12
-  wiggleAmplitude:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.2
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 2
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  maxWiggleAmplitude: 6
 --- !u!114 &6434843467373894407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,9 +224,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  homingness: 240
-  homingInterval: 0.02
+  homingness: 80
   delay: 1
+--- !u!114 &-4360252622466301272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c466e855fc444d4e8920cad881ea2fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centre: {x: 0, y: 0, z: 0}
 --- !u!1 &1797291569636143139
 GameObject:
   m_ObjectHideFlags: 0

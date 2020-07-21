@@ -20,7 +20,7 @@ public class ProjectLaser : NetworkBehaviour
     [SerializeField]
     private GameObject laserParticle;
 
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject laserInstance;
 
     private bool laserExists = false;
@@ -71,8 +71,11 @@ public class ProjectLaser : NetworkBehaviour
 
     void OnDisable()
     {
-        if (isLocalPlayer)
-            CmdActivate(laserParticle.transform.name, false);
+        if (isLocalPlayer && laserInstance != null && laserActive)
+        {
+            CmdActivate(laserInstance.transform.name, false);
+            laserActive = false;
+        }
     }
 
     [Command]
@@ -84,8 +87,7 @@ public class ProjectLaser : NetworkBehaviour
     }
 
     [Command]
-    void CmdActivate(string _particleID, bool _active)
-    {
+    void CmdActivate(string _particleID, bool _active) {
         RpcActivate(_particleID, _active);
     }
 
