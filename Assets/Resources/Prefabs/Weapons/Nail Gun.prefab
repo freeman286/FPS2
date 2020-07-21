@@ -370,7 +370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626188674828420661}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -0.392, z: 1.5259}
+  m_LocalPosition: {x: 0.45, y: -0.392, z: 1.3259}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8725507559514458063}
@@ -872,6 +872,7 @@ MonoBehaviour:
   automatic: 1
   fireRate: 8
   scoped: 0
+  special: 0
   roundsPerShot: 1
   projectileWeapon: 1
   throwPower: 30
@@ -1121,7 +1122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4993812565778371099}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1544886354617688938}

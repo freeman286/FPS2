@@ -48,8 +48,13 @@ public class ExplosiveController : NetworkBehaviour
         fuse -= Time.deltaTime;
         if (fuse <= 0 && GetComponent<NetworkIdentity>().hasAuthority)
         {
-            CmdExplode(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up), timeSinceCreated);
+            Detonate();
         }
+    }
+
+    public void Detonate()
+    {
+        CmdExplode(Quaternion.LookRotation(projectileController.rb.velocity, Vector3.up), timeSinceCreated);
     }
 
     void OnCollisionEnter(Collision collision)

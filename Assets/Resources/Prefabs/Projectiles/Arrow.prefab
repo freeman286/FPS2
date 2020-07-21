@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1881696763795136771}
   - component: {fileID: 1963822241130455570}
   - component: {fileID: 5973416165585226622}
+  - component: {fileID: -5240665840617057538}
   m_Layer: 16
   m_Name: Arrow
   m_TagString: Projectile
@@ -103,7 +104,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.01
   playerID: 
-  name: 
   rb: {fileID: 156444120250483798}
   particles: {fileID: 0}
   light: {fileID: 0}
@@ -142,6 +142,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centre: {x: 0, y: 0, z: 0.5}
+--- !u!114 &-5240665840617057538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfb013cb9364dd418a9c8bb4a3987de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1756159386094402360
 GameObject:
   m_ObjectHideFlags: 0

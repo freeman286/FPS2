@@ -122,7 +122,7 @@ MonoBehaviour:
   syncInterval: 0.1
   impact: {fileID: 4308811345454485748, guid: 223257955eea54549acbfa283875726c, type: 3}
   damage: 110
-  range: 6
+  range: 8
   fuse: 10
   damageFallOff:
     serializedVersion: 2

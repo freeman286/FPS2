@@ -92,6 +92,22 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Mortar tracking
+
+    private static GameObject mortar;
+
+    public static void RegisterMortar(GameObject _mortar)
+    {
+        mortar = _mortar;
+    }
+
+    public static GameObject GetMortar()
+    {
+        return mortar;
+    }
+
+    #endregion
+
     #region Particle tracking
 
     private const string PARTICLE_ID_PREFIX = "Particle_";

@@ -102,7 +102,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.01
   playerID: 
-  name: 
   rb: {fileID: 156444120250483798}
   particles: {fileID: 0}
   light: {fileID: 0}
