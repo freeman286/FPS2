@@ -56,7 +56,7 @@ public class Homing : NetworkBehaviour
             Home(transform.position + Vector3.up);
         } else
         {
-            rb.angularVelocity = Vector3.zero;
+            Home(laser.transform.position);
         }
     }
 
