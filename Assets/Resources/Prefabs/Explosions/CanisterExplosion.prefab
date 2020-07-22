@@ -112,9 +112,9 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array:
-      - m_Value: 1
+      - m_Value: 0
         m_Name: Airburst
-        m_Overridden: 1
+        m_Overridden: 0
 --- !u!73398921 &7755706706147791881
 VFXRenderer:
   m_ObjectHideFlags: 0
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.2
-  maxLightLevel: 30000
+  maxLightLevel: 40000
   lightLevel:
     serializedVersion: 2
     m_Curve:

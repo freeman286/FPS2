@@ -169,7 +169,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9670751, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.042179987, b: 0, a: 1}
   m_Intensity: 47746.48
   m_Range: 20
   m_SpotAngle: 30
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.2
-  maxLightLevel: 10000
+  maxLightLevel: 30000
   lightLevel:
     serializedVersion: 2
     m_Curve:

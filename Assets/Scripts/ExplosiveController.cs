@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -24,6 +25,12 @@ public class ExplosiveController : NetworkBehaviour
 
     [SerializeField]
     private AnimationCurve damageOverTime;
+
+    [SerializeField]
+    private AnimationCurve damageOverAngle;
+
+    [SerializeField]
+    private bool airburst;
 
     [SerializeField]
     private float force;
@@ -54,7 +61,7 @@ public class ExplosiveController : NetworkBehaviour
 
     public void Detonate()
     {
-        CmdExplode(Quaternion.LookRotation(projectileController.rb.velocity, Vector3.up), timeSinceCreated);
+        CmdExplode(projectileController.rb.velocity, timeSinceCreated);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -63,14 +70,14 @@ public class ExplosiveController : NetworkBehaviour
         {
             impacted = true;
             projectileController.rb.isKinematic = true;
-            CmdExplode(Quaternion.LookRotation(collision.contacts[0].normal), timeSinceCreated);
+            CmdExplode(collision.contacts[0].normal * (1 - 2*Convert.ToSingle(airburst)), timeSinceCreated);
         }
     }
 
     [Command]
-    void CmdExplode(Quaternion _rot, float _timeSinceCreated)
+    void CmdExplode(Vector3 _dir, float _timeSinceCreated)
     {
-        RpcExplode(_rot);
+        RpcExplode(Quaternion.LookRotation(_dir));
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
 
@@ -81,7 +88,10 @@ public class ExplosiveController : NetworkBehaviour
             {
 
                 RaycastHit _hit;
-                if (Physics.Raycast(transform.position, _collider.transform.position - transform.position, out _hit, range, mask))
+
+                Vector3 target_vector = _collider.transform.position - transform.position;
+
+                if (Physics.Raycast(transform.position, target_vector, out _hit, range, mask))
                 {
                     if (_collider.tag == PLAYER_TAG)
                     {
@@ -91,7 +101,7 @@ public class ExplosiveController : NetworkBehaviour
 
                         if (player != null)
                         {
-                            player.RpcTakeDamage((int)(damageFallOff.Evaluate(_distance / range) * damage * damageOverTime.Evaluate(_timeSinceCreated)), projectileController.playerID); 
+                            player.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector)/180f)), projectileController.playerID);
                         }
                     }
                 }
