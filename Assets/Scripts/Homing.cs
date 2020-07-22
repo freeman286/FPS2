@@ -15,6 +15,9 @@ public class Homing : NetworkBehaviour
     private float homingness;
 
     [SerializeField]
+    private AnimationCurve homingnessOverAngle;
+
+    [SerializeField]
     private float delay;
 
     private float timeSinceCreated;
@@ -59,8 +62,10 @@ public class Homing : NetworkBehaviour
 
     void Home(Vector3 _pos)
     {
-        Vector3 rotate = Vector3.Cross(transform.forward, (_pos - transform.position).normalized);
-        rb.angularVelocity = rotate.normalized * homingness * Time.deltaTime * Mathf.Pow(rotate.magnitude, 0.3f);
+        Vector3 target_vector = (_pos - transform.position).normalized;
+
+        Vector3 rotate = Vector3.Cross(transform.forward, target_vector);
+        rb.angularVelocity = rotate.normalized * homingness * Time.deltaTime * homingnessOverAngle.Evaluate(Vector3.Dot(transform.forward, target_vector));
         rb.velocity = transform.forward * rb.velocity.magnitude;
     }
 }

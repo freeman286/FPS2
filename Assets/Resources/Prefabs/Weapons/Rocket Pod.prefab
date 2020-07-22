@@ -918,7 +918,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  recoilAmount: 400
+  recoilAmount: 250
   horizontalRecoilMultiplier: 0
   recoilTime: 0.1
   magSize: 4

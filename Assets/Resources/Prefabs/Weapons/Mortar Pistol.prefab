@@ -662,8 +662,8 @@ MonoBehaviour:
   projectile: {fileID: 156444120250483795, guid: 99991910277702b4ab682c63bdfa1d42,
     type: 3}
   coneOfFire: 0
-  spreadDefault: 0.03
-  spreadWhileMoving: 0.04
+  spreadDefault: 0.02
+  spreadWhileMoving: 0.03
   spreadWhileJumping: 0.06
   spreadWhileScoped: 0
   timeTillMaxSpread: 1
@@ -697,7 +697,7 @@ MonoBehaviour:
   magSize: 1
   speed: 1.4
   scopedSpeed: 1
-  bullets: 0
+  bullets: 1
   reloadTime: 2.5
   graphics: {fileID: 2721180637063796786}
 --- !u!82 &3317242424504107631
