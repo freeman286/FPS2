@@ -109,7 +109,7 @@ MonoBehaviour:
   playerID: 
   rb: {fileID: 0}
   particles: {fileID: 1624294047822376102}
-  light: {fileID: 6140156983436394091}
+  lightEffect: {fileID: 6140156983436394091}
   constantForce: 600
   colliders:
   - {fileID: 1404854323977864280}

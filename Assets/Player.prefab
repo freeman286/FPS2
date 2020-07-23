@@ -1461,9 +1461,9 @@ GameObject:
   - component: {fileID: 1506890265112965245}
   - component: {fileID: 3543887534676550787}
   - component: {fileID: 6832787154136730258}
+  - component: {fileID: 3059421112803731098}
   - component: {fileID: 9210790658628301855}
   - component: {fileID: 2139900448668095581}
-  - component: {fileID: 3059421112803731098}
   - component: {fileID: 3794130788770680765}
   - component: {fileID: 2044923219459607238}
   - component: {fileID: -4093087858480041485}
@@ -1716,10 +1716,28 @@ MonoBehaviour:
   syncInterval: 0.1
   weaponLayerName: Weapon
   weaponHolder: {fileID: 6384351145343065147}
+  currentWeapon: {fileID: 0}
   currentGraphics: {fileID: 0}
   currentWeaponName: 
   isReloading: 0
   switchingTime: 1
+--- !u!114 &3059421112803731098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e37128d6f47fa4bb7547644284b5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 8192
+  lastPosition: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!95 &9210790658628301855
 Animator:
   serializedVersion: 3
@@ -1755,23 +1773,6 @@ MonoBehaviour:
   rightFoot: {fileID: 6416331504652519073}
   snapDist: 0.1
   snapSpeed: 65
---- !u!114 &3059421112803731098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8973621608414753981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05e37128d6f47fa4bb7547644284b5ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mask:
-    serializedVersion: 2
-    m_Bits: 8192
-  lastPosition: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &3794130788770680765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1808,6 +1809,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f2b675e8f11ab4481031de7876741c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  detonateButton: Fire2
 --- !u!114 &-4093087858480041485
 MonoBehaviour:
   m_ObjectHideFlags: 0

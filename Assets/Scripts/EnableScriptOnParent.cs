@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnableScriptOnParent : MonoBehaviour
 {
     [SerializeField]
-    private string ScriptName;
+    private string ScriptName = null;
 
     void Start()
     {

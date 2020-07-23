@@ -6,19 +6,19 @@ using Mirror;
 public class ProjectLaser : NetworkBehaviour
 {
     [SerializeField]
-    private Camera cam;
+    private Camera cam = null;
 
     [SerializeField]
-    private LayerMask mask;
+    private LayerMask mask = -1;
 
     [SerializeField]
     private string laseButton = "Fire2";
 
     [SerializeField]
-    private float range;
+    private float range = 100f;
 
     [SerializeField]
-    private GameObject laserParticle;
+    private GameObject laserParticle = null;
 
     [HideInInspector]
     public GameObject laserInstance;

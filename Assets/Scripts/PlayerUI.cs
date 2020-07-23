@@ -11,37 +11,37 @@ public class PlayerUI : MonoBehaviour
 {
 
     [SerializeField]
-    public GameObject crosshair;
+    public GameObject crosshair = null;
 
     [SerializeField]
-    private GameObject healthBar;
+    private GameObject healthBar = null;
 
     [SerializeField]
-    private RectTransform healthBarFill;
+    private RectTransform healthBarFill = null;
 
     [SerializeField]
-    private GameObject ammo;
+    private GameObject ammo = null;
 
     [SerializeField]
-    private Text ammoText;
+    private Text ammoText = null;
 
     [SerializeField]
-    private GameObject scoreboard;
+    private GameObject scoreboard = null;
 
     [SerializeField]
-    private GameObject pauseMenu;
+    private GameObject pauseMenu = null;
 
     [SerializeField]
-    private GameObject ipAddress;
+    private GameObject ipAddress = null;
 
     [SerializeField]
-    private Text IpAddressText;
+    private Text IpAddressText = null;
 
     [SerializeField]
-    private Slider lookSensitivitySlider;
+    private Slider lookSensitivitySlider = null;
 
     [SerializeField]
-    private Text lookSensitivityText;
+    private Text lookSensitivityText = null;
 
     public float lookSensitivity;
 

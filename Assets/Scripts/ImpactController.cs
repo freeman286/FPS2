@@ -9,18 +9,18 @@ public class ImpactController : NetworkBehaviour
     private ProjectileController projectileController;
 
     [SerializeField]
-    private GameObject impact;
+    private GameObject impact = null;
 
     [SerializeField]
-    private int damage;
+    private int damage = 100;
 
     [SerializeField]
-    private float headShotMultiplier;
+    private float headShotMultiplier = 2f;
 
-    public float fuse;
+    public float fuse = 10f;
 
     [SerializeField]
-    private bool sticky;
+    private bool sticky = false;
 
     void Start()
     {
@@ -44,7 +44,6 @@ public class ImpactController : NetworkBehaviour
         Destroy(projectileController.rb);
 
         Player _player = collision.transform.root.GetComponent<Player>();
-        int _rigidbodyIndex = 0;
 
         string _playerID = null;
 

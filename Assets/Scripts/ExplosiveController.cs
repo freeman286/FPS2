@@ -10,33 +10,33 @@ public class ExplosiveController : NetworkBehaviour
     private ProjectileController projectileController;
 
     [SerializeField]
-    private GameObject impact;
+    private GameObject impact = null;
 
     [SerializeField]
-    private int damage;
+    private int damage = 100;
 
     [SerializeField]
-    private float range;
+    private float range = 10f;
 
     public float fuse;
 
     [SerializeField]
-    private AnimationCurve damageFallOff;
+    private AnimationCurve damageFallOff = null;
 
     [SerializeField]
-    private AnimationCurve damageOverTime;
+    private AnimationCurve damageOverTime = null;
 
     [SerializeField]
-    private AnimationCurve damageOverAngle;
+    private AnimationCurve damageOverAngle = null;
 
     [SerializeField]
-    private bool airburst;
+    private bool airburst = false;
 
     [SerializeField]
-    private float force;
+    private float force = 10f;
 
     [SerializeField]
-    private LayerMask mask;
+    private LayerMask mask = -1;
 
     private const string PLAYER_TAG = "Player";
 

@@ -8,7 +8,7 @@ public class KillfeedItem : MonoBehaviour
 {
 
     [SerializeField]
-    Text text;
+    Text text = null;
 
     public void Setup(string player, string source)
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerWeapon : MonoBehaviour
 {
-    public string name = "pistol";
+    public new string name = "pistol";
 
     public bool primary;
 
@@ -19,14 +19,12 @@ public class PlayerWeapon : MonoBehaviour
     public float fireRate;
     public bool scoped;
     public bool special;
-
     public int roundsPerShot;
+
     [Header("Projectile")]
     public bool projectileWeapon;
     public float throwPower;
     public GameObject projectile;
-
-    
 
     [Header("Spread")]
     public float coneOfFire;
@@ -47,15 +45,10 @@ public class PlayerWeapon : MonoBehaviour
     public float speed = 1;
     public float scopedSpeed = 1;
 
-
     [HideInInspector]
     public int bullets;
 
     public float reloadTime = 1f;
-
-    public GameObject graphics;
-
-    
 
     public void Load()
     {

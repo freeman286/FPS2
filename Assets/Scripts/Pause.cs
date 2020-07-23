@@ -8,7 +8,7 @@ public class Pause : MonoBehaviour
 {
 
     [SerializeField]
-    private PlayerUI ui;
+    private PlayerUI ui = null;
 
     public static bool IsOn = false;
 

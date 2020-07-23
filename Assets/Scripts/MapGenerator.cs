@@ -33,7 +33,7 @@ public class MapGenerator : MonoBehaviour
     public void GenerateMap()
     {
 
-        Random.seed = seed;
+        Random.InitState(seed);
 
         if (mapSize.z < 2)
             mapSize.z = 2;

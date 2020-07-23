@@ -10,13 +10,14 @@ public class WeaponManager : NetworkBehaviour
     private string weaponLayerName = "Weapon";
 
     [SerializeField]
-    private Transform weaponHolder;
+    private Transform weaponHolder = null;
 
     private PlayerWeapon primaryWeapon;
 
     private PlayerWeapon secondaryWeapon;
 
-    private PlayerWeapon currentWeapon;
+    public PlayerWeapon currentWeapon;
+
     public WeaponGraphics currentGraphics;
     [SyncVar]
     public string currentWeaponName;
@@ -181,7 +182,7 @@ public class WeaponManager : NetworkBehaviour
             yield break;
         }
 
-        weaponIns = (GameObject)Instantiate(currentWeapon.graphics, weaponHolder.position, weaponHolder.rotation);
+        weaponIns = (GameObject)Instantiate(currentWeapon.gameObject, weaponHolder.position, weaponHolder.rotation);
         weaponIns.transform.SetParent(weaponHolder);
 
         currentGraphics = weaponIns.GetComponent<WeaponGraphics>();

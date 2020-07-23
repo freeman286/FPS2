@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Wiggle : MonoBehaviour
 {
-    [HideInInspector]
     private Rigidbody rb;
 
     [SerializeField]
-    private float wiggleRate;
+    private float wiggleRate = 10f;
 
     [SerializeField]
-    private AnimationCurve wiggleAmplitude;
+    private AnimationCurve wiggleAmplitude = null;
 
     [SerializeField]
-    private float maxWiggleAmplitude;
+    private float maxWiggleAmplitude = 10f;
 
     private float time;
 

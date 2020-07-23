@@ -7,7 +7,7 @@ public class WeaponItem : MonoBehaviour
 {
 
     [SerializeField]
-    private Text nameText;
+    private Text nameText = null;
 
     private WeaponList weaponList;
 

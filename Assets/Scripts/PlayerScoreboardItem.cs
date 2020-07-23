@@ -7,13 +7,13 @@ public class PlayerScoreboardItem : MonoBehaviour
 {
 
     [SerializeField]
-    Text usernameText;
+    Text usernameText = null;
 
     [SerializeField]
-    Text killsText;
+    Text killsText = null;
 
     [SerializeField]
-    Text deathsText;
+    Text deathsText = null;
 
     public void Setup(string username, int kills, int deaths)
     {

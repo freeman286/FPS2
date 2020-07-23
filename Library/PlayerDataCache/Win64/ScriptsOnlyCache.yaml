@@ -50,8 +50,6 @@ ScriptsOnlyBuild:
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
@@ -118,8 +116,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -956,7 +956,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerHUD
   - hash:
       serializedVersion: 2
-      Hash: 6efc635a6af865a13b31719b783410df
+      Hash: 1759793d89bc32611672af28918ae38e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeapon
@@ -1238,7 +1238,7 @@ ScriptsOnlyBuild:
     className: ChromaticAberration
   - hash:
       serializedVersion: 2
-      Hash: 87b0d8f29ff5a3f5cbb065630e638e97
+      Hash: 53d9d7da28cea549f4d77716303157f8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WeaponManager
@@ -1340,7 +1340,7 @@ ScriptsOnlyBuild:
     className: HDAdditionalReflectionData
   - hash:
       serializedVersion: 2
-      Hash: 028efb6be19afc922139a638a704acf3
+      Hash: 8eef087c5bc09c1f76f0066da90b3b7e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ProjectileController
@@ -2312,7 +2312,7 @@ ScriptsOnlyBuild:
     className: DiffusionProfileOverride
   - hash:
       serializedVersion: 2
-      Hash: 76af4dab9fb2eb6f0139052c6ecb2e02
+      Hash: 1abe478ecd2e78f8fb86b2e0d6b3f2f5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player

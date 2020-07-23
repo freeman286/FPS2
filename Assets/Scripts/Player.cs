@@ -28,31 +28,30 @@ public class Player : NetworkBehaviour
     }
 
     [SerializeField]
-    private float healthRegenTime;
+    private float healthRegenTime = 10f;
 
     [SerializeField]
-    private float healthRegenSpeed;
+    private float healthRegenSpeed = 10f;
 
     private float timeSinceDamaged = 0f;
 
     [Header("Behaviours")]
 
     [SerializeField]
-    private Behaviour[] disableOnDeath;
+    private Behaviour[] disableOnDeath = null;
     private bool[] wasEnabled;
 
     [SerializeField]
-    private GameObject[] disableGameObjectsOnDeath;
+    private GameObject[] disableGameObjectsOnDeath = null;
 
     [SerializeField]
-    private Collider[] disableCollidersOnDeath;
+    private Collider[] disableCollidersOnDeath = null;
 
     [SerializeField]
-    private GameObject spawnEffect;
+    private GameObject spawnEffect = null;
 
     private bool firstSetup = true;
 
-    [SerializeField]
     private PlayerShoot shoot;
 
     [Header("Score")]
@@ -74,11 +73,10 @@ public class Player : NetworkBehaviour
     [SerializeField]
     public GameObject[] rigidbodyOnDeath;
 
-    [SerializeField]
-    private Vector3[] rigidbodyPosition;
+    public Vector3[] rigidbodyPosition;
 
     [SerializeField]
-    private float[] rigidbodyMass;
+    private float[] rigidbodyMass = null;
 
     private PlayerMotor motor;
 
@@ -87,7 +85,13 @@ public class Player : NetworkBehaviour
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
+        shoot = GetComponent<PlayerShoot>();
         metrics = GetComponent<PlayerMetrics>();
+
+        for (int i = 0; i < rigidbodyOnDeath.Length; i++)
+        {
+            rigidbodyPosition[i] = rigidbodyOnDeath[i].transform.localPosition;
+        }
     }
 
     public void SetupPlayer()

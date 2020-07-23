@@ -6,10 +6,10 @@ using System.Linq;
 public class WeaponList : MonoBehaviour
 {
     [SerializeField]
-    private GameObject weaponItemPrefab;
+    private GameObject weaponItemPrefab = null;
 
     [SerializeField]
-    private bool primary;
+    private bool primary = true;
 
     private PlayerWeapon[] allWeapons;
 

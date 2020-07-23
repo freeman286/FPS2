@@ -6,7 +6,7 @@ using UnityEngine;
 public class GravityGun : NetworkBehaviour
 {
     [SerializeField]
-    private Camera cam;
+    private Camera cam = null;
 
     [SerializeField]
     private string fireButton = "Fire1";

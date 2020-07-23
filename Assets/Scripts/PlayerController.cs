@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField]
-    private float jumpCooldown;
+    private float jumpCooldown = 1f;
 
     private float timeSinceJumped;
 

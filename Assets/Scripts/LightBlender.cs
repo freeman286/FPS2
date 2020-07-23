@@ -11,10 +11,10 @@ public class LightBlender : MonoBehaviour
     private Light lt;
 
     [SerializeField]
-    private float maxLightLevel;
+    private float maxLightLevel = 1000f;
 
     [SerializeField]
-    private AnimationCurve lightLevel;
+    private AnimationCurve lightLevel = null;
 
     private float time;
 

@@ -6,10 +6,10 @@ public class Scoreboard : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject playerScoreboardItem;
+    GameObject playerScoreboardItem = null;
 
     [SerializeField]
-    Transform playerScoreboardList;
+    Transform playerScoreboardList = null;
 
     void OnEnable()
     {

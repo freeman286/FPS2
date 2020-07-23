@@ -13,9 +13,9 @@ public class ProjectileController : NetworkBehaviour
     public Rigidbody rb;
 
     public VisualEffect particles;
-    public Light light;
+    public Light lightEffect;
 
-    public float constantForce;
+    public new float constantForce;
 
     public Collider[] colliders;
 
@@ -85,8 +85,8 @@ public class ProjectileController : NetworkBehaviour
         if (particles != null)
             particles.enabled = _active;
 
-        if (light != null)
-            light.enabled = _active;
+        if (lightEffect != null)
+            lightEffect.enabled = _active;
     }
 
     void OnDestroy()

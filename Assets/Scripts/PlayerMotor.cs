@@ -7,7 +7,7 @@ public class PlayerMotor : MonoBehaviour
 {
 
     [SerializeField]
-    private Camera cam;
+    private Camera cam = null;
 
     private Vector3 velocity = Vector3.zero;
     private Vector3 rotation = Vector3.zero;
@@ -15,10 +15,10 @@ public class PlayerMotor : MonoBehaviour
     private float currentCameraRotationX = 0f;
 
     [SerializeField]
-    private float minCameraRotationLimit;
+    private float minCameraRotationLimit = 50f;
 
     [SerializeField]
-    private float maxCameraRotationLimit;
+    private float maxCameraRotationLimit = 50f;
 
     private Rigidbody rb;
     private PlayerController playerController;

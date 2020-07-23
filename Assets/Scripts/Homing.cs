@@ -12,13 +12,13 @@ public class Homing : NetworkBehaviour
     private NetworkIdentity networkIdentity;
 
     [SerializeField]
-    private float homingness;
+    private float homingness = 50f;
 
     [SerializeField]
-    private AnimationCurve homingnessOverAngle;
+    private AnimationCurve homingnessOverAngle = null;
 
     [SerializeField]
-    private float delay;
+    private float delay = 1f;
 
     private float timeSinceCreated;
 

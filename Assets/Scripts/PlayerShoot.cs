@@ -9,10 +9,10 @@ public class PlayerShoot : NetworkBehaviour {
     private const string PLAYER_TAG = "Player";
 
     [SerializeField]
-    private Camera cam;
+    private Camera cam = null;
 
     [SerializeField]
-    public Camera weaponCam;
+    public Camera weaponCam = null;
 
     public LayerMask mask;
 
@@ -35,25 +35,25 @@ public class PlayerShoot : NetworkBehaviour {
     [Header("Scope")]
 
     [SerializeField]
-    private GameObject scopeUIPrefab;
+    private GameObject scopeUIPrefab = null;
 
     [HideInInspector]
-    public GameObject scopeUIInstance;
+    public GameObject scopeUIInstance = null;
 
     [HideInInspector]
     public bool isScoped;
 
     [SerializeField]
-    private float scopeTime;
+    private float scopeTime = 0.15f;
 
     [SerializeField]
-    private float scopeCooldown;
+    private float scopeCooldown = 1f;
 
     [SerializeField]
-    public float scopedFOV;
+    public float scopedFOV = 15f;
 
     [HideInInspector]
-    public float defaultFOV;
+    public float defaultFOV = 88f;
 
     private PlayerUI ui;
 

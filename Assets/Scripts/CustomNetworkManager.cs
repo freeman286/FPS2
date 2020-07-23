@@ -9,13 +9,13 @@ public class CustomNetworkManager : NetworkManager
     private const string PLAYER_TAG = "Player";
 
     [SerializeField]
-    private LayerMask mask;
+    private LayerMask mask = -1;
 
     [SerializeField]
-    private float spawnDistance;
+    private float spawnDistance = 15f;
 
     [SerializeField]
-    private float spawnRange;
+    private float spawnRange = 30f;
 
     public override Transform GetStartPosition()
     {

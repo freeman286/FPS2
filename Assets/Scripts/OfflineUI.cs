@@ -13,13 +13,13 @@ public class OfflineUI : MonoBehaviour
     public NetworkManagerHUD networkManagerHUD;
 
     [SerializeField]
-    private InputField ipAddress;
+    private InputField ipAddress = null;
 
     [SerializeField]
-    private Image loadingImage;
+    private Image loadingImage = null;
 
     [SerializeField]
-    private RectTransform loadingRectTransform;
+    private RectTransform loadingRectTransform = null;
 
     private bool ipValueChanged = true;
 

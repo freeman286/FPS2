@@ -7,13 +7,13 @@ public class PlayerNameplate : MonoBehaviour
 {
 
     [SerializeField]
-    private Text usernameText;
+    private Text usernameText = null;
 
     [SerializeField]
-    private RectTransform healthBarFill;
+    private RectTransform healthBarFill = null;
 
     [SerializeField]
-    private Player player;
+    private Player player = null;
 
     void Update()
     {

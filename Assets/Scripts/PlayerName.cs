@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerName : MonoBehaviour
 {
     [SerializeField]
-    private InputField playerName;
+    private InputField playerName = null;
 
     void Start()
     {

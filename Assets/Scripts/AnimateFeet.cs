@@ -5,9 +5,9 @@ using UnityEngine;
 public class AnimateFeet : MonoBehaviour
 {
     [SerializeField]
-    private GameObject leftFoot;
+    private GameObject leftFoot = null;
     [SerializeField]
-    private GameObject rightFoot;
+    private GameObject rightFoot = null;
 
     private Vector3 leftFootRestingPos;
     private Vector3 rightFootRestingPos;

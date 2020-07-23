@@ -8,11 +8,11 @@ public class PlayerMetrics : MonoBehaviour
 {
 
     [SerializeField]
-    private LayerMask mask;
+    private LayerMask mask = -1;
 
-    //[HideInInspector]
+    [HideInInspector]
     public Vector3 lastPosition;
-    //[HideInInspector]
+    [HideInInspector]
     public Vector3 velocity; // The velocity that other players think this player is travelling at
 
     private Rigidbody rb;
@@ -31,7 +31,7 @@ public class PlayerMetrics : MonoBehaviour
     public bool IsGrounded()
     {
         RaycastHit _hit;
-        if (Physics.Raycast(transform.position, -Vector3.up, out _hit, 3f, mask)) ;
+        if (Physics.Raycast(transform.position, -Vector3.up, out _hit, 3f, mask))
         {
             if ((_hit.distance < 2.15f && Mathf.Abs(velocity.y) < 0.1f && _hit.distance != 0f))
             {

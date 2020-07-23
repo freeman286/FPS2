@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public MatchSettings matchSettings;
 
     [SerializeField]
-    private GameObject sceneCamera;
+    private GameObject sceneCamera = null;
 
     public delegate void OnPlayerKilledCallback(string player, string source);
     public OnPlayerKilledCallback onPlayerKilledCallback;
