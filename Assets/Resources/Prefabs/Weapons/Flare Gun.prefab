@@ -633,9 +633,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   range: 35
+  damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
   automatic: 0
   fireRate: 1
   scoped: 0
+  special: 0
   roundsPerShot: 1
   projectileWeapon: 1
   throwPower: 20
@@ -679,7 +681,7 @@ MonoBehaviour:
   scopedSpeed: 1
   bullets: 1
   reloadTime: 2.5
-  graphics: {fileID: 2721180637063796786}
+  scriptsToEnable: []
 --- !u!82 &3317242424504107631
 AudioSource:
   m_ObjectHideFlags: 0

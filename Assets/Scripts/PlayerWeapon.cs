@@ -13,6 +13,7 @@ public class PlayerWeapon : MonoBehaviour
     public float headShotMultiplier = 1f;
     public AnimationCurve damageFallOff;
     public float range = 100f;
+    public DamageType damageType;
 
     [Header("Fire Mode(s)")]
     public bool automatic;

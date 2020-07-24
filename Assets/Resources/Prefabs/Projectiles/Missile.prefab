@@ -128,6 +128,7 @@ MonoBehaviour:
   syncInterval: 0.1
   impact: {fileID: 4308811345454485748, guid: 13c5e589ded63854c8ea82124219f9d3, type: 3}
   damage: 200
+  damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   range: 4
   fuse: 2
   damageFallOff:

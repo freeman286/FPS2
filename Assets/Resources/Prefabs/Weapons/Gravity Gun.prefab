@@ -782,6 +782,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   range: 150
+  damageType: {fileID: 11400000, guid: b8de35d11ecd45e4eaed37b836ec35eb, type: 2}
   automatic: 0
   fireRate: 2.5
   scoped: 0

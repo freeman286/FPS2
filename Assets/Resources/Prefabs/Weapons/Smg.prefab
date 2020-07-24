@@ -644,7 +644,6 @@ MonoBehaviour:
   primary: 1
   damage: 30
   headShotMultiplier: 1.8
-  range: 150
   damageFallOff:
     serializedVersion: 2
     m_Curve:
@@ -687,11 +686,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  range: 150
+  damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
   automatic: 1
-  projectileWeapon: 0
-  scoped: 0
   fireRate: 11
+  scoped: 0
+  special: 0
   roundsPerShot: 1
+  projectileWeapon: 0
+  throwPower: 0
+  projectile: {fileID: 0}
   coneOfFire: 0
   spreadDefault: 0.1
   spreadWhileMoving: 0.2
@@ -748,8 +752,7 @@ MonoBehaviour:
   scopedSpeed: 1
   bullets: 25
   reloadTime: 2.5
-  graphics: {fileID: 2721180637063796786}
-  projectile: {fileID: 0}
+  scriptsToEnable: []
 --- !u!82 &792773704839598559
 AudioSource:
   m_ObjectHideFlags: 0

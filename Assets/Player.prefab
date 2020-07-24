@@ -1461,6 +1461,7 @@ GameObject:
   - component: {fileID: 3142970429841619064}
   - component: {fileID: 1506890265112965245}
   - component: {fileID: 6832787154136730258}
+  - component: {fileID: 1866657983699075262}
   - component: {fileID: 3059421112803731098}
   - component: {fileID: 9210790658628301855}
   - component: {fileID: 2139900448668095581}
@@ -1721,6 +1722,18 @@ MonoBehaviour:
   currentWeaponName: 
   isReloading: 0
   switchingTime: 1
+--- !u!114 &1866657983699075262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f07cba31a07044aa21e1a78997d62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3059421112803731098
 MonoBehaviour:
   m_ObjectHideFlags: 0

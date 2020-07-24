@@ -15,6 +15,9 @@ public class ImpactController : NetworkBehaviour
     private int damage = 100;
 
     [SerializeField]
+    private DamageType damageType;
+
+    [SerializeField]
     private float headShotMultiplier = 2f;
 
     public float fuse = 10f;

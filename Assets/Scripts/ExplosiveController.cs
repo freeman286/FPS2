@@ -16,6 +16,9 @@ public class ExplosiveController : NetworkBehaviour
     private int damage = 100;
 
     [SerializeField]
+    private DamageType damageType;
+
+    [SerializeField]
     private float range = 10f;
 
     public float fuse;

@@ -12,9 +12,11 @@ public class WeaponManager : NetworkBehaviour
     [SerializeField]
     private Transform weaponHolder = null;
 
-    private PlayerWeapon primaryWeapon;
+    [HideInInspector]
+    public PlayerWeapon primaryWeapon;
 
-    private PlayerWeapon secondaryWeapon;
+    [HideInInspector]
+    public PlayerWeapon secondaryWeapon;
 
     public PlayerWeapon currentWeapon;
 
@@ -23,6 +25,8 @@ public class WeaponManager : NetworkBehaviour
     public string currentWeaponName;
 
     private PlayerShoot shoot;
+
+    private PlayerStats stats;
 
     public bool isReloading = false;
 
@@ -49,6 +53,7 @@ public class WeaponManager : NetworkBehaviour
         shoot = GetComponent<PlayerShoot>();
         anim = GetComponent<Animator>();
         metrics = GetComponent<PlayerMetrics>();
+        stats = GetComponent<PlayerStats>();
 
         SetDefaults();
     }   
@@ -72,6 +77,8 @@ public class WeaponManager : NetworkBehaviour
         {
             primaryWeapon = NameToWeapon(PlayerInfo.primaryWeaponName);
             secondaryWeapon = NameToWeapon(PlayerInfo.secondaryWeaponName);
+
+            stats.GetSets();
 
             primaryWeapon.Load();
             secondaryWeapon.Load();

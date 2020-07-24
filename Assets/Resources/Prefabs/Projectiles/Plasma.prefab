@@ -104,7 +104,7 @@ MonoBehaviour:
   playerID: 
   rb: {fileID: 156444120250483798}
   particles: {fileID: 0}
-  light: {fileID: 0}
+  lightEffect: {fileID: 0}
   constantForce: 2
   colliders:
   - {fileID: 4085050231816812046}
@@ -124,6 +124,7 @@ MonoBehaviour:
   syncInterval: 0.1
   impact: {fileID: 1734203832338817589, guid: 2d6670cde9e1c014b9a95d420d70d425, type: 3}
   damage: 30
+  damageType: {fileID: 11400000, guid: b8de35d11ecd45e4eaed37b836ec35eb, type: 2}
   headShotMultiplier: 2
   fuse: 10
   sticky: 0
