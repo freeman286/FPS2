@@ -55,20 +55,6 @@ public class Util : MonoBehaviour
         return localIP;
     }
 
-    public static PlayerWeapon[] AllWeapons()
-    {
-        Object[] allWeaponObjects = Resources.LoadAll("Prefabs/Weapons", typeof(GameObject));
-
-        PlayerWeapon[] allWeapons = new PlayerWeapon[allWeaponObjects.Length];
-
-        for (int i = 0; i < allWeaponObjects.Length; i++)
-        {
-            allWeapons[i] = ((GameObject)allWeaponObjects[i]).GetComponent<PlayerWeapon>();
-        }
-
-        return allWeapons;
-    }
-
     public static Vector2 SnapTo(Vector2 _vector)
     {
         Vector2[] basis = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
@@ -204,5 +190,19 @@ public class Util : MonoBehaviour
     public static GameObject[,,] RotateGameObjectMatrix(GameObject[,,] _matrix)
     {
         return FlipGameObjectMatrix(TransposeGameObjectMatrix(_matrix));
+    }
+
+    public static Object[] GetPrefabs(string _dir)
+    {
+        Object[] allObjects = Resources.LoadAll(_dir, typeof(GameObject));
+        return allObjects;
+    }
+
+    public static Behaviour EnableScipt(GameObject _gameObject, string _scriptName, bool _enable)
+    {
+        var comp = _gameObject.GetComponent(_scriptName);
+        Behaviour be = (comp as Behaviour);
+        be.enabled = _enable;
+        return be;
     }
 }

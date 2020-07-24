@@ -1452,14 +1452,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1259516704761575958}
   - component: {fileID: 2984415030471143897}
-  - component: {fileID: 5738766274489223137}
-  - component: {fileID: 600328063753895067}
   - component: {fileID: 1331238722095369265}
-  - component: {fileID: 3142970429841619064}
   - component: {fileID: 5500086210472638473}
   - component: {fileID: 8590141044764537233}
-  - component: {fileID: 1506890265112965245}
   - component: {fileID: 3543887534676550787}
+  - component: {fileID: 5738766274489223137}
+  - component: {fileID: 600328063753895067}
+  - component: {fileID: 3142970429841619064}
+  - component: {fileID: 1506890265112965245}
   - component: {fileID: 6832787154136730258}
   - component: {fileID: 3059421112803731098}
   - component: {fileID: 9210790658628301855}
@@ -1507,38 +1507,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5738766274489223137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8973621608414753981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982076372ea6b0143981361a9a86a265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 899551536351255448}
-  minCameraRotationLimit: 70
-  maxCameraRotationLimit: 50
---- !u!114 &600328063753895067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8973621608414753981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae1b8aedea08a744a9a82ffd55c42ea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2.5
-  axes: 0
-  lookSensitivity: 3
-  jumpForce: 6
-  jumpCooldown: 0.05
 --- !u!114 &1331238722095369265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,33 +1522,6 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   m_AssetId: 
---- !u!114 &3142970429841619064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8973621608414753981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3ee6d9811775b47ba949683899825c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  componentsToDisable:
-  - {fileID: 5738766274489223137}
-  - {fileID: 600328063753895067}
-  - {fileID: 899551536351255448}
-  - {fileID: 1293655893664764981}
-  - {fileID: 9075518313636580678}
-  remoteLayerName: RemotePlayer
-  dontDrawLayerName: DontDraw
-  playerGraphics: {fileID: 8392267286832235737}
-  playerUIPrefab: {fileID: 4452862453348152227, guid: 1bc671bab5f68b14cad6be7bebec57c8,
-    type: 3}
-  playerUIInstance: {fileID: 0}
-  ui: {fileID: 0}
 --- !u!114 &5500086210472638473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1618,6 +1559,117 @@ MonoBehaviour:
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
   target: {fileID: 8794334306705745957}
+--- !u!114 &3543887534676550787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1503233a468e34240bce162d12e388e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  maxHealth: 100
+  healthRegenTime: 5
+  healthRegenSpeed: 10
+  disableOnDeath:
+  - {fileID: 600328063753895067}
+  - {fileID: 1506890265112965245}
+  - {fileID: 899551536351255448}
+  - {fileID: 9075518313636580678}
+  - {fileID: 5738766274489223137}
+  - {fileID: 1293655893664764981}
+  - {fileID: 6832787154136730258}
+  disableGameObjectsOnDeath:
+  - {fileID: 4338212503390514524}
+  disableCollidersOnDeath:
+  - {fileID: 3534165101480003966}
+  - {fileID: 8382058299198231781}
+  spawnEffect: {fileID: 4308811345454485748, guid: 1dd9664a5f2f3eb42b140ec1ede46d6b,
+    type: 3}
+  kills: 0
+  deaths: 0
+  username: 
+  weaponManager: {fileID: 6832787154136730258}
+  playerController: {fileID: 600328063753895067}
+  rigidbodyOnDeath:
+  - {fileID: 375526062058986501}
+  - {fileID: 8845826571951273012}
+  - {fileID: 6416331504652519073}
+  - {fileID: 3917416763378249837}
+  rigidbodyPosition:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: -0.75, z: 0}
+  - {x: 0.4, y: -1.5, z: 0}
+  - {x: -0.4, y: -1.5, z: 0}
+  rigidbodyMass:
+  - 0.8
+  - 0.8
+  - 0.2
+  - 0.2
+--- !u!114 &5738766274489223137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982076372ea6b0143981361a9a86a265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 899551536351255448}
+  minCameraRotationLimit: 70
+  maxCameraRotationLimit: 50
+--- !u!114 &600328063753895067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1b8aedea08a744a9a82ffd55c42ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2.5
+  axes: 0
+  lookSensitivity: 3
+  jumpForce: 6
+  jumpCooldown: 0.05
+--- !u!114 &3142970429841619064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3ee6d9811775b47ba949683899825c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  componentsToDisable:
+  - {fileID: 5738766274489223137}
+  - {fileID: 600328063753895067}
+  - {fileID: 899551536351255448}
+  - {fileID: 1293655893664764981}
+  - {fileID: 9075518313636580678}
+  remoteLayerName: RemotePlayer
+  dontDrawLayerName: DontDraw
+  playerGraphics: {fileID: 8392267286832235737}
+  playerUIPrefab: {fileID: 4452862453348152227, guid: 1bc671bab5f68b14cad6be7bebec57c8,
+    type: 3}
+  playerUIInstance: {fileID: 0}
+  ui: {fileID: 0}
 --- !u!114 &1506890265112965245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1648,58 +1700,6 @@ MonoBehaviour:
   scopeCooldown: 0.5
   scopedFOV: 20
   defaultFOV: 0
---- !u!114 &3543887534676550787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8973621608414753981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1503233a468e34240bce162d12e388e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  maxHealth: 100
-  healthRegenTime: 5
-  healthRegenSpeed: 10
-  disableOnDeath:
-  - {fileID: 600328063753895067}
-  - {fileID: 1506890265112965245}
-  - {fileID: 899551536351255448}
-  - {fileID: 9075518313636580678}
-  - {fileID: 5738766274489223137}
-  - {fileID: 1293655893664764981}
-  disableGameObjectsOnDeath:
-  - {fileID: 4338212503390514524}
-  disableCollidersOnDeath:
-  - {fileID: 3534165101480003966}
-  - {fileID: 8382058299198231781}
-  spawnEffect: {fileID: 4308811345454485748, guid: 1dd9664a5f2f3eb42b140ec1ede46d6b,
-    type: 3}
-  shoot: {fileID: 1506890265112965245}
-  kills: 0
-  deaths: 0
-  username: 
-  weaponManager: {fileID: 6832787154136730258}
-  playerController: {fileID: 600328063753895067}
-  rigidbodyOnDeath:
-  - {fileID: 375526062058986501}
-  - {fileID: 8845826571951273012}
-  - {fileID: 6416331504652519073}
-  - {fileID: 3917416763378249837}
-  rigidbodyPosition:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: -0.75, z: 0}
-  - {x: 0.4, y: -1.5, z: 0}
-  - {x: -0.4, y: -1.5, z: 0}
-  rigidbodyMass:
-  - 0.8
-  - 0.8
-  - 0.2
-  - 0.2
 --- !u!114 &6832787154136730258
 MonoBehaviour:
   m_ObjectHideFlags: 0

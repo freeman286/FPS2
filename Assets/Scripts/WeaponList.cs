@@ -21,7 +21,7 @@ public class WeaponList : MonoBehaviour
 
     void Start()
     {
-        allWeapons = Util.AllWeapons().Where(w => w.primary == primary).ToArray(); ;
+        allWeapons = WeaponsUtil.AllWeapons().Where(w => w.primary == primary).ToArray();
         items = new WeaponItem[allWeapons.Length];
 
         for (int i = 0; i < allWeapons.Length; i++)

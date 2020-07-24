@@ -40,10 +40,12 @@ public class WeaponManager : NetworkBehaviour
 
     private PlayerMetrics metrics;
 
+    private Behaviour[] scripts;
+
 
     void Start()
     {
-        allWeapons = Util.AllWeapons();
+        allWeapons = WeaponsUtil.AllWeapons();
         shoot = GetComponent<PlayerShoot>();
         anim = GetComponent<Animator>();
         metrics = GetComponent<PlayerMetrics>();
@@ -166,6 +168,14 @@ public class WeaponManager : NetworkBehaviour
             anim.SetTrigger("Switching");
         }
 
+        if (scripts != null)
+        {
+            for (int i = 0; i < scripts.Length; i++)
+            {
+                scripts[i].enabled = false;
+            }
+        }
+
         StartCoroutine(ShowWeapon());
     }
 
@@ -198,6 +208,15 @@ public class WeaponManager : NetworkBehaviour
         }
 
         shoot.localAnim = currentGraphics.GetComponent<Animator>();
+
+        if (currentWeapon.scriptsToEnable != null)
+        {
+            scripts = new Behaviour[currentWeapon.scriptsToEnable.Length];
+            for (int i = 0; i < currentWeapon.scriptsToEnable.Length; i++)
+            {
+                scripts[i] = Util.EnableScipt(gameObject, currentWeapon.scriptsToEnable[i], true);
+            }
+        }
     }
 
     public void Reload()

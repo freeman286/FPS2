@@ -749,7 +749,6 @@ GameObject:
   - component: {fileID: 39308611202603318}
   - component: {fileID: 792773704839598559}
   - component: {fileID: 6475541657712455142}
-  - component: {fileID: 5426912321203731758}
   m_Layer: 8
   m_Name: Rocket Pod
   m_TagString: Untagged
@@ -924,9 +923,10 @@ MonoBehaviour:
   magSize: 4
   speed: 0.7
   scopedSpeed: 1
-  bullets: 2
+  bullets: 4
   reloadTime: 4
-  graphics: {fileID: 2721180637063796786}
+  scriptsToEnable:
+  - ProjectLaser
 --- !u!82 &792773704839598559
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1035,19 +1035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24ce219638696d488c19d09d8055ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5426912321203731758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721180637063796786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca38973a6d86a8045b7cdd9aaaecda5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScriptName: ProjectLaser
 --- !u!1 &3698654997140217251
 GameObject:
   m_ObjectHideFlags: 0

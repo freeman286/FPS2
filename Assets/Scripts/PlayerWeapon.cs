@@ -55,4 +55,5 @@ public class PlayerWeapon : MonoBehaviour
         bullets = magSize;
     }
 
+    public string[] scriptsToEnable;
 }

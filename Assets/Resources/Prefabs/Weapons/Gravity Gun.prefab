@@ -670,7 +670,6 @@ GameObject:
   - component: {fileID: 39308611202603318}
   - component: {fileID: 3317242424504107631}
   - component: {fileID: 3868698205101605970}
-  - component: {fileID: 7551836318053242528}
   m_Layer: 8
   m_Name: Gravity Gun
   m_TagString: Untagged
@@ -847,7 +846,8 @@ MonoBehaviour:
   scopedSpeed: 1
   bullets: 0
   reloadTime: 2.5
-  graphics: {fileID: 2721180637063796786}
+  scriptsToEnable:
+  - GravityGun
 --- !u!82 &3317242424504107631
 AudioSource:
   m_ObjectHideFlags: 0
@@ -956,19 +956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24ce219638696d488c19d09d8055ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7551836318053242528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721180637063796786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca38973a6d86a8045b7cdd9aaaecda5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScriptName: GravityGun
 --- !u!1 &3301215329987941744
 GameObject:
   m_ObjectHideFlags: 0

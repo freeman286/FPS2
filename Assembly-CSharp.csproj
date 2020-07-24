@@ -112,6 +112,7 @@
      <Compile Include="Assets\Scripts\WeaponItem.cs" />
      <Compile Include="Assets\Scripts\WeaponList.cs" />
      <Compile Include="Assets\Scripts\WeaponManager.cs" />
+     <Compile Include="Assets\Scripts\WeaponsUtil.cs" />
      <Compile Include="Assets\Scripts\Wiggle.cs" />
      <None Include="Assets\Toon.shader" />
      <None Include="Assets\ScriptTemplates\51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
