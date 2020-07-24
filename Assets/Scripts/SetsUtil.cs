@@ -8,8 +8,21 @@ public class SetsUtil : MonoBehaviour
     {
         Set[] allSets = Resources.LoadAll<Set>("ScriptableObjects/Sets");
 
-
         return allSets;
+    }
+
+    public static DamageType[] AllDamageDamageTypes()
+    {
+        DamageType[] allDamageDamageTypes = Resources.LoadAll<DamageType>("ScriptableObjects/DamageTypes");
+
+        return allDamageDamageTypes;
+    }
+
+    public static DamageType[] DamageTypes()
+    {
+        DamageType[] allDamageDamageTypes = Resources.LoadAll<DamageType>("ScriptableObjects/DamageTypes");
+
+        return allDamageDamageTypes;
     }
 
     public static bool SetMatch(Set _set, WeaponManager _weaponManager)

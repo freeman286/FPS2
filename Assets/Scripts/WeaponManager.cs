@@ -75,8 +75,8 @@ public class WeaponManager : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            primaryWeapon = NameToWeapon(PlayerInfo.primaryWeaponName);
-            secondaryWeapon = NameToWeapon(PlayerInfo.secondaryWeaponName);
+            primaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.primaryWeaponName);
+            secondaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.secondaryWeaponName);
 
             stats.GetSets();
 
@@ -166,7 +166,7 @@ public class WeaponManager : NetworkBehaviour
     [ClientRpc]
     void RpcEquipWeapon(string _weaponName, bool _setup)
     {
-        PlayerWeapon newWeapon = NameToWeapon(_weaponName);
+        PlayerWeapon newWeapon = WeaponsUtil.NameToWeapon(_weaponName);
 
         currentWeapon = newWeapon;
 
@@ -270,18 +270,6 @@ public class WeaponManager : NetworkBehaviour
     {
         yield return new WaitForSeconds(1/currentWeapon.fireRate);
         anim.ResetTrigger("Shoot"); // Sometimes the shoot trigger is still set and a phantom animation could play
-    }
-
-    public PlayerWeapon NameToWeapon(string _name)
-    {
-        foreach (var weapon in allWeapons)
-        {
-            if (weapon.name == _name)
-            {
-                return weapon;
-            }
-        }
-        return null;
     }
 
     public GameObject GetCurrentCasing()

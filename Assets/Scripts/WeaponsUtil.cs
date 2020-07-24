@@ -18,4 +18,18 @@ public class WeaponsUtil : MonoBehaviour
         return allWeapons;
     }
 
+    public static PlayerWeapon NameToWeapon(string _name)
+    {
+        PlayerWeapon[] allWeapons = AllWeapons();
+
+        foreach (var weapon in allWeapons)
+        {
+            if (weapon.name == _name)
+            {
+                return weapon;
+            }
+        }
+        return null;
+    }
+
 }
