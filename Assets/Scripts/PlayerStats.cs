@@ -13,10 +13,10 @@ public class PlayerStats : NetworkBehaviour
 
     public List<Set> activeSets;
 
-    [SyncVar]
+    [SyncVar(hook = nameof(OnPrimaryNameChanged))]
     public string primaryWeaponName;
 
-    [SyncVar]
+    [SyncVar(hook = nameof(OnSecondaryNameChanged))]
     public string secondaryWeaponName;
 
 
@@ -42,8 +42,23 @@ public class PlayerStats : NetworkBehaviour
 
     }
 
-    void UpdateSets()
+    void OnPrimaryNameChanged(string _oldName, string _newName)
     {
+        primaryWeaponName = _newName;
+        UpdateSets(_oldName, _newName);
+    }
+
+    void OnSecondaryNameChanged(string _oldName, string _newName)
+    {
+        secondaryWeaponName = _newName;
+        UpdateSets(_oldName, _newName);
+    }
+
+    void UpdateSets(string _oldName, string _newName)
+    {
+        if (_oldName == _newName)
+            return;
+
         allSets = SetsUtil.AllSets();
 
         Reset();
@@ -58,15 +73,8 @@ public class PlayerStats : NetworkBehaviour
     [Command]
     void CmdSetPlayerInfo(string _primaryWeaponName, string _secondaryWeaponName)
     {
-        RpcSetPlayerInfo(_primaryWeaponName, _secondaryWeaponName);
-    }
-
-    [ClientRpc]
-    void RpcSetPlayerInfo(string _primaryWeaponName, string _secondaryWeaponName)
-    {
         primaryWeaponName = _primaryWeaponName;
         secondaryWeaponName = _secondaryWeaponName;
-        UpdateSets();
     }
 
     void Reset()

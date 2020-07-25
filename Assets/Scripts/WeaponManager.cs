@@ -185,11 +185,6 @@ public class WeaponManager : NetworkBehaviour
             }
         }
 
-        if (_setup)
-        {
-            stats.GetSets();
-        }
-
         StartCoroutine(ShowWeapon());
     }
 
