@@ -82,11 +82,14 @@ public class Player : NetworkBehaviour
 
     private PlayerMetrics metrics;
 
+    private PlayerStats stats;
+
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
         shoot = GetComponent<PlayerShoot>();
         metrics = GetComponent<PlayerMetrics>();
+        stats = GetComponent<PlayerStats>();
 
         for (int i = 0; i < rigidbodyOnDeath.Length; i++)
         {
@@ -145,12 +148,14 @@ public class Player : NetworkBehaviour
 
 
     [ClientRpc]
-    public void RpcTakeDamage(int _amount, string _sourceID)
+    public void RpcTakeDamage(int _amount, string _sourceID, string _damageType)
     {
         if (isDead)
             return;
 
-        currentHealth -= _amount;
+        Player sourcePlayer = GameManager.GetPlayer(_sourceID);
+
+        currentHealth -= _amount * stats.GetDamageMultiplier(_damageType, true) * sourcePlayer.GetComponent<PlayerStats>().GetDamageMultiplier(_damageType, false);
 
         timeSinceDamaged = 0f;
 

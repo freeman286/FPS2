@@ -104,7 +104,7 @@ public class ExplosiveController : NetworkBehaviour
 
                         if (player != null)
                         {
-                            player.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector)/180f)), projectileController.playerID);
+                            player.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector)/180f)), projectileController.playerID, damageType.name);
                         }
                     }
                 }

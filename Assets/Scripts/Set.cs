@@ -6,6 +6,7 @@ using UnityEngine;
 public class Set : ScriptableObject
 {
     public new string name;
+    public string description;
 
     [Header("Required items")]
     public GameObject primaryWeapon;

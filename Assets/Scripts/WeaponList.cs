@@ -69,5 +69,7 @@ public class WeaponList : MonoBehaviour
                 items[i].Deselect();
             }
         }
+
+        SetList.instance.ShowSets();
     }
 }

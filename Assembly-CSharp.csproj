@@ -108,6 +108,8 @@
      <Compile Include="Assets\Scripts\ResolutionCorrector.cs" />
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
      <Compile Include="Assets\Scripts\Set.cs" />
+     <Compile Include="Assets\Scripts\SetItem.cs" />
+     <Compile Include="Assets\Scripts\SetList.cs" />
      <Compile Include="Assets\Scripts\SetsUtil.cs" />
      <Compile Include="Assets\Scripts\TerrainId.cs" />
      <Compile Include="Assets\Scripts\TerrainTarget.cs" />

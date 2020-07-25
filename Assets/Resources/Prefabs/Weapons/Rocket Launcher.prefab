@@ -720,7 +720,7 @@ MonoBehaviour:
   coneOfFire: 0
   spreadDefault: 0
   spreadWhileMoving: 0.1
-  spreadWhileJumping: 0.2
+  spreadWhileJumping: 0.15
   spreadWhileScoped: 0
   timeTillMaxSpread: 1
   spreadCurve:

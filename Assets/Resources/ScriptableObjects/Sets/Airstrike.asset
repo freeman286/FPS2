@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Airstrike
   m_EditorClassIdentifier: 
   name: Airstrike
+  description: Jump higher. Deal more and take less explosive damage.
   primaryWeapon: {fileID: 2721180637063796786, guid: aef3c9472cec1164caaab1b880b22570,
     type: 3}
   secondaryWeapon: {fileID: 2721180637063796786, guid: 1341525b457366a49adc2845623ef8f7,
@@ -25,5 +26,5 @@ MonoBehaviour:
     damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
     multiplier: 1.2
   speedMultiplier: 1
-  jumpMultiplier: 2
+  jumpMultiplier: 1.4
   scriptsToEnable: []

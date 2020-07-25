@@ -88,7 +88,7 @@ public class ImpactController : NetworkBehaviour
         if (_playerID != null)
         {
             Player _player = GameManager.GetPlayer(_playerID);
-            _player.RpcTakeDamage(_damage, projectileController.playerID);
+            _player.RpcTakeDamage(_damage, projectileController.playerID, damageType.name);
         }
 
         if (!_stick)

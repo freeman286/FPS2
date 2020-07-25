@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a745ecdec3205ec49b52bf9c17f2cda5, type: 3}
+  m_Name: ManOfScience
+  m_EditorClassIdentifier: 
+  name: Man Of Science
+  description: Do more explosive and energy damage.
+  primaryWeapon: {fileID: 2721180637063796786, guid: d81801af2d5c3834bacee292a89cb453,
+    type: 3}
+  secondaryWeapon: {fileID: 2721180637063796786, guid: 35d6a6916afac104e985c751d8efb185,
+    type: 3}
+  attributes:
+  - self: 0
+    damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
+    multiplier: 3
+  - self: 0
+    damageType: {fileID: 11400000, guid: b8de35d11ecd45e4eaed37b836ec35eb, type: 2}
+    multiplier: 1.2
+  speedMultiplier: 1
+  jumpMultiplier: 1
+  scriptsToEnable: []

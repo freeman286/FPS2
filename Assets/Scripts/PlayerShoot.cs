@@ -208,6 +208,9 @@ public class PlayerShoot : NetworkBehaviour {
 
     public void LocalShootEfftect() // We need to do this not over the network or we'll be able to feel lag
     {
+        if (weaponManager.currentGraphics == null)
+            return;
+
         Animator anim = weaponManager.currentGraphics.GetComponent<Animator>();
         if (anim != null && !anim.GetCurrentAnimatorStateInfo(0).IsName("Reload"))
         {
@@ -319,7 +322,7 @@ public class PlayerShoot : NetworkBehaviour {
                     _damage = (int)(_damage * currentWeapon.headShotMultiplier);
                 }
 
-                CmdPlayerShot(_hit.collider.transform.root.name, _damage, transform.name);
+                CmdPlayerShot(_hit.collider.transform.root.name, _damage, transform.name, currentWeapon.damageType.name);
             }
             
 
@@ -334,11 +337,11 @@ public class PlayerShoot : NetworkBehaviour {
     }
 
     [Command]
-    public void CmdPlayerShot (string _playerID, int _damage, string _sourceID)
+    public void CmdPlayerShot (string _playerID, int _damage, string _sourceID, string _damageType)
     {
 
         Player _player = GameManager.GetPlayer(_playerID);
-        _player.RpcTakeDamage(_damage, _sourceID);
+        _player.RpcTakeDamage(_damage, _sourceID, _damageType);
     }
 
     [Command]
