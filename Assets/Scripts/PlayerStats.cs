@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Mirror;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : NetworkBehaviour
 {
 
     private WeaponManager weaponManager;
@@ -11,6 +12,12 @@ public class PlayerStats : MonoBehaviour
     private Set[] allSets;
 
     public List<Set> activeSets;
+
+    [SyncVar]
+    public string primaryWeaponName;
+
+    [SyncVar]
+    public string secondaryWeaponName;
 
 
     [Header("Cumulative effects")]
@@ -23,13 +30,21 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         weaponManager = GetComponent<WeaponManager>();
-        allSets = SetsUtil.AllSets();
     }
 
     public void GetSets()
     {
-        if (allSets == null)
-            return; // Things haven't loaded properly yet
+
+        if (isLocalPlayer)
+        {
+            CmdSetPlayerInfo(PlayerInfo.primaryWeaponName, PlayerInfo.secondaryWeaponName);
+        }
+
+    }
+
+    void UpdateSets()
+    {
+        allSets = SetsUtil.AllSets();
 
         Reset();
 
@@ -38,7 +53,20 @@ public class PlayerStats : MonoBehaviour
         AddSetAttributes();
 
         AddSetScripts();
+    }
 
+    [Command]
+    void CmdSetPlayerInfo(string _primaryWeaponName, string _secondaryWeaponName)
+    {
+        RpcSetPlayerInfo(_primaryWeaponName, _secondaryWeaponName);
+    }
+
+    [ClientRpc]
+    void RpcSetPlayerInfo(string _primaryWeaponName, string _secondaryWeaponName)
+    {
+        primaryWeaponName = _primaryWeaponName;
+        secondaryWeaponName = _secondaryWeaponName;
+        UpdateSets();
     }
 
     void Reset()
@@ -60,7 +88,7 @@ public class PlayerStats : MonoBehaviour
     {
         foreach (Set _set in allSets)
         {
-            if (SetsUtil.SetMatch(_set, weaponManager))
+            if (SetsUtil.SetMatch(_set, primaryWeaponName, secondaryWeaponName))
             {
                 activeSets.Add(_set);
             }

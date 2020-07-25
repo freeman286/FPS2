@@ -25,13 +25,13 @@ public class SetsUtil : MonoBehaviour
         return allDamageDamageTypes;
     }
 
-    public static bool SetMatch(Set _set, WeaponManager _weaponManager)
+    public static bool SetMatch(Set _set, string _primaryWeaponName, string _secondaryWeaponName)
     {
         GameObject _primaryWeapon = _set.primaryWeapon;
         GameObject _secondaryWeapon = _set.secondaryWeapon;
 
-        if ((_primaryWeapon != null && _primaryWeapon.GetComponent<PlayerWeapon>() != _weaponManager.primaryWeapon) ||
-            (_secondaryWeapon != null && _secondaryWeapon.GetComponent<PlayerWeapon>() != _weaponManager.secondaryWeapon))
+        if ((_primaryWeapon != null && _primaryWeapon.name != _primaryWeaponName) ||
+            (_secondaryWeapon != null && _secondaryWeapon.name != _secondaryWeaponName))
             return false;
 
         return true;

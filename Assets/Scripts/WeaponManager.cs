@@ -78,7 +78,7 @@ public class WeaponManager : NetworkBehaviour
             primaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.primaryWeaponName);
             secondaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.secondaryWeaponName);
 
-            stats.GetSets();
+            
 
             primaryWeapon.Load();
             secondaryWeapon.Load();
@@ -91,6 +91,8 @@ public class WeaponManager : NetworkBehaviour
                 shoot.Unscope();
             }
         }
+
+        stats.GetSets();
     }
 
     public void SyncAllWepaons()
@@ -181,6 +183,11 @@ public class WeaponManager : NetworkBehaviour
             {
                 scripts[i].enabled = false;
             }
+        }
+
+        if (_setup)
+        {
+            stats.GetSets();
         }
 
         StartCoroutine(ShowWeapon());
