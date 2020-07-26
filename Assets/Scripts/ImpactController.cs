@@ -11,6 +11,15 @@ public class ImpactController : NetworkBehaviour
     [SerializeField]
     private GameObject impact = null;
 
+    [Header("Impact Operative")]
+
+    public float fuse = 10f;
+
+    [SerializeField]
+    private bool sticky = false;
+
+    [Header("Damage")]
+
     [SerializeField]
     private int damage = 100;
 
@@ -19,11 +28,6 @@ public class ImpactController : NetworkBehaviour
 
     [SerializeField]
     private float headShotMultiplier = 2f;
-
-    public float fuse = 10f;
-
-    [SerializeField]
-    private bool sticky = false;
 
     void Start()
     {

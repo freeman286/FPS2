@@ -12,25 +12,12 @@ public class ExplosiveController : NetworkBehaviour
     [SerializeField]
     private GameObject impact = null;
 
-    [SerializeField]
-    private int damage = 100;
-
-    [SerializeField]
-    private DamageType damageType;
-
-    [SerializeField]
-    private float range = 10f;
+    [Header("Explosive Operative")]
 
     public float fuse;
 
     [SerializeField]
-    private AnimationCurve damageFallOff = null;
-
-    [SerializeField]
-    private AnimationCurve damageOverTime = null;
-
-    [SerializeField]
-    private AnimationCurve damageOverAngle = null;
+    private bool explodeOnImpact = true;
 
     [SerializeField]
     private bool airburst = false;
@@ -40,6 +27,26 @@ public class ExplosiveController : NetworkBehaviour
 
     [SerializeField]
     private LayerMask mask = -1;
+
+    [Header("Damage")]
+
+    [SerializeField]
+    private int damage = 100;
+
+    [SerializeField]
+    private float range = 10f;
+
+    [SerializeField]
+    private DamageType damageType;
+
+    [SerializeField]
+    private AnimationCurve damageFallOff = null;
+
+    [SerializeField]
+    private AnimationCurve damageOverTime = null;
+
+    [SerializeField]
+    private AnimationCurve damageOverAngle = null;
 
     private const string PLAYER_TAG = "Player";
 
@@ -69,7 +76,7 @@ public class ExplosiveController : NetworkBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!impacted && GetComponent<NetworkIdentity>().hasAuthority)
+        if (explodeOnImpact && !impacted && GetComponent<NetworkIdentity>().hasAuthority)
         {
             impacted = true;
             projectileController.rb.isKinematic = true;

@@ -71,9 +71,12 @@
      <Compile Include="Assets\Scripts\DamageType.cs" />
      <Compile Include="Assets\Scripts\EnableScriptOnParent.cs" />
      <Compile Include="Assets\Scripts\Environment.cs" />
+     <Compile Include="Assets\Scripts\Equipment.cs" />
+     <Compile Include="Assets\Scripts\EquipmentUtil.cs" />
      <Compile Include="Assets\Scripts\ExplosiveController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GravityGun.cs" />
+     <Compile Include="Assets\Scripts\Grenade.cs" />
      <Compile Include="Assets\Scripts\Homing.cs" />
      <Compile Include="Assets\Scripts\ImpactController.cs" />
      <Compile Include="Assets\Scripts\Killfeed.cs" />
@@ -91,6 +94,7 @@
      <Compile Include="Assets\Scripts\PlayAudio.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PlayerEquipment.cs" />
      <Compile Include="Assets\Scripts\PlayerInfo.cs" />
      <Compile Include="Assets\Scripts\PlayerMetrics.cs" />
      <Compile Include="Assets\Scripts\PlayerMotor.cs" />

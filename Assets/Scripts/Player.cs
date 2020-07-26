@@ -51,9 +51,7 @@ public class Player : NetworkBehaviour
     private GameObject spawnEffect = null;
 
     private bool firstSetup = true;
-
-    private PlayerShoot shoot;
-
+    
     [Header("Score")]
 
     [SyncVar]
@@ -80,6 +78,10 @@ public class Player : NetworkBehaviour
 
     private PlayerMotor motor;
 
+    private PlayerShoot shoot;
+
+    private PlayerEquipment equipment;
+
     private PlayerMetrics metrics;
 
     private PlayerStats stats;
@@ -88,6 +90,7 @@ public class Player : NetworkBehaviour
     {
         motor = GetComponent<PlayerMotor>();
         shoot = GetComponent<PlayerShoot>();
+        equipment = GetComponent<PlayerEquipment>();
         metrics = GetComponent<PlayerMetrics>();
         stats = GetComponent<PlayerStats>();
 
@@ -278,5 +281,6 @@ public class Player : NetworkBehaviour
 
         motor.SetDefaults();
         weaponManager.SetDefaults();
+        equipment.SetDefaults();
     }
 }

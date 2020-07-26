@@ -85,7 +85,11 @@ public class PlayerUI : MonoBehaviour
         }
 
         SetHealthAmount(player.GetHealthPct());
-        SetAmmoAmount(weaponManager.GetCurrentWeapon().bullets);
+
+        PlayerWeapon currentWeapon = weaponManager.GetCurrentWeapon();
+
+        if (currentWeapon != null)
+            SetAmmoAmount(currentWeapon.bullets);
 
         if (Input.GetButtonDown("Cancel"))
         {

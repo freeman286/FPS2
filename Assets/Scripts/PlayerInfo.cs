@@ -12,6 +12,8 @@ public class PlayerInfo : MonoBehaviour
 
     static public string secondaryWeaponName;
 
+    static public string equipmentName = "Explosive Grenade";
+
     void Awake()
     {
         if (instance != null)

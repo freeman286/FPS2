@@ -54,8 +54,6 @@ public class WeaponManager : NetworkBehaviour
         anim = GetComponent<Animator>();
         metrics = GetComponent<PlayerMetrics>();
         stats = GetComponent<PlayerStats>();
-
-        SetDefaults();
     }   
 
     void Update()
@@ -292,8 +290,10 @@ public class WeaponManager : NetworkBehaviour
 
     public float GetCurrentSpeed()
     {
-        return shoot.isScoped ? currentWeapon.scopedSpeed : currentWeapon.speed;
+        if (currentWeapon == null)
+            return 1;
 
+        return shoot.isScoped ? currentWeapon.scopedSpeed : currentWeapon.speed;
     }
 
     public void Die()

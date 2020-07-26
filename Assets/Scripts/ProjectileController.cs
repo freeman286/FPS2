@@ -12,12 +12,14 @@ public class ProjectileController : NetworkBehaviour
     [HideInInspector]
     public Rigidbody rb;
 
-    public VisualEffect particles;
-    public Light lightEffect;
-
     public new float constantForce;
 
+    [Header("Physical Properties")]
+
     public Collider[] colliders;
+
+    public VisualEffect particles;
+    public Light lightEffect;
 
     private float fuse;
 

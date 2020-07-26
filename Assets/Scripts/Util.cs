@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
+using UnityEngine;
 
 public class Util : MonoBehaviour
 {
@@ -204,5 +205,10 @@ public class Util : MonoBehaviour
         Behaviour be = (comp as Behaviour);
         be.enabled = _enable;
         return be;
+    }
+
+    public static string[] GetSubAllFilesInDirectory(string _dir, string _ext)
+    {
+        return Directory.GetFiles(_dir, "*." + _ext, SearchOption.AllDirectories);
     }
 }
