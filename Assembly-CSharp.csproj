@@ -109,6 +109,7 @@
      <Compile Include="Assets\Scripts\PointForwards.cs" />
      <Compile Include="Assets\Scripts\ProjectLaser.cs" />
      <Compile Include="Assets\Scripts\ProjectileController.cs" />
+     <Compile Include="Assets\Scripts\RandomAngularVelocity.cs" />
      <Compile Include="Assets\Scripts\ResolutionCorrector.cs" />
      <Compile Include="Assets\Scripts\Scoreboard.cs" />
      <Compile Include="Assets\Scripts\Set.cs" />
