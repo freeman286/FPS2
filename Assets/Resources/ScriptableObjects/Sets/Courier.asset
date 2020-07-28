@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Courier
   m_EditorClassIdentifier: 
   name: Courier
-  description: Move faster and take and deal move explosive damage.
+  description: Move faster and take and deal more explosive damage.
   primaryWeapon: {fileID: 2721180637063796786, guid: d8385fc30ac06744fa8df74a333c6c14,
     type: 3}
   secondaryWeapon: {fileID: 2721180637063796786, guid: 1341525b457366a49adc2845623ef8f7,

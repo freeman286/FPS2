@@ -25,19 +25,26 @@ public class ProjectileController : NetworkBehaviour
 
     private ExplosiveController explosiveController;
     private ImpactController impactController;
+    private StunController stunController;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         explosiveController = GetComponent<ExplosiveController>();
         impactController = GetComponent<ImpactController>();
+        stunController = GetComponent<StunController>();
 
         if (explosiveController != null)
         {
             fuse = explosiveController.fuse;
-        } else if (impactController != null)
+        }
+        else if (impactController != null)
         {
             fuse = impactController.fuse;
+        }
+        else if (stunController != null)
+        {
+            fuse = stunController.fuse;
         }
     }
 
@@ -80,6 +87,10 @@ public class ProjectileController : NetworkBehaviour
         {
             impactController.fuse = fuse;
             impactController.enabled = _active;
+        } else if (stunController != null)
+        {
+            stunController.fuse = fuse;
+            stunController.enabled = _active;
         }
 
         playerID = _playerID;

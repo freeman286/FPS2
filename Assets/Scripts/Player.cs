@@ -226,6 +226,7 @@ public class Player : NetworkBehaviour
         if (isLocalPlayer)
         {
             GameManager.instance.SetSceneCameraActive(true);
+            Environment.instance.UnStun();
             GetComponent<PlayerSetup>().ui.Death();
         }
 

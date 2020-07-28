@@ -71,7 +71,12 @@ public class ExplosiveController : NetworkBehaviour
 
     public void Detonate()
     {
-        CmdExplode(projectileController.rb.velocity, timeSinceCreated);
+        Vector3 _dir = projectileController.rb.velocity;
+
+        if (_dir.magnitude < 1f)
+            _dir = Vector3.up;
+
+        CmdExplode(_dir, timeSinceCreated);
     }
 
     void OnCollisionEnter(Collision collision)

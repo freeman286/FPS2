@@ -17,6 +17,10 @@ public class Environment : MonoBehaviour
 
     private ChromaticAberration chromaticAberration;
 
+    private DepthOfField depthOfField;
+
+    private Exposure exposure;
+
     void Awake()
     {
         if (instance != null)
@@ -46,7 +50,20 @@ public class Environment : MonoBehaviour
             chromaticAberration = tmpCA;
         }
 
+        DepthOfField tmpDOF;
+        if (volumeProfile.TryGet<DepthOfField>(out tmpDOF))
+        {
+            depthOfField = tmpDOF;
+        }
+
+        Exposure tmpE;
+        if (volumeProfile.TryGet<Exposure>(out tmpE))
+        {
+            exposure = tmpE;
+        }
+
         UnScope();
+        UnStun();
     }
 
     public void Scope()
@@ -61,4 +78,15 @@ public class Environment : MonoBehaviour
         chromaticAberration.intensity.value = 0;
     }
 
+    public void UnStun()
+    {
+        exposure.active = false;
+        depthOfField.active = false;
+    }
+
+    public void Stun()
+    {
+        exposure.active = true;
+        depthOfField.active = true;
+    }
 }

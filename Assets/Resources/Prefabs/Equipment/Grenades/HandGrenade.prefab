@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6569690525480866274}
   - component: {fileID: -4192722717585000997}
   m_Layer: 16
-  m_Name: ExplosiveGrenade
+  m_Name: HandGrenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156444120250483795}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0.2
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  impact: {fileID: 4308811345454485748, guid: 223257955eea54549acbfa283875726c, type: 3}
+  impact: {fileID: 4308811345454485748, guid: 34506c30b272dba4b8478c0374d4c1fd, type: 3}
   fuse: 5
   explodeOnImpact: 0
   airburst: 0
@@ -131,8 +131,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 58167
-  damage: 140
-  range: 6
+  damage: 150
+  range: 7
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2
@@ -140,26 +140,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.42323747
-      outSlope: -0.42323747
+      inSlope: -0.34384617
+      outSlope: -0.34384617
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5595496
-      value: 0.76317763
-      inSlope: -0.8649093
-      outSlope: -0.8649093
-      tangentMode: 34
+      time: 0.50530255
+      value: 0.82625365
+      inSlope: -0.9030035
+      outSlope: -0.9030035
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.060298584
     - serializedVersion: 3
-      time: 0.92727673
-      value: 0.28271234
-      inSlope: -2.597045
-      outSlope: -2.597045
+      time: 0.5466436
+      value: 0.6131117
+      inSlope: -3.25404
+      outSlope: -3.25404
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -167,8 +167,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -3.8875086
-      outSlope: -3.8875086
+      inSlope: -1.3523835
+      outSlope: -1.3523835
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

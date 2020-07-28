@@ -6,5 +6,6 @@ using UnityEngine;
 public abstract class Equipment : ScriptableObject {
     public new string name;
     public float cooldown;
+    public GameObject prefab;
 }
 

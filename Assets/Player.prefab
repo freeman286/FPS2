@@ -1495,6 +1495,7 @@ GameObject:
   - component: {fileID: -316878476097349666}
   - component: {fileID: 1866657983699075262}
   - component: {fileID: 3059421112803731098}
+  - component: {fileID: -3565307303373139802}
   - component: {fileID: 9210790658628301855}
   - component: {fileID: 2139900448668095581}
   - component: {fileID: 3794130788770680765}
@@ -1771,6 +1772,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   equipmentSpawnPoint: {fileID: 4406900436596993734}
+  equipmentName: 
 --- !u!114 &1866657983699075262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1808,6 +1810,21 @@ MonoBehaviour:
     m_Bits: 8192
   lastPosition: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &-3565307303373139802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e1ec6f009fcbf4481f739c8dd24ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  baseStun: 5
 --- !u!95 &9210790658628301855
 Animator:
   serializedVersion: 3

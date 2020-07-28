@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: HandGrenade
   m_EditorClassIdentifier: 
   name: Hand Grenade
-  cooldown: 5
-  throwPower: 15
+  cooldown: 10
   prefab: {fileID: 156444120250483795, guid: b5f7c9a9529b2ea4ea22f4a466f50642, type: 3}
+  throwPower: 15

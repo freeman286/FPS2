@@ -44,6 +44,8 @@ public class WeaponManager : NetworkBehaviour
 
     private PlayerMetrics metrics;
 
+    private PlayerEquipment equipment;
+
     private Behaviour[] scripts;
 
 
@@ -54,6 +56,7 @@ public class WeaponManager : NetworkBehaviour
         anim = GetComponent<Animator>();
         metrics = GetComponent<PlayerMetrics>();
         stats = GetComponent<PlayerStats>();
+        equipment = GetComponent<PlayerEquipment>();
     }   
 
     void Update()
@@ -75,8 +78,6 @@ public class WeaponManager : NetworkBehaviour
         {
             primaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.primaryWeaponName);
             secondaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.secondaryWeaponName);
-
-            
 
             primaryWeapon.Load();
             secondaryWeapon.Load();
@@ -110,6 +111,7 @@ public class WeaponManager : NetworkBehaviour
     {
         shoot.CancelInvoke("Shoot");
         shoot.enabled = false;
+        equipment.enabled = false;
 
         if (currentWeapon == primaryWeapon)
         {
@@ -123,6 +125,8 @@ public class WeaponManager : NetworkBehaviour
         yield return new WaitForSeconds(switchingTime);
 
         shoot.enabled = true;
+        equipment.enabled = true;
+
         switchingWeapon = false;
     }
 
