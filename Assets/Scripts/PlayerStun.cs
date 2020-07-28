@@ -8,17 +8,14 @@ public class PlayerStun : NetworkBehaviour
 
     private IEnumerator coroutine;
 
+    private int stunCount = 0;
+
     [ClientRpc]
     public void RpcStun(float _amount)
     {
         if (isLocalPlayer)
         {
-            if (coroutine != null)
-            {
-                StopCoroutine(coroutine);
-            }
-            coroutine = Stun(_amount);
-            StartCoroutine(coroutine);
+            StartCoroutine(Stun(_amount));
         }
     }
 
@@ -26,9 +23,13 @@ public class PlayerStun : NetworkBehaviour
     {
         Environment.instance.Stun();
 
+        stunCount += 1;
+
         yield return new WaitForSeconds(_amount);
 
-        Environment.instance.UnStun();
-
+        stunCount -= 1;
+        
+        if (stunCount == 0)
+            Environment.instance.UnStun();
     }
 }
