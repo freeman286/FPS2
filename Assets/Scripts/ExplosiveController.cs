@@ -4,11 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-[RequireComponent(typeof(ProjectileController))]
-public class ExplosiveController : NetworkBehaviour
+public class ExplosiveController : ProjectileController
 {
-    private ProjectileController projectileController;
-
     [SerializeField]
     private GameObject impact = null;
 
@@ -49,21 +46,12 @@ public class ExplosiveController : NetworkBehaviour
     [SerializeField]
     private AnimationCurve damageOverAngle = null;
 
-    private const string PLAYER_TAG = "Player";
-
-    [HideInInspector]
-    public float timeSinceCreated = 0f;
-
     private bool impacted = false;
 
-    void Start()
-    {
-        projectileController = GetComponent<ProjectileController>();
-    }
 
-    void Update()
+    public override void Update()
     {
-        timeSinceCreated += Time.deltaTime;
+        base.Update();
         if (fuse <= timeSinceCreated && GetComponent<NetworkIdentity>().hasAuthority)
         {
             Detonate();
@@ -72,7 +60,7 @@ public class ExplosiveController : NetworkBehaviour
 
     public void Detonate()
     {
-        Vector3 _dir = projectileController.rb.velocity;
+        Vector3 _dir = rb.velocity;
 
         if (_dir.magnitude < 1f)
             _dir = Vector3.up;
@@ -85,7 +73,7 @@ public class ExplosiveController : NetworkBehaviour
         if (explodeOnImpact && !impacted && GetComponent<NetworkIdentity>().hasAuthority)
         {
             impacted = true;
-            projectileController.rb.isKinematic = true;
+            rb.isKinematic = true;
             CmdExplode(collision.contacts[0].normal * (1 - 2*Convert.ToSingle(airburst)), timeSinceCreated);
         }
     }
@@ -117,7 +105,7 @@ public class ExplosiveController : NetworkBehaviour
 
                         if (player != null)
                         {
-                            player.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector)/180f)), projectileController.playerID, damageType.name);
+                            player.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector)/180f)), playerID, damageType.name);
                         }
                     }
                 }

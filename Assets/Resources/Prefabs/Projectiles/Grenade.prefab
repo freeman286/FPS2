@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 156444120250483799}
   - component: {fileID: 156444120250483798}
   - component: {fileID: 156444120250483797}
-  - component: {fileID: 1881696763795136771}
   - component: {fileID: -6569690525480866274}
   m_Layer: 16
   m_Name: Grenade
@@ -85,27 +84,6 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
---- !u!114 &1881696763795136771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156444120250483795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c31b1d2979871a428ed3c339d77575d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.01
-  playerID: 
-  rb: {fileID: 0}
-  particles: {fileID: 0}
-  lightEffect: {fileID: 0}
-  constantForce: 0
-  colliders:
-  - {fileID: 156444120682222019}
 --- !u!114 &-6569690525480866274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,12 +97,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.01
+  playerID: 
+  rb: {fileID: 0}
+  constantForce: 0
+  colliders:
+  - {fileID: 156444120682222019}
+  particles: {fileID: 0}
+  lightEffect: {fileID: 0}
+  timeSinceCreated: 0
   impact: {fileID: 4308811345454485748, guid: 223257955eea54549acbfa283875726c, type: 3}
-  damage: 110
-  damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
-  range: 8
   fuse: 10
+  explodeOnImpact: 1
+  airburst: 0
+  force: 40
+  mask:
+    serializedVersion: 2
+    m_Bits: 58167
+  damage: 110
+  range: 8
+  damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2
     m_Curve:
@@ -215,11 +207,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  airburst: 0
-  force: 40
-  mask:
-    serializedVersion: 2
-    m_Bits: 58167
 --- !u!1 &156444120682222017
 GameObject:
   m_ObjectHideFlags: 0

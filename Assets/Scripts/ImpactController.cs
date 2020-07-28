@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-[RequireComponent(typeof(ProjectileController))]
-public class ImpactController : NetworkBehaviour
+public class ImpactController : ProjectileController
 {
-    private ProjectileController projectileController;
-
     [SerializeField]
     private GameObject impact = null;
 
@@ -30,17 +27,9 @@ public class ImpactController : NetworkBehaviour
     [SerializeField]
     private float headShotMultiplier = 2f;
 
-    [HideInInspector]
-    public float timeSinceCreated = 0f;
-
-    void Start()
+    public override void Update()
     {
-        projectileController = GetComponent<ProjectileController>();
-    }
-
-    void Update()
-    {
-        timeSinceCreated += Time.deltaTime;
+        base.Update();
         if (fuse <= timeSinceCreated && transform.parent == null)
         {
             CmdImpact(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up), null, 0, false);
@@ -52,7 +41,7 @@ public class ImpactController : NetworkBehaviour
         if (!GetComponent<NetworkIdentity>().hasAuthority)
             return;
 
-        Destroy(projectileController.rb);
+        Destroy(rb);
 
         Player _player = collision.transform.root.GetComponent<Player>();
 
@@ -70,9 +59,9 @@ public class ImpactController : NetworkBehaviour
 
             CmdSetParent(System.Array.IndexOf(_player.rigidbodyOnDeath, collision.collider.gameObject), _playerID, collision.collider.transform.InverseTransformPoint(transform.position));
 
-            for (int i = 0; i < projectileController.colliders.Length; i++)
+            for (int i = 0; i < colliders.Length; i++)
             {
-                projectileController.colliders[i].enabled = false;
+                colliders[i].enabled = false;
             }
 
             _stick = true;
@@ -96,7 +85,7 @@ public class ImpactController : NetworkBehaviour
         if (_playerID != null)
         {
             Player _player = GameManager.GetPlayer(_playerID);
-            _player.RpcTakeDamage(_damage, projectileController.playerID, damageType.name);
+            _player.RpcTakeDamage(_damage, playerID, damageType.name);
         }
 
         if (!_stick)
@@ -127,7 +116,7 @@ public class ImpactController : NetworkBehaviour
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<NetworkTransform>());
 
-        foreach (Collider _collider in projectileController.colliders)
+        foreach (Collider _collider in colliders)
         {
             _collider.enabled = false;
         }

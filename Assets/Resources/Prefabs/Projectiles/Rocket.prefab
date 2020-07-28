@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 156444120250483799}
   - component: {fileID: 156444120250483798}
   - component: {fileID: 156444120250483797}
-  - component: {fileID: 1881696763795136771}
   - component: {fileID: -6569690525480866274}
   m_Layer: 16
   m_Name: Rocket
@@ -90,27 +89,6 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
---- !u!114 &1881696763795136771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156444120250483795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c31b1d2979871a428ed3c339d77575d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.01
-  playerID: 
-  rb: {fileID: 0}
-  particles: {fileID: 1624294047822376102}
-  lightEffect: {fileID: 6140156983436394091}
-  constantForce: 50
-  colliders:
-  - {fileID: 4361960141076360059}
 --- !u!114 &-6569690525480866274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,12 +102,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.01
+  playerID: 
+  rb: {fileID: 0}
+  constantForce: 50
+  colliders:
+  - {fileID: 4361960141076360059}
+  particles: {fileID: 1624294047822376102}
+  lightEffect: {fileID: 6140156983436394091}
+  timeSinceCreated: 0
   impact: {fileID: 4308811345454485748, guid: 11aaf41ee4b1a1548bf8639fb1f8c71f, type: 3}
-  damage: 150
-  damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
-  range: 9
   fuse: 4
+  explodeOnImpact: 1
+  airburst: 0
+  force: 60
+  mask:
+    serializedVersion: 2
+    m_Bits: 58167
+  damage: 150
+  range: 9
+  damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2
     m_Curve:
@@ -220,11 +212,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  airburst: 0
-  force: 60
-  mask:
-    serializedVersion: 2
-    m_Bits: 58167
 --- !u!1 &1797291569636143139
 GameObject:
   m_ObjectHideFlags: 0

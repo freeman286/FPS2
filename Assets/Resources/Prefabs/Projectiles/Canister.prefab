@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 156444120250483799}
   - component: {fileID: 156444120250483798}
   - component: {fileID: 156444120250483797}
-  - component: {fileID: 1881696763795136771}
   - component: {fileID: -6569690525480866274}
   - component: {fileID: 6434843467373894407}
   - component: {fileID: -4360252622466301272}
@@ -92,27 +91,6 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
---- !u!114 &1881696763795136771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156444120250483795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c31b1d2979871a428ed3c339d77575d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.01
-  playerID: 
-  rb: {fileID: 0}
-  particles: {fileID: 1624294047822376102}
-  lightEffect: {fileID: 6140156983436394091}
-  constantForce: 600
-  colliders:
-  - {fileID: 1404854323977864280}
 --- !u!114 &-6569690525480866274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,12 +104,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.01
+  playerID: 
+  rb: {fileID: 0}
+  constantForce: 600
+  colliders:
+  - {fileID: 1404854323977864280}
+  particles: {fileID: 1624294047822376102}
+  lightEffect: {fileID: 6140156983436394091}
+  timeSinceCreated: 0
   impact: {fileID: 4308811345454485748, guid: edffa93f12c89e14d8e40a9f966ff5d7, type: 3}
-  damage: 600
-  damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
-  range: 15
   fuse: 40
+  explodeOnImpact: 1
+  airburst: 1
+  force: 10
+  mask:
+    serializedVersion: 2
+    m_Bits: 58167
+  damage: 600
+  range: 15
+  damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2
     m_Curve:
@@ -249,11 +241,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  airburst: 1
-  force: 10
-  mask:
-    serializedVersion: 2
-    m_Bits: 58167
 --- !u!114 &6434843467373894407
 MonoBehaviour:
   m_ObjectHideFlags: 0

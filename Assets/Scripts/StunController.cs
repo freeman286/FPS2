@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class StunController : NetworkBehaviour
+public class StunController : ProjectileController
 {
-    private ProjectileController projectileController;
-
+    
     [SerializeField]
     private GameObject impact = null;
 
@@ -23,21 +22,9 @@ public class StunController : NetworkBehaviour
     [SerializeField]
     private float range = 10f;
 
-    private const string PLAYER_TAG = "Player";
-
-    [HideInInspector]
-    public float timeSinceCreated = 0f;
-
-    private bool impacted = false;
-
-    void Start()
+    public override void Update()
     {
-        projectileController = GetComponent<ProjectileController>();
-    }
-
-    void Update()
-    {
-        timeSinceCreated += Time.deltaTime;
+        base.Update();
         if (fuse <= timeSinceCreated && GetComponent<NetworkIdentity>().hasAuthority)
         {
             Detonate();
@@ -46,7 +33,7 @@ public class StunController : NetworkBehaviour
 
     public void Detonate()
     {
-        Vector3 _dir = projectileController.rb.velocity;
+        Vector3 _dir = rb.velocity;
 
         if (_dir.magnitude < 1f)
             _dir = Vector3.up;

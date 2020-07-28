@@ -21,16 +21,25 @@ public class ProjectileController : NetworkBehaviour
     public VisualEffect particles;
     public Light lightEffect;
 
-    private ExplosiveController explosiveController;
-    private ImpactController impactController;
-    private StunController stunController;
+    [HideInInspector]
+    public float timeSinceCreated = 0f;
+
+    [HideInInspector]
+    public const string PLAYER_TAG = "Player";
+
+    private bool active = true;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        explosiveController = GetComponent<ExplosiveController>();
-        impactController = GetComponent<ImpactController>();
-        stunController = GetComponent<StunController>();
+    }
+
+    public virtual void Update()
+    {
+        if (active)
+        {
+            timeSinceCreated += Time.deltaTime;
+        }
     }
 
     public override void OnStartClient()
@@ -63,20 +72,8 @@ public class ProjectileController : NetworkBehaviour
 
     public void Activate(string _playerID, bool _active)
     {
-        if (explosiveController != null)
-        {
-            explosiveController.timeSinceCreated = 0f;
-            explosiveController.enabled = _active;
-        }
-        else if (impactController != null)
-        {
-            impactController.timeSinceCreated = 0f;
-            impactController.enabled = _active;
-        } else if (stunController != null)
-        {
-            stunController.timeSinceCreated = 0f;
-            stunController.enabled = _active;
-        }
+        active = _active;
+        timeSinceCreated = 0f;
 
         playerID = _playerID;
 
