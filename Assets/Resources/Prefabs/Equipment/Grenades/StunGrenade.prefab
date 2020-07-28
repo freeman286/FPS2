@@ -130,7 +130,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 58167
-  range: 10
+  amount: 12
+  range: 12
 --- !u!114 &-4192722717585000997
 MonoBehaviour:
   m_ObjectHideFlags: 0

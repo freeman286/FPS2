@@ -13,7 +13,8 @@ public class ImpactController : NetworkBehaviour
 
     [Header("Impact Operative")]
 
-    public float fuse = 10f;
+    [SerializeField]
+    private float fuse = 10f;
 
     [SerializeField]
     private bool sticky = false;
@@ -29,6 +30,9 @@ public class ImpactController : NetworkBehaviour
     [SerializeField]
     private float headShotMultiplier = 2f;
 
+    [HideInInspector]
+    public float timeSinceCreated = 0f;
+
     void Start()
     {
         projectileController = GetComponent<ProjectileController>();
@@ -36,8 +40,8 @@ public class ImpactController : NetworkBehaviour
 
     void Update()
     {
-        fuse -= Time.deltaTime;
-        if (fuse <= 0 && transform.parent == null)
+        timeSinceCreated += Time.deltaTime;
+        if (fuse <= timeSinceCreated && transform.parent == null)
         {
             CmdImpact(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up), null, 0, false);
         }

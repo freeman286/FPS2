@@ -14,7 +14,8 @@ public class ExplosiveController : NetworkBehaviour
 
     [Header("Explosive Operative")]
 
-    public float fuse;
+    [SerializeField]
+    private float fuse;
 
     [SerializeField]
     private bool explodeOnImpact = true;
@@ -50,7 +51,8 @@ public class ExplosiveController : NetworkBehaviour
 
     private const string PLAYER_TAG = "Player";
 
-    private float timeSinceCreated;
+    [HideInInspector]
+    public float timeSinceCreated = 0f;
 
     private bool impacted = false;
 
@@ -62,8 +64,7 @@ public class ExplosiveController : NetworkBehaviour
     void Update()
     {
         timeSinceCreated += Time.deltaTime;
-        fuse -= Time.deltaTime;
-        if (fuse <= 0 && GetComponent<NetworkIdentity>().hasAuthority)
+        if (fuse <= timeSinceCreated && GetComponent<NetworkIdentity>().hasAuthority)
         {
             Detonate();
         }

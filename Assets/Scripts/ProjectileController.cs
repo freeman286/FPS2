@@ -21,8 +21,6 @@ public class ProjectileController : NetworkBehaviour
     public VisualEffect particles;
     public Light lightEffect;
 
-    private float fuse;
-
     private ExplosiveController explosiveController;
     private ImpactController impactController;
     private StunController stunController;
@@ -33,19 +31,6 @@ public class ProjectileController : NetworkBehaviour
         explosiveController = GetComponent<ExplosiveController>();
         impactController = GetComponent<ImpactController>();
         stunController = GetComponent<StunController>();
-
-        if (explosiveController != null)
-        {
-            fuse = explosiveController.fuse;
-        }
-        else if (impactController != null)
-        {
-            fuse = impactController.fuse;
-        }
-        else if (stunController != null)
-        {
-            fuse = stunController.fuse;
-        }
     }
 
     public override void OnStartClient()
@@ -80,16 +65,16 @@ public class ProjectileController : NetworkBehaviour
     {
         if (explosiveController != null)
         {
-            explosiveController.fuse = fuse;
+            explosiveController.timeSinceCreated = 0f;
             explosiveController.enabled = _active;
         }
         else if (impactController != null)
         {
-            impactController.fuse = fuse;
+            impactController.timeSinceCreated = 0f;
             impactController.enabled = _active;
         } else if (stunController != null)
         {
-            stunController.fuse = fuse;
+            stunController.timeSinceCreated = 0f;
             stunController.enabled = _active;
         }
 

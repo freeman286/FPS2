@@ -6,11 +6,7 @@ using Mirror;
 public class PlayerStun : NetworkBehaviour
 {
 
-    [SerializeField]
-    private float baseStun = 5f;
-
     private IEnumerator coroutine;
-
 
     [ClientRpc]
     public void RpcStun(float _amount)
@@ -30,7 +26,7 @@ public class PlayerStun : NetworkBehaviour
     {
         Environment.instance.Stun();
 
-        yield return new WaitForSeconds(baseStun * _amount);
+        yield return new WaitForSeconds(_amount);
 
         Environment.instance.UnStun();
 

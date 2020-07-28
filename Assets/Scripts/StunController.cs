@@ -25,7 +25,8 @@ public class StunController : NetworkBehaviour
 
     private const string PLAYER_TAG = "Player";
 
-    private float timeSinceCreated;
+    [HideInInspector]
+    public float timeSinceCreated = 0f;
 
     private bool impacted = false;
 
@@ -37,8 +38,7 @@ public class StunController : NetworkBehaviour
     void Update()
     {
         timeSinceCreated += Time.deltaTime;
-        fuse -= Time.deltaTime;
-        if (fuse <= 0 && GetComponent<NetworkIdentity>().hasAuthority)
+        if (fuse <= timeSinceCreated && GetComponent<NetworkIdentity>().hasAuthority)
         {
             Detonate();
         }
