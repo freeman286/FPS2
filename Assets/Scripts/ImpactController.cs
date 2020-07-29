@@ -52,19 +52,27 @@ public class ImpactController : ProjectileController
 
         bool _stick = false;
 
-        if (sticky && _playerID != null && collision.collider.bounds.IntersectRay(new Ray(transform.position, transform.forward)))
+        if (sticky && _playerID != null)
         {
-                                            
-            _playerID = _player.transform.name;
 
-            CmdSetParent(System.Array.IndexOf(_player.rigidbodyOnDeath, collision.collider.gameObject), _playerID, collision.collider.transform.InverseTransformPoint(transform.position));
-
-            for (int i = 0; i < colliders.Length; i++)
+            foreach (Collider _collider in colliders)
             {
-                colliders[i].enabled = false;
-            }
+                if (collision.collider.bounds.Intersects(_collider.bounds)) {
 
-            _stick = true;
+                    _playerID = _player.transform.name;
+
+                    CmdSetParent(System.Array.IndexOf(_player.rigidbodyOnDeath, collision.collider.gameObject), _playerID, collision.collider.transform.InverseTransformPoint(transform.position));
+
+                    for (int i = 0; i < colliders.Length; i++)
+                    {
+                        colliders[i].enabled = false;
+                    }
+
+                    _stick = true;
+
+                    break;
+                }
+            }
        
         } 
             
@@ -82,7 +90,7 @@ public class ImpactController : ProjectileController
     void CmdImpact(Quaternion _rot, string _playerID, int _damage, bool _stick)
     {
 
-        if (_playerID != null)
+        if (_playerID != null && _playerID != playerID)
         {
             Player _player = GameManager.GetPlayer(_playerID);
             _player.RpcTakeDamage(_damage, playerID, damageType.name);

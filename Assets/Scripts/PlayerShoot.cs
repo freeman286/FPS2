@@ -270,17 +270,7 @@ public class PlayerShoot : NetworkBehaviour {
 
         Vector3 _devience = Random.insideUnitSphere * _spread;
 
-        Vector3 _direction;
-
-        RaycastHit _hit;
-        if (Physics.Raycast(cam.transform.position + cam.transform.forward * 2f, cam.transform.forward, out _hit, currentWeapon.range, mask))
-        {
-            _direction = (_hit.point - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized; 
-        }
-        else
-        {
-            _direction = (cam.transform.position + cam.transform.forward * currentWeapon.range - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized;
-        }
+        Vector3 _direction = ShootDirection();
 
         for (int i = 0; i < currentWeapon.roundsPerShot; i++)
         {
@@ -297,6 +287,23 @@ public class PlayerShoot : NetworkBehaviour {
         timeSinceShot = 0;
 
         LocalShootEfftect();
+    }
+
+    Vector3 ShootDirection()
+    {
+        Vector3 _direction;
+
+        RaycastHit _hit;
+        if (Physics.Raycast(cam.transform.position + cam.transform.forward * 2f, cam.transform.forward, out _hit, currentWeapon.range, mask))
+        {
+            _direction = (_hit.point - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized;
+        }
+        else
+        {
+            _direction = (cam.transform.position + cam.transform.forward * currentWeapon.range - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized;
+        }
+
+        return _direction;
     }
 
     void RaycastShoot(Vector3 _direction, Vector3 _devience)

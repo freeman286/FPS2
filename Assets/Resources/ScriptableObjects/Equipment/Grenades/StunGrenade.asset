@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Stun Grenade
   cooldown: 10
+  range: 16
   prefab: {fileID: 156444120250483795, guid: 1a45837319d86ce45b8d91fb9e537dbd, type: 3}
   throwPower: 20

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e899febe644d04cb450fd777c7c78e, type: 3}
+  m_Name: Shuriken
+  m_EditorClassIdentifier: 
+  name: Shuriken
+  cooldown: 5
+  range: 25
+  prefab: {fileID: 156444120250483795, guid: a1722cae9a5795748a10fbbf2648381a, type: 3}
+  throwPower: 25

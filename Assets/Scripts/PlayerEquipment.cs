@@ -9,6 +9,9 @@ public class PlayerEquipment : NetworkBehaviour
     [SerializeField]
     private Transform equipmentSpawnPoint = null;
 
+    [SerializeField]
+    private LayerMask mask;
+
     private Equipment equipment;
 
     [SyncVar(hook = nameof(EquipmentNameChanged))]
@@ -31,7 +34,7 @@ public class PlayerEquipment : NetworkBehaviour
         if (isLocalPlayer && Input.GetButtonDown("Equipment") && timeSinceEquipmentUsed > equipment.cooldown && !weaponManager.isReloading && !Pause.IsOn) {
             if (equipment is Grenade)
             {
-                CmdGrenadeThrow(equipmentSpawnPoint.position, Quaternion.LookRotation(equipmentSpawnPoint.forward, Random.insideUnitSphere), transform.name, ((Grenade)equipment).throwPower);
+                CmdGrenadeThrow(equipmentSpawnPoint.position, Quaternion.LookRotation(ThrowDirection()), transform.name, ((Grenade)equipment).throwPower);
                 timeSinceEquipmentUsed = 0f;
             }
         }
@@ -67,6 +70,23 @@ public class PlayerEquipment : NetworkBehaviour
     {
         equipmentName = _newName;
         equipment = EquipmentUtil.NameToEquipment(equipmentName);
+    }
+
+    Vector3 ThrowDirection()
+    {
+
+        Vector3 _direction;
+        RaycastHit _hit;
+        if (Physics.Raycast(transform.position + equipmentSpawnPoint.forward * 2f, equipmentSpawnPoint.forward, out _hit, equipment.range, mask))
+        {
+            _direction = (_hit.point - equipmentSpawnPoint.position).normalized;
+        }
+        else
+        {
+            _direction = (transform.position + equipmentSpawnPoint.forward * equipment.range - equipmentSpawnPoint.position).normalized;
+        }
+
+        return _direction;
     }
 
 }

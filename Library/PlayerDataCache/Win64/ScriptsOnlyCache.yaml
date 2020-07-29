@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AddAngularVelocity
     - AnimateFeet
     - CameraFacingBillboard
     - CentreOfMass
@@ -59,6 +60,8 @@ ScriptsOnlyBuild:
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
+    Mirror.Editor.dll:
+    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
@@ -431,6 +434,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17496}
     - Class: 114
       Script: {instanceID: 17504}
+    - Class: 114
+      Script: {instanceID: 564298}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -664,6 +669,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17368}
     - Class: 114
       Script: {instanceID: 17442}
+    - Class: 114
+      Script: {instanceID: 564298}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -899,6 +906,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17368}
     - Class: 114
       Script: {instanceID: 17442}
+    - Class: 114
+      Script: {instanceID: 564298}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1112,7 +1121,7 @@ ScriptsOnlyBuild:
     className: DepthOfField
   - hash:
       serializedVersion: 2
-      Hash: e450240fc48f2dc2d1d4ec1142c5bafe
+      Hash: 650ba09c1495691fd386cc294295c893
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerEquipment
@@ -3152,7 +3161,7 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
-      Hash: 1a3b9e11e3365ff6dae2f58225392ddc
+      Hash: 1a3ff421ae6a41b4524b2ba99493b8ff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Grenade
@@ -3360,6 +3369,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 51e3e7b2c8b574627f326bc71bdde487
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AddAngularVelocity
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity
