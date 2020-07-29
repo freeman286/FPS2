@@ -907,7 +907,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 111415
+    m_Bits: 242487
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   weaponCam: {fileID: 9075518313636580678}
   mask:
     serializedVersion: 2
-    m_Bits: 107063
+    m_Bits: 238135
   timeSinceShot: 1
   timeSinceScoped: 100
   localAnim: {fileID: 0}
@@ -1772,6 +1772,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   equipmentSpawnPoint: {fileID: 4406900436596993734}
+  mask:
+    serializedVersion: 2
+    m_Bits: 58167
   equipmentName: 
 --- !u!114 &1866657983699075262
 MonoBehaviour:
@@ -1824,7 +1827,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  baseStun: 5
 --- !u!95 &9210790658628301855
 Animator:
   serializedVersion: 3

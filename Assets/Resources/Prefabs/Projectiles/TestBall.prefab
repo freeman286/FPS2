@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1881696763795136771}
   m_Layer: 16
   m_Name: TestBall
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,13 +101,13 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.01
   playerID: 
-  name: 
   rb: {fileID: 0}
-  particles: {fileID: 4632290549527389636}
-  light: {fileID: 2386041658539584039}
   constantForce: 0
   colliders:
   - {fileID: 156444120682222019}
+  particles: {fileID: 4632290549527389636}
+  lightEffect: {fileID: 0}
+  timeSinceCreated: 0
 --- !u!1 &156444120682222017
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 156444120682222019}
   m_Layer: 16
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 7734578845407236022}
   m_Layer: 16
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 7538780848851036915}
   m_Layer: 16
   m_Name: Light
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

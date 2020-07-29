@@ -81,6 +81,7 @@ public class ExplosiveController : ProjectileController
     [Command]
     void CmdExplode(Vector3 _dir, float _timeSinceCreated)
     {
+
         RpcExplode(Quaternion.LookRotation(_dir));
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);

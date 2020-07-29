@@ -12,7 +12,7 @@ public class PlayerInfo : MonoBehaviour
 
     static public string secondaryWeaponName;
 
-    static public string equipmentName = "Shuriken";
+    static public string equipmentName = "Mine";
 
     void Awake()
     {

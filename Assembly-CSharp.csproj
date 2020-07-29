@@ -100,9 +100,10 @@
      <Compile Include="Assets\Scripts\Projectiles\StunController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\DamageAttribute.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\DamageType.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjects\EquipmentUtil.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjects\Grenade.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Charge.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\ChargeController.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Equipment.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Grenade.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Set.cs" />
      <Compile Include="Assets\Scripts\UI\CameraFacingBillboard.cs" />
      <Compile Include="Assets\Scripts\UI\Killfeed.cs" />
@@ -119,6 +120,7 @@
      <Compile Include="Assets\Scripts\UI\SetList.cs" />
      <Compile Include="Assets\Scripts\UI\WeaponItem.cs" />
      <Compile Include="Assets\Scripts\UI\WeaponList.cs" />
+     <Compile Include="Assets\Scripts\Util\EquipmentUtil.cs" />
      <Compile Include="Assets\Scripts\Util\SetsUtil.cs" />
      <Compile Include="Assets\Scripts\Util\Util.cs" />
      <Compile Include="Assets\Scripts\Util\WeaponsUtil.cs" />

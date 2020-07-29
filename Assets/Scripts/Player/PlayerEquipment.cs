@@ -34,14 +34,33 @@ public class PlayerEquipment : NetworkBehaviour
         if (isLocalPlayer && Input.GetButtonDown("Equipment") && timeSinceEquipmentUsed > equipment.cooldown && !weaponManager.isReloading && !Pause.IsOn) {
             if (equipment is Grenade)
             {
-                CmdGrenadeThrow(equipmentSpawnPoint.position, Quaternion.LookRotation(ThrowDirection()), transform.name, ((Grenade)equipment).throwPower);
+
+                CmdThrowGrenade(equipmentSpawnPoint.position, Quaternion.LookRotation(ThrowDirection()), transform.name, ((Grenade)equipment).throwPower);
                 timeSinceEquipmentUsed = 0f;
+
+            } else if (equipment is Charge)
+            {
+
+                GameObject _charge = GameManager.GetCharge();
+                if (_charge != null)
+                {
+                    _charge.GetComponent<ChargeController>().Detonate(false);
+                } else {
+                    RaycastHit _hit = EquipmentPlace();
+                    if (_hit.point != Vector3.zero)
+                    {
+                        CmdPlaceCharge(equipmentSpawnPoint.position, Quaternion.LookRotation(ThrowDirection()), transform.name, _hit.point, Quaternion.LookRotation(_hit.normal));
+                        timeSinceEquipmentUsed = 0f;
+                    }
+                }
+
             }
+            
         }
     }
 
     [Command]
-    void CmdGrenadeThrow(Vector3 _pos, Quaternion _rot, string _playerID, float _velocity)
+    void CmdThrowGrenade(Vector3 _pos, Quaternion _rot, string _playerID, float _velocity)
     {
         GameObject _grenade = (GameObject)Instantiate(equipment.prefab, _pos, _rot);
         NetworkServer.Spawn(_grenade, connectionToClient);
@@ -50,6 +69,18 @@ public class PlayerEquipment : NetworkBehaviour
         _projectileController.playerID = _playerID;
 
         _projectileController.RpcLaunch(_velocity);
+    }
+
+    [Command]
+    void CmdPlaceCharge(Vector3 _pos, Quaternion _rot, string _playerID, Vector3 _placePos, Quaternion _placeRot)
+    {
+        GameObject _charge = (GameObject)Instantiate(equipment.prefab, _pos, _rot);
+        NetworkServer.Spawn(_charge, connectionToClient);
+
+        ChargeController _chargeController = _charge.GetComponent<ChargeController>();
+        _chargeController.playerID = _playerID;
+
+        _chargeController.RpcPlace(_placePos, _placeRot, (equipment as Charge).placeSpeed);
     }
 
     public void SetDefaults()
@@ -77,7 +108,7 @@ public class PlayerEquipment : NetworkBehaviour
 
         Vector3 _direction;
         RaycastHit _hit;
-        if (Physics.Raycast(transform.position + equipmentSpawnPoint.forward * 2f, equipmentSpawnPoint.forward, out _hit, equipment.range, mask))
+        if (Physics.Raycast(transform.position, equipmentSpawnPoint.forward, out _hit, equipment.range, mask))
         {
             _direction = (_hit.point - equipmentSpawnPoint.position).normalized;
         }
@@ -87,6 +118,19 @@ public class PlayerEquipment : NetworkBehaviour
         }
 
         return _direction;
+    }
+
+    RaycastHit EquipmentPlace()
+    {
+
+        RaycastHit _hit;
+
+        if (Physics.SphereCast(transform.position, (equipment as Charge).footprint, equipmentSpawnPoint.forward, out _hit, equipment.range))
+        {
+            return _hit;
+        }
+
+        return new RaycastHit();
     }
 
 }

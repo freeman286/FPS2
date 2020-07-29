@@ -108,6 +108,22 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Charge tracking
+
+    private static GameObject charge;
+
+    public static void RegisterCharge(GameObject _charge)
+    {
+        charge = _charge;
+    }
+
+    public static GameObject GetCharge()
+    {
+        return charge;
+    }
+
+    #endregion
+
     #region Particle tracking
 
     private const string PARTICLE_ID_PREFIX = "Particle_";

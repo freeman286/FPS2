@@ -7,6 +7,8 @@ using UnityEngine;
 public class PlayerShoot : NetworkBehaviour {
 
     private const string PLAYER_TAG = "Player";
+    private const string PROJECTILE_TAG = "Projectile";
+    private const string EQUIPMENT_TAG = "Equipment";
 
     [SerializeField]
     private Camera cam = null;
