@@ -82,7 +82,7 @@ public class ExplosiveController : ProjectileController
     void CmdExplode(Vector3 _dir, float _timeSinceCreated)
     {
 
-        RpcExplode(Quaternion.LookRotation(_dir));
+        RpcExplode(Quaternion.LookRotation(_dir), playerID);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
 
@@ -117,9 +117,17 @@ public class ExplosiveController : ProjectileController
     }
 
     [ClientRpc]
-    public void RpcExplode(Quaternion _rot)
+    public void RpcExplode(Quaternion _rot, string _playerID)
     {
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
+
+        DetonateExplosive _detonateExplosive = _impact.GetComponent<DetonateExplosive>();
+
+        if (_detonateExplosive != null)
+        {
+            _detonateExplosive.playerID = _playerID;
+            _detonateExplosive.Detonate();
+        }
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
         foreach (Collider _collider in colliders)

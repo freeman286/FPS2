@@ -226,13 +226,22 @@ public class PlayerShoot : NetworkBehaviour {
     [Command]
     void CmdOnHit(Vector3 _pos, Vector3 _normal)
     {
-        RpcDoHitEfftect(_pos, _normal);
+        RpcDoHitEfftect(_pos, _normal, transform.name);
     }
 
     [ClientRpc]
-    void RpcDoHitEfftect(Vector3 _pos, Vector3 _normal)
+    void RpcDoHitEfftect(Vector3 _pos, Vector3 _normal, string _playerID)
     {
         GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentGraphics().hitEffectPrefab, _pos, Quaternion.LookRotation(_normal));
+
+        DetonateExplosive _detonateExplosive = _hitEffect.GetComponent<DetonateExplosive>();
+
+        if (_detonateExplosive != null)
+        {
+            _detonateExplosive.playerID = _playerID;
+            _detonateExplosive.Detonate();
+        }
+
         Destroy(_hitEffect, 2f);
     }
 

@@ -83,7 +83,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.01
   playerID: 
-  impact: {fileID: 4308811345454485748, guid: 34506c30b272dba4b8478c0374d4c1fd, type: 3}
+  impact: {fileID: 4308811345454485748, guid: 462cd60313daf124a828df04958ecce5, type: 3}
   force: 20
   colliders:
   - {fileID: 2954331252196360057}

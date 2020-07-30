@@ -98,15 +98,23 @@ public class ImpactController : ProjectileController
 
         if (!_stick)
         {
-            RpcImpact(_rot);
+            RpcImpact(_rot, playerID);
         }
     }
 
     [ClientRpc]
-    public void RpcImpact(Quaternion _rot)
+    public void RpcImpact(Quaternion _rot, string _playerID)
     {
 
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
+
+        DetonateExplosive _detonateExplosive = _impact.GetComponent<DetonateExplosive>();
+
+        if (_detonateExplosive != null)
+        {
+            _detonateExplosive.playerID = _playerID;
+            _detonateExplosive.Detonate();
+        }
 
         Destroy(_impact, 10f);
         NetworkServer.Destroy(gameObject);

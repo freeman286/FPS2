@@ -92,6 +92,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStun.cs" />
+     <Compile Include="Assets\Scripts\Projectiles\DetonateExplosive.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ExplosiveController.cs" />
      <Compile Include="Assets\Scripts\Projectiles\Homing.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ImpactController.cs" />

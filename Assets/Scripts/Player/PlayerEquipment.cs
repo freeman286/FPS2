@@ -44,7 +44,8 @@ public class PlayerEquipment : NetworkBehaviour
                 GameObject _charge = GameManager.GetCharge();
                 if (_charge != null)
                 {
-                    _charge.GetComponent<ChargeController>().Detonate(false);
+                    _charge.GetComponent<ChargeController>().Detonate();
+                    timeSinceEquipmentUsed = 0f;
                 } else {
                     RaycastHit _hit = EquipmentPlace();
                     if (_hit.point != Vector3.zero)
@@ -125,7 +126,7 @@ public class PlayerEquipment : NetworkBehaviour
 
         RaycastHit _hit;
 
-        if (Physics.SphereCast(transform.position, (equipment as Charge).footprint, equipmentSpawnPoint.forward, out _hit, equipment.range))
+        if (Physics.SphereCast(transform.position, (equipment as Charge).footprint, equipmentSpawnPoint.forward, out _hit, equipment.range, mask))
         {
             return _hit;
         }

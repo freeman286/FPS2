@@ -1774,7 +1774,7 @@ MonoBehaviour:
   equipmentSpawnPoint: {fileID: 4406900436596993734}
   mask:
     serializedVersion: 2
-    m_Bits: 58167
+    m_Bits: 139264
   equipmentName: 
 --- !u!114 &1866657983699075262
 MonoBehaviour:

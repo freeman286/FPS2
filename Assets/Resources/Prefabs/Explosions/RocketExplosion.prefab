@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8381758212502765243}
   - component: {fileID: 4335871270692056646}
   - component: {fileID: 1681031931452456894}
+  - component: {fileID: 6071829624199728055}
+  - component: {fileID: 2120927257710701409}
   m_Layer: 0
   m_Name: RocketExplosion
   m_TagString: Untagged
@@ -457,3 +459,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6071829624199728055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308811345454485748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+--- !u!114 &2120927257710701409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308811345454485748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a582dcad496811459ff4b3d3a68f3dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  playerID: 
+  range: 6
+  offset: 0.01
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295

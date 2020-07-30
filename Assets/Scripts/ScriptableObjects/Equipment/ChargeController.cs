@@ -96,16 +96,16 @@ public class ChargeController : NetworkBehaviour
         placeSpeed = _placeSpeed;
     }
 
-    public void Detonate(bool _overide)
+    public void Detonate()
     {
-        if (ready || _overide)
+        if (ready)
             CmdExplode(transform.position + transform.forward * 0.01f, transform.forward);
     }
 
     [Command]
     void CmdExplode(Vector3 _pos, Vector3 _dir)
     {
-        RpcExplode(_pos, Quaternion.LookRotation(_dir));
+        RpcExplode(_pos, Quaternion.LookRotation(_dir), playerID);
 
         Collider[] colliders = Physics.OverlapSphere(_pos, range);
 
@@ -140,9 +140,17 @@ public class ChargeController : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcExplode(Vector3 _pos, Quaternion _rot)
+    public void RpcExplode(Vector3 _pos, Quaternion _rot, string _playerID)
     {
         GameObject _impact = (GameObject)Instantiate(impact, _pos, _rot);
+
+        DetonateExplosive _detonateExplosive = _impact.GetComponent<DetonateExplosive>();
+
+        if (_detonateExplosive != null)
+        {
+            _detonateExplosive.playerID = _playerID;
+            _detonateExplosive.Detonate();
+        }
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
         foreach (Collider _collider in colliders)
