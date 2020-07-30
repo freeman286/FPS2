@@ -19,6 +19,9 @@ public class PlayerStats : NetworkBehaviour
     [SyncVar(hook = nameof(OnSecondaryNameChanged))]
     public string secondaryWeaponName;
 
+    [SyncVar(hook = nameof(OnEquipmentNameChanged))]
+    public string equipmentName;
+
 
     [Header("Cumulative effects")]
     public List<DamageAttribute> damageAttributes = new List<DamageAttribute>();
@@ -37,7 +40,7 @@ public class PlayerStats : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            CmdSetPlayerInfo(PlayerInfo.primaryWeaponName, PlayerInfo.secondaryWeaponName);
+            CmdSetPlayerInfo(PlayerInfo.primaryWeaponName, PlayerInfo.secondaryWeaponName, PlayerInfo.equipmentName);
         }
 
     }
@@ -51,6 +54,12 @@ public class PlayerStats : NetworkBehaviour
     void OnSecondaryNameChanged(string _oldName, string _newName)
     {
         secondaryWeaponName = _newName;
+        UpdateSets(_oldName, _newName);
+    }
+
+    void OnEquipmentNameChanged(string _oldName, string _newName)
+    {
+        equipmentName = _newName;
         UpdateSets(_oldName, _newName);
     }
 
@@ -71,10 +80,11 @@ public class PlayerStats : NetworkBehaviour
     }
 
     [Command]
-    void CmdSetPlayerInfo(string _primaryWeaponName, string _secondaryWeaponName)
+    void CmdSetPlayerInfo(string _primaryWeaponName, string _secondaryWeaponName, string _equipmentName)
     {
         primaryWeaponName = _primaryWeaponName;
         secondaryWeaponName = _secondaryWeaponName;
+        equipmentName = _equipmentName;
     }
 
     void Reset()
@@ -96,7 +106,7 @@ public class PlayerStats : NetworkBehaviour
     {
         foreach (Set _set in allSets)
         {
-            if (SetsUtil.SetMatch(_set, primaryWeaponName, secondaryWeaponName))
+            if (SetsUtil.SetMatch(_set, primaryWeaponName, secondaryWeaponName, equipmentName))
             {
                 activeSets.Add(_set);
             }

@@ -11,6 +11,7 @@ public class Set : ScriptableObject
     [Header("Required items")]
     public GameObject primaryWeapon;
     public GameObject secondaryWeapon;
+    public Equipment equipment;
 
     [Header("Set damage attributes")]
     public List<DamageAttribute> attributes = new List<DamageAttribute>();

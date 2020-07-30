@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: ManOfScience
   m_EditorClassIdentifier: 
   name: Man Of Science
-  description: Do more explosive and energy damage.
+  description: Deal more explosive and energy damage.
   primaryWeapon: {fileID: 2721180637063796786, guid: d81801af2d5c3834bacee292a89cb453,
     type: 3}
   secondaryWeapon: {fileID: 2721180637063796786, guid: 35d6a6916afac104e985c751d8efb185,
     type: 3}
+  equipment: {fileID: 0}
   attributes:
   - self: 0
     damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}

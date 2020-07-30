@@ -43,7 +43,7 @@ public class SetList : MonoBehaviour
     {
         foreach (Set _set in allSets)
         {
-            if (SetsUtil.SetMatch(_set, PlayerInfo.primaryWeaponName, PlayerInfo.secondaryWeaponName))
+            if (SetsUtil.SetMatch(_set, PlayerInfo.primaryWeaponName, PlayerInfo.secondaryWeaponName, PlayerInfo.equipmentName))
             {
                 activeSets.Add(_set);
             }

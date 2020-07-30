@@ -25,13 +25,15 @@ public class SetsUtil : MonoBehaviour
         return allDamageDamageTypes;
     }
 
-    public static bool SetMatch(Set _set, string _primaryWeaponName, string _secondaryWeaponName)
+    public static bool SetMatch(Set _set, string _primaryWeaponName, string _secondaryWeaponName, string _equipmentName)
     {
         GameObject _primaryWeapon = _set.primaryWeapon;
         GameObject _secondaryWeapon = _set.secondaryWeapon;
+        Equipment _equipment = _set.equipment;
 
         if ((_primaryWeapon != null && _primaryWeapon.name != _primaryWeaponName) ||
-            (_secondaryWeapon != null && _secondaryWeapon.name != _secondaryWeaponName))
+            (_secondaryWeapon != null && _secondaryWeapon.name != _secondaryWeaponName) ||
+            (_equipment != null && _equipment.name != _equipmentName))
             return false;
 
         return true;

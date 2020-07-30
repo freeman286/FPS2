@@ -16,8 +16,8 @@ MonoBehaviour:
   description: Take less explosive damage.
   primaryWeapon: {fileID: 2721180637063796786, guid: 0ed73f39f3740bf4da71abe095658270,
     type: 3}
-  secondaryWeapon: {fileID: 2721180637063796786, guid: 4915025d397baa242b517417e0128e74,
-    type: 3}
+  secondaryWeapon: {fileID: 0}
+  equipment: {fileID: 11400000, guid: e71a8d5681435bf4e892a5d0ce26039f, type: 2}
   attributes:
   - self: 1
     damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}

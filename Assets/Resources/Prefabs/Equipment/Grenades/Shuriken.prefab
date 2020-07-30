@@ -114,7 +114,7 @@ MonoBehaviour:
   impact: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6, type: 3}
   fuse: 10
   sticky: 1
-  damage: 60
+  damage: 70
   damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
   headShotMultiplier: 2
 --- !u!114 &6001243613154927045

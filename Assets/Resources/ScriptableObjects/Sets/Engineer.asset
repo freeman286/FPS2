@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a745ecdec3205ec49b52bf9c17f2cda5, type: 3}
+  m_Name: Engineer
+  m_EditorClassIdentifier: 
+  name: Engineer
+  description: Deal more impact damage but take more bullet damage.
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 2721180637063796786, guid: aff9b94a662a81247b0a08e1b4008fe3,
+    type: 3}
+  equipment: {fileID: 11400000, guid: e71a8d5681435bf4e892a5d0ce26039f, type: 2}
+  attributes:
+  - self: 0
+    damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
+    multiplier: 1.5
+  - self: 1
+    damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
+    multiplier: 1.1
+  speedMultiplier: 1
+  jumpMultiplier: 1
+  scriptsToEnable: []

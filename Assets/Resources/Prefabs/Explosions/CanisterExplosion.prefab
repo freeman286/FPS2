@@ -492,7 +492,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerID: 
-  range: 10
+  range: 2
   offset: 0.01
   mask:
     serializedVersion: 2

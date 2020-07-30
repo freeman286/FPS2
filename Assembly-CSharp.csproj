@@ -107,6 +107,8 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Grenade.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Set.cs" />
      <Compile Include="Assets\Scripts\UI\CameraFacingBillboard.cs" />
+     <Compile Include="Assets\Scripts\UI\EquipmentItem.cs" />
+     <Compile Include="Assets\Scripts\UI\EquipmentList.cs" />
      <Compile Include="Assets\Scripts\UI\Killfeed.cs" />
      <Compile Include="Assets\Scripts\UI\KillfeedItem.cs" />
      <Compile Include="Assets\Scripts\UI\LevelLoader.cs" />

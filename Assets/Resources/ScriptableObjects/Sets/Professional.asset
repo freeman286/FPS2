@@ -16,8 +16,8 @@ MonoBehaviour:
   description: Deal and take more bullet damage.
   primaryWeapon: {fileID: 2721180637063796786, guid: afb6a00484858d342a557a638ae45f91,
     type: 3}
-  secondaryWeapon: {fileID: 2721180637063796786, guid: de10ced2e44385447884586860e99802,
-    type: 3}
+  secondaryWeapon: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 26e3135ac5abd6844ab37fb2259712a1, type: 2}
   attributes:
   - self: 1
     damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}

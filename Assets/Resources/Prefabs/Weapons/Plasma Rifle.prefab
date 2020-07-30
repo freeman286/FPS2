@@ -526,7 +526,17 @@ MonoBehaviour:
   casing: {fileID: 0}
   shootSound: {fileID: 185320, guid: de91c56bfb766454aa2affcf84c36929, type: 3}
   firePoint: {fileID: 1626188674828420661}
-  colliders: []
+  colliders:
+  - {fileID: 2948370831994612957}
+  - {fileID: 1298968163709989383}
+  - {fileID: 6673578179476076812}
+  - {fileID: 2779714155181648480}
+  - {fileID: 6531795135903765635}
+  - {fileID: 3365388941947993614}
+  - {fileID: 2667979092649398048}
+  - {fileID: 7384052968617816077}
+  - {fileID: 281194901665096989}
+  - {fileID: 7780292621350231037}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
