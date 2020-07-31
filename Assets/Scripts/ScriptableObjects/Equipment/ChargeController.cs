@@ -38,7 +38,6 @@ public class ChargeController : NetworkBehaviour
 
     private Vector3 targetPos = Vector3.zero;
     private Quaternion targetRot;
-
     [HideInInspector]
     public float placeSpeed;
 

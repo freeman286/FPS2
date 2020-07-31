@@ -124,6 +124,22 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Turret tracking
+
+    private static GameObject turret;
+
+    public static void RegisterTurret(GameObject _turret)
+    {
+        turret = _turret;
+    }
+
+    public static GameObject GetTurret()
+    {
+        return turret;
+    }
+
+    #endregion
+
     #region Particle tracking
 
     private const string PARTICLE_ID_PREFIX = "Particle_";

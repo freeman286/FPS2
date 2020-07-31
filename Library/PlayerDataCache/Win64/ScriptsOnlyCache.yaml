@@ -57,6 +57,8 @@ ScriptsOnlyBuild:
     - StunController
     - TerrainId
     - TerrainTarget
+    - Turret
+    - TurretController
     - WeaponGraphics
     - WeaponItem
     - WeaponList
@@ -66,7 +68,7 @@ ScriptsOnlyBuild:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
     Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
+    - Mirror.NetworkManagerEditor
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
@@ -451,6 +453,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17506}
     - Class: 114
       Script: {instanceID: 17514}
+    - Class: 114
+      Script: {instanceID: 85930}
+    - Class: 114
+      Script: {instanceID: 95082}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -694,6 +700,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17378}
     - Class: 114
       Script: {instanceID: 17452}
+    - Class: 114
+      Script: {instanceID: 95082}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -939,6 +947,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17378}
     - Class: 114
       Script: {instanceID: 17452}
+    - Class: 114
+      Script: {instanceID: 95082}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3430,6 +3440,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 7eff4f83e59bc2c5c5dfcaddbffce3b8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Turret
+  - hash:
+      serializedVersion: 2
+      Hash: dfa479341a8c4b7fc9c2965c569c964c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TurretController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

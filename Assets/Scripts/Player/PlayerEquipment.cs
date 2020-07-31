@@ -50,13 +50,32 @@ public class PlayerEquipment : NetworkBehaviour
                     RaycastHit _hit = EquipmentPlace();
                     if (_hit.point != Vector3.zero)
                     {
-                        CmdPlaceCharge(equipmentSpawnPoint.position, Quaternion.LookRotation(ThrowDirection()), transform.name, _hit.point, Quaternion.LookRotation(_hit.normal));
+                        CmdPlaceEquipment(equipmentSpawnPoint.position, Quaternion.LookRotation(ThrowDirection()), transform.name, _hit.point, Quaternion.LookRotation(_hit.normal));
+                        timeSinceEquipmentUsed = 0f;
+                    }
+                }
+
+            } else if (equipment is Turret)
+            {
+
+                GameObject _turret = GameManager.GetTurret();
+                if (_turret != null)
+                {
+                    _turret.GetComponent<TurretController>().Kill();
+                    
+                } else
+                {
+                    RaycastHit _hit = EquipmentPlace();
+                    if (_hit.point != Vector3.zero)
+                    {
+                        CmdPlaceEquipment(equipmentSpawnPoint.position, Quaternion.LookRotation(ThrowDirection()), transform.name, _hit.point, Quaternion.LookRotation(_hit.normal));
                         timeSinceEquipmentUsed = 0f;
                     }
                 }
 
             }
-            
+
+
         }
     }
 
@@ -73,15 +92,27 @@ public class PlayerEquipment : NetworkBehaviour
     }
 
     [Command]
-    void CmdPlaceCharge(Vector3 _pos, Quaternion _rot, string _playerID, Vector3 _placePos, Quaternion _placeRot)
+    void CmdPlaceEquipment(Vector3 _pos, Quaternion _rot, string _playerID, Vector3 _placePos, Quaternion _placeRot)
     {
-        GameObject _charge = (GameObject)Instantiate(equipment.prefab, _pos, _rot);
-        NetworkServer.Spawn(_charge, connectionToClient);
+        GameObject _equipment = (GameObject)Instantiate(equipment.prefab, _pos, _rot);
+        NetworkServer.Spawn(_equipment, connectionToClient);
 
-        ChargeController _chargeController = _charge.GetComponent<ChargeController>();
-        _chargeController.playerID = _playerID;
+        ChargeController _chargeController = _equipment.GetComponent<ChargeController>();
 
-        _chargeController.RpcPlace(_placePos, _placeRot, (equipment as Charge).placeSpeed);
+        if (_chargeController != null)
+        {
+            _chargeController.playerID = _playerID;
+            _chargeController.RpcPlace(_placePos, _placeRot, (equipment as Charge).placeSpeed);
+        }
+
+        TurretController _turretController = _equipment.GetComponent<TurretController>();
+
+        if (_turretController != null)
+        {
+            _turretController.playerID = _playerID;
+            _turretController.RpcPlace(_placePos, _placeRot, (equipment as Turret).placeSpeed);
+        }
+
     }
 
     public void SetDefaults()
@@ -125,9 +156,19 @@ public class PlayerEquipment : NetworkBehaviour
     RaycastHit EquipmentPlace()
     {
 
+        float _footprint = 1f;
+
+        if (equipment is Charge)
+        {
+            _footprint = (equipment as Charge).footprint;
+        } else if (equipment is Turret)
+        {
+            _footprint = (equipment as Turret).footprint;
+        }
+
         RaycastHit _hit;
 
-        if (Physics.SphereCast(transform.position, (equipment as Charge).footprint, equipmentSpawnPoint.forward, out _hit, equipment.range, mask))
+        if (Physics.SphereCast(transform.position, _footprint, equipmentSpawnPoint.forward, out _hit, equipment.range, mask))
         {
             return _hit;
         }
