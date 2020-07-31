@@ -566,7 +566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Assault Rifle
   primary: 1
-  damage: 35
+  damage: 25
   headShotMultiplier: 1.8
   damageFallOff:
     serializedVersion: 2
@@ -621,26 +621,26 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   coneOfFire: 0
-  spreadDefault: 0.07
-  spreadWhileMoving: 0.2
+  spreadDefault: 0.14
+  spreadWhileMoving: 0.4
   spreadWhileJumping: 1
   spreadWhileScoped: 0
-  timeTillMaxSpread: 1.5
+  timeTillMaxSpread: 1
   spreadCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.3
-      inSlope: 0.103475586
-      outSlope: 0.103475586
+      value: 0.15
+      inSlope: 0.124999955
+      outSlope: 0.124999955
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.25195155
-      value: 0.32607085
+      time: 0.2
+      value: 0.175
       inSlope: 0.28679934
       outSlope: 0.28679934
       tangentMode: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   magSize: 30
   speed: 1
   scopedSpeed: 1
-  bullets: 26
+  bullets: 15
   reloadTime: 4
   scriptsToEnable: []
 --- !u!82 &792773704839598559

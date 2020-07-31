@@ -642,7 +642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Smg
   primary: 1
-  damage: 30
+  damage: 23
   headShotMultiplier: 1.8
   damageFallOff:
     serializedVersion: 2
@@ -697,26 +697,26 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   coneOfFire: 0
-  spreadDefault: 0.1
-  spreadWhileMoving: 0.2
+  spreadDefault: 0.2
+  spreadWhileMoving: 0.4
   spreadWhileJumping: 1
   spreadWhileScoped: 0
-  timeTillMaxSpread: 0.6
+  timeTillMaxSpread: 1
   spreadCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.2
-      inSlope: 0.7186046
-      outSlope: 0.7186046
+      value: 0.1
+      inSlope: 0.40000004
+      outSlope: 0.40000004
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.19840917
-      value: 0.34257776
+      time: 0.125
+      value: 0.15
       inSlope: 0.3970128
       outSlope: 0.3970128
       tangentMode: 0
@@ -724,22 +724,22 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.35576156
     - serializedVersion: 3
-      time: 0.26088986
-      value: 0.6639128
-      inSlope: 1.4046626
-      outSlope: 1.4046626
+      time: 0.15
+      value: 0.5
+      inSlope: 1.4481059
+      outSlope: 1.4481059
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.029645063
+      outWeight: 0.041468356
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.45471874
-      outSlope: 0.45471874
-      tangentMode: 34
+      inSlope: -0.04154463
+      outSlope: -0.04154463
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.045644388
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

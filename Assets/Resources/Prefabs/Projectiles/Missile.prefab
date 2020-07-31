@@ -120,7 +120,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 58167
-  damage: 200
+  damage: 110
   range: 4
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:

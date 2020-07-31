@@ -25,6 +25,6 @@ MonoBehaviour:
   - self: 0
     damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
     multiplier: 1.3
-  speedMultiplier: 0.8
+  speedMultiplier: 0.9
   jumpMultiplier: 1
   scriptsToEnable: []

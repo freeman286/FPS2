@@ -21,7 +21,7 @@ MonoBehaviour:
   attributes:
   - self: 0
     damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
-    multiplier: 1.5
+    multiplier: 1.7
   speedMultiplier: 0.9
   jumpMultiplier: 1
   scriptsToEnable: []

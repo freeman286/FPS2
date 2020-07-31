@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EOD
   m_EditorClassIdentifier: 
   name: EOD
-  description: Take less explosive damage.
+  description: Take less explosive damage but deal less bullet damage.
   primaryWeapon: {fileID: 2721180637063796786, guid: 0ed73f39f3740bf4da71abe095658270,
     type: 3}
   secondaryWeapon: {fileID: 0}
@@ -22,6 +22,9 @@ MonoBehaviour:
   - self: 1
     damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
     multiplier: 0.7
+  - self: 0
+    damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
+    multiplier: 0.9
   speedMultiplier: 1
   jumpMultiplier: 1
   scriptsToEnable: []

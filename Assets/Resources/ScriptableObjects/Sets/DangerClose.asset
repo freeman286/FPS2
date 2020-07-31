@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DangerClose
   m_EditorClassIdentifier: 
   name: Danger Close
-  description: Take less explosive damage.
+  description: Take less explosive damage but more bullet damage.
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 2721180637063796786, guid: 4915025d397baa242b517417e0128e74,
     type: 3}
@@ -22,6 +22,9 @@ MonoBehaviour:
   - self: 1
     damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
     multiplier: 0.8
+  - self: 1
+    damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
+    multiplier: 1.1
   speedMultiplier: 1
   jumpMultiplier: 1
   scriptsToEnable: []

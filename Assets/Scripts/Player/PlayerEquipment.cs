@@ -89,6 +89,7 @@ public class PlayerEquipment : NetworkBehaviour
         if (isLocalPlayer)
         {
             CmdSetEquipment(PlayerInfo.equipmentName);
+            timeSinceEquipmentUsed = equipment.cooldown;
         }
     }
 

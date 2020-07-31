@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CQC
   m_EditorClassIdentifier: 
   name: CQC
-  description: Take less bullet damage
+  description: Take less bullet damage but deal less explosive damage.
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 2721180637063796786, guid: de10ced2e44385447884586860e99802,
     type: 3}
@@ -21,6 +21,9 @@ MonoBehaviour:
   attributes:
   - self: 1
     damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
+    multiplier: 0.8
+  - self: 0
+    damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
     multiplier: 0.8
   speedMultiplier: 1
   jumpMultiplier: 1

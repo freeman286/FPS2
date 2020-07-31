@@ -469,8 +469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pistol
   primary: 0
-  damage: 35
-  headShotMultiplier: 1.5
+  damage: 25
+  headShotMultiplier: 1.8
   damageFallOff:
     serializedVersion: 2
     m_Curve:
@@ -515,32 +515,32 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   coneOfFire: 0
-  spreadDefault: 0.06
-  spreadWhileMoving: 0.14
-  spreadWhileJumping: 0.3
+  spreadDefault: 0.12
+  spreadWhileMoving: 0.28
+  spreadWhileJumping: 0.6
   spreadWhileScoped: 0
-  timeTillMaxSpread: 0.1
+  timeTillMaxSpread: 0.5
   spreadCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
-      inSlope: 0.24023843
-      outSlope: 0.24023843
+      value: 0.3
+      inSlope: 0.1446931
+      outSlope: 0.1446931
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.34555885
-      value: 0.5830165
-      inSlope: 0.61737794
-      outSlope: 0.61737794
+      value: 0.35
+      inSlope: 0.23497052
+      outSlope: 0.23497052
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33914554
+      outWeight: 1
     - serializedVersion: 3
       time: 0.38550323
       value: 0.8580774

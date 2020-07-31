@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 4335871270692056646}
   - component: {fileID: 1681031931452456894}
   - component: {fileID: -6015224699467656052}
-  - component: {fileID: 7586298367164277362}
   m_Layer: 0
   m_Name: StunGrenadeExplosion
   m_TagString: Untagged
@@ -446,23 +445,3 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   m_AssetId: 
---- !u!114 &7586298367164277362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4308811345454485748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a582dcad496811459ff4b3d3a68f3dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  playerID: 
-  range: 1
-  offset: 0.01
-  mask:
-    serializedVersion: 2
-    m_Bits: 4294967295
