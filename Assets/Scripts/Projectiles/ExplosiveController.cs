@@ -49,6 +49,16 @@ public class ExplosiveController : ProjectileController
         explosive.CmdExplode(transform.position, _dir, timeSinceCreated, playerID);
     }
 
+    public void ForceDetonate()
+    {
+        Health _health = GetComponent<Health>();
+
+        if (_health != null)
+            playerID = _health.lastDamagedPlayer.transform.name;
+
+        Detonate();
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (explodeOnImpact && !impacted && GetComponent<NetworkIdentity>().hasAuthority)

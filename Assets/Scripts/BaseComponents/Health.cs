@@ -43,7 +43,7 @@ public class Health : NetworkBehaviour
     {
         timeSinceDamaged += Time.deltaTime;
 
-        if (timeSinceDamaged > healthRegenTime && currentHealth < maxHealth)
+        if (healthRegenTime != -1f && timeSinceDamaged > healthRegenTime && currentHealth < maxHealth)
         {
             currentHealth += healthRegenSpeed * Time.deltaTime;
         }

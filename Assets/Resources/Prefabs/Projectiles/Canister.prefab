@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 156444120250483797}
   - component: {fileID: -6569690525480866274}
   - component: {fileID: -6029450713198943014}
+  - component: {fileID: 6752763440419888389}
   - component: {fileID: 6434843467373894407}
   - component: {fileID: -4360252622466301272}
   m_Layer: 16
@@ -257,6 +258,39 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6752763440419888389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39937c093bc202845a28b4764c9044fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  isDead: 0
+  dieEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6569690525480866274}
+        m_MethodName: ForceDetonate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHealth: 50
+  healthRegenTime: -1
+  healthRegenSpeed: 0
+  lastDamagedPlayer: {fileID: 0}
 --- !u!114 &6434843467373894407
 MonoBehaviour:
   m_ObjectHideFlags: 0

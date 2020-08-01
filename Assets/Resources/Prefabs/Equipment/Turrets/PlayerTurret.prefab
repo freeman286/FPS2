@@ -168,7 +168,10 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerID: 
-  maxHealth: 100
+  colliders:
+  - {fileID: 2954331252196360057}
+  placeSpeed: 0
+  ready: 0
   target: {fileID: 0}
   range: 20
   speed: 30
@@ -178,9 +181,6 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 239415
-  colliders:
-  - {fileID: 2954331252196360057}
-  placeSpeed: 0
 --- !u!114 &3596681543243515106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +291,6 @@ GameObject:
   - component: {fileID: 8975257780702282732}
   - component: {fileID: 2809627588348968853}
   - component: {fileID: 2954331252196360057}
-  - component: {fileID: 3054117312974755992}
   m_Layer: 17
   m_Name: Cylinder
   m_TagString: Equipment
@@ -373,43 +372,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 4, z: 1.0000002}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3054117312974755992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709850553620095800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a7a54edae0ccc44f8aa7c713b7575de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  playerID: 
-  impact: {fileID: 0}
-  force: 10
-  colliders: []
-  mask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  damage: 100
-  range: 10
-  damageType: {fileID: 0}
-  damageFallOff:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  damageOverAngle:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  placeSpeed: 0
 --- !u!1 &5069896404716872090
 GameObject:
   m_ObjectHideFlags: 0

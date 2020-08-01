@@ -31,10 +31,7 @@ public class PlaceableEquipmentController : NetworkBehaviour
     public virtual void Start()
     {
         networkIdentity = GetComponent<NetworkIdentity>();
-        foreach (Collider _collider in colliders)
-        {
-            _collider.enabled = false;
-        }
+        CmdReady(false);
     }
 
     public virtual void Update()
@@ -50,11 +47,7 @@ public class PlaceableEquipmentController : NetworkBehaviour
 
         if (transform.position == targetPos)
         {
-            ready = true;
-            foreach (Collider _collider in colliders)
-            {
-                _collider.enabled = true;
-            }
+            CmdReady(true);
         }
     }
 
@@ -69,5 +62,21 @@ public class PlaceableEquipmentController : NetworkBehaviour
     void OnDestroy()
     {
         GameManager.UnRegisterEquipment(transform.name);
+    }
+
+    [Command]
+    void CmdReady(bool _ready)
+    {
+        RpcReady(_ready);
+    }
+
+    [ClientRpc]
+    void RpcReady(bool _ready)
+    {
+        ready = _ready;
+        foreach (Collider _collider in colliders)
+        {
+            _collider.enabled = _ready;
+        }
     }
 }

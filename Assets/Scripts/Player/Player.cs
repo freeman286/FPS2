@@ -110,10 +110,10 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
-
-        if (Input.GetKeyDown("k"))
+        if (Input.GetKeyDown("k") && !health.isDead)
         {
             CmdDie(transform.name);
+            health.isDead = true;
         }
     }
 

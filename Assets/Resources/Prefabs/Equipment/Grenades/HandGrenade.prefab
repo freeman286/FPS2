@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6569690525480866274}
   - component: {fileID: 2986589454224459984}
   - component: {fileID: -4192722717585000997}
+  - component: {fileID: 816112692563541760}
   m_Layer: 16
   m_Name: HandGrenade
   m_TagString: Projectile
@@ -114,103 +115,6 @@ MonoBehaviour:
   fuse: 5
   explodeOnImpact: 0
   airburst: 0
-  force: 40
-  mask:
-    serializedVersion: 2
-    m_Bits: 58167
-  damage: 150
-  range: 7
-  damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
-  damageFallOff:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -0.34384617
-      outSlope: -0.34384617
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.50530255
-      value: 0.82625365
-      inSlope: -0.9030035
-      outSlope: -0.9030035
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.060298584
-    - serializedVersion: 3
-      time: 0.5466436
-      value: 0.6131117
-      inSlope: -3.25404
-      outSlope: -3.25404
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1.3523835
-      outSlope: -1.3523835
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  damageOverTime:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  damageOverAngle:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &2986589454224459984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +240,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 20
+--- !u!114 &816112692563541760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39937c093bc202845a28b4764c9044fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  isDead: 0
+  dieEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6569690525480866274}
+        m_MethodName: ForceDetonate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHealth: 20
+  healthRegenTime: -1
+  healthRegenSpeed: 0
+  lastDamagedPlayer: {fileID: 0}
 --- !u!1 &156444120682222017
 GameObject:
   m_ObjectHideFlags: 0

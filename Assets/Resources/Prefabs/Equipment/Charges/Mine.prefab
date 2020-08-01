@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 156444120250483797}
   - component: {fileID: -239312425726522891}
   - component: {fileID: 6190812627501688690}
+  - component: {fileID: 8007962633571756915}
   m_Layer: 17
   m_Name: Mine
   m_TagString: Equipment
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  impact: {fileID: 4308811345454485748, guid: 13c5e589ded63854c8ea82124219f9d3, type: 3}
+  impact: {fileID: 4308811345454485748, guid: 462cd60313daf124a828df04958ecce5, type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 254775
@@ -218,6 +219,39 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8007962633571756915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39937c093bc202845a28b4764c9044fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  isDead: 0
+  dieEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -239312425726522891}
+        m_MethodName: ForceDetonate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHealth: 20
+  healthRegenTime: -1
+  healthRegenSpeed: 0
+  lastDamagedPlayer: {fileID: 0}
 --- !u!1 &4151298392358257808
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +343,6 @@ GameObject:
   - component: {fileID: 8975257780702282732}
   - component: {fileID: 2809627588348968853}
   - component: {fileID: 2954331252196360057}
-  - component: {fileID: 3054117312974755992}
   m_Layer: 17
   m_Name: Cylinder
   m_TagString: Equipment
@@ -391,21 +424,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: -0.0000009536743, z: -0.00000008940697}
---- !u!114 &3054117312974755992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709850553620095800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a7a54edae0ccc44f8aa7c713b7575de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  playerID: 
-  colliders: []
-  placeSpeed: 0
-  ready: 0

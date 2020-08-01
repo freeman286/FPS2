@@ -47,12 +47,14 @@ public class Explosive : NetworkBehaviour
 
         foreach (var _collider in colliders)
         {
-            Health _health = _collider.transform.root.GetComponent<Health>();
+            Transform _baseTransform = _collider.transform.root;
 
-            if (_health != null && !_hitTransforms.Contains(_collider.transform.root))
+            Health _health = _baseTransform.GetComponent<Health>();
+
+            if (_baseTransform != transform && _health != null && !_hitTransforms.Contains(_baseTransform))
             {
 
-                _hitTransforms.Add(_collider.transform.root);
+                _hitTransforms.Add(_baseTransform);
 
                 RaycastHit _hit;
 
