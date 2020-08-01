@@ -3,17 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class TurretController : NetworkBehaviour
+public class TurretController : PlaceableEquipmentController
 {
-    [SyncVar]
-    public string playerID;
-
-    [SerializeField]
-    private int maxHealth = 100;
-
-    [SyncVar]
-    private float currentHealth;
-
     public GameObject target = null;
     
     [Header("Damage and Speed")]
@@ -36,24 +27,7 @@ public class TurretController : NetworkBehaviour
     [SerializeField]
     private LayerMask mask = -1;
 
-    public Collider[] colliders;
-
-    private Vector3 targetPos = Vector3.zero;
-    private Quaternion targetRot;
-    [HideInInspector]
-    public float placeSpeed;
-
-    private bool ready = false;
-
     private const string PLAYER_TAG = "Player";
-
-    private NetworkIdentity networkIdentity;
-
-    void Start()
-    {
-        networkIdentity = GetComponent<NetworkIdentity>();
-        SetDefaults();
-    }
 
     public override void OnStartClient()
     {
@@ -64,39 +38,13 @@ public class TurretController : NetworkBehaviour
 
     }
 
-    void Update()
+    public override void Update()
     {
-        if (!ready && targetPos != Vector3.zero)
-        {
-            if (networkIdentity.hasAuthority)
-            {
-                transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * placeSpeed);
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * placeSpeed);
-            }
-        } else if (ready && target != null)
+        base.Update();
+        if (ready && target != null)
         {
             Track();
         }
-
-
-        if (transform.position == targetPos)
-        {
-            ready = true;
-            foreach (Collider _collider in colliders)
-            {
-                _collider.enabled = true;
-            }
-        }
-
-        
-    }
-
-    [ClientRpc]
-    public void RpcPlace(Vector3 _pos, Quaternion _rot, float _placeSpeed)
-    {
-        targetPos = _pos;
-        targetRot = _rot;
-        placeSpeed = _placeSpeed;
     }
 
     public void Kill()
@@ -119,29 +67,6 @@ public class TurretController : NetworkBehaviour
         NetworkServer.Destroy(gameObject);
     }
 
-    [ClientRpc]
-    public void RpcTakeDamage(int _amount, string _sourceID, string _damageType)
-    {
-
-        Player sourcePlayer = GameManager.GetPlayer(_sourceID);
-
-        currentHealth -= _amount * sourcePlayer.GetComponent<PlayerStats>().GetDamageMultiplier(_damageType, false);
-
-        if (currentHealth <= 0)
-        {
-            Kill();
-        }
-    }
-
-    public void SetDefaults()
-    {
-        currentHealth = maxHealth;
-
-        foreach (Collider _collider in colliders)
-        {
-            _collider.enabled = false;
-        }
-    }
 
     void Track()
     {

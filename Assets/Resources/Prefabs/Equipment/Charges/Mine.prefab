@@ -83,10 +83,12 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.01
   playerID: 
-  impact: {fileID: 4308811345454485748, guid: 462cd60313daf124a828df04958ecce5, type: 3}
-  force: 20
   colliders:
   - {fileID: 2954331252196360057}
+  placeSpeed: 0
+  ready: 0
+  impact: {fileID: 4308811345454485748, guid: 462cd60313daf124a828df04958ecce5, type: 3}
+  force: 20
   mask:
     serializedVersion: 2
     m_Bits: 58167
@@ -168,7 +170,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  placeSpeed: 0
 --- !u!1 &4151298392358257808
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,9 +358,11 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerID: 
+  colliders: []
+  placeSpeed: 0
+  ready: 0
   impact: {fileID: 0}
   force: 10
-  colliders: []
   mask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -378,4 +381,3 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  placeSpeed: 0

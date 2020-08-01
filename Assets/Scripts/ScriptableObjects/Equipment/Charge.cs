@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Charge", menuName = "Equipment/Charge")]
-public class Charge : Equipment
+public class Charge : PlaceableEquipment
 {
-    public float footprint;
-    public float placeSpeed;
+
 }

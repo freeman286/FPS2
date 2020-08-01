@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class ChargeController : NetworkBehaviour
+public class ChargeController : PlaceableEquipmentController
 {
-    [SyncVar]
-    public string playerID;
-
     [SerializeField]
     private GameObject impact = null;
 
     [SerializeField]
     private float force = 10f;
-
-    public Collider[] colliders;
 
     [SerializeField]
     private LayerMask mask = -1;
@@ -36,47 +31,7 @@ public class ChargeController : NetworkBehaviour
     [SerializeField]
     private AnimationCurve damageOverAngle = null;
 
-    private Vector3 targetPos = Vector3.zero;
-    private Quaternion targetRot;
-    [HideInInspector]
-    public float placeSpeed;
-
-    private bool ready = false;
-
     private const string PLAYER_TAG = "Player";
-
-    private NetworkIdentity networkIdentity;
-
-    void Start()
-    {
-        networkIdentity = GetComponent<NetworkIdentity>();
-        foreach (Collider _collider in colliders)
-        {
-            _collider.enabled = false;
-        }
-    }
-
-    void Update()
-    {
-        if (!ready && targetPos != Vector3.zero)
-        {
-            if (networkIdentity.hasAuthority)
-            {
-                transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * placeSpeed);
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * placeSpeed);
-            }
-        }
-
-        if (transform.position == targetPos)
-        {
-            ready = true;
-            foreach (Collider _collider in colliders)
-            {
-                _collider.enabled = true;
-            }
-        }
-
-    }
 
     public override void OnStartClient()
     {
@@ -85,14 +40,6 @@ public class ChargeController : NetworkBehaviour
         if (GetComponent<NetworkIdentity>().hasAuthority)
             GameManager.RegisterCharge(gameObject);
 
-    }
-
-    [ClientRpc]
-    public void RpcPlace(Vector3 _pos, Quaternion _rot, float _placeSpeed)
-    {
-        targetPos = _pos;
-        targetRot = _rot;
-        placeSpeed = _placeSpeed;
     }
 
     public void Detonate()

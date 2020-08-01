@@ -105,6 +105,8 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\ChargeController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Equipment.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Grenade.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\PlaceableEquipment.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\PlaceableEquipmentController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Turret.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\TurretController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Set.cs" />

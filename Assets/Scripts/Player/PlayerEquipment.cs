@@ -97,20 +97,12 @@ public class PlayerEquipment : NetworkBehaviour
         GameObject _equipment = (GameObject)Instantiate(equipment.prefab, _pos, _rot);
         NetworkServer.Spawn(_equipment, connectionToClient);
 
-        ChargeController _chargeController = _equipment.GetComponent<ChargeController>();
+        PlaceableEquipmentController _placeableEquipmentController = _equipment.GetComponent<PlaceableEquipmentController>();
 
-        if (_chargeController != null)
+        if (_placeableEquipmentController != null)
         {
-            _chargeController.playerID = _playerID;
-            _chargeController.RpcPlace(_placePos, _placeRot, (equipment as Charge).placeSpeed);
-        }
-
-        TurretController _turretController = _equipment.GetComponent<TurretController>();
-
-        if (_turretController != null)
-        {
-            _turretController.playerID = _playerID;
-            _turretController.RpcPlace(_placePos, _placeRot, (equipment as Turret).placeSpeed);
+            _placeableEquipmentController.playerID = _playerID;
+            _placeableEquipmentController.RpcPlace(_placePos, _placeRot, (equipment as PlaceableEquipment).placeSpeed);
         }
 
     }
