@@ -234,14 +234,6 @@ public class PlayerShoot : NetworkBehaviour {
     {
         GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentGraphics().hitEffectPrefab, _pos, Quaternion.LookRotation(_normal));
 
-        DetonateExplosive _detonateExplosive = _hitEffect.GetComponent<DetonateExplosive>();
-
-        if (_detonateExplosive != null)
-        {
-            _detonateExplosive.playerID = _playerID;
-            _detonateExplosive.Detonate();
-        }
-
         Destroy(_hitEffect, 2f);
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 156444120250483799}
   - component: {fileID: 156444120250483797}
   - component: {fileID: -239312425726522891}
+  - component: {fileID: 6190812627501688690}
   m_Layer: 17
   m_Name: Mine
   m_TagString: Equipment
@@ -87,13 +88,27 @@ MonoBehaviour:
   - {fileID: 2954331252196360057}
   placeSpeed: 0
   ready: 0
-  impact: {fileID: 4308811345454485748, guid: 462cd60313daf124a828df04958ecce5, type: 3}
-  force: 20
+--- !u!114 &6190812627501688690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70eb2a5ebc55e548b389bdfc7f7f4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  impact: {fileID: 4308811345454485748, guid: 13c5e589ded63854c8ea82124219f9d3, type: 3}
   mask:
     serializedVersion: 2
-    m_Bits: 58167
-  damage: 130
-  range: 10
+    m_Bits: 254775
+  force: 20
+  damage: 150
+  range: 12
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2
@@ -101,29 +116,62 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.6803255
-      outSlope: -0.6803255
+      inSlope: -0.26279238
+      outSlope: -0.26279238
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.6955979
-      value: 0.526767
-      inSlope: -0.5754663
-      outSlope: -0.5754663
-      tangentMode: 0
+      time: 0.08099413
+      value: 0.97871536
+      inSlope: -0.45805693
+      outSlope: -0.45805693
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.04010408
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.79272306
+      value: 0.51372755
+      inSlope: -1.5658906
+      outSlope: -1.5658906
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1.7304972
-      outSlope: -1.7304972
+      inSlope: -2.4784596
+      outSlope: -2.4784596
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  damageOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -361,23 +409,3 @@ MonoBehaviour:
   colliders: []
   placeSpeed: 0
   ready: 0
-  impact: {fileID: 0}
-  force: 10
-  mask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  damage: 100
-  range: 10
-  damageType: {fileID: 0}
-  damageFallOff:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  damageOverAngle:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4

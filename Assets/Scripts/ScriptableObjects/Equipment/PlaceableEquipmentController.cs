@@ -21,7 +21,7 @@ public class PlaceableEquipmentController : NetworkBehaviour
 
     private NetworkIdentity networkIdentity;
 
-    void Start()
+    public virtual void Start()
     {
         networkIdentity = GetComponent<NetworkIdentity>();
         foreach (Collider _collider in colliders)

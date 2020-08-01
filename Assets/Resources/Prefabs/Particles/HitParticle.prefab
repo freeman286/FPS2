@@ -158,7 +158,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1734203832338817586}
   - component: {fileID: -8296652950583376613}
-  - component: {fileID: 7001425401418579216}
   m_Layer: 0
   m_Name: HitParticle
   m_TagString: Untagged
@@ -196,26 +195,6 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   m_AssetId: 
---- !u!114 &7001425401418579216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734203832338817589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a582dcad496811459ff4b3d3a68f3dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.01
-  playerID: 
-  range: 0.25
-  offset: 0.01
-  mask:
-    serializedVersion: 2
-    m_Bits: 237623
 --- !u!1 &1734203832928253740
 GameObject:
   m_ObjectHideFlags: 0

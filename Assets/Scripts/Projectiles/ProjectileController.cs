@@ -29,7 +29,7 @@ public class ProjectileController : NetworkBehaviour
 
     private bool active = true;
 
-    void Start()
+    public virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
     }

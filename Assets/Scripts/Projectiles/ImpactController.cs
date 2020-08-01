@@ -108,14 +108,6 @@ public class ImpactController : ProjectileController
 
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
 
-        DetonateExplosive _detonateExplosive = _impact.GetComponent<DetonateExplosive>();
-
-        if (_detonateExplosive != null)
-        {
-            _detonateExplosive.playerID = _playerID;
-            _detonateExplosive.Detonate();
-        }
-
         Destroy(_impact, 10f);
         NetworkServer.Destroy(gameObject);
     }

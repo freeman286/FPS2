@@ -20,34 +20,15 @@ public class ExplosiveController : ProjectileController
     [SerializeField]
     private bool airburst = false;
 
-    [SerializeField]
-    private float force = 10f;
-
-    [SerializeField]
-    private LayerMask mask = -1;
-
-    [Header("Damage")]
-
-    [SerializeField]
-    private int damage = 100;
-
-    [SerializeField]
-    private float range = 10f;
-
-    [SerializeField]
-    private DamageType damageType;
-
-    [SerializeField]
-    private AnimationCurve damageFallOff = null;
-
-    [SerializeField]
-    private AnimationCurve damageOverTime = null;
-
-    [SerializeField]
-    private AnimationCurve damageOverAngle = null;
-
     private bool impacted = false;
 
+    private Explosive explosive;
+
+    public override void Start()
+    {
+        base.Start();
+        explosive = GetComponent<Explosive>();
+    }
 
     public override void Update()
     {
@@ -65,7 +46,7 @@ public class ExplosiveController : ProjectileController
         if (_dir.magnitude < 1f)
             _dir = Vector3.up;
 
-        CmdExplode(_dir, timeSinceCreated);
+        explosive.CmdExplode(transform.position, _dir, timeSinceCreated, playerID);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -74,72 +55,8 @@ public class ExplosiveController : ProjectileController
         {
             impacted = true;
             rb.isKinematic = true;
-            CmdExplode(collision.contacts[0].normal * (1 - 2*Convert.ToSingle(airburst)), timeSinceCreated);
+            explosive.CmdExplode(transform.position, collision.contacts[0].normal * (1 - 2*Convert.ToSingle(airburst)), timeSinceCreated, playerID);
         }
-    }
-
-    [Command]
-    void CmdExplode(Vector3 _dir, float _timeSinceCreated)
-    {
-
-        RpcExplode(Quaternion.LookRotation(_dir), playerID);
-
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
-
-        foreach (var _collider in colliders)
-        {
-
-            if (_collider.tag == PLAYER_TAG && _collider.name == "Head")
-            {
-
-                RaycastHit _hit;
-
-                Vector3 target_vector = _collider.transform.position - transform.position;
-
-                if (Physics.Raycast(transform.position, target_vector, out _hit, range, mask))
-                {
-                    if (_collider.tag == PLAYER_TAG)
-                    {
-                        float _distance = Vector3.Distance(_hit.transform.position, transform.position);
-
-                        Player player = _hit.transform.root.GetComponent<Player>();
-
-                        if (player != null)
-                        {
-                            player.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector)/180f)), playerID, damageType.name);
-                        }
-                    }
-                }
-            }
-
-        }
-        
-    }
-
-    [ClientRpc]
-    public void RpcExplode(Quaternion _rot, string _playerID)
-    {
-        GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);
-
-        DetonateExplosive _detonateExplosive = _impact.GetComponent<DetonateExplosive>();
-
-        if (_detonateExplosive != null)
-        {
-            _detonateExplosive.playerID = _playerID;
-            _detonateExplosive.Detonate();
-        }
-
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
-        foreach (Collider _collider in colliders)
-        {
-            Rigidbody rb = _collider.attachedRigidbody;
-
-            if (rb != null)
-                rb.AddExplosionForce(force, transform.position, range, 1.0f);
-        }
-
-        Destroy(_impact, 4f);
-        NetworkServer.Destroy(gameObject);
     }
 
 }

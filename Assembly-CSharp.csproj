@@ -63,6 +63,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+     <Compile Include="Assets\Scripts\BaseComponents\Explosive.cs" />
      <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainId.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainTarget.cs" />
@@ -92,7 +93,6 @@
      <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStun.cs" />
-     <Compile Include="Assets\Scripts\Projectiles\DetonateExplosive.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ExplosiveController.cs" />
      <Compile Include="Assets\Scripts\Projectiles\Homing.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ImpactController.cs" />
