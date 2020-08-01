@@ -1487,6 +1487,7 @@ GameObject:
   - component: {fileID: 5500086210472638473}
   - component: {fileID: 8590141044764537233}
   - component: {fileID: 3543887534676550787}
+  - component: {fileID: 1633249208531942668}
   - component: {fileID: 5738766274489223137}
   - component: {fileID: 600328063753895067}
   - component: {fileID: 3142970429841619064}
@@ -1607,9 +1608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  maxHealth: 100
-  healthRegenTime: 5
-  healthRegenSpeed: 10
   disableOnDeath:
   - {fileID: 600328063753895067}
   - {fileID: 1506890265112965245}
@@ -1645,6 +1643,39 @@ MonoBehaviour:
   - 0.8
   - 0.2
   - 0.2
+--- !u!114 &1633249208531942668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39937c093bc202845a28b4764c9044fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  isDead: 0
+  dieEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3543887534676550787}
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHealth: 100
+  healthRegenTime: 5
+  healthRegenSpeed: 10
+  lastDamagedPlayer: {fileID: 0}
 --- !u!114 &5738766274489223137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1793,6 +1824,7 @@ MonoBehaviour:
   activeSets: []
   primaryWeaponName: 
   secondaryWeaponName: 
+  equipmentName: 
   damageAttributes: []
   speedMultiplier: 1
   jumpMultiplier: 1

@@ -39,6 +39,7 @@ public class Explosive : NetworkBehaviour
     [Command]
     public void CmdExplode(Vector3 _pos, Vector3 _dir, float _timeSinceCreated, string _playerID)
     {
+        List<Transform> _hitTransforms = new List<Transform>();
 
         RpcExplode(_pos, Quaternion.LookRotation(_dir), _playerID);
 
@@ -46,9 +47,12 @@ public class Explosive : NetworkBehaviour
 
         foreach (var _collider in colliders)
         {
+            Health _health = _collider.transform.root.GetComponent<Health>();
 
-            if (_collider.tag == PLAYER_TAG && _collider.name == "Head")
+            if (_health != null && !_hitTransforms.Contains(_collider.transform.root))
             {
+
+                _hitTransforms.Add(_collider.transform.root);
 
                 RaycastHit _hit;
 
@@ -56,17 +60,9 @@ public class Explosive : NetworkBehaviour
 
                 if (Physics.Raycast(_pos, target_vector, out _hit, range, mask))
                 {
-                    if (_collider.tag == PLAYER_TAG)
-                    {
-                        float _distance = Vector3.Distance(_hit.transform.position, _pos);
+                    float _distance = Vector3.Distance(_hit.transform.position, _pos);
 
-                        Player player = _hit.transform.root.GetComponent<Player>();
-
-                        if (player != null)
-                        {
-                            player.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector) / 180f)), _playerID, damageType.name);
-                        }
-                    }
+                    _health.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector) / 180f)), _playerID, damageType.name);
                 }
             }
 

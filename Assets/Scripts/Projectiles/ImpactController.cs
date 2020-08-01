@@ -32,7 +32,7 @@ public class ImpactController : ProjectileController
         base.Update();
         if (fuse <= timeSinceCreated && transform.parent == null)
         {
-            CmdImpact(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up), null, 0, false);
+            CmdImpact(Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up));
         }
     }
 
@@ -79,31 +79,33 @@ public class ImpactController : ProjectileController
 
         int _damage = damage;
         if (collision.collider.name == "Head")
-        {
             _damage = (int)(_damage * headShotMultiplier);
-        }
 
-        CmdImpact(Quaternion.LookRotation(collision.contacts[0].normal), _playerID, _damage, _stick);
+        if (!_stick)
+            CmdImpact(Quaternion.LookRotation(collision.contacts[0].normal));
+
+        Health _health = collision.transform.root.GetComponent<Health>();
+
+        if (_health != null)
+            CmdDamage(_health.transform.name, _damage, playerID, damageType.name);
     }
 
     [Command]
-    void CmdImpact(Quaternion _rot, string _playerID, int _damage, bool _stick)
+    void CmdDamage(string _healthID, int _damage, string _sourceID, string _damageType)
     {
+        Health _health = GameManager.GetHealth(_healthID);
+        _health.RpcTakeDamage(_damage, _sourceID, _damageType);
+    }
 
-        if (_playerID != null && _playerID != playerID)
-        {
-            Player _player = GameManager.GetPlayer(_playerID);
-            _player.RpcTakeDamage(_damage, playerID, damageType.name);
-        }
 
-        if (!_stick)
-        {
-            RpcImpact(_rot, playerID);
-        }
+    [Command]
+    void CmdImpact(Quaternion _rot)
+    {
+        RpcImpact(_rot);
     }
 
     [ClientRpc]
-    public void RpcImpact(Quaternion _rot, string _playerID)
+    public void RpcImpact(Quaternion _rot)
     {
 
         GameObject _impact = (GameObject)Instantiate(impact, transform.position, _rot);

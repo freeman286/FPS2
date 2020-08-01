@@ -323,19 +323,15 @@ public class PlayerShoot : NetworkBehaviour {
 
             if (rb != null && rb.GetComponent<Player>() == null)
                 rb.AddForceAtPosition((_direction + _devience + _cone) * _damage, _hit.point);
-
-            if (_hit.collider.tag == PLAYER_TAG)
-            {
                 
-                if (_hit.collider.transform.name == "Head")
-                {
-                    _damage = (int)(_damage * currentWeapon.headShotMultiplier);
-                }
+            if (_hit.collider.transform.name == "Head")
+                _damage = (int)(_damage * currentWeapon.headShotMultiplier);
 
-                CmdPlayerShot(_hit.collider.transform.root.name, _damage, transform.name, currentWeapon.damageType.name);
-            }
+            Health _health = _hit.collider.transform.root.GetComponent<Health>();
+
+            if (_health != null)
+                CmdDamage(_health.transform.name, _damage, transform.name, currentWeapon.damageType.name);
             
-
             CmdOnHit(_hit.point, _hit.normal);
 
         }
@@ -347,11 +343,10 @@ public class PlayerShoot : NetworkBehaviour {
     }
 
     [Command]
-    public void CmdPlayerShot (string _playerID, int _damage, string _sourceID, string _damageType)
+    void CmdDamage(string _healthID, int _damage, string _sourceID, string _damageType)
     {
-
-        Player _player = GameManager.GetPlayer(_playerID);
-        _player.RpcTakeDamage(_damage, _sourceID, _damageType);
+        Health _health = GameManager.GetHealth(_healthID);
+        _health.RpcTakeDamage(_damage, _sourceID, _damageType);
     }
 
     [Command]

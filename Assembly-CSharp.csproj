@@ -64,6 +64,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\Explosive.cs" />
+     <Compile Include="Assets\Scripts\BaseComponents\Health.cs" />
      <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainId.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainTarget.cs" />

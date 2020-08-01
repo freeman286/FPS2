@@ -47,11 +47,13 @@ public class GameManager : MonoBehaviour
         string _playerID = PLAYER_ID_PREFIX + _netID;
         players.Add(_playerID, _player);
         _player.transform.name = _playerID;
+        RegisterHealth(_playerID, _player.GetComponent<Health>());
     }
 
     public static void UnRegisterPlayer(string _playerID)
     {
         players.Remove(_playerID);
+        UnRegisterHealth(_playerID);
     }
 
     public static Player GetPlayer(string _playerID)
@@ -77,11 +79,13 @@ public class GameManager : MonoBehaviour
         string _projectileID = PROJECTILE_ID_PREFIX + _netID;
         projectiles.Add(_projectileID, _projectile);
         _projectile.transform.name = _projectileID;
+        RegisterHealth(_projectileID, _projectile.GetComponent<Health>());
     }
 
     public static void UnRegisterProjectile(string _projectileID)
     {
         projectiles.Remove(_projectileID);
+        UnRegisterHealth(_projectileID);
     }
 
     public static GameObject GetProjectile(string _projectileID)
@@ -89,6 +93,28 @@ public class GameManager : MonoBehaviour
         return projectiles[_projectileID];
     }
 
+
+    #endregion
+
+    #region Equipment tracking
+
+    private const string EQUIPMENT_ID_PREFIX = "Equipment_";
+
+    private static Dictionary<string, GameObject> equipment = new Dictionary<string, GameObject>();
+
+    public static void RegisterEquipment(string _netID, GameObject _equipment)
+    {
+        string _equipmentID = EQUIPMENT_ID_PREFIX + _netID;
+        equipment.Add(_equipmentID, _equipment);
+        _equipment.transform.name = _equipmentID;
+        RegisterHealth(_equipmentID, _equipment.GetComponent<Health>());
+    }
+
+    public static void UnRegisterEquipment(string _equipmentID)
+    {
+        equipment.Remove(_equipmentID);
+        UnRegisterHealth(_equipmentID);
+    }
 
     #endregion
 
@@ -180,6 +206,27 @@ public class GameManager : MonoBehaviour
     public static GameObject GetLaser()
     {
         return laser;
+    }
+
+    #endregion
+
+    #region Health tracking
+
+    private static Dictionary<string, Health> healths = new Dictionary<string, Health>();
+
+    public static void RegisterHealth(string _name, Health _health)
+    {
+        healths.Add(_name, _health);
+    }
+
+    public static void UnRegisterHealth(string _name)
+    {
+        healths.Remove(_name);
+    }
+
+    public static Health GetHealth(string _name)
+    {
+        return healths[_name];
     }
 
     #endregion

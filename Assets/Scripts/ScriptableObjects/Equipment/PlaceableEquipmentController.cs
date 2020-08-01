@@ -21,6 +21,13 @@ public class PlaceableEquipmentController : NetworkBehaviour
 
     private NetworkIdentity networkIdentity;
 
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+
+        GameManager.RegisterEquipment(GetComponent<NetworkIdentity>().netId.ToString(), gameObject);
+    }
+
     public virtual void Start()
     {
         networkIdentity = GetComponent<NetworkIdentity>();
@@ -57,5 +64,10 @@ public class PlaceableEquipmentController : NetworkBehaviour
         targetPos = _pos;
         targetRot = _rot;
         placeSpeed = _placeSpeed;
+    }
+
+    void OnDestroy()
+    {
+        GameManager.UnRegisterEquipment(transform.name);
     }
 }

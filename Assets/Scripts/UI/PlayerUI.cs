@@ -46,6 +46,7 @@ public class PlayerUI : MonoBehaviour
     public float lookSensitivity;
 
     private Player player;
+    private Health health;
     private PlayerController controller;
     private PlayerShoot shoot;
     private WeaponManager weaponManager;
@@ -59,6 +60,7 @@ public class PlayerUI : MonoBehaviour
     public void SetPlayer(Player _player)
     {
         player = _player;
+        health = player.GetComponent<Health>();
         controller = player.GetComponent<PlayerController>();
         shoot = player.GetComponent<PlayerShoot>();
         weaponManager = player.GetComponent<WeaponManager>();
@@ -84,7 +86,7 @@ public class PlayerUI : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        SetHealthAmount(player.GetHealthPct());
+        SetHealthAmount(health.GetHealthPct());
 
         PlayerWeapon currentWeapon = weaponManager.GetCurrentWeapon();
 

@@ -6,35 +6,6 @@ using Mirror;
 [RequireComponent(typeof(PlayerSetup))]
 public class Player : NetworkBehaviour
 {
-    [SyncVar]
-    private bool _isDead = false;
-    public bool isDead
-    {
-        get { return _isDead; }
-        protected set { _isDead = value; }
-    }
-
-    [Header("Health")]
-
-    [SerializeField]
-    private int maxHealth = 100;
-
-    [SyncVar]
-    private float currentHealth;
-
-    public float GetHealthPct()
-    {
-        return Mathf.Clamp((float)currentHealth / maxHealth, 0, 1);
-    }
-
-    [SerializeField]
-    private float healthRegenTime = 10f;
-
-    [SerializeField]
-    private float healthRegenSpeed = 10f;
-
-    private float timeSinceDamaged = 0f;
-
     [Header("Behaviours")]
 
     [SerializeField]
@@ -86,6 +57,8 @@ public class Player : NetworkBehaviour
 
     private PlayerStats stats;
 
+    private Health health;
+
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
@@ -93,6 +66,7 @@ public class Player : NetworkBehaviour
         equipment = GetComponent<PlayerEquipment>();
         metrics = GetComponent<PlayerMetrics>();
         stats = GetComponent<PlayerStats>();
+        health = GetComponent<Health>();
 
         for (int i = 0; i < rigidbodyOnDeath.Length; i++)
         {
@@ -136,12 +110,6 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
-        timeSinceDamaged += Time.deltaTime;
-
-        if (timeSinceDamaged > healthRegenTime && currentHealth < maxHealth)
-        {
-            currentHealth += healthRegenSpeed * Time.deltaTime;
-        }
 
         if (Input.GetKeyDown("k"))
         {
@@ -150,22 +118,9 @@ public class Player : NetworkBehaviour
     }
 
 
-    [ClientRpc]
-    public void RpcTakeDamage(int _amount, string _sourceID, string _damageType)
+    public void Die()
     {
-        if (isDead)
-            return;
-
-        Player sourcePlayer = GameManager.GetPlayer(_sourceID);
-
-        currentHealth -= _amount * stats.GetDamageMultiplier(_damageType, true) * sourcePlayer.GetComponent<PlayerStats>().GetDamageMultiplier(_damageType, false);
-
-        timeSinceDamaged = 0f;
-
-        if (currentHealth <= 0)
-        {
-            CmdDie(_sourceID);
-        }
+        CmdDie(health.lastDamagedPlayer.name);
     }
 
     [Command]
@@ -177,10 +132,6 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     private void RpcDie(string _sourceID)
     {
-        if (isDead)
-            return;
-
-        isDead = true;
 
         shoot.CancelInvoke("Shoot");
 
@@ -190,8 +141,6 @@ public class Player : NetworkBehaviour
             sourcePlayer.kills++;
             GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
         }
-
-        
 
         deaths++;
 
@@ -249,9 +198,7 @@ public class Player : NetworkBehaviour
 
     public void SetDefaults()
     {
-        isDead = false;
-
-        currentHealth = maxHealth;
+        health.SetDefaults();
 
         for (int i = 0; i < disableOnDeath.Length; i++)
         {

@@ -15,10 +15,17 @@ public class PlayerNameplate : MonoBehaviour
     [SerializeField]
     private Player player = null;
 
+    private Health health;
+
+    void Start()
+    {
+        health = player.GetComponent<Health>();
+    }
+
     void Update()
     {
         usernameText.text = player.username;
-        healthBarFill.localScale = new Vector3(Mathf.Lerp(healthBarFill.localScale.x, player.GetHealthPct(), 10f * Time.deltaTime), 1f, 1f);
+        healthBarFill.localScale = new Vector3(Mathf.Lerp(healthBarFill.localScale.x, health.GetHealthPct(), 10f * Time.deltaTime), 1f, 1f);
     }
 
 }
