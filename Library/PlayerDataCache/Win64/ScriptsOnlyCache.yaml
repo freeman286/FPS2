@@ -50,7 +50,9 @@ ScriptsOnlyBuild:
     - PointForwards
     - ProjectLaser
     - ProjectileController
+    - ProjectileShoot
     - RandomAngularVelocity
+    - RaycastShoot
     - Scoreboard
     - Set
     - SetItem
@@ -135,8 +137,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -458,6 +462,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17516}
     - Class: 114
       Script: {instanceID: 17524}
+    - Class: 114
+      Script: {instanceID: 290718}
+    - Class: 114
+      Script: {instanceID: 562844}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -705,6 +713,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17388}
     - Class: 114
       Script: {instanceID: 17462}
+    - Class: 114
+      Script: {instanceID: 290718}
+    - Class: 114
+      Script: {instanceID: 562844}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -954,6 +966,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17388}
     - Class: 114
       Script: {instanceID: 17462}
+    - Class: 114
+      Script: {instanceID: 290718}
+    - Class: 114
+      Script: {instanceID: 562844}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1077,7 +1093,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerHUD
   - hash:
       serializedVersion: 2
-      Hash: 774a97a3b3180b5d1c487abfbc865484
+      Hash: 566618eac22c587c2675c71d43b130d8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeapon
@@ -1167,7 +1183,7 @@ ScriptsOnlyBuild:
     className: DepthOfField
   - hash:
       serializedVersion: 2
-      Hash: 650ba09c1495691fd386cc294295c893
+      Hash: ce930d8782217b868660aa5fffd51238
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerEquipment
@@ -3475,6 +3491,24 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 9961ad0a0ece9954fb43f76667700b38
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Weapon
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RaycastShoot
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProjectileShoot
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

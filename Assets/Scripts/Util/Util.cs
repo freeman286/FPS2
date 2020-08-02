@@ -193,10 +193,22 @@ public class Util : MonoBehaviour
         return FlipGameObjectMatrix(TransposeGameObjectMatrix(_matrix));
     }
 
-    public static Object[] GetPrefabs(string _dir)
+    public static GameObject[] GetPrefabs(string _dir)
     {
-        Object[] allObjects = Resources.LoadAll(_dir, typeof(GameObject));
-        return allObjects;
+        List<GameObject> allPrefabs = new List<GameObject>();
+
+        string[] paths = Util.GetSubAllFilesInDirectory(_dir, "prefab");
+
+        foreach (string _path in paths)
+        {
+            string _prefabPath = _path.Substring(17, _path.Length - 24); // Remove extra characters from the path we don't need
+
+            GameObject _prefab = (GameObject)Resources.Load<GameObject>(_prefabPath);
+
+            allPrefabs.Add(_prefab);
+        }
+
+        return allPrefabs.ToArray();
     }
 
     public static Behaviour EnableScipt(GameObject _gameObject, string _scriptName, bool _enable)

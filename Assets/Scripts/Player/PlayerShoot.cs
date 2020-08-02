@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(WeaponManager))]
+[RequireComponent(typeof(WeaponManager), typeof(RaycastShoot), typeof(ProjectileShoot))] 
 public class PlayerShoot : NetworkBehaviour {
 
     private const string PLAYER_TAG = "Player";
@@ -18,10 +18,13 @@ public class PlayerShoot : NetworkBehaviour {
 
     public LayerMask mask;
 
-    private WeaponManager weaponManager;
     private PlayerWeapon currentWeapon;
+
+    private WeaponManager weaponManager;
     private PlayerMotor motor;
     private PlayerMetrics metrics;
+    private RaycastShoot raycastShoot;
+    private ProjectileShoot projectileShoot;
 
     [HideInInspector]
     public float timeSinceShot = 100f;
@@ -70,6 +73,8 @@ public class PlayerShoot : NetworkBehaviour {
         weaponManager = GetComponent<WeaponManager>();
         motor = GetComponent<PlayerMotor>();
         metrics = GetComponent<PlayerMetrics>();
+        raycastShoot = GetComponent<RaycastShoot>();
+        projectileShoot = GetComponent<ProjectileShoot>();
         ui = GetComponent<PlayerSetup>().ui;
 
         scopeUIInstance = Instantiate(scopeUIPrefab);
@@ -273,92 +278,27 @@ public class PlayerShoot : NetworkBehaviour {
 
         Vector3 _devience = Random.insideUnitSphere * _spread;
 
-        Vector3 _direction = ShootDirection();
+        Vector3 _direction = raycastShoot.ShootDirection(cam.transform, weaponManager.GetCurrentGraphics().firePoint.transform, currentWeapon.range, mask);
 
         for (int i = 0; i < currentWeapon.roundsPerShot; i++)
         {
-            if (currentWeapon.projectileWeapon)
+            if (currentWeapon.projectile != null)
             {
-                ProjectileShoot(_direction, _devience, currentWeapon.throwPower);
+                projectileShoot.Shoot(weaponManager.GetCurrentGraphics().firePoint.transform, _direction, _devience, currentWeapon.throwPower, currentWeapon.projectile, transform.name);
             }
             else
             {
-                RaycastShoot(_direction, _devience);
+                RaycastHit _hit = raycastShoot.Shoot(weaponManager.GetCurrentGraphics().firePoint.transform, _direction, _devience, currentWeapon, mask);
+
+                if (_hit.point != Vector3.zero)
+                    CmdOnHit(_hit.point, _hit.normal);
+
             }
         }
 
         timeSinceShot = 0;
 
         LocalShootEfftect();
-    }
-
-    Vector3 ShootDirection()
-    {
-        Vector3 _direction;
-
-        RaycastHit _hit;
-        if (Physics.Raycast(cam.transform.position + cam.transform.forward * 2f, cam.transform.forward, out _hit, currentWeapon.range, mask))
-        {
-            _direction = (_hit.point - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized;
-        }
-        else
-        {
-            _direction = (cam.transform.position + cam.transform.forward * currentWeapon.range - weaponManager.GetCurrentGraphics().firePoint.transform.position).normalized;
-        }
-
-        return _direction;
-    }
-
-    void RaycastShoot(Vector3 _direction, Vector3 _devience)
-    {
-        Vector3 _cone = Random.insideUnitSphere * currentWeapon.coneOfFire;
-
-        RaycastHit _hit;
-        if (Physics.Raycast(weaponManager.GetCurrentGraphics().firePoint.transform.position + _direction * 0.2f, _direction + _devience + _cone, out _hit, currentWeapon.range, mask))
-        {
-
-            int _damage = Mathf.RoundToInt(currentWeapon.damageFallOff.Evaluate(_hit.distance / currentWeapon.range) * currentWeapon.damage);
-
-            Rigidbody rb = _hit.collider.attachedRigidbody;
-
-            if (rb != null && rb.GetComponent<Player>() == null)
-                rb.AddForceAtPosition((_direction + _devience + _cone) * _damage, _hit.point);
-                
-            if (_hit.collider.transform.name == "Head")
-                _damage = (int)(_damage * currentWeapon.headShotMultiplier);
-
-            Health _health = _hit.collider.transform.root.GetComponent<Health>();
-
-            if (_health != null)
-                CmdDamage(_health.transform.name, _damage, transform.name, currentWeapon.damageType.name);
-            
-            CmdOnHit(_hit.point, _hit.normal);
-
-        }
-    }
-
-    void ProjectileShoot(Vector3 _direction, Vector3 _devience, float _velocity)
-    {
-        CmdProjectileShot(weaponManager.GetCurrentGraphics().firePoint.transform.position, Quaternion.LookRotation(_direction + _devience), transform.name, _velocity);
-    }
-
-    [Command]
-    void CmdDamage(string _healthID, int _damage, string _sourceID, string _damageType)
-    {
-        Health _health = GameManager.GetHealth(_healthID);
-        _health.RpcTakeDamage(_damage, _sourceID, _damageType);
-    }
-
-    [Command]
-    void CmdProjectileShot(Vector3 _pos, Quaternion _rot, string _playerID, float _velocity)
-    {
-        GameObject _projectile = (GameObject)Instantiate(weaponManager.GetCurrentProjectile(), _pos, _rot);
-        NetworkServer.Spawn(_projectile, connectionToClient);
-        
-        ProjectileController _projectileController = _projectile.GetComponent<ProjectileController>();
-        _projectileController.playerID = _playerID;
-
-        _projectileController.RpcLaunch(_velocity);
     }
 
     void Recoil()
