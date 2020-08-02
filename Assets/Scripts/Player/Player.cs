@@ -108,16 +108,6 @@ public class Player : NetworkBehaviour
         SetDefaults();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown("k") && !health.isDead)
-        {
-            CmdDie(transform.name);
-            health.isDead = true;
-        }
-    }
-
-
     public void Die()
     {
         CmdDie(health.lastDamagedPlayer.name);
