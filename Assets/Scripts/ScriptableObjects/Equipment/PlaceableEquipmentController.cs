@@ -19,7 +19,7 @@ public class PlaceableEquipmentController : NetworkBehaviour
     [HideInInspector]
     public bool ready = false;
 
-    private NetworkIdentity networkIdentity;
+    protected NetworkIdentity networkIdentity;
 
     public override void OnStartClient()
     {

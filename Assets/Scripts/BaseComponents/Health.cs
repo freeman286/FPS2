@@ -39,6 +39,7 @@ public class Health : NetworkBehaviour
         SetDefaults();
     }
 
+    [ServerCallback]
     void Update()
     {
         timeSinceDamaged += Time.deltaTime;

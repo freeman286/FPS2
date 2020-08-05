@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using UnityEngine.VFX;
 
 public class TurretController : PlaceableEquipmentController
 {
     public GameObject target = null;
-    
-    [Header("Damage and Speed")]
 
-    [SerializeField]
-    private float range = 100f;
+    [Header("Operation")]
 
     [SerializeField]
     private float speed = 10f;
@@ -18,16 +16,36 @@ public class TurretController : PlaceableEquipmentController
     [SerializeField]
     private float maxAngle = 90f;
 
+    [Header("Transforms and GameObjects")]
+
     [SerializeField]
     private GameObject turret = null;
+
+    [SerializeField]
+    private Transform muzzle = null;
 
     [SerializeField]
     private GameObject impact = null;
 
     [SerializeField]
+    private VisualEffect muzzleFlash;
+
+    private Weapon weapon;
+
+    private RaycastShoot raycastShoot;
+
+
+    [SerializeField]
     private LayerMask mask = -1;
 
     private const string PLAYER_TAG = "Player";
+
+    public override void Start()
+    {
+        base.Start();
+        weapon = GetComponent<Weapon>();
+        raycastShoot = GetComponent<RaycastShoot>();
+    }
 
     public override void OnStartClient()
     {
@@ -44,6 +62,9 @@ public class TurretController : PlaceableEquipmentController
         if (ready && target != null)
         {
             Track();
+        } else if (ready)
+        {
+            Search();
         }
     }
 
@@ -70,24 +91,77 @@ public class TurretController : PlaceableEquipmentController
 
     void Track()
     {
+        Vector3 _dir = VectorToTarget(target);
 
-        Vector3 _direction = (target.transform.position - turret.transform.position).normalized;
+        if (_dir != Vector3.zero) {
+            Quaternion _lookAtRotation = Quaternion.LookRotation(_dir);
+
+            if (turret.transform.rotation != _lookAtRotation)
+            {
+                turret.transform.rotation = Quaternion.RotateTowards(turret.transform.rotation, _lookAtRotation, speed * Time.deltaTime);
+            } else if (!IsInvoking("Shoot"))
+            {
+                InvokeRepeating("Shoot", 0f, 1f / weapon.fireRate);
+            }
+
+        } else
+        {
+            target = null;
+            CancelInvoke("Shoot");
+        }
+
+    }
+
+    void Search()
+    {
+        foreach (Player _player in GameManager.GetAllPlayers())
+        {
+            if (_player.transform.name != playerID && VectorToTarget(_player.gameObject) != Vector3.zero)
+            {
+                target = _player.gameObject;
+                return;
+            }
+        }
+        target = null;
+    }
+
+    Vector3 VectorToTarget(GameObject _target)
+    {
+        Vector3 _direction = (_target.transform.position - turret.transform.position).normalized;
 
         RaycastHit _hit;
 
-        if (Vector3.Angle(_direction, transform.forward) <= maxAngle && Physics.Raycast(turret.transform.position, _direction, out _hit, range, mask))
+        if (Vector3.Angle(_direction, transform.forward) <= maxAngle && Physics.Raycast(turret.transform.position, _direction, out _hit, weapon.range, mask))
         {
 
             if (_hit.collider.tag == PLAYER_TAG)
             {
-                Quaternion _lookAtRotation = Quaternion.LookRotation(_direction);
-
-                if (transform.rotation != _lookAtRotation)
-                {
-                    turret.transform.rotation = Quaternion.RotateTowards(turret.transform.rotation, _lookAtRotation, speed * Time.deltaTime);
-                }
+                return _direction;
             }
         }
-        
+
+        return Vector3.zero;
+    }
+
+    void Shoot()
+    {
+        if (!networkIdentity.hasAuthority)
+            return;
+
+        CmdOnShoot();
+
+        raycastShoot.Shoot(muzzle, turret.transform.forward, Vector3.zero, weapon, mask, playerID);
+    }
+
+    [Command]
+    public void CmdOnShoot()
+    {
+        RpcDoShootEfftect();
+    }
+
+    [ClientRpc]
+    void RpcDoShootEfftect()
+    {
+        muzzleFlash.Play();
     }
 }

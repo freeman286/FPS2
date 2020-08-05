@@ -24,8 +24,7 @@ public class ProjectileController : NetworkBehaviour
     [HideInInspector]
     public float timeSinceCreated = 0f;
 
-    [HideInInspector]
-    public const string PLAYER_TAG = "Player";
+    protected const string PLAYER_TAG = "Player";
 
     private bool active = true;
 

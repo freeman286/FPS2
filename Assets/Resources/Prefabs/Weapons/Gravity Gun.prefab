@@ -753,8 +753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05dc790f6a4a544798126d07c9c23d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Gravity Gun
-  primary: 0
   damage: 0
   headShotMultiplier: 0
   damageFallOff:
@@ -788,10 +786,11 @@ MonoBehaviour:
   scoped: 0
   special: 1
   roundsPerShot: 1
-  projectileWeapon: 0
+  coneOfFire: 0
   throwPower: 0
   projectile: {fileID: 0}
-  coneOfFire: 0
+  name: Gravity Gun
+  primary: 0
   spreadDefault: 0.08
   spreadWhileMoving: 0.15
   spreadWhileJumping: 0.4
@@ -849,6 +848,8 @@ MonoBehaviour:
   reloadTime: 2.5
   scriptsToEnable:
   - GravityGun
+  behaviourToEnable:
+  - {fileID: 0}
 --- !u!82 &3317242424504107631
 AudioSource:
   m_ObjectHideFlags: 0

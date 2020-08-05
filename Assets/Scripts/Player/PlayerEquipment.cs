@@ -45,7 +45,7 @@ public class PlayerEquipment : NetworkBehaviour
             if (equipment is Grenade)
             {
 
-                projectileShoot.Shoot(equipmentSpawnPoint, _throwDirection, Vector3.zero, ((Grenade)equipment).throwPower, equipment.prefab, transform.name);
+                projectileShoot.Shoot(equipmentSpawnPoint, _throwDirection, Vector3.zero, ((Grenade)equipment).throwPower, equipment.prefab, transform.name, 1);
                 timeSinceEquipmentUsed = 0f;
 
             } else if (equipment is Charge)

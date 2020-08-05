@@ -25,8 +25,10 @@ public class WeaponManager : NetworkBehaviour
     public string currentWeaponName;
 
     private PlayerShoot shoot;
-
     private PlayerStats stats;
+    private RaycastShoot raycastShoot;
+    private PlayerMetrics metrics;
+    private PlayerEquipment equipment;
 
     public bool isReloading = false;
 
@@ -42,9 +44,7 @@ public class WeaponManager : NetworkBehaviour
 
     private GameObject weaponIns;
 
-    private PlayerMetrics metrics;
-
-    private PlayerEquipment equipment;
+    
 
     private Behaviour[] scripts;
 
@@ -53,6 +53,7 @@ public class WeaponManager : NetworkBehaviour
     {
         allWeapons = WeaponsUtil.AllWeapons();
         shoot = GetComponent<PlayerShoot>();
+        raycastShoot = GetComponent<RaycastShoot>();
         anim = GetComponent<Animator>();
         metrics = GetComponent<PlayerMetrics>();
         stats = GetComponent<PlayerStats>();
@@ -209,6 +210,8 @@ public class WeaponManager : NetworkBehaviour
         currentGraphics = weaponIns.GetComponent<WeaponGraphics>();
         if (currentGraphics == null)
             Debug.LogError("No WeaponGraphics component on weapon object: " + weaponIns.name);
+
+        raycastShoot.hitEffectPrefab = currentGraphics.hitEffectPrefab;
 
         if (isLocalPlayer)
             Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer(weaponLayerName));

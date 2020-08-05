@@ -228,20 +228,6 @@ public class PlayerShoot : NetworkBehaviour {
         Destroy(_shootSound, _shootSound.GetComponent<AudioSource>().clip.length);
     }
 
-    [Command]
-    void CmdOnHit(Vector3 _pos, Vector3 _normal)
-    {
-        RpcDoHitEfftect(_pos, _normal, transform.name);
-    }
-
-    [ClientRpc]
-    void RpcDoHitEfftect(Vector3 _pos, Vector3 _normal, string _playerID)
-    {
-        GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentGraphics().hitEffectPrefab, _pos, Quaternion.LookRotation(_normal));
-
-        Destroy(_hitEffect, 2f);
-    }
-
     [Client]
     void Shoot()
     {
@@ -279,21 +265,14 @@ public class PlayerShoot : NetworkBehaviour {
         Vector3 _devience = Random.insideUnitSphere * _spread;
 
         Vector3 _direction = raycastShoot.ShootDirection(cam.transform, weaponManager.GetCurrentGraphics().firePoint.transform, currentWeapon.range, mask);
-
-        for (int i = 0; i < currentWeapon.roundsPerShot; i++)
+        
+        if (currentWeapon.projectile != null)
         {
-            if (currentWeapon.projectile != null)
-            {
-                projectileShoot.Shoot(weaponManager.GetCurrentGraphics().firePoint.transform, _direction, _devience, currentWeapon.throwPower, currentWeapon.projectile, transform.name);
-            }
-            else
-            {
-                RaycastHit _hit = raycastShoot.Shoot(weaponManager.GetCurrentGraphics().firePoint.transform, _direction, _devience, currentWeapon, mask);
-
-                if (_hit.point != Vector3.zero)
-                    CmdOnHit(_hit.point, _hit.normal);
-
-            }
+            projectileShoot.Shoot(weaponManager.GetCurrentGraphics().firePoint.transform, _direction, _devience, currentWeapon.throwPower, currentWeapon.projectile, transform.name, currentWeapon.roundsPerShot);
+        }
+        else
+        {
+            raycastShoot.Shoot(weaponManager.GetCurrentGraphics().firePoint.transform, _direction, _devience, currentWeapon, mask, transform.name);
         }
 
         timeSinceShot = 0;

@@ -67,10 +67,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1307
-  m_MinSize: {x: 577, y: 471}
-  m_MaxSize: {x: 12002, y: 14042}
+  m_MinSize: {x: 578, y: 471}
+  m_MaxSize: {x: 12003, y: 14042}
   vertical: 0
-  controlID: 128
+  controlID: 104
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -205,10 +205,10 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 1307
-  m_MinSize: {x: 577, y: 471}
-  m_MaxSize: {x: 12002, y: 14042}
+  m_MinSize: {x: 578, y: 471}
+  m_MaxSize: {x: 12003, y: 14042}
   vertical: 1
-  controlID: 129
+  controlID: 105
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -231,10 +231,10 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 1034
-  m_MinSize: {x: 577, y: 200}
-  m_MaxSize: {x: 12002, y: 4021}
+  m_MinSize: {x: 578, y: 200}
+  m_MaxSize: {x: 12003, y: 4021}
   vertical: 0
-  controlID: 130
+  controlID: 106
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -252,7 +252,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 420
+    width: 419
     height: 1034
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 420
+    x: 419
     y: 0
     width: 1526
     height: 1034
@@ -306,12 +306,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1946
+    x: 1945
     y: 0
-    width: 614
+    width: 615
     height: 1034
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -395,7 +395,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 420
+    x: 419
     y: 73
     width: 1524
     height: 1013
@@ -510,7 +510,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 420
+    x: 419
     y: 73
     width: 1524
     height: 1013
@@ -601,15 +601,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 419
+    width: 418
     height: 1013
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 704efdff
+      m_SelectedIDs: 84630000
       m_LastClickedID: 0
-      m_ExpandedIDs: 18f7fdff26f0ffffc2f1ffff38f5ffffe6f5ffff4ef6ffff66fbffff
+      m_ExpandedIDs: 0e0cedff0c09eeff480aeeffbe0deeff6c0eeeff740eeeff18afeeff265eefff6a3af1ffa63bf1ff1c3ff1ffca3ff1ffd23ff1ff9421f3ff427ff5ff9c71f6fff04cf7ff5620f8ff62c9f9ffa0edfeff66fbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1045,9 +1045,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1946
+    x: 1945
     y: 73
-    width: 613
+    width: 614
     height: 1013
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
@@ -1083,9 +1083,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1946
+    x: 1945
     y: 73
-    width: 613
+    width: 614
     height: 1013
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
@@ -1098,9 +1098,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.7254124, y: 5.791912, z: 13.650242}
+    m_Target: {x: -0.34325123, y: 5.6500006, z: 4.300009}
     speed: 2
-    m_Value: {x: 4.7254124, y: 5.791912, z: 13.650242}
+    m_Value: {x: -18.230944, y: 8.816162, z: 2.2877347}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 40.010372
     speed: 2
-    m_Value: 40.010372
+    m_Value: 76.72764
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1255,19 +1255,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Player
+    - Assets/Resources/Prefabs/Equipment/Turrets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Player
+  - Assets/Resources/Prefabs/Equipment/Turrets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Joel\Documents\FPS2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 548}
-    m_SelectedIDs: a06d0000
-    m_LastClickedID: 28064
+    scrollPos: {x: 0, y: 296}
+    m_SelectedIDs: 726d0000
+    m_LastClickedID: 28018
     m_ExpandedIDs: 00000000646c0000666c0000686c00006a6c00006c6c00006e6c0000706c0000726c0000746c0000766c0000786c00007a6c00007c6c00007e6c0000806c0000826c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1406,4 +1406,4 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -489316
+  m_LastSelectedObjectID: -1129418

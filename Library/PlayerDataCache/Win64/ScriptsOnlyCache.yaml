@@ -62,6 +62,7 @@ ScriptsOnlyBuild:
     - TerrainTarget
     - Turret
     - TurretController
+    - Weapon
     - WeaponGraphics
     - WeaponItem
     - WeaponList
@@ -137,8 +138,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -162,6 +165,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Text
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
+    com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
     Assets/Scenes/Lobby.unity:
     - Class: 1
@@ -224,6 +229,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11658}
     - Class: 114
       Script: {instanceID: 11660}
+    - Class: 114
+      Script: {instanceID: 11662}
     - Class: 114
       Script: {instanceID: 11720}
     - Class: 114
@@ -556,6 +563,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11658}
     - Class: 114
+      Script: {instanceID: 11662}
+    - Class: 114
       Script: {instanceID: 11720}
     - Class: 114
       Script: {instanceID: 11830}
@@ -804,6 +813,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11632}
     - Class: 114
       Script: {instanceID: 11658}
+    - Class: 114
+      Script: {instanceID: 11662}
     - Class: 114
       Script: {instanceID: 11720}
     - Class: 114
@@ -2211,7 +2222,7 @@ ScriptsOnlyBuild:
     className: CarController
   - hash:
       serializedVersion: 2
-      Hash: 24af70734d8758872574996865055ec1
+      Hash: eaa4be42bfac763a91d6e1d0760ec0b1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TurretController
@@ -2631,7 +2642,7 @@ ScriptsOnlyBuild:
     className: AeroplanePropellerAnimator
   - hash:
       serializedVersion: 2
-      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+      Hash: 8064c90489492e065aaeffc2d2248274
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RaycastShoot

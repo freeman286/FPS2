@@ -6,9 +6,12 @@ using Mirror;
 public class ProjectileShoot : NetworkBehaviour
 {
 
-    public void Shoot(Transform _muzzleTrans, Vector3 _direction, Vector3 _devience, float _velocity, GameObject _projectile, string _playerID)
+    public void Shoot(Transform _muzzleTrans, Vector3 _direction, Vector3 _devience, float _velocity, GameObject _projectile, string _playerID, int _roundsPerShot)
     {
-        CmdProjectileShot(_muzzleTrans.position, Quaternion.LookRotation(_direction + _devience), _playerID, _velocity, _projectile.name);
+        for (int i = 0; i < _roundsPerShot; i++)
+        {
+            CmdProjectileShot(_muzzleTrans.position, Quaternion.LookRotation(_direction + _devience), _playerID, _velocity, _projectile.name);
+        }
     }
 
     [Command]

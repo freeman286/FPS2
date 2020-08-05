@@ -5,33 +5,38 @@ using Mirror;
 
 public class RaycastShoot : NetworkBehaviour
 {
-    public RaycastHit Shoot(Transform _muzzleTrans, Vector3 _direction, Vector3 _devience, Weapon _weapon, LayerMask _mask)
-    {
-        Vector3 _cone = Random.insideUnitSphere * _weapon.coneOfFire;
+    public GameObject hitEffectPrefab;
 
-        RaycastHit _hit;
-        if (Physics.Raycast(_muzzleTrans.position + _direction * 0.2f, _direction + _devience + _cone, out _hit, _weapon.range, _mask))
+    public void Shoot(Transform _muzzleTrans, Vector3 _direction, Vector3 _devience, Weapon _weapon, LayerMask _mask, string _sourceID)
+    {
+        for (int i = 0; i < _weapon.roundsPerShot; i++)
         {
 
-            int _damage = Mathf.RoundToInt(_weapon.damageFallOff.Evaluate(_hit.distance / _weapon.range) * _weapon.damage);
+            Vector3 _cone = Random.insideUnitSphere * _weapon.coneOfFire;
 
-            Rigidbody rb = _hit.collider.attachedRigidbody;
+            RaycastHit _hit;
+            if (Physics.Raycast(_muzzleTrans.position + _direction * 0.2f, _direction + _devience + _cone, out _hit, _weapon.range, _mask))
+            {
 
-            if (rb != null && rb.GetComponent<Player>() == null)
-                rb.AddForceAtPosition((_direction + _devience + _cone) * _damage, _hit.point);
+                int _damage = Mathf.RoundToInt(_weapon.damageFallOff.Evaluate(_hit.distance / _weapon.range) * _weapon.damage);
 
-            if (_hit.collider.transform.name == "Head")
-                _damage = (int)(_damage * _weapon.headShotMultiplier);
+                Rigidbody rb = _hit.collider.attachedRigidbody;
 
-            Health _health = _hit.collider.transform.root.GetComponent<Health>();
+                if (rb != null && rb.GetComponent<Player>() == null)
+                    rb.AddForceAtPosition((_direction + _devience + _cone) * _damage, _hit.point);
 
-            if (_health != null)
-                CmdDamage(_health.transform.name, _damage, transform.name, _weapon.damageType.name);
+                if (_hit.collider.transform.name == "Head")
+                    _damage = (int)(_damage * _weapon.headShotMultiplier);
 
-            return _hit;
+                Health _health = _hit.collider.transform.root.GetComponent<Health>();
+
+                if (_health != null)
+                    CmdDamage(_health.transform.name, _damage, _sourceID, _weapon.damageType.name);
+
+
+                CmdOnHit(_hit.point, _hit.normal);
+            }
         }
-
-        return new RaycastHit();
     }
 
     [Command]
@@ -56,5 +61,19 @@ public class RaycastShoot : NetworkBehaviour
         }
 
         return _direction;
+    }
+
+    [Command]
+    void CmdOnHit(Vector3 _pos, Vector3 _normal)
+    {
+        RpcDoHitEfftect(_pos, _normal, transform.name);
+    }
+
+    [ClientRpc]
+    void RpcDoHitEfftect(Vector3 _pos, Vector3 _normal, string _playerID)
+    {
+        GameObject _hitEffect = (GameObject)Instantiate(hitEffectPrefab, _pos, Quaternion.LookRotation(_normal));
+
+        Destroy(_hitEffect, 2f);
     }
 }
