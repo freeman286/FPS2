@@ -29,13 +29,10 @@ public class ChargeController : PlaceableEquipmentController
             explosive.CmdExplode(transform.position + transform.forward * 0.01f, transform.forward, 0f, playerID);
     }
 
-    public void ForceDetonate()
+    public void ForceDetonate(string _sourceID)
     {
-        Health _health = GetComponent<Health>();
-
-        if (_health != null)
-            playerID = _health.lastDamagedPlayer.transform.name;
+        playerID = _sourceID;
 
         Detonate();
-    }   
+    }
 }

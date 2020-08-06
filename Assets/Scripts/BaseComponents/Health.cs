@@ -4,13 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using Mirror;
 
+[System.Serializable]
+public class DieEvent : UnityEvent<string>
+{
+}
+
 public class Health : NetworkBehaviour
 {
     [SyncVar]
     public bool isDead = false;
 
-    [SerializeField]
-    private UnityEvent dieEvent;
+    public DieEvent dieEvent;
 
     [SerializeField]
     private int maxHealth = 100;
@@ -72,7 +76,8 @@ public class Health : NetworkBehaviour
         if (currentHealth <= 0)
         {
             isDead = true;
-            dieEvent.Invoke();
+
+            dieEvent.Invoke(_sourceID);
         }
     }
 

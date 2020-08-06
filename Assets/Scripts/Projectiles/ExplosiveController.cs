@@ -49,12 +49,9 @@ public class ExplosiveController : ProjectileController
         explosive.CmdExplode(transform.position, _dir, timeSinceCreated, playerID);
     }
 
-    public void ForceDetonate()
+    public void ForceDetonate(string _sourceID)
     {
-        Health _health = GetComponent<Health>();
-
-        if (_health != null)
-            playerID = _health.lastDamagedPlayer.transform.name;
+        playerID = _sourceID;
 
         Detonate();
     }

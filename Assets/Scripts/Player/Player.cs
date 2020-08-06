@@ -108,9 +108,9 @@ public class Player : NetworkBehaviour
         SetDefaults();
     }
 
-    public void Die()
+    public void Die(string _sourceID)
     {
-        CmdDie(health.lastDamagedPlayer.name);
+        CmdDie(_sourceID);
     }
 
     [Command]
