@@ -502,7 +502,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2721180637063796786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261ca348a12b40f4aa3b8a406aef9f32, type: 3}
+  m_Script: {fileID: 11500000, guid: e162e53900c92964ba478cea8bcf4fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 4071665815476131138}
@@ -517,6 +517,7 @@ MonoBehaviour:
   - {fileID: 8238910437661078734}
   - {fileID: 1729483327383449718}
   - {fileID: 5755004223841372545}
+  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -548,8 +549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05dc790f6a4a544798126d07c9c23d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Revolver
-  primary: 0
   damage: 55
   headShotMultiplier: 2
   damageFallOff:
@@ -601,10 +600,11 @@ MonoBehaviour:
   scoped: 0
   special: 0
   roundsPerShot: 1
-  projectileWeapon: 0
+  coneOfFire: 0
   throwPower: 0
   projectile: {fileID: 0}
-  coneOfFire: 0
+  name: Revolver
+  primary: 0
   spreadDefault: 0
   spreadWhileMoving: 0.07
   spreadWhileJumping: 0.4

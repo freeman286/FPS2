@@ -1494,6 +1494,7 @@ GameObject:
   - component: {fileID: 1506890265112965245}
   - component: {fileID: 117454419726637137}
   - component: {fileID: 5878902899206545698}
+  - component: {fileID: 172871728118374985}
   - component: {fileID: 6832787154136730258}
   - component: {fileID: -316878476097349666}
   - component: {fileID: 1866657983699075262}
@@ -1781,6 +1782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  hitEffectPrefab: {fileID: 0}
 --- !u!114 &5878902899206545698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1795,6 +1797,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+--- !u!114 &172871728118374985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e36de1530ae9064a80ca62ecbeaf29f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6832787154136730258
 MonoBehaviour:
   m_ObjectHideFlags: 0

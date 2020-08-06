@@ -782,7 +782,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2721180637063796786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261ca348a12b40f4aa3b8a406aef9f32, type: 3}
+  m_Script: {fileID: 11500000, guid: e162e53900c92964ba478cea8bcf4fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 4071665815476131138}
@@ -800,6 +800,7 @@ MonoBehaviour:
   - {fileID: 5216087974966478814}
   - {fileID: 3999087898692281867}
   - {fileID: 1271140668451742953}
+  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -831,8 +832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05dc790f6a4a544798126d07c9c23d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Rocket Pod
-  primary: 1
   damage: 25
   headShotMultiplier: 1
   damageFallOff:
@@ -884,11 +883,12 @@ MonoBehaviour:
   scoped: 0
   special: 0
   roundsPerShot: 1
-  projectileWeapon: 1
+  coneOfFire: 0
   throwPower: 15
   projectile: {fileID: 156444120250483795, guid: a7151f48fb3307046b18f47c17f20e70,
     type: 3}
-  coneOfFire: 0
+  name: Rocket Pod
+  primary: 1
   spreadDefault: 0.2
   spreadWhileMoving: 0.2
   spreadWhileJumping: 0.4

@@ -31,11 +31,13 @@ public class GravityGun : NetworkBehaviour
 
     private ProjectileController projectileController;
     private PlayerShoot shoot;
+    private ShootEffects shootEffects;
 
     void Start()
     {
         shoot = GetComponent<PlayerShoot>();
         weaponManager = GetComponent<WeaponManager>();
+        shootEffects = GetComponent<ShootEffects>();
     }
 
     void Update()
@@ -92,7 +94,7 @@ public class GravityGun : NetworkBehaviour
                 projectileController = null;
 
                 shoot.CmdOnShoot();
-                shoot.LocalShootEfftect();
+                shootEffects.LocalShootEfftect((WeaponGraphics)weaponManager.GetCurrentGraphics());
                 shoot.timeSinceShot = 0;
 
             } else

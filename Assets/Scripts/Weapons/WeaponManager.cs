@@ -20,7 +20,7 @@ public class WeaponManager : NetworkBehaviour
 
     public PlayerWeapon currentWeapon;
 
-    public WeaponGraphics currentGraphics;
+    public PlayerWeaponGraphics currentGraphics;
     [SyncVar]
     public string currentWeaponName;
 
@@ -29,12 +29,11 @@ public class WeaponManager : NetworkBehaviour
     private RaycastShoot raycastShoot;
     private PlayerMetrics metrics;
     private PlayerEquipment equipment;
+    private Animator anim;
 
     public bool isReloading = false;
 
     private PlayerWeapon[] allWeapons;
-
-    private Animator anim;
 
     public float switchingTime;
 
@@ -54,10 +53,10 @@ public class WeaponManager : NetworkBehaviour
         allWeapons = WeaponsUtil.AllWeapons();
         shoot = GetComponent<PlayerShoot>();
         raycastShoot = GetComponent<RaycastShoot>();
-        anim = GetComponent<Animator>();
         metrics = GetComponent<PlayerMetrics>();
         stats = GetComponent<PlayerStats>();
         equipment = GetComponent<PlayerEquipment>();
+        anim = GetComponent<Animator>();
     }   
 
     void Update()
@@ -180,6 +179,7 @@ public class WeaponManager : NetworkBehaviour
             anim.SetTrigger("Switching");
         }
 
+
         if (scripts != null)
         {
             for (int i = 0; i < scripts.Length; i++)
@@ -207,7 +207,7 @@ public class WeaponManager : NetworkBehaviour
         weaponIns = (GameObject)Instantiate(currentWeapon.gameObject, weaponHolder.position, weaponHolder.rotation);
         weaponIns.transform.SetParent(weaponHolder);
 
-        currentGraphics = weaponIns.GetComponent<WeaponGraphics>();
+        currentGraphics = weaponIns.GetComponent<PlayerWeaponGraphics>();
         if (currentGraphics == null)
             Debug.LogError("No WeaponGraphics component on weapon object: " + weaponIns.name);
 
@@ -238,7 +238,7 @@ public class WeaponManager : NetworkBehaviour
         if (isReloading)
             return;
 
-        anim.ResetTrigger("Shoot");
+        currentGraphics.animator.ResetTrigger("Shoot");
         reload = Reload_Coroutine();
         StartCoroutine(reload);
     }
@@ -265,18 +265,14 @@ public class WeaponManager : NetworkBehaviour
     [ClientRpc]
     void RpcOnReload()
     {
-        Animator anim = currentGraphics.GetComponent<Animator>();
-        if (anim != null)
-        {
-            anim.SetTrigger("Reload");
-            StartCoroutine(CancelShoot_Coroutine());
-        }
+        currentGraphics.animator.SetTrigger("Reload");
+        StartCoroutine(CancelShoot_Coroutine());
     }
 
     private IEnumerator CancelShoot_Coroutine()
     {
         yield return new WaitForSeconds(1/currentWeapon.fireRate);
-        anim.ResetTrigger("Shoot"); // Sometimes the shoot trigger is still set and a phantom animation could play
+        currentGraphics.animator.ResetTrigger("Shoot"); // Sometimes the shoot trigger is still set and a phantom animation could play
     }
 
     public GameObject GetCurrentCasing()

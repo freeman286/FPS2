@@ -7,9 +7,8 @@ public class WeaponGraphics : MonoBehaviour
 {
     public VisualEffect muzzleFlash;
     public GameObject hitEffectPrefab;
-    public GameObject ejectionPort;
-    public GameObject casing;
     public GameObject shootSound;
     public GameObject firePoint;
-    public Collider[] colliders;
+    public Animator animator;
+
 }

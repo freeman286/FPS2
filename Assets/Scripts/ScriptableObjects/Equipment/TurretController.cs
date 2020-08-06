@@ -31,8 +31,10 @@ public class TurretController : PlaceableEquipmentController
     private VisualEffect muzzleFlash;
 
     private Weapon weapon;
-
+    private WeaponGraphics weaponGraphics;
     private RaycastShoot raycastShoot;
+    private ShootEffects shootEffects;
+
 
 
     [SerializeField]
@@ -45,6 +47,8 @@ public class TurretController : PlaceableEquipmentController
         base.Start();
         weapon = GetComponent<Weapon>();
         raycastShoot = GetComponent<RaycastShoot>();
+        weaponGraphics = GetComponent<WeaponGraphics>();
+        shootEffects = GetComponent<ShootEffects>();
     }
 
     public override void OnStartClient()
@@ -131,13 +135,9 @@ public class TurretController : PlaceableEquipmentController
 
         RaycastHit _hit;
 
-        if (Vector3.Angle(_direction, transform.forward) <= maxAngle && Physics.Raycast(turret.transform.position, _direction, out _hit, weapon.range, mask))
+        if (Vector3.Angle(_direction, transform.forward) <= maxAngle && Physics.Raycast(turret.transform.position, _direction, out _hit, weapon.range, mask) && _hit.transform.root == _target.transform)
         {
-
-            if (_hit.collider.tag == PLAYER_TAG)
-            {
-                return _direction;
-            }
+            return _direction;
         }
 
         return Vector3.zero;
@@ -162,6 +162,6 @@ public class TurretController : PlaceableEquipmentController
     [ClientRpc]
     void RpcDoShootEfftect()
     {
-        muzzleFlash.Play();
+        shootEffects.LocalShootEfftect(weaponGraphics);
     }
 }

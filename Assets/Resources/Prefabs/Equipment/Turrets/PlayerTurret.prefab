@@ -99,8 +99,11 @@ GameObject:
   - component: {fileID: 3330928209843832420}
   - component: {fileID: 3596681543243515106}
   - component: {fileID: -2497769578073780965}
-  - component: {fileID: 8183088718756907435}
   - component: {fileID: 6137296695485563923}
+  - component: {fileID: 8183088718756907435}
+  - component: {fileID: -3831421147995215593}
+  - component: {fileID: -7517560803616711277}
+  - component: {fileID: 1360445486853004107}
   m_Layer: 17
   m_Name: PlayerTurret
   m_TagString: Equipment
@@ -176,6 +179,7 @@ MonoBehaviour:
   - {fileID: 2954331252196360057}
   placeSpeed: 0
   ready: 0
+  target: {fileID: 0}
   speed: 30
   maxAngle: 90
   turret: {fileID: 4723650260916456}
@@ -233,10 +237,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 50
-  healthRegenTime: 20
+  maxHealth: 10
+  healthRegenTime: 5
   healthRegenSpeed: 5
   lastDamagedPlayer: {fileID: 0}
+--- !u!114 &6137296695485563923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa2767a437a45f40b9cbd5aa148845e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
+    type: 3}
 --- !u!114 &8183088718756907435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,26 +277,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.26279238
-      outSlope: -0.26279238
+      inSlope: -0.11548916
+      outSlope: -0.11548916
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.08099413
-      value: 0.97871536
-      inSlope: -0.45805693
-      outSlope: -0.45805693
-      tangentMode: 34
+      time: 0.89948237
+      value: 0.89611953
+      inSlope: -0.18752997
+      outSlope: -0.18752997
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.25057918
     - serializedVersion: 3
-      time: 0.79272306
-      value: 0.51372755
-      inSlope: -1.5658906
-      outSlope: -1.5658906
+      time: 0.9810303
+      value: 0.3780343
+      inSlope: -13.140722
+      outSlope: -13.140722
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -284,8 +304,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -2.4784596
-      outSlope: -2.4784596
+      inSlope: -19.928307
+      outSlope: -19.928307
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -293,17 +313,17 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  range: 100
+  range: 20
   damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
   automatic: 1
-  fireRate: 5
+  fireRate: 4
   scoped: 0
   special: 0
   roundsPerShot: 1
   coneOfFire: 0
   throwPower: 0
   projectile: {fileID: 0}
---- !u!114 &6137296695485563923
+--- !u!114 &-3831421147995215593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,13 +332,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 156444120250483795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fa2767a437a45f40b9cbd5aa148845e, type: 3}
+  m_Script: {fileID: 11500000, guid: 261ca348a12b40f4aa3b8a406aef9f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
+  muzzleFlash: {fileID: 3087905748596236281}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
+  shootSound: {fileID: 185320, guid: 5e57d93eaa5378b4698deff4aab32526, type: 3}
+  firePoint: {fileID: 8866296353714069254}
+  animator: {fileID: 1360445486853004107}
+--- !u!114 &-7517560803616711277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e36de1530ae9064a80ca62ecbeaf29f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1360445486853004107
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9bc9c3ecd4b90a478e6a102ea2817fb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4605353435659651129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,9 +1058,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.84931344, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.70388687, b: 0, a: 1}
   m_Intensity: 0
-  m_Range: 10
+  m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

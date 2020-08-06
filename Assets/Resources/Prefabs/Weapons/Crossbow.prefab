@@ -623,7 +623,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2721180637063796786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261ca348a12b40f4aa3b8a406aef9f32, type: 3}
+  m_Script: {fileID: 11500000, guid: e162e53900c92964ba478cea8bcf4fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 4071665815476131138}
@@ -647,6 +647,7 @@ MonoBehaviour:
   - {fileID: 9018369016903438197}
   - {fileID: 685765630343533138}
   - {fileID: 630310737765036285}
+  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -678,8 +679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05dc790f6a4a544798126d07c9c23d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Crossbow
-  primary: 0
   damage: 35
   headShotMultiplier: 1.5
   damageFallOff:
@@ -722,11 +721,12 @@ MonoBehaviour:
   scoped: 1
   special: 0
   roundsPerShot: 1
-  projectileWeapon: 1
+  coneOfFire: 0
   throwPower: 80
   projectile: {fileID: 156444120250483795, guid: 65294eefcb901dd4492dc222cf5da945,
     type: 3}
-  coneOfFire: 0
+  name: Crossbow
+  primary: 0
   spreadDefault: 0
   spreadWhileMoving: 0.05
   spreadWhileJumping: 0.08
@@ -762,7 +762,7 @@ MonoBehaviour:
   magSize: 1
   speed: 1.2
   scopedSpeed: 1
-  bullets: 1
+  bullets: 0
   reloadTime: 3
   scriptsToEnable: []
 --- !u!82 &3317242424504107631

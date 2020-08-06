@@ -595,7 +595,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2721180637063796786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261ca348a12b40f4aa3b8a406aef9f32, type: 3}
+  m_Script: {fileID: 11500000, guid: e162e53900c92964ba478cea8bcf4fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 4071665815476131138}
@@ -612,6 +612,7 @@ MonoBehaviour:
   - {fileID: 2303377048758410960}
   - {fileID: 7854329054703169630}
   - {fileID: 3464882261763442203}
+  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -643,8 +644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05dc790f6a4a544798126d07c9c23d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Grenade Launcher
-  primary: 1
   damage: 25
   headShotMultiplier: 1
   damageFallOff:
@@ -696,11 +695,12 @@ MonoBehaviour:
   scoped: 0
   special: 0
   roundsPerShot: 1
-  projectileWeapon: 1
+  coneOfFire: 0
   throwPower: 15
   projectile: {fileID: 156444120250483795, guid: 13d92738dc3f6f14ab918aa5b0b4d1ff,
     type: 3}
-  coneOfFire: 0
+  name: Grenade Launcher
+  primary: 1
   spreadDefault: 0.1
   spreadWhileMoving: 0.4
   spreadWhileJumping: 1

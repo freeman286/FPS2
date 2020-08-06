@@ -60,9 +60,9 @@ public class Explosive : NetworkBehaviour
 
                 Vector3 target_vector = _collider.transform.position - _pos;
 
-                if (Physics.Raycast(_pos, target_vector, out _hit, range, mask))
+                if (Physics.Raycast(_pos, target_vector, out _hit, range, mask) && _hit.transform.root == _baseTransform)
                 {
-                    float _distance = Vector3.Distance(_hit.transform.position, _pos);
+                    float _distance = Vector3.Distance(_baseTransform.position, _pos);
 
                     _health.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector) / 180f)), _playerID, damageType.name);
                 }

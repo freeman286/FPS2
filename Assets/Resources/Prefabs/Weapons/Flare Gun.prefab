@@ -548,7 +548,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2721180637063796786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261ca348a12b40f4aa3b8a406aef9f32, type: 3}
+  m_Script: {fileID: 11500000, guid: e162e53900c92964ba478cea8bcf4fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 4071665815476131138}
@@ -564,6 +564,7 @@ MonoBehaviour:
   - {fileID: 8693073396751367341}
   - {fileID: 2201224252410855180}
   - {fileID: 5942218598462223565}
+  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -595,8 +596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05dc790f6a4a544798126d07c9c23d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Flare Gun
-  primary: 0
   damage: 35
   headShotMultiplier: 1.5
   damageFallOff:
@@ -639,11 +638,12 @@ MonoBehaviour:
   scoped: 0
   special: 0
   roundsPerShot: 1
-  projectileWeapon: 1
+  coneOfFire: 0
   throwPower: 20
   projectile: {fileID: 156444120250483795, guid: fbf1e70436a7b1748aa3dbed590b086d,
     type: 3}
-  coneOfFire: 0
+  name: Flare Gun
+  primary: 0
   spreadDefault: 0.03
   spreadWhileMoving: 0.04
   spreadWhileJumping: 0.06
