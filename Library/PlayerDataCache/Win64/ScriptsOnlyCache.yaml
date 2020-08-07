@@ -73,8 +73,6 @@ ScriptsOnlyBuild:
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
@@ -2244,7 +2242,7 @@ ScriptsOnlyBuild:
     className: CarController
   - hash:
       serializedVersion: 2
-      Hash: eaa4be42bfac763a91d6e1d0760ec0b1
+      Hash: 7e73f90b2da022ba5944c9d13b93be58
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TurretController
@@ -2400,7 +2398,7 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
-      Hash: 55c126e0351f29e5860911acea3b8fc2
+      Hash: 942d27336b52c438041076bc0e183dda
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Health

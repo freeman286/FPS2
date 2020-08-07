@@ -4,6 +4,12 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.VFX;
 
+enum TargetMode
+{
+    Player,
+    Projectile
+}
+
 public class TurretController : PlaceableEquipmentController
 {
     public GameObject target = null;
@@ -11,7 +17,13 @@ public class TurretController : PlaceableEquipmentController
     [Header("Operation")]
 
     [SerializeField]
+    private TargetMode targetMode = TargetMode.Player;
+
+    [SerializeField]
     private float speed = 10f;
+
+    [SerializeField]
+    private float trackingAngle = 0.01f;
 
     [SerializeField]
     private float maxAngle = 90f;
@@ -100,7 +112,7 @@ public class TurretController : PlaceableEquipmentController
         if (_dir != Vector3.zero) {
             Quaternion _lookAtRotation = Quaternion.LookRotation(_dir);
 
-            if (turret.transform.rotation != _lookAtRotation)
+            if (Quaternion.Angle(turret.transform.rotation, _lookAtRotation) > trackingAngle)
             {
                 turret.transform.rotation = Quaternion.RotateTowards(turret.transform.rotation, _lookAtRotation, speed * Time.deltaTime);
             } else if (!IsInvoking("Shoot"))
@@ -111,26 +123,45 @@ public class TurretController : PlaceableEquipmentController
         } else
         {
             target = null;
-            CancelInvoke("Shoot");
         }
-
     }
 
     void Search()
     {
-        foreach (Player _player in GameManager.GetAllPlayers())
+        CancelInvoke("Shoot");
+
+        if (targetMode == TargetMode.Player)
         {
-            if (_player.transform.name != playerID && VectorToTarget(_player.gameObject) != Vector3.zero)
+            foreach (Player _player in GameManager.GetAllPlayers())
             {
-                target = _player.gameObject;
-                return;
+                if (_player.transform.name != playerID && VectorToTarget(_player.gameObject) != Vector3.zero)
+                {
+                    target = _player.gameObject;
+                    return;
+                }
+            }
+        } else if (targetMode == TargetMode.Projectile)
+        {
+            foreach (GameObject _projectile in GameManager.GetAllProjectile())
+            {
+                ExplosiveController _explosiveController = _projectile.GetComponent<ExplosiveController>();
+
+                if (_explosiveController != null && VectorToTarget(_projectile) != Vector3.zero && _explosiveController.playerID != playerID)
+                {
+                    target = _projectile;
+                    return;
+                }
             }
         }
+
         target = null;
     }
 
     Vector3 VectorToTarget(GameObject _target)
     {
+        if (_target == null)
+            return Vector3.zero;
+
         Vector3 _direction = (_target.transform.position - turret.transform.position).normalized;
 
         RaycastHit _hit;

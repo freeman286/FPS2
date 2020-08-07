@@ -93,6 +93,11 @@ public class GameManager : MonoBehaviour
         return projectiles[_projectileID];
     }
 
+    public static GameObject[] GetAllProjectile()
+    {
+        return projectiles.Values.ToArray();
+    }
+
 
     #endregion
 

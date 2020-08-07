@@ -9,7 +9,7 @@ public class ProjectileController : NetworkBehaviour
     [SyncVar]
     public string playerID;
 
-    [HideInInspector]
+    //[HideInInspector]
     public Rigidbody rb;
 
     public new float constantForce;

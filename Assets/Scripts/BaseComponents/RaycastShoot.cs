@@ -20,11 +20,6 @@ public class RaycastShoot : NetworkBehaviour
 
                 int _damage = Mathf.RoundToInt(_weapon.damageFallOff.Evaluate(_hit.distance / _weapon.range) * _weapon.damage);
 
-                Rigidbody rb = _hit.collider.attachedRigidbody;
-
-                if (rb != null && rb.GetComponent<Player>() == null)
-                    rb.AddForceAtPosition((_direction + _devience + _cone) * _damage, _hit.point);
-
                 if (_hit.collider.transform.name == "Head")
                     _damage = (int)(_damage * _weapon.headShotMultiplier);
 
@@ -32,6 +27,11 @@ public class RaycastShoot : NetworkBehaviour
 
                 if (_health != null)
                     CmdDamage(_health.transform.name, _damage, _sourceID, _weapon.damageType.name);
+
+                Rigidbody rb = _hit.collider.attachedRigidbody;
+
+                if (rb != null && rb.GetComponent<Player>() == null)
+                    rb.AddForceAtPosition((_direction + _devience + _cone) * _damage, _hit.point);
 
 
                 CmdOnHit(_hit.point, _hit.normal);
