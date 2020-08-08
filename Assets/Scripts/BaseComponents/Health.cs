@@ -40,7 +40,17 @@ public class Health : NetworkBehaviour
 
     void Start()
     {
-        SetDefaults();
+        
+        Player _player = GetComponent<Player>();
+
+        if (_player != null)
+        {
+            _player.onPlayerSetDefaultsCallback += SetDefaults;
+        } else
+        {
+            SetDefaults();
+        }
+
     }
 
     [ServerCallback]

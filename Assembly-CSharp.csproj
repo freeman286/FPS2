@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\BaseComponents\EnableDuringRuntime.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\Explosive.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\Health.cs" />
+     <Compile Include="Assets\Scripts\BaseComponents\PlayerMovementAbility.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\ProjectileShoot.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\RaycastShoot.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\ShootEffects.cs" />
@@ -88,6 +89,8 @@
      <Compile Include="Assets\Scripts\Physics\PointForwards.cs" />
      <Compile Include="Assets\Scripts\Physics\RandomAngularVelocity.cs" />
      <Compile Include="Assets\Scripts\Physics\Wiggle.cs" />
+     <Compile Include="Assets\Scripts\Player\MovementAbilities\Dash.cs" />
+     <Compile Include="Assets\Scripts\Player\MovementAbilities\Sprint.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerEquipment.cs" />
@@ -114,6 +117,7 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\PlaceableEquipmentController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Turret.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\TurretController.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\MovementAbility.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\ScriptID.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Set.cs" />
      <Compile Include="Assets\Scripts\UI\CameraFacingBillboard.cs" />

@@ -59,6 +59,9 @@ public class Player : NetworkBehaviour
 
     private Health health;
 
+    public delegate void OnPlayerSetDefaultsCallback();
+    public OnPlayerSetDefaultsCallback onPlayerSetDefaultsCallback;
+
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
@@ -188,7 +191,7 @@ public class Player : NetworkBehaviour
 
     public void SetDefaults()
     {
-        health.SetDefaults();
+        onPlayerSetDefaultsCallback.Invoke();
 
         for (int i = 0; i < disableOnDeath.Length; i++)
         {
@@ -216,9 +219,5 @@ public class Player : NetworkBehaviour
 
         GameObject _spawnEffect = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
         Destroy(_spawnEffect, 5f);
-
-        motor.SetDefaults();
-        weaponManager.SetDefaults();
-        equipment.SetDefaults();
     }
 }

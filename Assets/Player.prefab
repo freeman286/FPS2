@@ -1505,6 +1505,8 @@ GameObject:
   - component: {fileID: 3794130788770680765}
   - component: {fileID: 2044923219459607238}
   - component: {fileID: -4093087858480041485}
+  - component: {fileID: -4056647066290816205}
+  - component: {fileID: -7753474945112700229}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1851,7 +1853,9 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 139264
+  equipment: {fileID: 0}
   equipmentName: 
+  timeSinceEquipmentUsed: 0
 --- !u!114 &1866657983699075262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2004,6 +2008,38 @@ MonoBehaviour:
   laserParticle: {fileID: 1734203832338817589, guid: faa8a56e1662d164985a098673f90336,
     type: 3}
   laserInstance: {fileID: 0}
+--- !u!114 &-4056647066290816205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a632fc17c87e4947b0ddaedc4a16ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: 7d74095b6f64380458ef4a1186c01e7d, type: 2}
+  ability: {fileID: 11400000, guid: 46cb5b9ba8bd64147b3666408449e2bc, type: 2}
+--- !u!114 &-7753474945112700229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593df13c3f00a99459c1f4bf42c7f216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: 0072e0c0c9c64dd40a74960a2f973fb6, type: 2}
+  ability: {fileID: 11400000, guid: e0da356cbda45d34c820af7c1d24b39f, type: 2}
 --- !u!1 &9012694868525747722
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,10 +16,14 @@ public class PlayerMetrics : MonoBehaviour
     public Vector3 velocity; // The velocity that other players think this player is travelling at
 
     private Rigidbody rb;
+    private WeaponManager weaponManager;
+    private PlayerStats stats;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        weaponManager = GetComponent<WeaponManager>();
+        stats = GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -48,5 +52,15 @@ public class PlayerMetrics : MonoBehaviour
     public bool IsMoving()
     {
         return velocity.magnitude > 0.5f;
+    }
+
+    public float GetSpeed()
+    {
+        return weaponManager.GetCurrentSpeed() * stats.speedMultiplier;
+    }
+
+    public float GetJumpMultiplier()
+    {
+        return stats.jumpMultiplier;
     }
 }

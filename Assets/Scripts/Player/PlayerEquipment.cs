@@ -15,12 +15,12 @@ public class PlayerEquipment : NetworkBehaviour
     [SerializeField]
     private LayerMask mask;
 
-    private Equipment equipment;
+    public Equipment equipment;
 
     [SyncVar(hook = nameof(EquipmentNameChanged))]
     public string equipmentName;
 
-    private float timeSinceEquipmentUsed = 0f;
+    public float timeSinceEquipmentUsed = 0f;
 
     private WeaponManager weaponManager;
     private RaycastShoot raycastShoot;
@@ -31,7 +31,8 @@ public class PlayerEquipment : NetworkBehaviour
         weaponManager = GetComponent<WeaponManager>();
         raycastShoot = GetComponent<RaycastShoot>();
         projectileShoot = GetComponent<ProjectileShoot>();
-        SetDefaults();
+
+        GetComponent<Player>().onPlayerSetDefaultsCallback += SetDefaults;
     }
 
     void Update()
@@ -57,12 +58,7 @@ public class PlayerEquipment : NetworkBehaviour
                     _charge.GetComponent<ChargeController>().Detonate();
                     timeSinceEquipmentUsed = 0f;
                 } else {
-                    RaycastHit _hit = EquipmentPlace();
-                    if (_hit.point != Vector3.zero)
-                    {
-                        CmdPlaceEquipment(equipmentSpawnPoint.position, Quaternion.LookRotation(_throwDirection), transform.name, _hit.point, Quaternion.LookRotation(_hit.normal));
-                        timeSinceEquipmentUsed = 0f;
-                    }
+                    EquipmentPlace(_throwDirection);
                 }
 
             } else if (equipment is Turret)
@@ -75,17 +71,22 @@ public class PlayerEquipment : NetworkBehaviour
                     
                 } else
                 {
-                    RaycastHit _hit = EquipmentPlace();
-                    if (_hit.point != Vector3.zero)
-                    {
-                        CmdPlaceEquipment(equipmentSpawnPoint.position, Quaternion.LookRotation(_throwDirection), transform.name, _hit.point, Quaternion.LookRotation(_hit.normal));
-                        timeSinceEquipmentUsed = 0f;
-                    }
+                    EquipmentPlace(_throwDirection);
                 }
 
             }
 
 
+        }
+    }
+
+    void EquipmentPlace(Vector3 _throwDirection)
+    {
+        RaycastHit _hit = FindEquipmentPosition();
+        if (_hit.point != Vector3.zero)
+        {
+            CmdPlaceEquipment(equipmentSpawnPoint.position, Quaternion.LookRotation(_throwDirection), transform.name, _hit.point, Quaternion.LookRotation(_hit.normal));
+            timeSinceEquipmentUsed = 0f;
         }
     }
 
@@ -128,7 +129,7 @@ public class PlayerEquipment : NetworkBehaviour
             timeSinceEquipmentUsed = equipment.cooldown;
     }
 
-    RaycastHit EquipmentPlace()
+    RaycastHit FindEquipmentPosition()
     {
 
         float _footprint = 1f;

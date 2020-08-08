@@ -29,21 +29,20 @@ public class PlayerMotor : MonoBehaviour
 
     private PlayerMetrics metrics;
 
-    private PlayerStats stats;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerController = GetComponent<PlayerController>();
-        weaponManager = GetComponent<WeaponManager>();
         metrics = GetComponent<PlayerMetrics>();
-        stats = GetComponent<PlayerStats>();
+        
         feet = GetComponent<AnimateFeet>();
+
+        GetComponent<Player>().onPlayerSetDefaultsCallback += SetDefaults;
     }
 
     public void Move(Vector3 _velocity)
     {
-        velocity = _velocity.normalized * playerController.speed * weaponManager.GetCurrentSpeed() * stats.speedMultiplier;
+        velocity = _velocity * metrics.GetSpeed();
     }
 
     public void Rotate(Vector3 _rotation)
@@ -96,7 +95,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (metrics.IsGrounded())
         {
-            rb.velocity = new Vector3(0, playerController.jumpForce * stats.jumpMultiplier, 0);
+            rb.velocity = new Vector3(0, playerController.jumpForce * metrics.GetJumpMultiplier(), 0);
         }
     }
 

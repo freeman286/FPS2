@@ -71,6 +71,11 @@ public class Util : MonoBehaviour
         return basis[0];
     }
 
+    public static Vector3 Flatten(Vector3 _vector)
+    {
+        return new Vector3(_vector.x, 0f, _vector.z);
+    }
+
     public static int[,,] TransposeMatrix(int[,,] _matrix)
     {
         int x = _matrix.GetLength(0);

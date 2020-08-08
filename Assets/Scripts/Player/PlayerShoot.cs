@@ -30,10 +30,10 @@ public class PlayerShoot : NetworkBehaviour {
     private ShootEffects shootEffects;
 
     [HideInInspector]
-    public float timeSinceShot = 100f;
+    public float timeSinceShot = Mathf.Infinity;
 
     [HideInInspector]
-    public float timeSinceScoped = 100f;
+    public float timeSinceScoped = Mathf.Infinity;
 
     private float timeSinceBurst = 0f;
 
