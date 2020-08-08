@@ -109,8 +109,7 @@ public class PlayerEquipment : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            CmdSetEquipment(PlayerInfo.equipmentName);
-            timeSinceEquipmentUsed = equipment.cooldown;
+            CmdSetEquipment(PlayerInfo.equipmentName);                
         }
     }
 
@@ -124,6 +123,9 @@ public class PlayerEquipment : NetworkBehaviour
     {
         equipmentName = _newName;
         equipment = EquipmentUtil.NameToEquipment(equipmentName);
+
+        if (isLocalPlayer)
+            timeSinceEquipmentUsed = equipment.cooldown;
     }
 
     RaycastHit EquipmentPlace()

@@ -200,7 +200,7 @@ public class WeaponManager : NetworkBehaviour
 
         yield return new WaitForEndOfFrame();
 
-        if (weaponHolder.childCount > 0) {
+        if (weaponHolder.childCount > 0 || currentWeapon == null) {
             yield break;
         }
 
