@@ -181,8 +181,8 @@ MonoBehaviour:
   ready: 0
   target: {fileID: 0}
   targetMode: 0
-  speed: 30
-  trackingAngle: 5
+  speed: 25
+  trackingAngle: 10
   maxAngle: 90
   turret: {fileID: 4723650260916456}
   muzzle: {fileID: 788511942867090725}

@@ -112,10 +112,9 @@ public class TurretController : PlaceableEquipmentController
         if (_dir != Vector3.zero) {
             Quaternion _lookAtRotation = Quaternion.LookRotation(_dir);
 
-            if (Quaternion.Angle(turret.transform.rotation, _lookAtRotation) > trackingAngle)
-            {
-                turret.transform.rotation = Quaternion.RotateTowards(turret.transform.rotation, _lookAtRotation, speed * Time.deltaTime);
-            } else if (!IsInvoking("Shoot"))
+            turret.transform.rotation = Quaternion.RotateTowards(turret.transform.rotation, _lookAtRotation, speed * Time.deltaTime);
+
+            if (Quaternion.Angle(turret.transform.rotation, _lookAtRotation) < trackingAngle && !IsInvoking("Shoot"))
             {
                 InvokeRepeating("Shoot", 0f, 1f / weapon.fireRate);
             }
@@ -128,8 +127,7 @@ public class TurretController : PlaceableEquipmentController
 
     void Search()
     {
-        CancelInvoke("Shoot");
-
+        
         if (targetMode == TargetMode.Player)
         {
             foreach (Player _player in GameManager.GetAllPlayers())
@@ -154,6 +152,7 @@ public class TurretController : PlaceableEquipmentController
             }
         }
 
+        CancelInvoke("Shoot");
         target = null;
     }
 
