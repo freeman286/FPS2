@@ -73,8 +73,6 @@ ScriptsOnlyBuild:
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
@@ -110,6 +108,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.HighDefinition.Editor.dll:
     - UnityEditor.Rendering.HighDefinition.HDProjectSettings
+    - UnityEditor.VFX.VFXHDRPSubOutput
     Unity.RenderPipelines.HighDefinition.Runtime.dll:
     - UnityEngine.Rendering.HighDefinition.AmbientOcclusion
     - UnityEngine.Rendering.HighDefinition.Bloom
@@ -136,16 +135,33 @@ ScriptsOnlyBuild:
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.VisualEffectGraph.Editor.dll:
+    - UnityEditor.VFX.Block.Orient
+    - UnityEditor.VFX.Block.SetAttribute
+    - UnityEditor.VFX.UI.VFXGraphUndoCursor
     - UnityEditor.VFX.UI.VFXViewWindow
+    - UnityEditor.VFX.VFXBasicInitialize
+    - UnityEditor.VFX.VFXBasicSpawner
+    - UnityEditor.VFX.VFXBasicUpdate
+    - UnityEditor.VFX.VFXDataParticle
+    - UnityEditor.VFX.VFXGraph
+    - UnityEditor.VFX.VFXParameter
+    - UnityEditor.VFX.VFXPlanarPrimitiveOutput
+    - UnityEditor.VFX.VFXSlot
+    - UnityEditor.VFX.VFXSlotColor
+    - UnityEditor.VFX.VFXSlotFloat
+    - UnityEditor.VFX.VFXSlotFloat3
+    - UnityEditor.VFX.VFXSlotInt
+    - UnityEditor.VFX.VFXSlotTexture2D
+    - UnityEditor.VFX.VFXSpawnerConstantRate
+    - UnityEditor.VFX.VFXSpawnerCustomWrapper
+    - UnityEditor.VFX.VFXUI
     Unity.VisualEffectGraph.Runtime.dll:
     - UnityEditor.VFX.LoopAndDelay
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -1866,7 +1882,7 @@ ScriptsOnlyBuild:
     className: NetworkRoomManager
   - hash:
       serializedVersion: 2
-      Hash: b73ef687acbae029a7e39688ec6d6134
+      Hash: 0f95b4cb38a2ce7e41c18c9b7929ec8e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlaceableEquipmentController
@@ -2244,7 +2260,7 @@ ScriptsOnlyBuild:
     className: CarController
   - hash:
       serializedVersion: 2
-      Hash: 7e73f90b2da022ba5944c9d13b93be58
+      Hash: 1b9cd969bc933b8e0c53402739394a5f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TurretController
@@ -3168,7 +3184,7 @@ ScriptsOnlyBuild:
     className: NetworkTransform
   - hash:
       serializedVersion: 2
-      Hash: b73ef687acbae029a7e39688ec6d6134
+      Hash: 0f95b4cb38a2ce7e41c18c9b7929ec8e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChargeController

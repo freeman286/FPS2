@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using Mirror;
 
 public class PlaceableEquipmentController : NetworkBehaviour
@@ -10,6 +11,9 @@ public class PlaceableEquipmentController : NetworkBehaviour
     public string playerID;
 
     public Collider[] colliders;
+
+    [SerializeField]
+    private VisualEffect light;
 
     private Vector3 targetPos = Vector3.zero;
     private Quaternion targetRot;
@@ -78,5 +82,6 @@ public class PlaceableEquipmentController : NetworkBehaviour
         {
             _collider.enabled = _ready;
         }
+        light.enabled = _ready;
     }
 }
