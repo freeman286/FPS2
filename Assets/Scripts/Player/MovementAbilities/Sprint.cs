@@ -7,7 +7,7 @@ public class Sprint : PlayerMovementAbility
 
     public override void DoAbility()
     {
-        motor.Move(Util.Flatten(transform.forward).normalized * Mathf.Pow(metrics.GetSpeed(), 0.2f) * ability.magnitude);
+        motor.Move(Util.Flatten(transform.forward).normalized * ability.magnitude);
     }
 
 }
