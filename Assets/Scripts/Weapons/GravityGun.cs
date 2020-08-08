@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GravityGun : NetworkBehaviour
+public class GravityGun : EnableDuringRuntime
 {
     [SerializeField]
     private Camera cam = null;

@@ -709,10 +709,11 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 3876431200991625207}
-  casing: {fileID: 0}
   shootSound: {fileID: 185320, guid: e888a700a02f01e4ea21c1c3f6789a4b, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  ejectionPort: {fileID: 3876431200991625207}
+  casing: {fileID: 0}
   colliders:
   - {fileID: 8995972216420247034}
   - {fileID: 620521297901704382}
@@ -722,7 +723,6 @@ MonoBehaviour:
   - {fileID: 3716081276732856437}
   - {fileID: 1600252161226272641}
   - {fileID: 4197419276581531267}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -848,7 +848,7 @@ MonoBehaviour:
   bullets: 0
   reloadTime: 2.5
   scriptsToEnable:
-  - GravityGun
+  - {fileID: 11400000, guid: 653e24cbeb1c3cb46ace94b80f4fe7ab, type: 2}
 --- !u!82 &3317242424504107631
 AudioSource:
   m_ObjectHideFlags: 0

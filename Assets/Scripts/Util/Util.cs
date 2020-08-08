@@ -211,12 +211,20 @@ public class Util : MonoBehaviour
         return allPrefabs.ToArray();
     }
 
-    public static Behaviour EnableScipt(GameObject _gameObject, string _scriptName, bool _enable)
+    public static Behaviour EnableScipt(GameObject _gameObject, ScriptID _scriptID, bool _enable)
     {
-        var comp = _gameObject.GetComponent(_scriptName);
-        Behaviour be = (comp as Behaviour);
-        be.enabled = _enable;
-        return be;
+        EnableDuringRuntime[] _components = GameObject.FindObjectsOfType<EnableDuringRuntime>();
+
+        foreach(EnableDuringRuntime _component in _components)
+        {
+            if (_component.scriptID == _scriptID)
+            {
+                _component.enabled = _enable;
+                return (_component as Behaviour);
+            }
+        }
+
+        return null;
     }
 
     public static string[] GetSubAllFilesInDirectory(string _dir, string _ext)

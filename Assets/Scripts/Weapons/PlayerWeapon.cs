@@ -35,5 +35,5 @@ public class PlayerWeapon : Weapon
         bullets = magSize;
     }
 
-    public string[] scriptsToEnable;
+    public ScriptID[] scriptsToEnable;
 }

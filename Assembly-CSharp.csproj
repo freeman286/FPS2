@@ -63,6 +63,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+     <Compile Include="Assets\Scripts\BaseComponents\EnableDuringRuntime.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\Explosive.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\Health.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\ProjectileShoot.cs" />
@@ -113,6 +114,7 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\PlaceableEquipmentController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Turret.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\TurretController.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\ScriptID.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Set.cs" />
      <Compile Include="Assets\Scripts\UI\CameraFacingBillboard.cs" />
      <Compile Include="Assets\Scripts\UI\EquipmentItem.cs" />

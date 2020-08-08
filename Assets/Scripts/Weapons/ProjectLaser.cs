@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections;
 using Mirror;
 
-public class ProjectLaser : NetworkBehaviour
+public class ProjectLaser : EnableDuringRuntime
 {
     [SerializeField]
     private Camera cam = null;

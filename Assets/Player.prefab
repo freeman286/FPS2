@@ -1953,6 +1953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: 653e24cbeb1c3cb46ace94b80f4fe7ab, type: 2}
   cam: {fileID: 899551536351255448}
   fireButton: Fire1
   catchButton: Fire2
@@ -1977,6 +1978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: 1cf516b4a5a7ba54ebe80eb6f5d5b99f, type: 2}
   detonateButton: Fire2
 --- !u!114 &-4093087858480041485
 MonoBehaviour:
@@ -1992,6 +1994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: 2fbbb949e76563b4894d68c14cc9f164, type: 2}
   cam: {fileID: 899551536351255448}
   mask:
     serializedVersion: 2

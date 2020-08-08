@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Set", menuName = "Sets/Set", order = 1)]
+[CreateAssetMenu(fileName = "Set", menuName = "Set", order = 1)]
 public class Set : ScriptableObject
 {
     public new string name;
@@ -21,6 +21,6 @@ public class Set : ScriptableObject
     public float jumpMultiplier = 1f;
 
     [Header("Scripts To Enable")]
-    public string[] scriptsToEnable;
+    public ScriptID[] scriptsToEnable;
 
 }

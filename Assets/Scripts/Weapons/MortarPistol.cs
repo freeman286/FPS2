@@ -4,7 +4,7 @@ using UnityEngine;
 using Mirror;
 
 
-public class MortarPistol : NetworkBehaviour
+public class MortarPistol : EnableDuringRuntime
 {
 
     [SerializeField]

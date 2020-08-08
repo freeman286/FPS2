@@ -788,10 +788,11 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 8136276923921398137}
-  casing: {fileID: 0}
   shootSound: {fileID: 185320, guid: d40eea2cd5c78ec45928fc9e71510908, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  ejectionPort: {fileID: 8136276923921398137}
+  casing: {fileID: 0}
   colliders:
   - {fileID: 778932213930732364}
   - {fileID: 3039935864197090172}
@@ -800,7 +801,6 @@ MonoBehaviour:
   - {fileID: 5216087974966478814}
   - {fileID: 3999087898692281867}
   - {fileID: 1271140668451742953}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -927,7 +927,7 @@ MonoBehaviour:
   bullets: 4
   reloadTime: 4
   scriptsToEnable:
-  - ProjectLaser
+  - {fileID: 11400000, guid: 2fbbb949e76563b4894d68c14cc9f164, type: 2}
 --- !u!82 &792773704839598559
 AudioSource:
   m_ObjectHideFlags: 0

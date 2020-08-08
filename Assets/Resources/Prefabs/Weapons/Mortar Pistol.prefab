@@ -569,10 +569,11 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 3876431200991625207}
-  casing: {fileID: 0}
   shootSound: {fileID: 185320, guid: b022414c87f3c0842b14583fd5ed7bb9, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  ejectionPort: {fileID: 3876431200991625207}
+  casing: {fileID: 0}
   colliders:
   - {fileID: 3255612465381879788}
   - {fileID: 2867038138814311101}
@@ -582,7 +583,6 @@ MonoBehaviour:
   - {fileID: 5601890833593555680}
   - {fileID: 2017582135041773789}
   - {fileID: 1747946849199578169}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -700,7 +700,7 @@ MonoBehaviour:
   bullets: 1
   reloadTime: 2.5
   scriptsToEnable:
-  - MortarPistol
+  - {fileID: 11400000, guid: 1cf516b4a5a7ba54ebe80eb6f5d5b99f, type: 2}
 --- !u!82 &3317242424504107631
 AudioSource:
   m_ObjectHideFlags: 0

@@ -143,10 +143,10 @@ public class PlayerStats : NetworkBehaviour
         {
             if (_set.scriptsToEnable != null)
             {
-                foreach (string _script in _set.scriptsToEnable)
+                foreach (ScriptID _scriptID in _set.scriptsToEnable)
                 {
 
-                    Behaviour _newScript = Util.EnableScipt(gameObject, _script, true);
+                    Behaviour _newScript = Util.EnableScipt(gameObject, _scriptID, true);
                     if (_newScript != null)
                     {
                         scripts.Add(_newScript);
