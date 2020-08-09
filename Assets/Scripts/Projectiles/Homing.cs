@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Mirror;
 
 [RequireComponent(typeof(ProjectileController))]
 public class Homing : NetworkBehaviour
 {
+    public UnityEvent proximityEvent;
+
+    [SerializeField]
+    private float proximityFuse = 8f;
+
     private GameObject laser;
     private LaserController laserController;
     private Rigidbody rb;
@@ -57,6 +63,9 @@ public class Homing : NetworkBehaviour
         } else
         {
             Home(laser.transform.position);
+
+            if ((laser.transform.position - transform.position).magnitude < proximityFuse)
+                proximityEvent.Invoke();
         }
     }
 

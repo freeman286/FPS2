@@ -118,7 +118,6 @@ MonoBehaviour:
   impact: {fileID: 4308811345454485748, guid: edffa93f12c89e14d8e40a9f966ff5d7, type: 3}
   fuse: 40
   explodeOnImpact: 1
-  airburst: 1
 --- !u!114 &-6029450713198943014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +138,7 @@ MonoBehaviour:
     m_Bits: 254775
   force: 10
   damage: 600
-  range: 10
+  range: 15
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2
@@ -305,6 +304,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  proximityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6569690525480866274}
+        m_MethodName: Detonate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  proximityFuse: 10
   homingness: 120
   homingnessOverAngle:
     serializedVersion: 2
@@ -550,9 +564,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1
-  m_Height: 25
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 12, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2505228646483480676
 GameObject:
   m_ObjectHideFlags: 0

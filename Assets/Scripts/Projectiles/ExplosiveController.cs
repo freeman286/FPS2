@@ -17,9 +17,6 @@ public class ExplosiveController : ProjectileController
     [SerializeField]
     private bool explodeOnImpact = true;
 
-    [SerializeField]
-    private bool airburst = false;
-
     private bool impacted = false;
 
     private Explosive explosive;
@@ -62,7 +59,7 @@ public class ExplosiveController : ProjectileController
         {
             impacted = true;
             rb.isKinematic = true;
-            explosive.CmdExplode(transform.position, collision.contacts[0].normal * (1 - 2*Convert.ToSingle(airburst)), timeSinceCreated, playerID);
+            explosive.CmdExplode(transform.position, collision.contacts[0].normal, timeSinceCreated, playerID);
         }
     }
 
