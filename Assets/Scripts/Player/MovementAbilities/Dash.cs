@@ -8,7 +8,7 @@ public class Dash : PlayerMovementAbility
 
     public override void DoAbility()
     {
-        if (Util.Flatten(metrics.velocity).magnitude > 0.1f)
+        if (Util.Flatten(metrics.velocity).magnitude > 0.1f && metrics.IsGrounded())
         {
             dashDirection = Util.Flatten(metrics.velocity).normalized;
             timeSinceMovementAbilityUsed = 0f;

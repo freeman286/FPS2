@@ -95,7 +95,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (metrics.IsGrounded())
         {
-            rb.velocity = new Vector3(0, playerController.jumpForce * metrics.GetJumpMultiplier(), 0);
+            rb.velocity = Vector3.up * playerController.jumpForce * metrics.GetJumpMultiplier();
         }
     }
 
