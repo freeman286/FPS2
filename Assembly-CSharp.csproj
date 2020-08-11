@@ -125,8 +125,6 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\ScriptID.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Set.cs" />
      <Compile Include="Assets\Scripts\UI\CameraFacingBillboard.cs" />
-     <Compile Include="Assets\Scripts\UI\EquipmentItem.cs" />
-     <Compile Include="Assets\Scripts\UI\EquipmentList.cs" />
      <Compile Include="Assets\Scripts\UI\Killfeed.cs" />
      <Compile Include="Assets\Scripts\UI\KillfeedItem.cs" />
      <Compile Include="Assets\Scripts\UI\LevelLoader.cs" />
@@ -141,8 +139,6 @@
      <Compile Include="Assets\Scripts\UI\SetItem.cs" />
      <Compile Include="Assets\Scripts\UI\SetList.cs" />
      <Compile Include="Assets\Scripts\UI\UIItem.cs" />
-     <Compile Include="Assets\Scripts\UI\WeaponItem.cs" />
-     <Compile Include="Assets\Scripts\UI\WeaponList.cs" />
      <Compile Include="Assets\Scripts\Util\EquipmentUtil.cs" />
      <Compile Include="Assets\Scripts\Util\SetsUtil.cs" />
      <Compile Include="Assets\Scripts\Util\Util.cs" />
