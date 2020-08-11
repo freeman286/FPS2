@@ -13,6 +13,9 @@ public class PlayerStats : NetworkBehaviour
 
     public List<Set> activeSets;
 
+    [SerializeField]
+    private ListType[] listTypes = new ListType[3];
+
     [SyncVar(hook = nameof(OnPrimaryNameChanged))]
     public string primaryWeaponName;
 
@@ -40,7 +43,7 @@ public class PlayerStats : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            CmdSetPlayerInfo(PlayerInfo.primaryWeaponName, PlayerInfo.secondaryWeaponName, PlayerInfo.equipmentName);
+            CmdSetPlayerInfo(PlayerInfo.GetNameSelected(listTypes[0]), PlayerInfo.GetNameSelected(listTypes[1]), PlayerInfo.GetNameSelected(listTypes[2]));
         }
 
     }

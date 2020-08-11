@@ -216,6 +216,26 @@ public class Util : MonoBehaviour
         return allPrefabs.ToArray();
     }
 
+    public static ScriptableObject[] GetScriptableObjects(string _dir)
+    {
+
+        List<ScriptableObject> allScriptableObjects = new List<ScriptableObject>();
+
+        string[] paths = Util.GetSubAllFilesInDirectory(_dir, "asset");
+
+        foreach (string _path in paths)
+        {
+            string _scriptableObjectPath = _path.Substring(17, _path.Length - 23); // Remove extra characters from the path we don't need
+
+            ScriptableObject _scriptableObject = (ScriptableObject)Resources.Load<ScriptableObject>(_scriptableObjectPath);
+
+            allScriptableObjects.Add(_scriptableObject);
+        }
+
+        return allScriptableObjects.ToArray();
+
+    }
+
     public static Behaviour EnableScipt(GameObject _gameObject, ScriptID _scriptID, bool _enable)
     {
         EnableDuringRuntime[] _components = GameObject.FindObjectsOfType<EnableDuringRuntime>();
@@ -235,5 +255,29 @@ public class Util : MonoBehaviour
     public static string[] GetSubAllFilesInDirectory(string _dir, string _ext)
     {
         return Directory.GetFiles(_dir, "*." + _ext, SearchOption.AllDirectories);
+    }
+
+    public static string[] GetNamesInDirectory(string _dir)
+    {
+        List<string> names = new List<string>();
+
+        ScriptableObject[] allScriptableObjects = GetScriptableObjects(_dir);
+
+        if (allScriptableObjects.Length > 0) {
+            foreach(ScriptableObject _obj in allScriptableObjects)
+            {
+                names.Add(_obj.name);
+            }
+        } else
+        {
+            GameObject[] allPrefabs = GetPrefabs(_dir);
+            foreach (GameObject _obj in allPrefabs)
+            {
+                names.Add(_obj.name);
+            }
+        }
+
+        return names.ToArray();
+
     }
 }

@@ -5,9 +5,7 @@ using UnityEngine.Events;
 using Mirror;
 
 [System.Serializable]
-public class DieEvent : UnityEvent<string>
-{
-}
+public class DieEvent : UnityEvent<string>{}
 
 public class Health : NetworkBehaviour
 {

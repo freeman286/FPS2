@@ -6,9 +6,11 @@ public class SetList : MonoBehaviour
 {
     public static SetList instance;
 
-
     [SerializeField]
     private GameObject setItemPrefab = null;
+
+    [SerializeField]
+    private ListType[] listTypes = null;
 
     private Set[] allSets;
 
@@ -43,7 +45,7 @@ public class SetList : MonoBehaviour
     {
         foreach (Set _set in allSets)
         {
-            if (SetsUtil.SetMatch(_set, PlayerInfo.primaryWeaponName, PlayerInfo.secondaryWeaponName, PlayerInfo.equipmentName))
+            if (SetsUtil.SetMatch(_set, PlayerInfo.GetNameSelected(listTypes[0]), PlayerInfo.GetNameSelected(listTypes[1]), PlayerInfo.GetNameSelected(listTypes[2])))
             {
                 activeSets.Add(_set);
             }

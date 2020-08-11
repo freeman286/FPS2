@@ -305,4 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setItemPrefab: {fileID: 8741934880180284279, guid: 3b89212486e8ae64bb21078d85c1b1ff,
     type: 3}
+  listTypes:
+  - {fileID: 11400000, guid: da2f10e2887f7834093d07df05632511, type: 2}
+  - {fileID: 11400000, guid: c5b2f4dca173b1947809a72683ee3a52, type: 2}
+  - {fileID: 11400000, guid: 5877786be06eb9e46aac040eec1a0ef4, type: 2}
   activeSets: []

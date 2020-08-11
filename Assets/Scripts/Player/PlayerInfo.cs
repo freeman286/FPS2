@@ -14,6 +14,8 @@ public class PlayerInfo : MonoBehaviour
 
     static public string equipmentName;
 
+    private static Dictionary<ListType, string> loadoutNames = new Dictionary<ListType, string>();
+
     void Awake()
     {
         if (instance != null)
@@ -26,4 +28,26 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
+    public static string GetNameSelected(ListType _listType)
+    {
+        if (loadoutNames.ContainsKey(_listType))
+        {
+            return loadoutNames[_listType];
+        } else
+        {
+            return null;
+        }
+    }
+
+    public static void SelectName(ListType _listType, string _name)
+    {
+        if (loadoutNames.ContainsKey(_listType))
+        {
+            loadoutNames[_listType] = _name;
+        }
+        else
+        {
+            loadoutNames.Add(_listType, _name);
+        }
+    }
 }

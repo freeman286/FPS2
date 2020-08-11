@@ -119,6 +119,7 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\PlaceableEquipmentController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Turret.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\TurretController.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\ListType.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\MovementAbility.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\ScriptID.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Set.cs" />
@@ -135,8 +136,10 @@
      <Compile Include="Assets\Scripts\UI\PlayerScoreboardItem.cs" />
      <Compile Include="Assets\Scripts\UI\PlayerUI.cs" />
      <Compile Include="Assets\Scripts\UI\Scoreboard.cs" />
+     <Compile Include="Assets\Scripts\UI\SelectList.cs" />
      <Compile Include="Assets\Scripts\UI\SetItem.cs" />
      <Compile Include="Assets\Scripts\UI\SetList.cs" />
+     <Compile Include="Assets\Scripts\UI\UIItem.cs" />
      <Compile Include="Assets\Scripts\UI\WeaponItem.cs" />
      <Compile Include="Assets\Scripts\UI\WeaponList.cs" />
      <Compile Include="Assets\Scripts\Util\EquipmentUtil.cs" />

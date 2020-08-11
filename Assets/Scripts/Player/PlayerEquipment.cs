@@ -10,6 +10,9 @@ public class PlayerEquipment : NetworkBehaviour
     private Camera cam = null;
 
     [SerializeField]
+    private ListType listType = null;
+
+    [SerializeField]
     private Transform equipmentSpawnPoint = null;
 
     [SerializeField]
@@ -110,7 +113,7 @@ public class PlayerEquipment : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            CmdSetEquipment(PlayerInfo.equipmentName);                
+            CmdSetEquipment(PlayerInfo.GetNameSelected(listType));                
         }
     }
 

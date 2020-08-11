@@ -10,6 +10,9 @@ public class WeaponManager : NetworkBehaviour
     private string weaponLayerName = "Weapon";
 
     [SerializeField]
+    private ListType[] listTypes = new ListType[2];
+
+    [SerializeField]
     private Transform weaponHolder = null;
 
     [HideInInspector]
@@ -42,8 +45,6 @@ public class WeaponManager : NetworkBehaviour
     private IEnumerator reload;
 
     private GameObject weaponIns;
-
-    
 
     private Behaviour[] scripts;
 
@@ -78,8 +79,8 @@ public class WeaponManager : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            primaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.primaryWeaponName);
-            secondaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.secondaryWeaponName);
+            primaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.GetNameSelected(listTypes[0]));
+            secondaryWeapon = WeaponsUtil.NameToWeapon(PlayerInfo.GetNameSelected(listTypes[1]));
 
             primaryWeapon.Load();
             secondaryWeapon.Load();

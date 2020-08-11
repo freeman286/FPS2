@@ -1828,6 +1828,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weaponLayerName: Weapon
+  listTypes:
+  - {fileID: 11400000, guid: da2f10e2887f7834093d07df05632511, type: 2}
+  - {fileID: 11400000, guid: c5b2f4dca173b1947809a72683ee3a52, type: 2}
   weaponHolder: {fileID: 6384351145343065147}
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
@@ -1851,6 +1854,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   cam: {fileID: 899551536351255448}
+  listType: {fileID: 11400000, guid: 5877786be06eb9e46aac040eec1a0ef4, type: 2}
   equipmentSpawnPoint: {fileID: 4406900436596993734}
   mask:
     serializedVersion: 2
@@ -1873,6 +1877,10 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   activeSets: []
+  listTypes:
+  - {fileID: 11400000, guid: da2f10e2887f7834093d07df05632511, type: 2}
+  - {fileID: 11400000, guid: c5b2f4dca173b1947809a72683ee3a52, type: 2}
+  - {fileID: 11400000, guid: 5877786be06eb9e46aac040eec1a0ef4, type: 2}
   primaryWeaponName: 
   secondaryWeaponName: 
   equipmentName: 
