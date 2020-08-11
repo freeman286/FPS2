@@ -59,7 +59,10 @@ public class WeaponManager : NetworkBehaviour
         equipment = GetComponent<PlayerEquipment>();
         anim = GetComponent<Animator>();
 
-        GetComponent<Player>().onPlayerSetDefaultsCallback += SetDefaults;
+        Player _player = GetComponent<Player>();
+        _player.onPlayerSetDefaultsCallback += SetDefaults;
+        _player.onPlayerDieCallback += Die;
+
     }   
 
     void Update()

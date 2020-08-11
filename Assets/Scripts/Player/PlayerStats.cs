@@ -25,6 +25,9 @@ public class PlayerStats : NetworkBehaviour
     [SyncVar(hook = nameof(OnEquipmentNameChanged))]
     public string equipmentName;
 
+    [SyncVar(hook = nameof(OnMovementAbilityNameChanged))]
+    public string movementAbilityName;
+
 
     [Header("Cumulative effects")]
     public List<DamageAttribute> damageAttributes = new List<DamageAttribute>();
@@ -43,7 +46,7 @@ public class PlayerStats : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            CmdSetPlayerInfo(PlayerInfo.GetNameSelected(listTypes[0]), PlayerInfo.GetNameSelected(listTypes[1]), PlayerInfo.GetNameSelected(listTypes[2]));
+            CmdSetPlayerInfo(PlayerInfo.GetNameSelected(listTypes[0]), PlayerInfo.GetNameSelected(listTypes[1]), PlayerInfo.GetNameSelected(listTypes[2]), PlayerInfo.GetNameSelected(listTypes[3]));
         }
 
     }
@@ -66,6 +69,12 @@ public class PlayerStats : NetworkBehaviour
         UpdateSets(_oldName, _newName);
     }
 
+    void OnMovementAbilityNameChanged(string _oldName, string _newName)
+    {
+        movementAbilityName = _newName;
+        UpdateSets(_oldName, _newName);
+    }
+
     void UpdateSets(string _oldName, string _newName)
     {
         if (_oldName == _newName)
@@ -83,11 +92,12 @@ public class PlayerStats : NetworkBehaviour
     }
 
     [Command]
-    void CmdSetPlayerInfo(string _primaryWeaponName, string _secondaryWeaponName, string _equipmentName)
+    void CmdSetPlayerInfo(string _primaryWeaponName, string _secondaryWeaponName, string _equipmentName, string _movementAbilityName)
     {
         primaryWeaponName = _primaryWeaponName;
         secondaryWeaponName = _secondaryWeaponName;
         equipmentName = _equipmentName;
+        movementAbilityName = _movementAbilityName;
     }
 
     void Reset()
@@ -109,7 +119,7 @@ public class PlayerStats : NetworkBehaviour
     {
         foreach (Set _set in allSets)
         {
-            if (SetsUtil.SetMatch(_set, primaryWeaponName, secondaryWeaponName, equipmentName))
+            if (SetsUtil.SetMatch(_set, primaryWeaponName, secondaryWeaponName, equipmentName, movementAbilityName))
             {
                 activeSets.Add(_set);
             }

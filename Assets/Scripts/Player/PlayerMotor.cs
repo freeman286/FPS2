@@ -37,7 +37,9 @@ public class PlayerMotor : MonoBehaviour
         
         feet = GetComponent<AnimateFeet>();
 
-        GetComponent<Player>().onPlayerSetDefaultsCallback += SetDefaults;
+        Player _player = GetComponent<Player>();
+        _player.onPlayerSetDefaultsCallback += SetDefaults;
+        _player.onPlayerDieCallback += Die;
     }
 
     public void Move(Vector3 _velocity)

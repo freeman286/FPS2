@@ -14,20 +14,27 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
 
     protected Rigidbody rb;
 
+    private bool active = true;
+
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
         metrics = GetComponent<PlayerMetrics>();
         rb = GetComponent<Rigidbody>();
 
-        GetComponent<Player>().onPlayerSetDefaultsCallback += SetDefaults;
+        Player _player = GetComponent<Player>();
+        _player.onPlayerSetDefaultsCallback += SetDefaults;
+        _player.onPlayerDieCallback += Die;
     }
 
     public virtual void Update()
     {
         timeSinceMovementAbilityUsed += Time.deltaTime;
 
-        if (isLocalPlayer && Input.GetButton("MovementAbility") && timeSinceMovementAbilityUsed >= ability.cooldown)
+        if (Pause.IsOn)
+            return;
+
+        if (isLocalPlayer && active && Input.GetButton("MovementAbility") && timeSinceMovementAbilityUsed >= ability.cooldown)
         {
             DoAbility();
         }
@@ -40,6 +47,12 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
 
     void SetDefaults()
     {
+        active = true;
         timeSinceMovementAbilityUsed = ability.cooldown;
+    }
+
+    void Die()
+    {
+        active = false;
     }
 }

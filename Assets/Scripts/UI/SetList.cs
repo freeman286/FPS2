@@ -45,7 +45,7 @@ public class SetList : MonoBehaviour
     {
         foreach (Set _set in allSets)
         {
-            if (SetsUtil.SetMatch(_set, PlayerInfo.GetNameSelected(listTypes[0]), PlayerInfo.GetNameSelected(listTypes[1]), PlayerInfo.GetNameSelected(listTypes[2])))
+            if (SetsUtil.SetMatch(_set, PlayerInfo.GetNameSelected(listTypes[0]), PlayerInfo.GetNameSelected(listTypes[1]), PlayerInfo.GetNameSelected(listTypes[2]), PlayerInfo.GetNameSelected(listTypes[3])))
             {
                 activeSets.Add(_set);
             }

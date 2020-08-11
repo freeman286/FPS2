@@ -1499,6 +1499,7 @@ GameObject:
   - component: {fileID: -316878476097349666}
   - component: {fileID: 1866657983699075262}
   - component: {fileID: 3059421112803731098}
+  - component: {fileID: 952772935912001049}
   - component: {fileID: -3565307303373139802}
   - component: {fileID: 9210790658628301855}
   - component: {fileID: 2139900448668095581}
@@ -1881,6 +1882,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: da2f10e2887f7834093d07df05632511, type: 2}
   - {fileID: 11400000, guid: c5b2f4dca173b1947809a72683ee3a52, type: 2}
   - {fileID: 11400000, guid: 5877786be06eb9e46aac040eec1a0ef4, type: 2}
+  - {fileID: 11400000, guid: a1321d8fecdc5b148a4b6a331652cefd, type: 2}
   primaryWeaponName: 
   secondaryWeaponName: 
   equipmentName: 
@@ -1904,6 +1906,21 @@ MonoBehaviour:
     m_Bits: 8192
   lastPosition: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &952772935912001049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2332feb33655ec648acf0ccd6a6ee1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  listType: {fileID: 11400000, guid: a1321d8fecdc5b148a4b6a331652cefd, type: 2}
 --- !u!114 &-3565307303373139802
 MonoBehaviour:
   m_ObjectHideFlags: 0

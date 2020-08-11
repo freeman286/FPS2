@@ -62,6 +62,9 @@ public class Player : NetworkBehaviour
     public delegate void OnPlayerSetDefaultsCallback();
     public OnPlayerSetDefaultsCallback onPlayerSetDefaultsCallback;
 
+    public delegate void OnPlayerDieCallback();
+    public OnPlayerDieCallback onPlayerDieCallback;
+
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
@@ -125,6 +128,7 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     private void RpcDie(string _sourceID)
     {
+        onPlayerDieCallback.Invoke();
 
         shoot.CancelInvoke("Shoot");
 
@@ -161,9 +165,6 @@ public class Player : NetworkBehaviour
             rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rigidbody.velocity = metrics.velocity;
         }
-
-        weaponManager.Die();
-        motor.Die();
 
         if (isLocalPlayer)
         {

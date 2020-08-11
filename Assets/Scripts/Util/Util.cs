@@ -252,6 +252,20 @@ public class Util : MonoBehaviour
         return null;
     }
 
+    public static ScriptID NameToScriptID(string _name)
+    {
+        ScriptableObject[] allScriptIDs = GetScriptableObjects("Assets/Resources/ScriptableObjects/ScriptIDs");
+
+        foreach (var _scriptID in allScriptIDs)
+        {
+            if (_scriptID.name == _name)
+            {
+                return (ScriptID)_scriptID;
+            }
+        }
+        return null;
+    }
+
     public static string[] GetSubAllFilesInDirectory(string _dir, string _ext)
     {
         return Directory.GetFiles(_dir, "*." + _ext, SearchOption.AllDirectories);
