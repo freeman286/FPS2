@@ -49,9 +49,11 @@ public class PlayerSetup : NetworkBehaviour
             GetComponent<Player>().SetupPlayer();
 
             CmdSetUsername(transform.name, PlayerInfo.playerName);
+
+            GetComponent<WeaponManager>().SyncAllWepaons();
         }
 
-        GetComponent<WeaponManager>().SyncAllWepaons();
+        
     }
 
     [Command]

@@ -104,7 +104,7 @@ public class WeaponManager : NetworkBehaviour
     {
         foreach (var player in GameManager.GetAllPlayers())
         {
-            CmdEquipWeapon(player.name, player.weaponManager.currentWeaponName, true);
+            player.weaponManager.LocalEquipWeapon(player.weaponManager.currentWeaponName, true);
         }
     }
 
@@ -175,6 +175,11 @@ public class WeaponManager : NetworkBehaviour
 
     [ClientRpc]
     void RpcEquipWeapon(string _weaponName, bool _setup)
+    {
+        LocalEquipWeapon(_weaponName, _setup);
+    }
+
+    public void LocalEquipWeapon(string _weaponName, bool _setup)
     {
         PlayerWeapon newWeapon = WeaponsUtil.NameToWeapon(_weaponName);
 
