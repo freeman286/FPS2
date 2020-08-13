@@ -1506,6 +1506,7 @@ GameObject:
   - component: {fileID: 3794130788770680765}
   - component: {fileID: 2044923219459607238}
   - component: {fileID: -4093087858480041485}
+  - component: {fileID: 3809723455925463449}
   - component: {fileID: -4056647066290816205}
   - component: {fileID: -7753474945112700229}
   - component: {fileID: -139632799106916886}
@@ -1886,6 +1887,7 @@ MonoBehaviour:
   primaryWeaponName: 
   secondaryWeaponName: 
   equipmentName: 
+  movementAbilityName: 
   damageAttributes: []
   speedMultiplier: 1
   jumpMultiplier: 1
@@ -2035,6 +2037,23 @@ MonoBehaviour:
   laserParticle: {fileID: 1734203832338817589, guid: faa8a56e1662d164985a098673f90336,
     type: 3}
   laserInstance: {fileID: 0}
+--- !u!114 &3809723455925463449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dfe08534e99def4dacd276853ce9113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: 0cc225f9a28e8a3449d5850a4004da4c, type: 2}
+  cam: {fileID: 899551536351255448}
+  deadEyeSpeed: 10
 --- !u!114 &-4056647066290816205
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,11 +14,9 @@ public class PlayerMotor : MonoBehaviour
     private float cameraRotationX = 0f;
     private float currentCameraRotationX = 0f;
 
-    [SerializeField]
-    private float minCameraRotationLimit = 50f;
+    public float minCameraRotationLimit = 50f;
 
-    [SerializeField]
-    private float maxCameraRotationLimit = 50f;
+    public float maxCameraRotationLimit = 50f;
 
     private Rigidbody rb;
     private PlayerController playerController;
@@ -84,13 +82,18 @@ public class PlayerMotor : MonoBehaviour
     void PerformRotation()
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
-        if (cam != null)
-        {
-            currentCameraRotationX -= cameraRotationX;
-            currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -minCameraRotationLimit, maxCameraRotationLimit);
 
-            cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
-        }
+        currentCameraRotationX -= cameraRotationX;
+
+        currentCameraRotationX = Util.ClampAngle(currentCameraRotationX, -minCameraRotationLimit, maxCameraRotationLimit);
+
+        cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+    }
+
+    public void LerpRotation(Vector3 _rotation, float _t)
+    {
+        currentCameraRotationX = Mathf.Lerp(currentCameraRotationX, _rotation.x, _t);
+        rb.rotation = Quaternion.Lerp(rb.rotation, Quaternion.Euler(Vector3.up * _rotation.y), _t);
     }
 
     public void Jump()

@@ -148,6 +148,7 @@
      <Compile Include="Assets\Scripts\Weapons\PlayerWeapon.cs" />
      <Compile Include="Assets\Scripts\Weapons\PlayerWeaponGraphics.cs" />
      <Compile Include="Assets\Scripts\Weapons\ProjectLaser.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Revolver.cs" />
      <Compile Include="Assets\Scripts\Weapons\Weapon.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponGraphics.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponManager.cs" />

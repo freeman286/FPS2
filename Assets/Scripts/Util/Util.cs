@@ -71,6 +71,32 @@ public class Util : MonoBehaviour
         return basis[0];
     }
 
+    public static float ClampAngle(float _angle, float _min, float _max)
+    {
+        if (_angle >= 0)
+        {
+            _angle = Mathf.Repeat(_angle, 360);
+        } else
+        {
+            _angle = -Mathf.Repeat(-_angle, 360);
+        }
+
+        if (_angle > 180)
+        {
+            _angle -= 360;
+        } else if (_angle < -180)
+        {
+            _angle += 360;
+        }
+
+        return Mathf.Clamp(_angle, _min, _max);
+    }
+
+    public static Vector3 NormalizeAngle(Vector3 _angle)
+    {
+        return new Vector3(ClampAngle(_angle.x, -180, 180), ClampAngle(_angle.y, -180, 180), ClampAngle(_angle.z, -180, 180));
+    }
+
     public static Vector3 Flatten(Vector3 _vector)
     {
         return new Vector3(_vector.x, 0f, _vector.z);
@@ -242,7 +268,7 @@ public class Util : MonoBehaviour
 
         foreach(EnableDuringRuntime _component in _components)
         {
-            if (_component.scriptID == _scriptID)
+            if (_component.scriptID == _scriptID && _component.gameObject == _gameObject)
             {
                 _component.enabled = _enable;
                 return (_component as Behaviour);

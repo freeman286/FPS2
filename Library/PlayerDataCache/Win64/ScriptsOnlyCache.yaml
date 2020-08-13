@@ -58,6 +58,7 @@ ScriptsOnlyBuild:
     - ProjectileShoot
     - RandomAngularVelocity
     - RaycastShoot
+    - Revolver
     - Scoreboard
     - ScriptID
     - SelectList
@@ -146,8 +147,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -491,6 +494,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17544}
     - Class: 114
       Script: {instanceID: 17552}
+    - Class: 114
+      Script: {instanceID: 119888}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -760,6 +765,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17416}
     - Class: 114
       Script: {instanceID: 17490}
+    - Class: 114
+      Script: {instanceID: 119888}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1031,6 +1038,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17416}
     - Class: 114
       Script: {instanceID: 17490}
+    - Class: 114
+      Script: {instanceID: 119888}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3624,6 +3633,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 49930e8c7924aefed5eca4cb868f8bdf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Revolver
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

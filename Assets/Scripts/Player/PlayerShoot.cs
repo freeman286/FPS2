@@ -100,7 +100,7 @@ public class PlayerShoot : NetworkBehaviour {
         if (currentWeapon == null)
             return;
 
-        if (timeSinceShot <= 1f / currentWeapon.fireRate)
+        if (!CanShoot())
         {
             timeSinceBurst += Time.deltaTime;
         }
@@ -125,7 +125,7 @@ public class PlayerShoot : NetworkBehaviour {
 
         if (Pause.IsOn)
         {
-            if (timeSinceShot >= 1f / currentWeapon.fireRate && IsInvoking("Shoot"))
+            if (IsInvoking("Shoot"))
             {
                 CancelInvoke("Shoot");
             }   
@@ -154,7 +154,7 @@ public class PlayerShoot : NetworkBehaviour {
             {
                 InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
             }
-            else if (!Input.GetButton("Fire1") && timeSinceShot >= 1f / currentWeapon.fireRate)
+            else if (!Input.GetButton("Fire1"))
             {
                 CancelInvoke("Shoot");
             }
@@ -215,12 +215,12 @@ public class PlayerShoot : NetworkBehaviour {
     }
 
     [Client]
-    void Shoot()
+    public void Shoot()
     {
-        if (!isLocalPlayer || weaponManager.isReloading || !Input.GetButton("Fire1"))
+        if (!isLocalPlayer || weaponManager.isReloading || currentWeapon.bullets <= 0)
             return;
 
-        if (currentWeapon.bullets <= 0)
+        if (currentWeapon.bullets <= 0 && CanShoot())
         {
             weaponManager.Reload();
             return;

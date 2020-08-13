@@ -508,16 +508,16 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 3876431200991625207}
-  casing: {fileID: 0}
   shootSound: {fileID: 185320, guid: 550ac9df4ad6b1c4aae59c89d46c797d, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  ejectionPort: {fileID: 3876431200991625207}
+  casing: {fileID: 0}
   colliders:
   - {fileID: 4145755278530785478}
   - {fileID: 8238910437661078734}
   - {fileID: 1729483327383449718}
   - {fileID: 5755004223841372545}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -528,7 +528,7 @@ Animator:
   m_GameObject: {fileID: 2721180637063796786}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a2ce0be6c95a62245bdfd1a659d343c0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8c36bcc0294f22546bd92ab4b010e266, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -640,9 +640,10 @@ MonoBehaviour:
   magSize: 6
   speed: 1.4
   scopedSpeed: 1
-  bullets: 3
+  bullets: 6
   reloadTime: 4.5
-  scriptsToEnable: []
+  scriptsToEnable:
+  - {fileID: 11400000, guid: 0cc225f9a28e8a3449d5850a4004da4c, type: 2}
 --- !u!82 &3317242424504107631
 AudioSource:
   m_ObjectHideFlags: 0

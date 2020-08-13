@@ -70,8 +70,10 @@ public class WeaponManager : NetworkBehaviour
         if (Input.GetButtonDown("Switch") && isLocalPlayer && !switchingWeapon && !Pause.IsOn)
         {
             if (reload != null)
+            {
                 StopCoroutine(reload);
                 isReloading = false;
+            }
 
             SwitchWeapon();
             switchingWeapon = true;
@@ -151,11 +153,11 @@ public class WeaponManager : NetworkBehaviour
         return currentWeapon.projectile;
     }
 
-
-    [Client]
     void EquipWeapon(PlayerWeapon _weapon, bool _setup)
     {
         currentWeapon = _weapon;
+
+        EnableScripts();
 
         if (shoot != null)
         {
@@ -164,6 +166,27 @@ public class WeaponManager : NetworkBehaviour
         }
 
         CmdEquipWeapon(transform.name, _weapon.name, _setup);
+    }
+
+    void EnableScripts()
+    {
+
+        if (scripts != null)
+        {
+            for (int i = 0; i < scripts.Length; i++)
+            {
+                scripts[i].enabled = false;
+            }
+        }
+
+        if (currentWeapon.scriptsToEnable != null)
+        {
+            scripts = new Behaviour[currentWeapon.scriptsToEnable.Length];
+            for (int i = 0; i < currentWeapon.scriptsToEnable.Length; i++)
+            {
+                scripts[i] = Util.EnableScipt(gameObject, currentWeapon.scriptsToEnable[i], true);
+            }
+        }
     }
 
     [Command]
@@ -188,15 +211,6 @@ public class WeaponManager : NetworkBehaviour
         if (!_setup && anim != null)
         {
             anim.SetTrigger("Switching");
-        }
-
-
-        if (scripts != null)
-        {
-            for (int i = 0; i < scripts.Length; i++)
-            {
-                scripts[i].enabled = false;
-            }
         }
 
         StartCoroutine(ShowWeapon());
@@ -233,15 +247,6 @@ public class WeaponManager : NetworkBehaviour
         }
 
         shoot.localAnim = currentGraphics.GetComponent<Animator>();
-
-        if (currentWeapon.scriptsToEnable != null)
-        {
-            scripts = new Behaviour[currentWeapon.scriptsToEnable.Length];
-            for (int i = 0; i < currentWeapon.scriptsToEnable.Length; i++)
-            {
-                scripts[i] = Util.EnableScipt(gameObject, currentWeapon.scriptsToEnable[i], true);
-            }
-        }
     }
 
     public void Reload()
