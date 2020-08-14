@@ -596,7 +596,7 @@ MonoBehaviour:
   range: 250
   damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
   automatic: 0
-  fireRate: 1.5
+  fireRate: 2
   scoped: 0
   special: 0
   roundsPerShot: 1
@@ -604,32 +604,40 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   name: Revolver
-  primary: 0
   spreadDefault: 0
   spreadWhileMoving: 0.07
   spreadWhileJumping: 0.4
   spreadWhileScoped: 0
-  timeTillMaxSpread: 1
+  timeTillMaxSpread: 4
   spreadCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.1
       inSlope: 0
       outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 1.8
+      outSlope: 1.8
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -640,8 +648,9 @@ MonoBehaviour:
   magSize: 6
   speed: 1.4
   scopedSpeed: 1
+  primary: 0
   bullets: 6
-  reloadTime: 4.5
+  reloadTime: 4
   scriptsToEnable:
   - {fileID: 11400000, guid: 0cc225f9a28e8a3449d5850a4004da4c, type: 2}
 --- !u!82 &3317242424504107631

@@ -601,15 +601,15 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 8136276923921398137}
-  casing: {fileID: 6886093808969423702, guid: e05d827ffbe69f542b17110865015960, type: 3}
   shootSound: {fileID: 128886, guid: fc567f06d84439244b731a29a6cacfc9, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  ejectionPort: {fileID: 8136276923921398137}
+  casing: {fileID: 6886093808969423702, guid: e05d827ffbe69f542b17110865015960, type: 3}
   colliders:
   - {fileID: 2973989721601702046}
   - {fileID: 8584139901040885527}
   - {fileID: 6616488894775923188}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -696,12 +696,11 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   name: Smg
-  primary: 1
   spreadDefault: 0.2
   spreadWhileMoving: 0.4
   spreadWhileJumping: 1
   spreadWhileScoped: 0
-  timeTillMaxSpread: 1
+  timeTillMaxSpread: 2
   spreadCurve:
     serializedVersion: 2
     m_Curve:
@@ -750,6 +749,7 @@ MonoBehaviour:
   magSize: 25
   speed: 1.2
   scopedSpeed: 1
+  primary: 1
   bullets: 25
   reloadTime: 2.5
   scriptsToEnable: []

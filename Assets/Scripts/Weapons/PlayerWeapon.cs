@@ -5,8 +5,6 @@ public class PlayerWeapon : Weapon
 {
     public new string name = "pistol";
 
-    public bool primary;
-
     [Header("Spread")]
     public float spreadDefault;
     public float spreadWhileMoving;
@@ -24,6 +22,7 @@ public class PlayerWeapon : Weapon
     public int magSize = 20;
     public float speed = 1;
     public float scopedSpeed = 1;
+    public bool primary;
 
     [HideInInspector]
     public int bullets;

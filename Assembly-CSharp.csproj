@@ -70,6 +70,9 @@
      <Compile Include="Assets\Scripts\BaseComponents\ProjectileShoot.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\RaycastShoot.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\ShootEffects.cs" />
+     <Compile Include="Assets\Scripts\Equipment\ChargeController.cs" />
+     <Compile Include="Assets\Scripts\Equipment\PlaceableEquipmentController.cs" />
+     <Compile Include="Assets\Scripts\Equipment\TurretController.cs" />
      <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainId.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainTarget.cs" />
@@ -113,13 +116,10 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\DamageAttribute.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\DamageType.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Charge.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\ChargeController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Equipment.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Grenade.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\PlaceableEquipment.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\PlaceableEquipmentController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Turret.cs" />
-     <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\TurretController.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\ListType.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\MovementAbility.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\ScriptID.cs" />

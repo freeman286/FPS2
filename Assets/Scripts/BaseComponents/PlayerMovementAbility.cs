@@ -27,7 +27,7 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
         _player.onPlayerDieCallback += Die;
     }
 
-    public virtual void Update()
+    public virtual void LateUpdate()
     {
         timeSinceMovementAbilityUsed += Time.deltaTime;
 

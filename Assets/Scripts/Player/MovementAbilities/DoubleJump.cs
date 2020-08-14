@@ -14,9 +14,9 @@ public class DoubleJump : PlayerMovementAbility
         }
     }
 
-    public override void Update()
+    public override void LateUpdate()
     {
-        base.Update();
+        base.LateUpdate();
 
         if (metrics.IsGrounded())
         {

@@ -15,9 +15,9 @@ public class Dash : PlayerMovementAbility
         }
     }
 
-    public override void Update()
+    public override void LateUpdate()
     {
-        base.Update();
+        base.LateUpdate();
 
         if (timeSinceMovementAbilityUsed < ability.effectTime)
         {

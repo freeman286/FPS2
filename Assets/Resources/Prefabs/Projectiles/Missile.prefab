@@ -117,7 +117,6 @@ MonoBehaviour:
   impact: {fileID: 4308811345454485748, guid: 13c5e589ded63854c8ea82124219f9d3, type: 3}
   fuse: 2
   explodeOnImpact: 1
-  airburst: 0
 --- !u!114 &3055238035656810282
 MonoBehaviour:
   m_ObjectHideFlags: 0

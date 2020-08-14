@@ -19,6 +19,6 @@ MonoBehaviour:
   equipment: {fileID: 11400000, guid: 26e3135ac5abd6844ab37fb2259712a1, type: 2}
   movementAbility: {fileID: 11400000, guid: e0da356cbda45d34c820af7c1d24b39f, type: 2}
   attributes: []
-  speedMultiplier: 1.2
+  speedMultiplier: 1.15
   jumpMultiplier: 1.2
   scriptsToEnable: []
