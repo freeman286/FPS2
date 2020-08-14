@@ -73,7 +73,7 @@ public class PlayerMotor : MonoBehaviour
 
     void PerformMovement()
     {
-        if (velocity != Vector3.zero)
+        if (velocity != Vector3.zero && rb.constraints != (RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation))
         {
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }

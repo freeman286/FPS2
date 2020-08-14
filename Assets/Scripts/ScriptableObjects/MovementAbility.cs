@@ -8,4 +8,6 @@ public class MovementAbility : ScriptableObject
     public float cooldown;
     public float magnitude;
     public float effectTime;
+    public int damage;
+    public DamageType damageType;
 }

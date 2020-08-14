@@ -95,8 +95,11 @@
      <Compile Include="Assets\Scripts\Player\MovementAbilities\Dash.cs" />
      <Compile Include="Assets\Scripts\Player\MovementAbilities\DoubleJump.cs" />
      <Compile Include="Assets\Scripts\Player\MovementAbilities\HighJump.cs" />
+     <Compile Include="Assets\Scripts\Player\MovementAbilities\Holdfast.cs" />
      <Compile Include="Assets\Scripts\Player\MovementAbilities\PlayerMovementAbilityController.cs" />
+     <Compile Include="Assets\Scripts\Player\MovementAbilities\Push.cs" />
      <Compile Include="Assets\Scripts\Player\MovementAbilities\Sprint.cs" />
+     <Compile Include="Assets\Scripts\Player\MovementAbilities\Stomp.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerEquipment.cs" />

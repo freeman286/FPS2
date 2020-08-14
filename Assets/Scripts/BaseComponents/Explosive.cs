@@ -11,8 +11,13 @@ public class Explosive : NetworkBehaviour
     [SerializeField]
     private LayerMask mask = -1;
 
+    [Header("Damage")]
+
     [SerializeField]
     private float force = 10f;
+
+    [SerializeField]
+    private float forceUpwardsModifier = 1f;
 
     [Header("Damage")]
 

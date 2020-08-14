@@ -1511,6 +1511,9 @@ GameObject:
   - component: {fileID: -7753474945112700229}
   - component: {fileID: -139632799106916886}
   - component: {fileID: -6100186545514115143}
+  - component: {fileID: 6234860797494693837}
+  - component: {fileID: -4489876270746698146}
+  - component: {fileID: 645757323481775453}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2118,6 +2121,55 @@ MonoBehaviour:
   syncInterval: 0.1
   scriptID: {fileID: 11400000, guid: 465d84941870368478d9f820beae8f2f, type: 2}
   ability: {fileID: 11400000, guid: fb098f073dcd7ec41848f56234cca3b4, type: 2}
+--- !u!114 &6234860797494693837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2163dc6427df5e94e9277f0f838d6fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: 7db729767a4b5924d906ce192a90ab00, type: 2}
+  ability: {fileID: 11400000, guid: c75e45cffcaf25543be6eb2b3e3b759e, type: 2}
+--- !u!114 &-4489876270746698146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb0d21b6510ed742b108f66e7cd919c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: 6e9c61cfb48a80843a5aad626bcd0ce4, type: 2}
+  ability: {fileID: 11400000, guid: 4e645bcbe3d325c49a6289e08706cdd1, type: 2}
+--- !u!114 &645757323481775453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7067c8ef12150a46a15e52d2897620d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: ca6ef0fa84f760a40875b5c42884a99a, type: 2}
+  ability: {fileID: 11400000, guid: 44b57155512ee6f4f8b164b11dce96fb, type: 2}
+  force: 100
 --- !u!1 &9012694868525747722
 GameObject:
   m_ObjectHideFlags: 0

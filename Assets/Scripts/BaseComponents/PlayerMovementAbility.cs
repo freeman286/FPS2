@@ -37,6 +37,9 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
         if (isLocalPlayer && active && Input.GetButton("MovementAbility") && timeSinceMovementAbilityUsed >= ability.cooldown)
         {
             DoAbility();
+        } else if (isLocalPlayer && active)
+        {
+            ExitAbility();
         }
     }
 
@@ -44,6 +47,9 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
     {
         Debug.LogError("No ability assigned");
     }
+
+
+    public virtual void ExitAbility() {}
 
     void SetDefaults()
     {
@@ -54,5 +60,6 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
     void Die()
     {
         active = false;
+        ExitAbility();
     }
 }

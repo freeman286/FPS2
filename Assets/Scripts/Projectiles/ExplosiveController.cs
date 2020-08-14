@@ -6,8 +6,6 @@ using Mirror;
 
 public class ExplosiveController : ProjectileController
 {
-    [SerializeField]
-    private GameObject impact = null;
 
     [Header("Explosive Operative")]
 
