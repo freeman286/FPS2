@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+[RequireComponent(typeof(Health))]
 public class RaycastShoot : NetworkBehaviour
 {
     public GameObject hitEffectPrefab;
+
+    private Health health;
+
+    void Start()
+    {
+        health = GetComponent<Health>();
+    }
 
     public void Shoot(Transform _muzzleTrans, Vector3 _direction, Vector3 _devience, Weapon _weapon, LayerMask _mask, string _sourceID)
     {
@@ -26,7 +34,7 @@ public class RaycastShoot : NetworkBehaviour
                 Health _health = _hit.collider.transform.root.GetComponent<Health>();
 
                 if (_health != null)
-                    CmdDamage(_health.transform.name, _damage, _sourceID, _weapon.damageType.name);
+                    health.CmdDamage(_health.transform.name, _damage, _sourceID, _weapon.damageType.name);
 
                 Rigidbody rb = _hit.collider.attachedRigidbody;
 
@@ -37,13 +45,6 @@ public class RaycastShoot : NetworkBehaviour
                 CmdOnHit(_hit.point, _hit.normal);
             }
         }
-    }
-
-    [Command]
-    void CmdDamage(string _healthID, int _damage, string _sourceID, string _damageType)
-    {
-        Health _health = GameManager.GetHealth(_healthID);
-        _health.RpcTakeDamage(_damage, _sourceID, _damageType);
     }
 
     public Vector3 ShootDirection(Transform _camTrans, Transform _muzzleTrans, float _range, LayerMask _mask)

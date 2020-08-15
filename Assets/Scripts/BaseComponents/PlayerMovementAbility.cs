@@ -16,7 +16,7 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
 
     private bool active = true;
 
-    void Start()
+    public virtual void Start()
     {
         motor = GetComponent<PlayerMotor>();
         metrics = GetComponent<PlayerMetrics>();

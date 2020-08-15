@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a745ecdec3205ec49b52bf9c17f2cda5, type: 3}
+  m_Name: GravityGuy
+  m_EditorClassIdentifier: 
+  name: Gravity Guy
+  description: Jump higher and take less bullet damage.
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 2721180637063796786, guid: 35d6a6916afac104e985c751d8efb185,
+    type: 3}
+  equipment: {fileID: 11400000, guid: f40b90d1c4c970141b5b8c7624f6e454, type: 2}
+  movementAbility: {fileID: 0}
+  attributes:
+  - self: 1
+    damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
+    multiplier: 0.9
+  speedMultiplier: 1
+  jumpMultiplier: 1.5
+  scriptsToEnable: []

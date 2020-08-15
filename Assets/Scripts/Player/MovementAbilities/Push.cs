@@ -6,6 +6,14 @@ using Mirror;
 public class Push : PlayerMovementAbility
 {
 
+    private Health health;
+
+    public override void Start()
+    {
+        base.Start();
+        health = GetComponent<Health>();
+    }
+
     public override void DoAbility()
     {
         timeSinceMovementAbilityUsed = 0f;
@@ -30,17 +38,10 @@ public class Push : PlayerMovementAbility
 
         if (_health != null)
         {
-            CmdDamage(_health.transform.name, ability.damage, transform.name, ability.damageType.name);
+            health.CmdDamage(_health.transform.name, ability.damage, transform.name, ability.damageType.name);
             timeSinceMovementAbilityUsed = ability.effectTime;
         }
 
-    }
-
-    [Command]
-    void CmdDamage(string _healthID, int _damage, string _sourceID, string _damageType)
-    {
-        Health _health = GameManager.GetHealth(_healthID);
-        _health.RpcTakeDamage(_damage, _sourceID, _damageType);
     }
 
 }

@@ -39,8 +39,6 @@ public class Explosive : NetworkBehaviour
     [SerializeField]
     private AnimationCurve damageOverAngle = null;
 
-    private const string PLAYER_TAG = "Player";
-
     [Command]
     public void CmdExplode(Vector3 _pos, Vector3 _dir, float _timeSinceCreated, string _playerID)
     {

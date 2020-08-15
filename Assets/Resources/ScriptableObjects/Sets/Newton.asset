@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a745ecdec3205ec49b52bf9c17f2cda5, type: 3}
+  m_Name: Newton
+  m_EditorClassIdentifier: 
+  name: Newton
+  description: Jump higher and deal more impact damage but take more energy damage.
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
+  equipment: {fileID: 11400000, guid: f40b90d1c4c970141b5b8c7624f6e454, type: 2}
+  movementAbility: {fileID: 11400000, guid: 44b57155512ee6f4f8b164b11dce96fb, type: 2}
+  attributes:
+  - self: 0
+    damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
+    multiplier: 1.2
+  - self: 1
+    damageType: {fileID: 11400000, guid: b8de35d11ecd45e4eaed37b836ec35eb, type: 2}
+    multiplier: 1.3
+  speedMultiplier: 1
+  jumpMultiplier: 1.2
+  scriptsToEnable: []

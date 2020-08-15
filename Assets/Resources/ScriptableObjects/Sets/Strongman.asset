@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Strongman
   description: Take less bullet and explosive damage but move slower
-  primaryWeapon: {fileID: 2721180637063796786, guid: 0ed73f39f3740bf4da71abe095658270,
-    type: 3}
+  primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
   equipment: {fileID: 11400000, guid: c5eb5755f911d5e4ba60be9215e77a21, type: 2}
+  movementAbility: {fileID: 11400000, guid: c75e45cffcaf25543be6eb2b3e3b759e, type: 2}
   attributes:
   - self: 0
     damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}

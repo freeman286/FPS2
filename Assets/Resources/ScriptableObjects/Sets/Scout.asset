@@ -16,8 +16,9 @@ MonoBehaviour:
   description: Move faster, jump higher, but take more explosive damage.
   primaryWeapon: {fileID: 2721180637063796786, guid: d8385fc30ac06744fa8df74a333c6c14,
     type: 3}
-  secondaryWeapon: {fileID: 2721180637063796786, guid: de10ced2e44385447884586860e99802,
-    type: 3}
+  secondaryWeapon: {fileID: 0}
+  equipment: {fileID: 0}
+  movementAbility: {fileID: 11400000, guid: e0da356cbda45d34c820af7c1d24b39f, type: 2}
   attributes:
   - self: 1
     damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}

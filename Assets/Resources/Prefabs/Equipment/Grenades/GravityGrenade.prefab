@@ -254,7 +254,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 20
+  maxHealth: 5
   healthRegenTime: -1
   healthRegenSpeed: 0
   lastDamagedPlayer: {fileID: 0}

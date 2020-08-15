@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ShootEffects))]
 public class ShootEffects : MonoBehaviour
 {
     private PlayerShoot shoot;

@@ -5,6 +5,15 @@ using Mirror;
 
 public class Stomp : PlayerMovementAbility
 {
+
+    private Health health;
+
+    public override void Start()
+    {
+        base.Start();
+        health = GetComponent<Health>();
+    }
+
     public override void DoAbility()
     {
         if (!metrics.IsGrounded())
@@ -34,7 +43,7 @@ public class Stomp : PlayerMovementAbility
 
         if (_health != null)
         {
-            CmdDamage(_health.transform.name, ability.damage, transform.name, ability.damageType.name);
+            health.CmdDamage(_health.transform.name, ability.damage, transform.name, ability.damageType.name);
         }
 
         List<Transform> _hitTransforms = new List<Transform>();
@@ -52,20 +61,13 @@ public class Stomp : PlayerMovementAbility
 
                 _hitTransforms.Add(_baseTransform);
 
-                CmdDamage(_health.transform.name, (int)(ability.damage * timeSinceMovementAbilityUsed), transform.name, ability.damageType.name);
+                health.CmdDamage(_health.transform.name, (int)(ability.damage * timeSinceMovementAbilityUsed), transform.name, ability.damageType.name);
 
             }
         }
 
         timeSinceMovementAbilityUsed = ability.effectTime;
 
-    }
-
-    [Command]
-    void CmdDamage(string _healthID, int _damage, string _sourceID, string _damageType)
-    {
-        Health _health = GameManager.GetHealth(_healthID);
-        _health.RpcTakeDamage(_damage, _sourceID, _damageType);
     }
 
     [Command]

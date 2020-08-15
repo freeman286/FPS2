@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 156444120250483797}
   - component: {fileID: 6949213581879237129}
   - component: {fileID: 6001243613154927045}
+  - component: {fileID: 2325624029272671855}
   m_Layer: 16
   m_Name: Shuriken
   m_TagString: Projectile
@@ -130,6 +131,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angularVelocity: {x: 0, y: 100, z: 0}
+--- !u!114 &2325624029272671855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39937c093bc202845a28b4764c9044fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  isDead: 0
+  dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  maxHealth: 0
+  healthRegenTime: 0
+  healthRegenSpeed: 0
+  lastDamagedPlayer: {fileID: 0}
 --- !u!1 &3621155135743857724
 GameObject:
   m_ObjectHideFlags: 0

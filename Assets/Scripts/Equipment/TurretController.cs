@@ -52,8 +52,6 @@ public class TurretController : PlaceableEquipmentController
     [SerializeField]
     private LayerMask mask = -1;
 
-    private const string PLAYER_TAG = "Player";
-
     public override void Start()
     {
         base.Start();

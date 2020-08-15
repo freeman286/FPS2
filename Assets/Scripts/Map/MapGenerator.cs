@@ -8,6 +8,7 @@ public class MapGenerator : MonoBehaviour
     public Transform tilePrefab;
     public Transform blockPrefab;
     public Transform voidPrefab;
+    public Transform skyPrefab;
     public Vector3 mapSize;
     public int mapFill;
 
@@ -92,29 +93,22 @@ public class MapGenerator : MonoBehaviour
 
         ClearLoop(_randomCoord, Util.SnapTo(_randomCoord.ToVector2()) - mapCentre.ToVector2());
 
-        
-
         for (int x = 0; x < mapSize.x; x++)
         {
             for (int y = 0; y < mapSize.y; y++)
             {
 
-                Vector3 tilePosition = CoordToPosition(x, y, 0);
-                Transform newTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as Transform;
-                newTile.parent = mapHolder;
+                PlaceBlock(skyPrefab, CoordToPosition(x, y, (int)mapSize.z));
 
+                blocks[x, y, 0] = PlaceBlock(tilePrefab, CoordToPosition(x, y, 0)).gameObject;
                 blockMap[x, y, 0] = 2;
-
-                blocks[x, y, 0] = newTile.gameObject;
 
                 for (int z = 1; z < mapSize.z; z++)
                 {
                     Vector3 blockPosition = CoordToPosition(x, y, z);
                     if (blockMap[x, y, z] == 0)
                     {
-                        Transform newBlock = Instantiate(blockPrefab, blockPosition, Quaternion.identity) as Transform;
-                        newBlock.parent = mapHolder;
-                        blocks[x, y, z] = newBlock.gameObject;
+                        blocks[x, y, z] = PlaceBlock(blockPrefab, blockPosition).gameObject;
 
                         if (!InPlayArea(new Coord(x, y)))
                             blockMap[x, y, z] = -1; // So terrain can't spawn at edge of map
@@ -123,10 +117,7 @@ public class MapGenerator : MonoBehaviour
                     }
                     else if (blockMap[x, y, z] == 1)
                     {
-                        Transform newVoid = Instantiate(voidPrefab, blockPosition, Quaternion.identity) as Transform;
-                        newVoid.parent = mapHolder;
-                        blocks[x, y, z] = newVoid.gameObject;
-
+                        blocks[x, y, z] = PlaceBlock(voidPrefab, blockPosition).gameObject;
                     }
                 }
             }
@@ -134,6 +125,14 @@ public class MapGenerator : MonoBehaviour
 
         InsertTerrain();
 
+    }
+
+    private Transform PlaceBlock(Transform _block, Vector3 _pos)
+    {
+        Vector3 skyPosition = _pos;
+        Transform newBlock = Instantiate(_block, _pos, Quaternion.identity) as Transform;
+        newBlock.parent = mapHolder;
+        return newBlock;
     }
 
     private void InsertTerrain()
@@ -146,9 +145,6 @@ public class MapGenerator : MonoBehaviour
 
             int[,,] targetIds = terrainTarget.targetIds;
             int[,,] ids = terrainTarget.ids;
-
-            //Debug.Log(allTerrain[i].transform.name);
-            //Debug.Log(Util.FormatMatrix(targetIds));
 
             for (int r = 0; r < 4; r++)
             {

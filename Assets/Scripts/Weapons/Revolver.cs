@@ -38,7 +38,7 @@ public class Revolver : EnableDuringRuntime
 
     void Update()
     {
-        if (!isLocalPlayer || Pause.IsOn)
+        if (!isLocalPlayer || Pause.IsOn || weaponManager.isReloading)
             return;
         
         if (Input.GetButton("Fire2") && deadEyeState == DeadEyeState.off && shoot.CanShoot())
@@ -46,7 +46,7 @@ public class Revolver : EnableDuringRuntime
             deadEyeState = DeadEyeState.targeting;
         }
 
-        if (Input.GetButtonDown("Fire1") && deadEyeState == DeadEyeState.targeting)
+        if (Input.GetButtonDown("Fire1") && deadEyeState == DeadEyeState.targeting && targets.Count < weaponManager.GetCurrentWeapon().bullets)
         {
             shoot.enabled = false;
             RaycastHit _hit;

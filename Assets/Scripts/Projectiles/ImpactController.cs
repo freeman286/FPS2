@@ -27,6 +27,14 @@ public class ImpactController : ProjectileController
     [SerializeField]
     private float headShotMultiplier = 2f;
 
+    private Health health;
+
+    public override void Start()
+    {
+        base.Start();
+        health = GetComponent<Health>();
+    }
+
     public override void Update()
     {
         base.Update();
@@ -87,14 +95,7 @@ public class ImpactController : ProjectileController
         Health _health = collision.transform.root.GetComponent<Health>();
 
         if (_health != null)
-            CmdDamage(_health.transform.name, _damage, playerID, damageType.name);
-    }
-
-    [Command]
-    void CmdDamage(string _healthID, int _damage, string _sourceID, string _damageType)
-    {
-        Health _health = GameManager.GetHealth(_healthID);
-        _health.RpcTakeDamage(_damage, _sourceID, _damageType);
+            health.CmdDamage(_health.transform.name, _damage, playerID, damageType.name);
     }
 
 

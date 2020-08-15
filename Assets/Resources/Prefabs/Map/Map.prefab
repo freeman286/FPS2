@@ -51,11 +51,13 @@ MonoBehaviour:
     type: 3}
   voidPrefab: {fileID: 1323315277597270906, guid: f583063559d738549a63632bae8e234f,
     type: 3}
+  skyPrefab: {fileID: 1323315277597270906, guid: 9392d4536a957944891d7aa487b00786,
+    type: 3}
   mapSize: {x: 20, y: 20, z: 4}
   mapFill: 160
-  turnLeftThreshold: 0.8
-  turnRightThreshold: 0.85
-  seed: 1
+  turnLeftThreshold: 0.85
+  turnRightThreshold: 0.9
+  seed: 12
 --- !u!114 &1289998211442839126
 MonoBehaviour:
   m_ObjectHideFlags: 0
