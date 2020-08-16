@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e899febe644d04cb450fd777c7c78e, type: 3}
   m_Name: Stun Grenade
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: e0bed276ffc53f14eb1ce46b188fa0b2, type: 3}
   cooldown: 10
   range: 16
   prefab: {fileID: 156444120250483795, guid: 1a45837319d86ce45b8d91fb9e537dbd, type: 3}

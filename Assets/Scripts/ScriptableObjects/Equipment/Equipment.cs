@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public abstract class Equipment : ScriptableObject {
+    public Sprite icon;
     public float cooldown;
     public float range;
     public GameObject prefab;

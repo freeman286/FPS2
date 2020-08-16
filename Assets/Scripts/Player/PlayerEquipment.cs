@@ -29,6 +29,9 @@ public class PlayerEquipment : NetworkBehaviour
     private RaycastShoot raycastShoot;
     private ProjectileShoot projectileShoot;
 
+    public delegate void OnEquipmentChangedCallback(Sprite icon);
+    public OnEquipmentChangedCallback onEquipmentChangedCallback;
+
     public float GetEquipmentPct()
     {
         if (equipment == null || equipment.cooldown == 0)
@@ -136,8 +139,10 @@ public class PlayerEquipment : NetworkBehaviour
         equipmentName = _newName;
         equipment = EquipmentUtil.NameToEquipment(equipmentName);
 
-        if (isLocalPlayer)
+        if (isLocalPlayer) {
             timeSinceEquipmentUsed = equipment.cooldown;
+            onEquipmentChangedCallback.Invoke(equipment.icon);
+        }
     }
 
     RaycastHit FindEquipmentPosition()

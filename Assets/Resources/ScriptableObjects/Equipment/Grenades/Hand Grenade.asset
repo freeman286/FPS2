@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e899febe644d04cb450fd777c7c78e, type: 3}
   m_Name: Hand Grenade
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 5bf0f6058e9b2a94597ee1bd6fbf1b6f, type: 3}
   cooldown: 10
   range: 16
   prefab: {fileID: 156444120250483795, guid: b5f7c9a9529b2ea4ea22f4a466f50642, type: 3}

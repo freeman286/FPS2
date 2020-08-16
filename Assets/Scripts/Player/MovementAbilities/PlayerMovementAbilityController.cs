@@ -10,6 +10,9 @@ public class PlayerMovementAbilityController : NetworkBehaviour
 
     private PlayerMovementAbility movementAbility;
 
+    public delegate void OnMovementAbilityChangedCallback(Sprite icon);
+    public OnMovementAbilityChangedCallback onMovementAbilityChangedCallback;
+
     public float GetAbilityPct()
     {
         if (movementAbility == null)
@@ -33,6 +36,8 @@ public class PlayerMovementAbilityController : NetworkBehaviour
             ScriptID _scriptID = Util.NameToScriptID(PlayerInfo.GetNameSelected(listType));
 
             movementAbility = Util.EnableScipt(gameObject, _scriptID, true) as PlayerMovementAbility;
+
+            onMovementAbilityChangedCallback.Invoke(movementAbility.ability.icon);
         }
     }
 }

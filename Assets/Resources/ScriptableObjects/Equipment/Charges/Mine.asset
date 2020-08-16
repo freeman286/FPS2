@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c9d547ef15db14bae48f2386965097, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
-  name: Mine
+  icon: {fileID: 21300000, guid: 8910963b61cab2241b78f1bf96c38dfb, type: 3}
   cooldown: 5
   range: 6
   prefab: {fileID: 156444120250483795, guid: 281bf434e6764ef4b82997c5379aba66, type: 3}

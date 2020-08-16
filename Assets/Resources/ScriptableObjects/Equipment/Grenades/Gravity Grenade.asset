@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e899febe644d04cb450fd777c7c78e, type: 3}
   m_Name: Gravity Grenade
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: ff43da0b80dd955499993735d25cb5b3, type: 3}
   cooldown: 5
   range: 16
   prefab: {fileID: 156444120250483795, guid: b1980bfbb8fb34242ab24a7f831445b2, type: 3}

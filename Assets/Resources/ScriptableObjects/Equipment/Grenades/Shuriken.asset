@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e899febe644d04cb450fd777c7c78e, type: 3}
   m_Name: Shuriken
   m_EditorClassIdentifier: 
-  name: Shuriken
+  icon: {fileID: 21300000, guid: ef51e75b86cb909408e8514cd2716078, type: 3}
   cooldown: 5
   range: 25
   prefab: {fileID: 156444120250483795, guid: a1722cae9a5795748a10fbbf2648381a, type: 3}

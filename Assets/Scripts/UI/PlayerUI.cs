@@ -32,10 +32,16 @@ public class PlayerUI : MonoBehaviour
     private RectTransform equipmentBarFill = null;
 
     [SerializeField]
+    private Image equipmentIcon = null;
+
+    [SerializeField]
     private GameObject abilityBar = null;
 
     [SerializeField]
     private RectTransform abilityBarFill = null;
+
+    [SerializeField]
+    private Image abilityIcon = null;
 
     [SerializeField]
     private GameObject scoreboard = null;
@@ -78,8 +84,12 @@ public class PlayerUI : MonoBehaviour
         controller = player.GetComponent<PlayerController>();
         shoot = player.GetComponent<PlayerShoot>();
         weaponManager = player.GetComponent<WeaponManager>();
+
         playerEquipment = player.GetComponent<PlayerEquipment>();
+        playerEquipment.onEquipmentChangedCallback += UpdateEquipmentSprite;
+
         movementAbilityController = player.GetComponent<PlayerMovementAbilityController>();
+        movementAbilityController.onMovementAbilityChangedCallback += UpdateAbilitySprite;
 
         player.onPlayerSetDefaultsCallback += SetDefaults;
         player.onPlayerDieCallback += Die;
@@ -171,6 +181,16 @@ public class PlayerUI : MonoBehaviour
     public void SetDefaults()
     {
         EnableInfoUI(true);
+    }
+
+    void UpdateEquipmentSprite(Sprite icon)
+    {
+        equipmentIcon.sprite = icon;
+    }
+
+    void UpdateAbilitySprite(Sprite icon)
+    {
+        abilityIcon.sprite = icon;
     }
 
     public void Die()

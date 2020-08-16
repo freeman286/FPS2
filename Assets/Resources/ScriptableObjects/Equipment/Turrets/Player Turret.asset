@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0859314ecc1e84649954fe261addaffd, type: 3}
   m_Name: Player Turret
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: b49ab9fd40784c5458f79cac2590f930, type: 3}
   cooldown: 30
   range: 2
   prefab: {fileID: 156444120250483795, guid: 5a4195a090481d640bfc1ae5a4e4c5a6, type: 3}
