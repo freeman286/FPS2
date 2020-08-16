@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{FCF056D4-26C8-30AC-8241-DD9ACA16097B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror", "Mirror.csproj", "{738A4A50-57AA-8A62-F9B7-76A52FBFE7A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{620EE487-91B8-85B6-C21C-F786143BD07F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Components", "Mirror.Components.csproj", "{C63EDDD7-FBE1-1E47-EC10-E952E6E9B782}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{FCF056D4-26C8-30AC-8241-DD9ACA16097B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninja.WebSockets", "Ninja.WebSockets.csproj", "{8CB5C5C2-2780-7523-B68C-C501DB48F9F7}"
 EndProject
@@ -31,10 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FCF056D4-26C8-30AC-8241-DD9ACA16097B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCF056D4-26C8-30AC-8241-DD9ACA16097B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCF056D4-26C8-30AC-8241-DD9ACA16097B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCF056D4-26C8-30AC-8241-DD9ACA16097B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{738A4A50-57AA-8A62-F9B7-76A52FBFE7A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{738A4A50-57AA-8A62-F9B7-76A52FBFE7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{738A4A50-57AA-8A62-F9B7-76A52FBFE7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +43,10 @@ Global
 		{C63EDDD7-FBE1-1E47-EC10-E952E6E9B782}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C63EDDD7-FBE1-1E47-EC10-E952E6E9B782}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C63EDDD7-FBE1-1E47-EC10-E952E6E9B782}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF056D4-26C8-30AC-8241-DD9ACA16097B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF056D4-26C8-30AC-8241-DD9ACA16097B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF056D4-26C8-30AC-8241-DD9ACA16097B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF056D4-26C8-30AC-8241-DD9ACA16097B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8CB5C5C2-2780-7523-B68C-C501DB48F9F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8CB5C5C2-2780-7523-B68C-C501DB48F9F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CB5C5C2-2780-7523-B68C-C501DB48F9F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
