@@ -6,7 +6,7 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
 {
     public MovementAbility ability;
 
-    protected float timeSinceMovementAbilityUsed = Mathf.Infinity;
+    public float timeSinceMovementAbilityUsed = Mathf.Infinity;
 
     protected PlayerMotor motor;
 
@@ -15,6 +15,14 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
     protected Rigidbody rb;
 
     private bool active = true;
+
+    public float GetAbilityPct()
+    {
+        if (ability.cooldown == 0)
+            return 1;
+
+        return Mathf.Clamp(timeSinceMovementAbilityUsed / ability.cooldown, 0, 1);
+    }
 
     public virtual void Start()
     {

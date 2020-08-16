@@ -8,7 +8,15 @@ public class PlayerMovementAbilityController : NetworkBehaviour
     [SerializeField]
     private ListType listType = null;
 
-    private Behaviour script;
+    private PlayerMovementAbility movementAbility;
+
+    public float GetAbilityPct()
+    {
+        if (movementAbility == null)
+            return 1;
+
+        return movementAbility.GetAbilityPct();
+    }
 
     void Start()
     {
@@ -19,12 +27,12 @@ public class PlayerMovementAbilityController : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            if (script != null)
-                script.enabled = false;
+            if (movementAbility != null)
+                movementAbility.enabled = false;
 
             ScriptID _scriptID = Util.NameToScriptID(PlayerInfo.GetNameSelected(listType));
 
-            script = Util.EnableScipt(gameObject, _scriptID, true);
+            movementAbility = Util.EnableScipt(gameObject, _scriptID, true) as PlayerMovementAbility;
         }
     }
 }

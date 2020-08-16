@@ -8,11 +8,7 @@ public class PlayerInfo : MonoBehaviour
 
     static public string playerName = "Player";
 
-    static public string primaryWeaponName;
-
-    static public string secondaryWeaponName;
-
-    static public string equipmentName;
+    static public float lookSensitivity = 3f;
 
     private static Dictionary<ListType, string> loadoutNames = new Dictionary<ListType, string>();
 

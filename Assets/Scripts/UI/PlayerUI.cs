@@ -26,6 +26,18 @@ public class PlayerUI : MonoBehaviour
     private Text ammoText = null;
 
     [SerializeField]
+    private GameObject equipmentBar = null;
+
+    [SerializeField]
+    private RectTransform equipmentBarFill = null;
+
+    [SerializeField]
+    private GameObject abilityBar = null;
+
+    [SerializeField]
+    private RectTransform abilityBarFill = null;
+
+    [SerializeField]
     private GameObject scoreboard = null;
 
     [SerializeField]
@@ -43,13 +55,13 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Text lookSensitivityText = null;
 
-    public float lookSensitivity;
-
     private Player player;
     private Health health;
     private PlayerController controller;
     private PlayerShoot shoot;
     private WeaponManager weaponManager;
+    private PlayerEquipment playerEquipment;
+    private PlayerMovementAbilityController movementAbilityController;
 
 
     [HideInInspector]
@@ -64,12 +76,16 @@ public class PlayerUI : MonoBehaviour
         controller = player.GetComponent<PlayerController>();
         shoot = player.GetComponent<PlayerShoot>();
         weaponManager = player.GetComponent<WeaponManager>();
+        playerEquipment = player.GetComponent<PlayerEquipment>();
+        movementAbilityController = player.GetComponent<PlayerMovementAbilityController>();
 
         networkManager = NetworkManager.singleton;
         networkManagerHUD = networkManager.GetComponent<NetworkManagerHUD>();
         networkManagerHUD.enabled = false;
 
         IpAddressText.text = "IP Address: " + Util.LocalIPAddress();
+
+        lookSensitivitySlider.value = PlayerInfo.lookSensitivity;
     }
 
     void Update()
@@ -87,6 +103,8 @@ public class PlayerUI : MonoBehaviour
         }
 
         SetHealthAmount(health.GetHealthPct());
+        SetEquipmentAmount(playerEquipment.GetEquipmentPct());
+        SetAbilityAmount(movementAbilityController.GetAbilityPct());
 
         PlayerWeapon currentWeapon = weaponManager.GetCurrentWeapon();
 
@@ -130,6 +148,16 @@ public class PlayerUI : MonoBehaviour
         healthBarFill.localScale = new Vector3(1f, Mathf.Lerp(healthBarFill.localScale.y, _amount, 20f * Time.deltaTime), 1f);
     }
 
+    void SetEquipmentAmount(float _amount)
+    {
+        equipmentBarFill.localScale = new Vector3(1f, Mathf.Lerp(equipmentBarFill.localScale.y, _amount, 20f * Time.deltaTime), 1f);
+    }
+
+    void SetAbilityAmount(float _amount)
+    {
+        abilityBarFill.localScale = new Vector3(1f, Mathf.Lerp(abilityBarFill.localScale.y, _amount, 20f * Time.deltaTime), 1f);
+    }
+
     void SetAmmoAmount(int _amount)
     {
         ammoText.text = _amount.ToString();
@@ -137,33 +165,27 @@ public class PlayerUI : MonoBehaviour
 
     public void Alive()
     {
-        crosshair.SetActive(true);
-        healthBar.SetActive(true);
-        ammo.SetActive(true);
+        EnableInfoUI(true);
     }
 
     public void Death()
     {
-        crosshair.SetActive(false);
-        healthBar.SetActive(false);
-        ammo.SetActive(false);
+        EnableInfoUI(false);
     }
 
     public void UpdateLookSensitivity()
     {
-        lookSensitivity = (float)System.Math.Round(lookSensitivitySlider.value, 1);
+        PlayerInfo.lookSensitivity = (float)System.Math.Round(lookSensitivitySlider.value, 1);
         if (controller != null)
         {
-            controller.lookSensitivity = lookSensitivity;
+            controller.lookSensitivity = PlayerInfo.lookSensitivity;
         }
-        lookSensitivityText.text = string.Format("Sensitivity: {0:F1}", lookSensitivity); ;
+        lookSensitivityText.text = string.Format("Sensitivity: {0:F1}", PlayerInfo.lookSensitivity); ;
     }
 
     public void Disconnect()
     {
-        crosshair.SetActive(false);
-        healthBar.SetActive(false);
-        ammo.SetActive(false);
+        EnableInfoUI(false);
         scoreboard.SetActive(false);
         pauseMenu.SetActive(false);
         ipAddress.SetActive(false);
@@ -179,6 +201,15 @@ public class PlayerUI : MonoBehaviour
         yield return new WaitForSeconds(1f);
         networkManager.StopClient();
         networkManager.StopHost();
+    }
+
+    void EnableInfoUI(bool _enabled)
+    {
+        crosshair.SetActive(_enabled);
+        healthBar.SetActive(_enabled);
+        ammo.SetActive(_enabled);
+        abilityBar.SetActive(_enabled);
+        equipmentBar.SetActive(_enabled);
     }
 
 }

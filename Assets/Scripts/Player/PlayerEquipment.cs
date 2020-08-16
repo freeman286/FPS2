@@ -29,6 +29,14 @@ public class PlayerEquipment : NetworkBehaviour
     private RaycastShoot raycastShoot;
     private ProjectileShoot projectileShoot;
 
+    public float GetEquipmentPct()
+    {
+        if (equipment == null || equipment.cooldown == 0)
+            return 1;
+
+        return Mathf.Clamp(timeSinceEquipmentUsed / equipment.cooldown, 0, 1);
+    }
+
     void Start()
     {
         weaponManager = GetComponent<WeaponManager>();
