@@ -63,6 +63,8 @@ public class PlayerUI : MonoBehaviour
     private PlayerEquipment playerEquipment;
     private PlayerMovementAbilityController movementAbilityController;
 
+    public bool enableInfoUI = true;
+
 
     [HideInInspector]
     public NetworkManager networkManager;
@@ -78,6 +80,9 @@ public class PlayerUI : MonoBehaviour
         weaponManager = player.GetComponent<WeaponManager>();
         playerEquipment = player.GetComponent<PlayerEquipment>();
         movementAbilityController = player.GetComponent<PlayerMovementAbilityController>();
+
+        player.onPlayerSetDefaultsCallback += SetDefaults;
+        player.onPlayerDieCallback += Die;
 
         networkManager = NetworkManager.singleton;
         networkManagerHUD = networkManager.GetComponent<NetworkManagerHUD>();
@@ -163,12 +168,12 @@ public class PlayerUI : MonoBehaviour
         ammoText.text = _amount.ToString();
     }
 
-    public void Alive()
+    public void SetDefaults()
     {
         EnableInfoUI(true);
     }
 
-    public void Death()
+    public void Die()
     {
         EnableInfoUI(false);
     }
@@ -205,6 +210,8 @@ public class PlayerUI : MonoBehaviour
 
     void EnableInfoUI(bool _enabled)
     {
+        enableInfoUI = _enabled;
+
         crosshair.SetActive(_enabled);
         healthBar.SetActive(_enabled);
         ammo.SetActive(_enabled);

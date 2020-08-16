@@ -86,7 +86,6 @@ public class Player : NetworkBehaviour
         if (isLocalPlayer)
         {
             GameManager.instance.SetSceneCameraActive(false);
-            GetComponent<PlayerSetup>().ui.Alive();
         }
 
         CmdBroadcastPlayerSetup();
@@ -170,7 +169,6 @@ public class Player : NetworkBehaviour
         {
             GameManager.instance.SetSceneCameraActive(true);
             Environment.instance.UnStun();
-            GetComponent<PlayerSetup>().ui.Death();
         }
 
         StartCoroutine(Respawn());

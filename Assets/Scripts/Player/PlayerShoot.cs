@@ -308,7 +308,7 @@ public class PlayerShoot : NetworkBehaviour {
     public void Unscope()
     {
         scopeUIInstance.SetActive(false);
-        ui.crosshair.SetActive(true);
+        ui.crosshair.SetActive(ui.enableInfoUI);
         weaponCam.enabled = true;
         cam.fieldOfView = defaultFOV;
         Environment.instance.UnScope();
