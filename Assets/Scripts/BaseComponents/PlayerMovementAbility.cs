@@ -21,7 +21,13 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
         if (ability.cooldown == 0)
             return 1;
 
-        return Mathf.Clamp(timeSinceMovementAbilityUsed / ability.cooldown, 0, 1);
+        if (timeSinceMovementAbilityUsed <= ability.effectTime)
+        {
+            return Mathf.Clamp((ability.effectTime - timeSinceMovementAbilityUsed) / ability.effectTime, 0, 1);
+        } else
+        {
+            return Mathf.Clamp((timeSinceMovementAbilityUsed - ability.effectTime) / (ability.cooldown - ability.effectTime), 0, 1);
+        }
     }
 
     public virtual void Start()

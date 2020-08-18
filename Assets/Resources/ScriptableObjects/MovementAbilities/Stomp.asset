@@ -15,6 +15,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ef2597d1155200043afc6f78854d688a, type: 3}
   cooldown: 10
   magnitude: 4
-  effectTime: 2
+  effectTime: 1
   damage: 700
   damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}

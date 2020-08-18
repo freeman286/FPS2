@@ -18,13 +18,15 @@ MonoBehaviour:
     type: 3}
   secondaryWeapon: {fileID: 2721180637063796786, guid: 8aef215cef1cf1a4585bae1ca0fb0b14,
     type: 3}
+  equipment: {fileID: 0}
+  movementAbility: {fileID: 0}
   attributes:
   - self: 0
     damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
-    multiplier: 1.5
+    multiplier: 1.4
   - self: 0
     damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
-    multiplier: 1.3
+    multiplier: 1.2
   speedMultiplier: 0.8
   jumpMultiplier: 1
   scriptsToEnable: []

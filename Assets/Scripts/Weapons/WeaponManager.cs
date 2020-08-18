@@ -168,9 +168,8 @@ public class WeaponManager : NetworkBehaviour
         CmdEquipWeapon(transform.name, _weapon.name, _setup);
     }
 
-    void EnableScripts()
+    void DisableScripts()
     {
-
         if (scripts != null)
         {
             for (int i = 0; i < scripts.Length; i++)
@@ -178,6 +177,12 @@ public class WeaponManager : NetworkBehaviour
                 scripts[i].enabled = false;
             }
         }
+    }
+
+    void EnableScripts()
+    {
+
+        DisableScripts();
 
         if (currentWeapon.scriptsToEnable != null)
         {
@@ -317,6 +322,7 @@ public class WeaponManager : NetworkBehaviour
 
     public void Die()
     {
+
         // Change the current weapon into a prop
 
         for (int i = 0; i < currentGraphics.colliders.Length; i++)
@@ -340,6 +346,7 @@ public class WeaponManager : NetworkBehaviour
         {
             shoot.Unscope(); // Scope out
             shoot.weaponCam.enabled = false;
+            DisableScripts();
         }
     }
 }

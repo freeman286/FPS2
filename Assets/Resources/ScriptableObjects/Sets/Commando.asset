@@ -18,10 +18,11 @@ MonoBehaviour:
   secondaryWeapon: {fileID: 2721180637063796786, guid: 8aef215cef1cf1a4585bae1ca0fb0b14,
     type: 3}
   equipment: {fileID: 11400000, guid: 26e3135ac5abd6844ab37fb2259712a1, type: 2}
+  movementAbility: {fileID: 0}
   attributes:
   - self: 0
     damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
-    multiplier: 1.4
+    multiplier: 1.2
   - self: 1
     damageType: {fileID: 11400000, guid: b8de35d11ecd45e4eaed37b836ec35eb, type: 2}
     multiplier: 1.5
