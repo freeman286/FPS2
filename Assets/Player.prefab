@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1b8aedea08a744a9a82ffd55c42ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 3
   axes: 0
   lookSensitivity: 3
   jumpForce: 6
@@ -1995,7 +1995,7 @@ MonoBehaviour:
   catchButton: Fire2
   grabDistance: 7
   grabRadius: 1.5
-  throwForce: 20
+  throwForce: 40
   throwForceMode: 0
   layerMask:
     serializedVersion: 2
@@ -2073,6 +2073,7 @@ MonoBehaviour:
   syncInterval: 0.1
   scriptID: {fileID: 11400000, guid: 7d74095b6f64380458ef4a1186c01e7d, type: 2}
   ability: {fileID: 11400000, guid: 46cb5b9ba8bd64147b3666408449e2bc, type: 2}
+  timeSinceMovementAbilityUsed: Infinity
 --- !u!114 &-7753474945112700229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2089,6 +2090,7 @@ MonoBehaviour:
   syncInterval: 0.1
   scriptID: {fileID: 11400000, guid: 0072e0c0c9c64dd40a74960a2f973fb6, type: 2}
   ability: {fileID: 11400000, guid: e0da356cbda45d34c820af7c1d24b39f, type: 2}
+  timeSinceMovementAbilityUsed: Infinity
 --- !u!114 &-139632799106916886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2105,6 +2107,7 @@ MonoBehaviour:
   syncInterval: 0.1
   scriptID: {fileID: 11400000, guid: 58e6edda6053f374d875b12e6dd70091, type: 2}
   ability: {fileID: 11400000, guid: fb126ffe92e22534daadc3bb70e34762, type: 2}
+  timeSinceMovementAbilityUsed: Infinity
 --- !u!114 &-6100186545514115143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2121,6 +2124,7 @@ MonoBehaviour:
   syncInterval: 0.1
   scriptID: {fileID: 11400000, guid: 465d84941870368478d9f820beae8f2f, type: 2}
   ability: {fileID: 11400000, guid: fb098f073dcd7ec41848f56234cca3b4, type: 2}
+  timeSinceMovementAbilityUsed: Infinity
 --- !u!114 &6234860797494693837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2137,6 +2141,7 @@ MonoBehaviour:
   syncInterval: 0.1
   scriptID: {fileID: 11400000, guid: 7db729767a4b5924d906ce192a90ab00, type: 2}
   ability: {fileID: 11400000, guid: c75e45cffcaf25543be6eb2b3e3b759e, type: 2}
+  timeSinceMovementAbilityUsed: Infinity
 --- !u!114 &-4489876270746698146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2153,6 +2158,7 @@ MonoBehaviour:
   syncInterval: 0.1
   scriptID: {fileID: 11400000, guid: 6e9c61cfb48a80843a5aad626bcd0ce4, type: 2}
   ability: {fileID: 11400000, guid: 4e645bcbe3d325c49a6289e08706cdd1, type: 2}
+  timeSinceMovementAbilityUsed: Infinity
 --- !u!114 &645757323481775453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2169,7 +2175,7 @@ MonoBehaviour:
   syncInterval: 0.1
   scriptID: {fileID: 11400000, guid: ca6ef0fa84f760a40875b5c42884a99a, type: 2}
   ability: {fileID: 11400000, guid: 44b57155512ee6f4f8b164b11dce96fb, type: 2}
-  force: 100
+  timeSinceMovementAbilityUsed: Infinity
 --- !u!1 &9012694868525747722
 GameObject:
   m_ObjectHideFlags: 0

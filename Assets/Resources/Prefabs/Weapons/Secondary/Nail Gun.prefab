@@ -788,10 +788,11 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 3876431200991625207}
-  casing: {fileID: 6886093808969423702, guid: e05d827ffbe69f542b17110865015960, type: 3}
   shootSound: {fileID: 185320, guid: dbc75ea74a260f840bcce2b51a45c482, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  ejectionPort: {fileID: 3876431200991625207}
+  casing: {fileID: 6886093808969423702, guid: e05d827ffbe69f542b17110865015960, type: 3}
   colliders:
   - {fileID: 9007699235134118936}
   - {fileID: 8340815868391853642}
@@ -800,7 +801,6 @@ MonoBehaviour:
   - {fileID: 8155051017792867437}
   - {fileID: 2452520505808706135}
   - {fileID: 3196676586215835750}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -870,7 +870,7 @@ MonoBehaviour:
   range: 16
   damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
   automatic: 1
-  fireRate: 8
+  fireRate: 4
   scoped: 0
   special: 0
   roundsPerShot: 1
@@ -879,12 +879,11 @@ MonoBehaviour:
   projectile: {fileID: 156444120250483795, guid: 1fcbbb0d18d393b46bc671873802fcee,
     type: 3}
   name: Nail Gun
-  primary: 0
   spreadDefault: 0.08
   spreadWhileMoving: 0.12
   spreadWhileJumping: 0.3
   spreadWhileScoped: 0
-  timeTillMaxSpread: 0.6
+  timeTillMaxSpread: 1.2
   spreadCurve:
     serializedVersion: 2
     m_Curve:
@@ -915,7 +914,8 @@ MonoBehaviour:
   magSize: 30
   speed: 1.1
   scopedSpeed: 1
-  bullets: 30
+  primary: 0
+  bullets: 1
   reloadTime: 2.5
   scriptsToEnable: []
 --- !u!82 &3317242424504107631

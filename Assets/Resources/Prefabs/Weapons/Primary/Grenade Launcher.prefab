@@ -601,10 +601,11 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 8136276923921398137}
-  casing: {fileID: 6886093808969423702, guid: 35cbcacba18135b4eba8a2de99024510, type: 3}
   shootSound: {fileID: 185320, guid: 7573944e00c800a4084fa8030177c34c, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  ejectionPort: {fileID: 8136276923921398137}
+  casing: {fileID: 6886093808969423702, guid: 35cbcacba18135b4eba8a2de99024510, type: 3}
   colliders:
   - {fileID: 9026354848312896739}
   - {fileID: 6626071887014316733}
@@ -612,7 +613,6 @@ MonoBehaviour:
   - {fileID: 2303377048758410960}
   - {fileID: 7854329054703169630}
   - {fileID: 3464882261763442203}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -696,11 +696,10 @@ MonoBehaviour:
   special: 0
   roundsPerShot: 1
   coneOfFire: 0
-  throwPower: 15
+  throwPower: 25
   projectile: {fileID: 156444120250483795, guid: 13d92738dc3f6f14ab918aa5b0b4d1ff,
     type: 3}
   name: Grenade Launcher
-  primary: 1
   spreadDefault: 0.1
   spreadWhileMoving: 0.4
   spreadWhileJumping: 1
@@ -754,7 +753,8 @@ MonoBehaviour:
   magSize: 8
   speed: 0.8
   scopedSpeed: 1
-  bullets: 7
+  primary: 1
+  bullets: 1
   reloadTime: 6.5
   scriptsToEnable: []
 --- !u!82 &792773704839598559

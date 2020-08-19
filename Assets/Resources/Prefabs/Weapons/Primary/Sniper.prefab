@@ -978,10 +978,11 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 8136276923921398137}
-  casing: {fileID: 6886093808969423702, guid: dbcf9d174fd35e241a715e10da8b9ce9, type: 3}
   shootSound: {fileID: 185320, guid: 962f2ab53fdb92b4ebf64416b50d43c3, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  ejectionPort: {fileID: 8136276923921398137}
+  casing: {fileID: 6886093808969423702, guid: dbcf9d174fd35e241a715e10da8b9ce9, type: 3}
   colliders:
   - {fileID: 7570971383083847383}
   - {fileID: 293514395838752980}
@@ -990,7 +991,6 @@ MonoBehaviour:
   - {fileID: 3952545436131353894}
   - {fileID: 1671779197878626683}
   - {fileID: 4068690586762540795}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -1077,10 +1077,9 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   name: Sniper
-  primary: 1
-  spreadDefault: 0.1
-  spreadWhileMoving: 0.2
-  spreadWhileJumping: 0.4
+  spreadDefault: 0.15
+  spreadWhileMoving: 0.3
+  spreadWhileJumping: 0.5
   spreadWhileScoped: 0
   timeTillMaxSpread: 1
   spreadCurve:
@@ -1113,6 +1112,7 @@ MonoBehaviour:
   magSize: 5
   speed: 0.8
   scopedSpeed: 0.4
+  primary: 1
   bullets: 5
   reloadTime: 4
   scriptsToEnable: []

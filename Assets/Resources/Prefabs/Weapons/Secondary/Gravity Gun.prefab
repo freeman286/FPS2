@@ -783,7 +783,7 @@ MonoBehaviour:
   range: 150
   damageType: {fileID: 11400000, guid: b8de35d11ecd45e4eaed37b836ec35eb, type: 2}
   automatic: 0
-  fireRate: 2.5
+  fireRate: 5
   scoped: 0
   special: 1
   roundsPerShot: 1
@@ -791,7 +791,6 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   name: Gravity Gun
-  primary: 0
   spreadDefault: 0.08
   spreadWhileMoving: 0.15
   spreadWhileJumping: 0.4
@@ -845,6 +844,7 @@ MonoBehaviour:
   magSize: 0
   speed: 1.2
   scopedSpeed: 1
+  primary: 0
   bullets: 0
   reloadTime: 2.5
   scriptsToEnable:

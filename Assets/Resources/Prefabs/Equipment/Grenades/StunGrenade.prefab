@@ -112,11 +112,11 @@ MonoBehaviour:
   lightEffect: {fileID: 0}
   timeSinceCreated: 0
   impact: {fileID: 4308811345454485748, guid: 3fdd34228faabc0458c799d079e783d7, type: 3}
-  fuse: 3
+  fuse: 1
   mask:
     serializedVersion: 2
     m_Bits: 58167
-  amount: 12
+  amount: 20
   range: 12
 --- !u!114 &-4192722717585000997
 MonoBehaviour:
