@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+
 public class PlayerStun : NetworkBehaviour
 {
 
@@ -10,10 +11,17 @@ public class PlayerStun : NetworkBehaviour
 
     private int stunCount = 0;
 
+    private Health health;
+
+    void Start()
+    {
+        health = GetComponent<Health>();
+    }
+
     [ClientRpc]
     public void RpcStun(float _amount)
     {
-        if (isLocalPlayer)
+        if (isLocalPlayer && !health.isDead)
         {
             StartCoroutine(Stun(_amount));
         }

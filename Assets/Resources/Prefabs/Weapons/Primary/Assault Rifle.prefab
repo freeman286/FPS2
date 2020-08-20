@@ -522,10 +522,12 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 8136276923921398137}
-  casing: {fileID: 6886093808969423702, guid: dbcf9d174fd35e241a715e10da8b9ce9, type: 3}
   shootSound: {fileID: 185320, guid: b5b8a950890af7a488d8848516c1df1d, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  light: {fileID: 8656768065463540909}
+  ejectionPort: {fileID: 8136276923921398137}
+  casing: {fileID: 6886093808969423702, guid: dbcf9d174fd35e241a715e10da8b9ce9, type: 3}
   colliders:
   - {fileID: 3355467110158107927}
   - {fileID: 2779714155181648480}
@@ -533,7 +535,6 @@ MonoBehaviour:
   - {fileID: 3365388941947993614}
   - {fileID: 8458876517628024326}
   - {fileID: 9149390354895475845}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -620,7 +621,6 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   name: Assault Rifle
-  primary: 1
   spreadDefault: 0.14
   spreadWhileMoving: 0.4
   spreadWhileJumping: 1
@@ -674,6 +674,7 @@ MonoBehaviour:
   magSize: 30
   speed: 1
   scopedSpeed: 1
+  primary: 1
   bullets: 23
   reloadTime: 4
   scriptsToEnable: []

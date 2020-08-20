@@ -10,5 +10,6 @@ public class WeaponGraphics : MonoBehaviour
     public GameObject shootSound;
     public GameObject firePoint;
     public Animator animator;
+    public Light light;
 
 }

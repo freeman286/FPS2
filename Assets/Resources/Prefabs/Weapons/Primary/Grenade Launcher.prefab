@@ -604,6 +604,7 @@ MonoBehaviour:
   shootSound: {fileID: 185320, guid: 7573944e00c800a4084fa8030177c34c, type: 3}
   firePoint: {fileID: 1626188674828420661}
   animator: {fileID: 8298343836293246914}
+  light: {fileID: 396840466291687101}
   ejectionPort: {fileID: 8136276923921398137}
   casing: {fileID: 6886093808969423702, guid: 35cbcacba18135b4eba8a2de99024510, type: 3}
   colliders:
@@ -700,9 +701,9 @@ MonoBehaviour:
   projectile: {fileID: 156444120250483795, guid: 13d92738dc3f6f14ab918aa5b0b4d1ff,
     type: 3}
   name: Grenade Launcher
-  spreadDefault: 0.1
-  spreadWhileMoving: 0.4
-  spreadWhileJumping: 1
+  spreadDefault: 0.05
+  spreadWhileMoving: 0.2
+  spreadWhileJumping: 0.5
   spreadWhileScoped: 0
   timeTillMaxSpread: 1
   spreadCurve:
@@ -754,7 +755,7 @@ MonoBehaviour:
   speed: 0.8
   scopedSpeed: 1
   primary: 1
-  bullets: 1
+  bullets: 8
   reloadTime: 6.5
   scriptsToEnable: []
 --- !u!82 &792773704839598559

@@ -26,11 +26,14 @@ public class ProjectileController : NetworkBehaviour
 
     protected const string PLAYER_TAG = "Player";
 
+    protected NetworkIdentity networkIdentity;
+
     private bool active = true;
 
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
+        networkIdentity = GetComponent<NetworkIdentity>();
     }
 
     public virtual void Update()

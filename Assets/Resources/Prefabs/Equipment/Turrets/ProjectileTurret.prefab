@@ -308,6 +308,7 @@ MonoBehaviour:
   shootSound: {fileID: 185320, guid: 27fed060ab8d09a40bcc701149d7f524, type: 3}
   firePoint: {fileID: 8866296353714069254}
   animator: {fileID: 1360445486853004107}
+  light: {fileID: 1106098002767173447}
 --- !u!114 &-7517560803616711277
 MonoBehaviour:
   m_ObjectHideFlags: 0

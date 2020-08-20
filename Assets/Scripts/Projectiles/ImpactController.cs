@@ -46,10 +46,8 @@ public class ImpactController : ProjectileController
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!GetComponent<NetworkIdentity>().hasAuthority)
+        if (!networkIdentity.hasAuthority)
             return;
-
-        Destroy(rb);
 
         Player _player = collision.transform.root.GetComponent<Player>();
 
@@ -57,6 +55,11 @@ public class ImpactController : ProjectileController
 
         if (_player != null)
             _playerID = _player.transform.name;
+
+        if (_playerID == playerID)
+            return;
+
+        Destroy(rb);
 
         bool _stick = false;
 
@@ -66,8 +69,6 @@ public class ImpactController : ProjectileController
             foreach (Collider _collider in colliders)
             {
                 if (collision.collider.bounds.Intersects(_collider.bounds)) {
-
-                    _playerID = _player.transform.name;
 
                     CmdSetParent(System.Array.IndexOf(_player.rigidbodyOnDeath, collision.collider.gameObject), _playerID, collision.collider.transform.InverseTransformPoint(transform.position));
 

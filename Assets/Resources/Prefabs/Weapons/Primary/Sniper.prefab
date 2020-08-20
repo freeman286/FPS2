@@ -981,6 +981,7 @@ MonoBehaviour:
   shootSound: {fileID: 185320, guid: 962f2ab53fdb92b4ebf64416b50d43c3, type: 3}
   firePoint: {fileID: 1626188674828420661}
   animator: {fileID: 8298343836293246914}
+  light: {fileID: 8656768065463540909}
   ejectionPort: {fileID: 8136276923921398137}
   casing: {fileID: 6886093808969423702, guid: dbcf9d174fd35e241a715e10da8b9ce9, type: 3}
   colliders:
@@ -1077,9 +1078,9 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   name: Sniper
-  spreadDefault: 0.15
-  spreadWhileMoving: 0.3
-  spreadWhileJumping: 0.5
+  spreadDefault: 0.3
+  spreadWhileMoving: 0.5
+  spreadWhileJumping: 0.6
   spreadWhileScoped: 0
   timeTillMaxSpread: 1
   spreadCurve:
@@ -1113,7 +1114,7 @@ MonoBehaviour:
   speed: 0.8
   scopedSpeed: 0.4
   primary: 1
-  bullets: 5
+  bullets: 1
   reloadTime: 4
   scriptsToEnable: []
 --- !u!82 &792773704839598559

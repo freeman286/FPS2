@@ -53,8 +53,12 @@ public class ExplosiveController : ProjectileController
 
     void OnCollisionEnter(Collision collision)
     {
-        if (explodeOnImpact && !impacted && GetComponent<NetworkIdentity>().hasAuthority)
+        if (explodeOnImpact && !impacted && networkIdentity.hasAuthority)
         {
+
+            if (collision.transform.root.name == playerID)
+                return;
+
             impacted = true;
             rb.isKinematic = true;
             explosive.CmdExplode(transform.position, collision.contacts[0].normal, timeSinceCreated, playerID);

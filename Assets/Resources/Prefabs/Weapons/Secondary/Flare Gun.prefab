@@ -554,17 +554,18 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 3876431200991625207}
-  casing: {fileID: 0}
   shootSound: {fileID: 185320, guid: df2a3b1387fdd08489e2987cb281e43f, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  light: {fileID: 6968537205279585528}
+  ejectionPort: {fileID: 3876431200991625207}
+  casing: {fileID: 0}
   colliders:
   - {fileID: 4480587198276807306}
   - {fileID: 5387028018886803757}
   - {fileID: 8693073396751367341}
   - {fileID: 2201224252410855180}
   - {fileID: 5942218598462223565}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -643,7 +644,6 @@ MonoBehaviour:
   projectile: {fileID: 156444120250483795, guid: fbf1e70436a7b1748aa3dbed590b086d,
     type: 3}
   name: Flare Gun
-  primary: 0
   spreadDefault: 0.03
   spreadWhileMoving: 0.04
   spreadWhileJumping: 0.06
@@ -679,6 +679,7 @@ MonoBehaviour:
   magSize: 1
   speed: 1.4
   scopedSpeed: 1
+  primary: 0
   bullets: 1
   reloadTime: 2.5
   scriptsToEnable: []

@@ -760,10 +760,12 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 8136276923921398137}
-  casing: {fileID: 6886093808969423702, guid: dbcf9d174fd35e241a715e10da8b9ce9, type: 3}
   shootSound: {fileID: 185320, guid: 72dcd828b78f2124ea24b4398c82e63c, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  light: {fileID: 5611879584384924086}
+  ejectionPort: {fileID: 8136276923921398137}
+  casing: {fileID: 6886093808969423702, guid: dbcf9d174fd35e241a715e10da8b9ce9, type: 3}
   colliders:
   - {fileID: 4582232529593110709}
   - {fileID: 4500816176512172438}
@@ -772,7 +774,6 @@ MonoBehaviour:
   - {fileID: 4834744717621220939}
   - {fileID: 5026699002242506371}
   - {fileID: 6375533559504524468}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -850,7 +851,6 @@ MonoBehaviour:
   throwPower: 0
   projectile: {fileID: 0}
   name: Shotgun
-  primary: 1
   spreadDefault: 0.2
   spreadWhileMoving: 0.6
   spreadWhileJumping: 0.8
@@ -904,6 +904,7 @@ MonoBehaviour:
   magSize: 8
   speed: 1
   scopedSpeed: 1
+  primary: 1
   bullets: 3
   reloadTime: 5.8
   scriptsToEnable: []

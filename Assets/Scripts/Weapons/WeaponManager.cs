@@ -323,6 +323,8 @@ public class WeaponManager : NetworkBehaviour
     public void Die()
     {
 
+        currentGraphics.light.enabled = false;
+
         // Change the current weapon into a prop
 
         for (int i = 0; i < currentGraphics.colliders.Length; i++)

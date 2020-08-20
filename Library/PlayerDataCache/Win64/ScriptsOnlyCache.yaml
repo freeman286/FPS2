@@ -150,8 +150,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -2186,7 +2188,7 @@ ScriptsOnlyBuild:
     className: TurretController
   - hash:
       serializedVersion: 2
-      Hash: b88a37c01f80667b94961a9e2197e73e
+      Hash: 977f7ba26c742e9494ba3a1fffcaa054
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WeaponGraphics
@@ -2354,7 +2356,7 @@ ScriptsOnlyBuild:
     className: EnableDuringRuntime
   - hash:
       serializedVersion: 2
-      Hash: b0a36d28ad7b3228743bd29a0a29af66
+      Hash: e1880556efe2ddf40ae981ab80e04113
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeaponGraphics

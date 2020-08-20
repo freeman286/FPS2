@@ -791,6 +791,7 @@ MonoBehaviour:
   shootSound: {fileID: 185320, guid: d40eea2cd5c78ec45928fc9e71510908, type: 3}
   firePoint: {fileID: 1626188674828420661}
   animator: {fileID: 8298343836293246914}
+  light: {fileID: 396840466291687101}
   ejectionPort: {fileID: 8136276923921398137}
   casing: {fileID: 0}
   colliders:
@@ -888,7 +889,6 @@ MonoBehaviour:
   projectile: {fileID: 156444120250483795, guid: a7151f48fb3307046b18f47c17f20e70,
     type: 3}
   name: Rocket Pod
-  primary: 1
   spreadDefault: 0.2
   spreadWhileMoving: 0.2
   spreadWhileJumping: 0.4
@@ -924,6 +924,7 @@ MonoBehaviour:
   magSize: 4
   speed: 0.7
   scopedSpeed: 1
+  primary: 1
   bullets: 4
   reloadTime: 4
   scriptsToEnable:

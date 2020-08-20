@@ -432,6 +432,7 @@ MonoBehaviour:
   shootSound: {fileID: 185320, guid: af1331253d3a9ac479d81676a6347b5b, type: 3}
   firePoint: {fileID: 1626188674828420661}
   animator: {fileID: 8298343836293246914}
+  light: {fileID: 6968537205279585528}
   ejectionPort: {fileID: 3876431200991625207}
   casing: {fileID: 6886093808969423702, guid: e05d827ffbe69f542b17110865015960, type: 3}
   colliders:

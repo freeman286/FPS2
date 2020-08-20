@@ -618,10 +618,12 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4071665815476131138}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  ejectionPort: {fileID: 8136276923921398137}
-  casing: {fileID: 0}
   shootSound: {fileID: 185320, guid: 79006053447eef74da4a597445b24959, type: 3}
   firePoint: {fileID: 1626188674828420661}
+  animator: {fileID: 8298343836293246914}
+  light: {fileID: 396840466291687101}
+  ejectionPort: {fileID: 8136276923921398137}
+  casing: {fileID: 0}
   colliders:
   - {fileID: 342058460196373346}
   - {fileID: 3459472670977490050}
@@ -629,7 +631,6 @@ MonoBehaviour:
   - {fileID: 7067162318345856909}
   - {fileID: 4977900642932346419}
   - {fileID: 7738167681878601209}
-  animator: {fileID: 8298343836293246914}
 --- !u!95 &8298343836293246914
 Animator:
   serializedVersion: 3
@@ -717,7 +718,6 @@ MonoBehaviour:
   projectile: {fileID: 156444120250483795, guid: 7e4bb9f3f4fac224e9deda6ee89d1d1c,
     type: 3}
   name: Rocket Launcher
-  primary: 0
   spreadDefault: 0
   spreadWhileMoving: 0.1
   spreadWhileJumping: 0.15
@@ -753,6 +753,7 @@ MonoBehaviour:
   magSize: 1
   speed: 0.7
   scopedSpeed: 1
+  primary: 0
   bullets: 1
   reloadTime: 6.5
   scriptsToEnable: []
