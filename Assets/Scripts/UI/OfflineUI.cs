@@ -28,9 +28,10 @@ public class OfflineUI : MonoBehaviour
         networkManager = NetworkManager.singleton;
         networkManagerHUD = networkManager.GetComponent<NetworkManagerHUD>();
         networkManagerHUD.enabled = false;
-        ipAddress.text = "localhost";
+
+        ipAddress.text = PlayerInfo.ipAddress;
+
         loadingImage.enabled = false;
-        ipAddress.onValueChanged.AddListener(delegate { IpValueChange(); });
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -59,11 +60,11 @@ public class OfflineUI : MonoBehaviour
         if (string.IsNullOrEmpty(PlayerInfo.playerName))
             return;
 
-        if (ipValueChanged)
+        if (ipValueChanged && !string.IsNullOrEmpty(PlayerInfo.ipAddress))
         {
             loadingImage.enabled = true;
             InvokeRepeating("Loading", 0f, 0.01f);
-            networkManager.networkAddress = ipAddress.text;
+            networkManager.networkAddress = PlayerInfo.ipAddress;
             networkManager.StartClient();
             ipValueChanged = false;
         }
@@ -75,8 +76,9 @@ public class OfflineUI : MonoBehaviour
         loadingRectTransform.Rotate(new Vector3(0, 0, 1));
     }
 
-    void IpValueChange()
+    public void IpValueChange()
     {
         ipValueChanged = true;
+        PlayerInfo.ipAddress = ipAddress.text;
     }
 }

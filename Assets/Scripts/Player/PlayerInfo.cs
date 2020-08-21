@@ -8,6 +8,8 @@ public class PlayerInfo : MonoBehaviour
 
     static public string playerName = "Player";
 
+    static public string ipAddress = "localhost";
+
     static public float lookSensitivity = 3f;
 
     private static Dictionary<ListType, string> loadoutNames = new Dictionary<ListType, string>();
