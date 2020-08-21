@@ -59,7 +59,6 @@ public class GravityGun : EnableDuringRuntime
                     {
                         projectileController = heldObject.GetComponent<ProjectileController>();
 
-
                         CmdServerAssignClient(heldObject.name, transform.name);
                     }
                 }
@@ -68,6 +67,8 @@ public class GravityGun : EnableDuringRuntime
         else
         {
             heldObject.transform.position = holdPosition.position;
+
+            Util.SetLayerRecursively(heldObject, LayerMask.NameToLayer("Weapon"));
 
             if (Input.GetButton(fireButton) && shoot.CanShoot() && !Pause.IsOn)
             {
@@ -85,6 +86,7 @@ public class GravityGun : EnableDuringRuntime
 
                 heldObject.transform.rotation = Quaternion.LookRotation(_direction);
 
+                Util.SetLayerRecursively(heldObject, LayerMask.NameToLayer("Projectile"));
 
                 CmdActivateProjectile(heldObject.name, transform.name, true);
 
@@ -109,7 +111,10 @@ public class GravityGun : EnableDuringRuntime
     {
         if (heldObject != null)
         {
+            Util.SetLayerRecursively(heldObject, LayerMask.NameToLayer("Projectile"));
+
             CmdActivateProjectile(heldObject.name, transform.name, true);
+
             heldObject = null;
             projectileController = null;
         }
