@@ -899,7 +899,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 88
   orthographic: 0
@@ -1514,6 +1514,7 @@ GameObject:
   - component: {fileID: 6234860797494693837}
   - component: {fileID: -4489876270746698146}
   - component: {fileID: 645757323481775453}
+  - component: {fileID: 4087399194525707509}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2175,6 +2176,23 @@ MonoBehaviour:
   syncInterval: 0.1
   scriptID: {fileID: 11400000, guid: ca6ef0fa84f760a40875b5c42884a99a, type: 2}
   ability: {fileID: 11400000, guid: 44b57155512ee6f4f8b164b11dce96fb, type: 2}
+  timeSinceMovementAbilityUsed: Infinity
+--- !u!114 &4087399194525707509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331b9fe49efa8e345b38a52eff7a9a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  scriptID: {fileID: 11400000, guid: 9f25580b04765da4291c0d705a20cecf, type: 2}
+  ability: {fileID: 11400000, guid: bfcf3dfc08645984a84320fc6d0f46e1, type: 2}
   timeSinceMovementAbilityUsed: Infinity
 --- !u!1 &9012694868525747722
 GameObject:
