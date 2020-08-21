@@ -31,7 +31,6 @@ public class WeaponManager : NetworkBehaviour
     private PlayerStats stats;
     private RaycastShoot raycastShoot;
     private PlayerMetrics metrics;
-    private PlayerEquipment equipment;
     private Animator anim;
 
     public bool isReloading = false;
@@ -56,7 +55,6 @@ public class WeaponManager : NetworkBehaviour
         raycastShoot = GetComponent<RaycastShoot>();
         metrics = GetComponent<PlayerMetrics>();
         stats = GetComponent<PlayerStats>();
-        equipment = GetComponent<PlayerEquipment>();
         anim = GetComponent<Animator>();
 
         Player _player = GetComponent<Player>();
@@ -119,7 +117,6 @@ public class WeaponManager : NetworkBehaviour
     {
         shoot.CancelInvoke("Shoot");
         shoot.enabled = false;
-        equipment.enabled = false;
 
         if (currentWeapon == primaryWeapon)
         {
@@ -133,7 +130,6 @@ public class WeaponManager : NetworkBehaviour
         yield return new WaitForSeconds(switchingTime);
 
         shoot.enabled = true;
-        equipment.enabled = true;
 
         switchingWeapon = false;
     }

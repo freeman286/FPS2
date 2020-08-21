@@ -134,6 +134,7 @@ MonoBehaviour:
   - {fileID: 156444120250483795, guid: 5a4195a090481d640bfc1ae5a4e4c5a6, type: 3}
   - {fileID: 156444120250483795, guid: 38f99c302c574d44d97377f2cd9d0e54, type: 3}
   - {fileID: 156444120250483795, guid: b1980bfbb8fb34242ab24a7f831445b2, type: 3}
+  - {fileID: 156444120250483795, guid: 519b4e052f5f9b84d9dd2168c751b8a1, type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 8960
