@@ -109,6 +109,8 @@ public class Player : NetworkBehaviour
             }
 
             firstSetup = false;
+
+            
         }
         SetDefaults();
     }

@@ -122,9 +122,10 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\ScriptID.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Set.cs" />
      <Compile Include="Assets\Scripts\UI\CameraFacingBillboard.cs" />
-     <Compile Include="Assets\Scripts\UI\Killfeed.cs" />
+     <Compile Include="Assets\Scripts\UI\Feed.cs" />
      <Compile Include="Assets\Scripts\UI\KillfeedItem.cs" />
      <Compile Include="Assets\Scripts\UI\LevelLoader.cs" />
+     <Compile Include="Assets\Scripts\UI\MessageItem.cs" />
      <Compile Include="Assets\Scripts\UI\OfflineUI.cs" />
      <Compile Include="Assets\Scripts\UI\Pause.cs" />
      <Compile Include="Assets\Scripts\UI\PlayerName.cs" />

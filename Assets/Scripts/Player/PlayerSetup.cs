@@ -52,19 +52,23 @@ public class PlayerSetup : NetworkBehaviour
 
             GetComponent<WeaponManager>().SyncAllWepaons();
         }
-
-        
     }
 
     [Command]
-    void CmdSetUsername(string playerID, string username)
+    void CmdSetUsername(string _playerID, string _username)
     {
-        Player player = GameManager.GetPlayer(playerID);
-        if (player != null)
+        Player _player = GameManager.GetPlayer(_playerID);
+        if (_player != null)
         {
-            Debug.Log(username + " has joined!");
-            player.username = username;
+            _player.username = _username;
+            RpcUsernameSet(_username);
         }
+    }
+
+    [ClientRpc]
+    void RpcUsernameSet(string _username)
+    {
+        GameManager.instance.messageCallback.Invoke("<b>" + _username + "</b> joined game");
     }
 
     public override void OnStartClient()
