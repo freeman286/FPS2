@@ -118,6 +118,10 @@ public class PlayerEquipment : NetworkBehaviour
             _placeableEquipmentController.RpcPlace(_placePos, _placeRot, (equipment as PlaceableEquipment).placeSpeed);
         }
 
+        Health _health = _equipment.GetComponent<Health>();
+
+        if (_health != null)
+            _health.playerID = _playerID;
     }
 
     public void SetDefaults()

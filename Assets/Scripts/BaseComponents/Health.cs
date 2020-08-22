@@ -10,6 +10,9 @@ public class DieEvent : UnityEvent<string>{}
 public class Health : NetworkBehaviour
 {
     [SyncVar]
+    public string playerID;
+
+    [SyncVar]
     public bool isDead = false;
 
     public DieEvent dieEvent;

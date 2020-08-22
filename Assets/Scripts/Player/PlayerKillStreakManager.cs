@@ -46,11 +46,13 @@ public class PlayerKillStreakManager : NetworkBehaviour
 
         if (_killStreak != null)
         {
-            Vector3 _spawnPos = KillStreakSpawnManager.GetKillStreakSpawnPoint(_killStreak);
+            Transform _spawnPos = KillStreakSpawnManager.GetKillStreakSpawnPoint(_killStreak);
 
-            GameObject _killStreakPrefab = (GameObject)Instantiate(_killStreak.prefab, _spawnPos, Quaternion.identity);
+            GameObject _killStreakPrefab = (GameObject)Instantiate(_killStreak.prefab, _spawnPos.position, _spawnPos.rotation);
             NetworkServer.Spawn(_killStreakPrefab, connectionToClient);
 
+            KillStreakController _killStreakController = _killStreakPrefab.GetComponent<KillStreakController>();
+            _killStreakController.playerID = _playerID;
         }
 
         RpcKillStreak(_playerID, _killStreakName);

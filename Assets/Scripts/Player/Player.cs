@@ -105,6 +105,8 @@ public class Player : NetworkBehaviour
     {
         if (firstSetup)
         {
+            health.playerID = transform.name;
+
             wasEnabled = new bool[disableOnDeath.Length];
             for (int i = 0; i < wasEnabled.Length; i++)
             {

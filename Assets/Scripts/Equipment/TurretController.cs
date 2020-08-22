@@ -130,11 +130,11 @@ public class TurretController : PlaceableEquipmentController
         
         if (targetMode == TargetMode.Player)
         {
-            foreach (Player _player in GameManager.GetAllPlayers())
+            foreach (Health _health in GameManager.GetAllHealth())
             {
-                if (_player.transform.name != playerID && VectorToTarget(_player.gameObject) != Vector3.zero)
+                if (_health.gameObject.tag != "Projectile" && _health.playerID != playerID && VectorToTarget(_health.gameObject) != Vector3.zero)
                 {
-                    target = _player.gameObject;
+                    target = _health.gameObject;
                     return;
                 }
             }

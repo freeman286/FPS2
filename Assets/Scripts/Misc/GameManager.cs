@@ -104,6 +104,39 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region KillStreak tracking
+
+    private const string KILLSTREAK_ID_PREFIX = "KillStreak_";
+
+    private static Dictionary<string, GameObject> killStreaks = new Dictionary<string, GameObject>();
+
+    public static void RegisterKillStreak(string _netID, GameObject _killStreak)
+    {
+        string _killStreakID = KILLSTREAK_ID_PREFIX + _netID;
+        killStreaks.Add(_killStreakID, _killStreak);
+        _killStreak.transform.name = _killStreakID;
+        RegisterHealth(_killStreakID, _killStreak.GetComponent<Health>());
+    }
+
+    public static void UnRegisterKillStreak(string _killStreakID)
+    {
+        killStreaks.Remove(_killStreakID);
+        UnRegisterHealth(_killStreakID);
+    }
+
+    public static GameObject GetKillStreak(string _killStreakID)
+    {
+        return killStreaks[_killStreakID];
+    }
+
+    public static GameObject[] GetAllKillStreaks()
+    {
+        return killStreaks.Values.ToArray();
+    }
+
+
+    #endregion
+
     #region Equipment tracking
 
     private const string EQUIPMENT_ID_PREFIX = "Equipment_";
@@ -235,6 +268,11 @@ public class GameManager : MonoBehaviour
     public static Health GetHealth(string _name)
     {
         return healths[_name];
+    }
+
+    public static Health[] GetAllHealth()
+    {
+        return healths.Values.ToArray();
     }
 
     #endregion

@@ -27,6 +27,11 @@ public class ProjectileShoot : NetworkBehaviour
             ProjectileController _projectileController = _projectile.GetComponent<ProjectileController>();
             _projectileController.playerID = _playerID;
 
+            Health _health = _projectile.GetComponent<Health>();
+
+            if (_health != null)
+                _health.playerID = _playerID;
+
             _projectileController.RpcLaunch(_velocity);
         }
     }

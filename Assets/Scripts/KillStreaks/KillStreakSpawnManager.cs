@@ -34,8 +34,8 @@ public class KillStreakSpawnManager : MonoBehaviour
         }
     }
 
-    public static Vector3 GetKillStreakSpawnPoint(KillStreak _killStreak)
+    public static Transform GetKillStreakSpawnPoint(KillStreak _killStreak)
     {
-        return spawnPoints[_killStreak].position;
+        return spawnPoints[_killStreak];
     }
 }

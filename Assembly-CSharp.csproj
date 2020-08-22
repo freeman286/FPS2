@@ -55,6 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Animation\AnimateFeet.cs" />
+     <Compile Include="Assets\Scripts\Animation\Rotor.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\DamageInflictor.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\EnableDuringRuntime.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\Explosive.cs" />
@@ -66,12 +68,12 @@
      <Compile Include="Assets\Scripts\Equipment\ChargeController.cs" />
      <Compile Include="Assets\Scripts\Equipment\PlaceableEquipmentController.cs" />
      <Compile Include="Assets\Scripts\Equipment\TurretController.cs" />
+     <Compile Include="Assets\Scripts\KillStreaks\KillStreakController.cs" />
      <Compile Include="Assets\Scripts\KillStreaks\KillStreakSpawnManager.cs" />
      <Compile Include="Assets\Scripts\KillStreaks\KillStreakSpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainId.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainTarget.cs" />
-     <Compile Include="Assets\Scripts\Misc\AnimateFeet.cs" />
      <Compile Include="Assets\Scripts\Misc\CustomNetworkManager.cs" />
      <Compile Include="Assets\Scripts\Misc\EnableScriptOnParent.cs" />
      <Compile Include="Assets\Scripts\Misc\Environment.cs" />
