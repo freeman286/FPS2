@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 enum DeadEyeState
 {
@@ -55,6 +56,7 @@ public class Revolver : EnableDuringRuntime
                 tmpTarget.transform.position = _hit.point;
                 tmpTarget.transform.parent = _hit.transform;
                 targets.Add(tmpTarget.transform);
+                tmpTarget.gameObject.tag = "Marker";
             }
         }
         
@@ -77,8 +79,17 @@ public class Revolver : EnableDuringRuntime
         if (deadEyeState == DeadEyeState.shooting && targets.Count > 0)
         {
             if (currentTarget == null)
-                currentTarget = targets[targets.Count - 1];
+            {
+                targets.Remove(currentTarget);
 
+                if (targets.Count == 0)
+                    return;
+
+                currentTarget = targets.Last();
+            }
+
+            if (currentTarget == null) // If the current target is destroyed at this instance we need to restart the function
+                return;
 
             Vector3 _dir = currentTarget.position - transform.position;
 
@@ -89,7 +100,6 @@ public class Revolver : EnableDuringRuntime
             if (shoot.CanShoot() && Vector3.Angle(_dir, cam.transform.forward) < 0.1f)
             {
                 shoot.Shoot();
-
                 targets.Remove(currentTarget);
                 Destroy(currentTarget.gameObject);
                 currentTarget = null;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 156444120250483797}
   - component: {fileID: 1963822241130455570}
   - component: {fileID: 5973416165585226622}
-  - component: {fileID: -5270301891714736306}
+  - component: {fileID: -6190935452506893836}
   m_Layer: 16
   m_Name: Nail
   m_TagString: Projectile
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centre: {x: 0, y: 0, z: 0.5}
---- !u!114 &-5270301891714736306
+--- !u!114 &-6190935452506893836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,19 +137,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 156444120250483795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39937c093bc202845a28b4764c9044fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b2d2a80e9b794c4cae0b41b795aca16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  isDead: 0
-  dieEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  maxHealth: 0
-  healthRegenTime: 0
-  healthRegenSpeed: 0
-  lastDamagedPlayer: {fileID: 0}
 --- !u!1 &1890191413695500434
 GameObject:
   m_ObjectHideFlags: 0

@@ -215,6 +215,7 @@ public class Player : NetworkBehaviour
         }
 
         Util.DeleteTagRecursively(gameObject, "Projectile");
+        Util.DeleteTagRecursively(gameObject, "Marker");
 
         GameObject _spawnEffect = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
         Destroy(_spawnEffect, 5f);

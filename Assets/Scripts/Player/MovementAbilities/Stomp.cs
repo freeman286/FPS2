@@ -6,12 +6,12 @@ using Mirror;
 public class Stomp : PlayerMovementAbility
 {
 
-    private Health health;
+    private DamageInflictor damageInflictor;
 
     public override void Start()
     {
         base.Start();
-        health = GetComponent<Health>();
+        damageInflictor = GetComponent<DamageInflictor>();
     }
 
     public override void DoAbility()
@@ -43,7 +43,7 @@ public class Stomp : PlayerMovementAbility
 
         if (_health != null)
         {
-            health.CmdDamage(_health.transform.name, ability.damage, transform.name, ability.damageType.name);
+            damageInflictor.CmdDamage(_health.transform.name, ability.damage, transform.name, ability.damageType.name);
         }
 
         List<Transform> _hitTransforms = new List<Transform>();
@@ -61,7 +61,7 @@ public class Stomp : PlayerMovementAbility
 
                 _hitTransforms.Add(_baseTransform);
 
-                health.CmdDamage(_health.transform.name, (int)(ability.damage * timeSinceMovementAbilityUsed), transform.name, ability.damageType.name);
+                damageInflictor.CmdDamage(_health.transform.name, (int)(ability.damage * timeSinceMovementAbilityUsed), transform.name, ability.damageType.name);
 
             }
         }

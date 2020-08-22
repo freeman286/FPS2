@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BaseComponents\DamageInflictor.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\EnableDuringRuntime.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\Explosive.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\Health.cs" />
