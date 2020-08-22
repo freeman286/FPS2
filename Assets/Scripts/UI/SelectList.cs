@@ -7,9 +7,6 @@ using System.Linq;
 public class SelectList : MonoBehaviour
 {
     [SerializeField]
-    private string path = null;
-
-    [SerializeField]
     private ListType listType;
 
     [SerializeField]
@@ -23,7 +20,7 @@ public class SelectList : MonoBehaviour
 
     void Start()
     {
-        allElements = Util.GetNamesInDirectory(path);
+        allElements = Util.GetNamesInDirectory(listType.path);
         items = new UIItem[allElements.Length];
 
         for (int i = 0; i < allElements.Length; i++)

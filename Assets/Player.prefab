@@ -1498,6 +1498,7 @@ GameObject:
   - component: {fileID: 172871728118374985}
   - component: {fileID: 6832787154136730258}
   - component: {fileID: -316878476097349666}
+  - component: {fileID: 137112688233104669}
   - component: {fileID: 1866657983699075262}
   - component: {fileID: 3059421112803731098}
   - component: {fileID: 952772935912001049}
@@ -1638,6 +1639,7 @@ MonoBehaviour:
   spawnEffect: {fileID: 4308811345454485748, guid: 1dd9664a5f2f3eb42b140ec1ede46d6b,
     type: 3}
   kills: 0
+  killStreak: 0
   deaths: 0
   username: 
   weaponManager: {fileID: 6832787154136730258}
@@ -1820,6 +1822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2d2a80e9b794c4cae0b41b795aca16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &172871728118374985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,6 +1885,21 @@ MonoBehaviour:
   equipment: {fileID: 0}
   equipmentName: 
   timeSinceEquipmentUsed: 0
+--- !u!114 &137112688233104669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973621608414753981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae87753291a46c4a9fbe9b0ea960535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  listType: {fileID: 11400000, guid: 904aa888cac262a4092267fca663525d, type: 2}
 --- !u!114 &1866657983699075262
 MonoBehaviour:
   m_ObjectHideFlags: 0

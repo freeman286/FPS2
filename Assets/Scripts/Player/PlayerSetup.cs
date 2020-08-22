@@ -26,8 +26,12 @@ public class PlayerSetup : NetworkBehaviour
 
     public PlayerUI ui;
 
+    private Player player;
+
     void Start()
     {
+        player = GetComponent<Player>();
+
         if (!isLocalPlayer)
         {
             DisableComponents();
@@ -46,7 +50,7 @@ public class PlayerSetup : NetworkBehaviour
                 Debug.LogError("No PlayerUI component on PlayerUI prefab.");
             ui.SetPlayer(GetComponent<Player>());
 
-            GetComponent<Player>().SetupPlayer();
+            player.SetupPlayer();
 
             CmdSetUsername(transform.name, PlayerInfo.playerName);
 
@@ -102,6 +106,8 @@ public class PlayerSetup : NetworkBehaviour
             GameManager.instance.SetSceneCameraActive(true);
 
         GameManager.UnRegisterPlayer(transform.name);
+
+        GameManager.instance.messageCallback.Invoke("<b>" + player.username + "</b> left game");
     }
 
 }

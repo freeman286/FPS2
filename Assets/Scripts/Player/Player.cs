@@ -29,6 +29,9 @@ public class Player : NetworkBehaviour
     public int kills;
 
     [SyncVar]
+    public int killStreak;
+
+    [SyncVar]
     public int deaths;
 
     [SyncVar]
@@ -137,9 +140,11 @@ public class Player : NetworkBehaviour
         if (sourcePlayer != null)
         {
             sourcePlayer.kills++;
+            sourcePlayer.killStreak++;
             GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
         }
 
+        killStreak = 0;
         deaths++;
 
         for (int i = 0; i < disableOnDeath.Length; i++)

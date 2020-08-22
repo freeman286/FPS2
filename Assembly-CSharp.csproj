@@ -66,6 +66,8 @@
      <Compile Include="Assets\Scripts\Equipment\ChargeController.cs" />
      <Compile Include="Assets\Scripts\Equipment\PlaceableEquipmentController.cs" />
      <Compile Include="Assets\Scripts\Equipment\TurretController.cs" />
+     <Compile Include="Assets\Scripts\KillStreaks\KillStreakSpawnManager.cs" />
+     <Compile Include="Assets\Scripts\KillStreaks\KillStreakSpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainId.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainTarget.cs" />
@@ -98,6 +100,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerEquipment.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerInfo.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerKillStreakManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMetrics.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMotor.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSetup.cs" />
@@ -117,6 +120,7 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Grenade.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\PlaceableEquipment.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Equipment\Turret.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\KillStreak.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\ListType.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\MovementAbility.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\ScriptID.cs" />
@@ -138,6 +142,7 @@
      <Compile Include="Assets\Scripts\UI\SetList.cs" />
      <Compile Include="Assets\Scripts\UI\UIItem.cs" />
      <Compile Include="Assets\Scripts\Util\EquipmentUtil.cs" />
+     <Compile Include="Assets\Scripts\Util\KillStreakUtil.cs" />
      <Compile Include="Assets\Scripts\Util\SetsUtil.cs" />
      <Compile Include="Assets\Scripts\Util\Util.cs" />
      <Compile Include="Assets\Scripts\Util\WeaponsUtil.cs" />

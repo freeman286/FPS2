@@ -45,6 +45,7 @@ public class TurretController : PlaceableEquipmentController
     private Weapon weapon;
     private WeaponGraphics weaponGraphics;
     private RaycastShoot raycastShoot;
+    private ProjectileShoot projectileShoot;
     private ShootEffects shootEffects;
 
 
@@ -57,6 +58,7 @@ public class TurretController : PlaceableEquipmentController
         base.Start();
         weapon = GetComponent<Weapon>();
         raycastShoot = GetComponent<RaycastShoot>();
+        projectileShoot = GetComponent<ProjectileShoot>();
         weaponGraphics = GetComponent<WeaponGraphics>();
         shootEffects = GetComponent<ShootEffects>();
     }
@@ -178,7 +180,12 @@ public class TurretController : PlaceableEquipmentController
 
         CmdOnShoot();
 
-        raycastShoot.Shoot(muzzle, turret.transform.forward, Vector3.zero, weapon, mask, playerID);
+        if (raycastShoot != null)
+            raycastShoot.Shoot(muzzle, turret.transform.forward, Vector3.zero, weapon, mask, playerID);
+        else if (projectileShoot != null)
+        {
+            projectileShoot.Shoot(muzzle, turret.transform.forward, Vector3.zero, weapon.throwPower, weapon.projectile, playerID, weapon.roundsPerShot);
+        }
     }
 
     [Command]

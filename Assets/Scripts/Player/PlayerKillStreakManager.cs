@@ -1,0 +1,64 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Mirror;
+
+public class PlayerKillStreakManager : NetworkBehaviour
+{
+    [SerializeField]
+    private ListType listType = null;
+
+    private KillStreak killStreak;
+
+    private Player player;
+
+    private bool KillStreakAvailable = false;
+
+    void Start()
+    {
+        player = GetComponent<Player>();
+        player.onPlayerSetDefaultsCallback += SetDefaults;
+    }
+
+    void Update()
+    {
+        if (isLocalPlayer && KillStreakAvailable && player.killStreak == killStreak.kills)
+        {
+            KillStreakAvailable = false;
+            CmdSpawnKillStreak(transform.name, killStreak.name);
+        }
+
+        if (player.killStreak == 0 && killStreak != null)
+            KillStreakAvailable = true;
+    }
+
+    void SetDefaults()
+    {
+        killStreak = KillStreakUtil.NameToKillStreak(PlayerInfo.GetNameSelected(listType));
+    }
+
+    [Command]
+    void CmdSpawnKillStreak(string _playerID, string _killStreakName)
+    {
+        GameManager.GetPlayer(_playerID).killStreak = 0;
+
+        KillStreak _killStreak = KillStreakUtil.NameToKillStreak(_killStreakName);
+
+        if (_killStreak != null)
+        {
+            Vector3 _spawnPos = KillStreakSpawnManager.GetKillStreakSpawnPoint(_killStreak);
+
+            GameObject _killStreakPrefab = (GameObject)Instantiate(_killStreak.prefab, _spawnPos, Quaternion.identity);
+            NetworkServer.Spawn(_killStreakPrefab, connectionToClient);
+
+        }
+
+        RpcKillStreak(_playerID, _killStreakName);
+    }
+
+    [ClientRpc]
+    void RpcKillStreak(string _playerID, string _killStreakName)
+    {
+        GameManager.instance.messageCallback.Invoke("<b>" + GameManager.GetPlayer(_playerID).username + "</b> called in a <b>" + _killStreakName + "</b>");
+    }
+}

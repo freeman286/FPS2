@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30654b2d1f1b05d4db8f3e0a0b57bdcf, type: 3}
   m_Name: MovementAbility
   m_EditorClassIdentifier: 
+  path: Assets/Resources/ScriptableObjects/MovementAbilities
