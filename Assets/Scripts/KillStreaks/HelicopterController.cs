@@ -45,6 +45,9 @@ public class HelicopterController : KillStreakController
     private float footprint = 2f;
 
     [SerializeField]
+    private float tilt = 1f;
+
+    [SerializeField]
     private TrackingMode trackingMode = TrackingMode.player;
 
     [SerializeField]
@@ -59,10 +62,15 @@ public class HelicopterController : KillStreakController
     private float loiterSwayAmount;
 
     private Vector3 velocity = Vector3.zero;
+    private Vector3 previousVelocity = Vector3.zero;
+    private Vector3 acceleration = Vector3.zero;
 
     public override void Update()
     {
         base.Update();
+
+        if (!networkIdentity.hasAuthority)
+            return;
 
         if (trackingState == TrackingState.moving)
         {
@@ -76,7 +84,6 @@ public class HelicopterController : KillStreakController
         {
             PickLoiterLocation();
         }
-
     }
 
     void PickLoiterLocation()
@@ -96,8 +103,12 @@ public class HelicopterController : KillStreakController
                 {
                     if (_health.gameObject.tag != "Projectile" && _health.playerID != playerID)
                     {
-                        loiterLocation = Util.Flatten(_health.transform.position) + altitude * Vector3.up;
-                        break;
+                        Vector3 _loiterLocation = Util.Flatten(_health.transform.position) + altitude * Vector3.up;
+                        if (CheckRoute(_loiterLocation).point == Vector3.zero)
+                        {
+                            loiterLocation = _loiterLocation;
+                            break;
+                        }
                     }
                 }
             }
@@ -106,19 +117,17 @@ public class HelicopterController : KillStreakController
             {
                 loiterLocation = Util.Flatten(Random.insideUnitSphere * loiterRadius) + altitude * Vector3.up;
             }
-        }
+        }  
 
-        Vector3 _dir = loiterLocation - transform.position;
 
-        RaycastHit _hit;
-        if(Physics.SphereCast(transform.position + _dir.normalized * footprint, footprint, _dir, out _hit, _dir.magnitude - footprint, layerMask)) {
+        if (CheckRoute(loiterLocation).point == Vector3.zero) {
+            trackingState = TrackingState.moving;
+            currentLoiterTime = 0f;
+        } else
+        {
             trackingState = TrackingState.loitering;
             loiterLocation = Vector3.zero;
             loiterSwayAmount = Random.Range(-loiterSway, loiterSway);
-        } else
-        {
-            trackingState = TrackingState.moving;
-            currentLoiterTime = 0f;
         }
     }
 
@@ -135,10 +144,14 @@ public class HelicopterController : KillStreakController
 
         transform.position = Vector3.SmoothDamp(transform.position, loiterLocation, ref velocity, moveTime, moveSpeed);
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_dir), turnSpeed * Time.deltaTime);
+        acceleration = (velocity - previousVelocity) / Time.deltaTime;
 
-        RaycastHit _hit;
-        if (Physics.SphereCast(transform.position + _dir.normalized * footprint, footprint, _dir, out _hit, _dir.magnitude - footprint, layerMask))
+        previousVelocity = velocity;
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, acceleration + Vector3.up * tilt) * Quaternion.LookRotation(_dir), turnSpeed * Time.deltaTime);
+
+        RaycastHit _hit = CheckRoute(loiterLocation);
+        if (_hit.point != Vector3.zero)
         {
             loiterLocation = _hit.point - _dir.normalized * footprint;
         }
@@ -147,9 +160,24 @@ public class HelicopterController : KillStreakController
         {
             trackingState = TrackingState.loitering;
             currentLoiterTime = 0f;
+            velocity = Vector3.zero;
+            acceleration = Vector3.zero;
 
             if (loiterLocation == KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position)
                 Kill(string.Empty); // Despawn
         }
+    }
+
+    private RaycastHit CheckRoute(Vector3 _destination)
+    {
+        Vector3 _dir = _destination - transform.position;
+
+        RaycastHit _hit;
+        if (Physics.SphereCast(transform.position + _dir.normalized * footprint, footprint, _dir, out _hit, _dir.magnitude - footprint, layerMask))
+        {
+            return _hit;
+        }
+
+        return new RaycastHit();
     }
 }
