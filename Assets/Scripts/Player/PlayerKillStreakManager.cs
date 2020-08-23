@@ -40,7 +40,12 @@ public class PlayerKillStreakManager : NetworkBehaviour
     [Command]
     void CmdSpawnKillStreak(string _playerID, string _killStreakName)
     {
-        GameManager.GetPlayer(_playerID).killStreak = 0;
+        Player _player = GameManager.GetPlayer(_playerID);
+
+        if (_player == null)
+            return;
+
+        _player.killStreak = 0;
 
         KillStreak _killStreak = KillStreakUtil.NameToKillStreak(_killStreakName);
 
@@ -61,6 +66,9 @@ public class PlayerKillStreakManager : NetworkBehaviour
     [ClientRpc]
     void RpcKillStreak(string _playerID, string _killStreakName)
     {
-        GameManager.instance.messageCallback.Invoke("<b>" + GameManager.GetPlayer(_playerID).username + "</b> called in a <b>" + _killStreakName + "</b>");
+        Player _player = GameManager.GetPlayer(_playerID);
+
+        if (_player != null)
+            GameManager.instance.messageCallback.Invoke("<b>" + _player.username + "</b> called in a <b>" + _killStreakName + "</b>");
     }
 }

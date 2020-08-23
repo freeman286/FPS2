@@ -79,6 +79,11 @@ public class ProjectileController : NetworkBehaviour
 
         playerID = _playerID;
 
+        Health _health = GetComponent<Health>();
+
+        if (_health != null)
+            _health.playerID = _playerID;
+
         if (particles != null)
             particles.enabled = _active;
 

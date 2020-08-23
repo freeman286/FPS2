@@ -61,7 +61,12 @@ public class GameManager : MonoBehaviour
 
     public static Player GetPlayer(string _playerID)
     {
-        return players[_playerID];
+        if (players.ContainsKey(_playerID)) {
+            return players[_playerID];
+        } else
+        {
+            return null;
+        }
     }
 
     public static Player[] GetAllPlayers()

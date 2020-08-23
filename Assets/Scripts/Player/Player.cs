@@ -138,12 +138,12 @@ public class Player : NetworkBehaviour
 
         shoot.CancelInvoke("Shoot");
 
-        Player sourcePlayer = GameManager.GetPlayer(_sourceID);
-        if (sourcePlayer != null)
+        Player _sourcePlayer = GameManager.GetPlayer(_sourceID);
+        if (_sourcePlayer != null)
         {
-            sourcePlayer.kills++;
-            sourcePlayer.killStreak++;
-            GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
+            _sourcePlayer.kills++;
+            _sourcePlayer.killStreak++;
+            GameManager.instance.onPlayerKilledCallback.Invoke(username, _sourcePlayer.username);
         }
 
         killStreak = 0;

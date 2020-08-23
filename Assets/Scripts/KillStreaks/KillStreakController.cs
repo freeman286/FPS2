@@ -49,7 +49,10 @@ public class KillStreakController : NetworkBehaviour
     {
         GameObject _impact = (GameObject)Instantiate(impact, _pos, _rot);
 
-        GameManager.instance.messageCallback.Invoke("<b>" + GameManager.GetPlayer(_sourceID).username + "</b> shot down <b>" + killStreak.name + "</b>");
+        Player _source = GameManager.GetPlayer(_sourceID);
+        
+        if (_source != null)
+            GameManager.instance.messageCallback.Invoke("<b>" + _source.username + "</b> shot down <b>" + killStreak.name + "</b>");
 
         Destroy(_impact, 4f);
         NetworkServer.Destroy(gameObject);
