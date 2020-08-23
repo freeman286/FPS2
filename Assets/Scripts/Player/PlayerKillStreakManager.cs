@@ -58,6 +58,9 @@ public class PlayerKillStreakManager : NetworkBehaviour
 
             KillStreakController _killStreakController = _killStreakPrefab.GetComponent<KillStreakController>();
             _killStreakController.playerID = _playerID;
+
+            Health _health = _killStreakPrefab.GetComponent<Health>();
+            _health.playerID = _playerID;
         }
 
         RpcKillStreak(_playerID, _killStreakName);

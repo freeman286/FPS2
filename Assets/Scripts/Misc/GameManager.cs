@@ -156,6 +156,18 @@ public class GameManager : MonoBehaviour
         RegisterHealth(_equipmentID, _equipment.GetComponent<Health>());
     }
 
+    public static GameObject GetEquipment(string _equipmentID)
+    {
+        if (equipment.ContainsKey(_equipmentID))
+        {
+            return equipment[_equipmentID];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public static void UnRegisterEquipment(string _equipmentID)
     {
         equipment.Remove(_equipmentID);
@@ -262,12 +274,14 @@ public class GameManager : MonoBehaviour
 
     public static void RegisterHealth(string _name, Health _health)
     {
-        healths.Add(_name, _health);
+        if (_health != null)
+            healths.Add(_name, _health);
     }
 
     public static void UnRegisterHealth(string _name)
     {
-        healths.Remove(_name);
+        if (healths.ContainsKey(_name))
+            healths.Remove(_name);
     }
 
     public static Health GetHealth(string _name)

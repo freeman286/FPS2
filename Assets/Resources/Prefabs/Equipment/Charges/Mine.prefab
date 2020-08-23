@@ -86,6 +86,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.01
   playerID: 
+  placeable: 1
   colliders:
   - {fileID: 2954331252196360057}
   light: {fileID: 7152805127760320429}
@@ -110,6 +111,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 254775
   force: 20
+  forceUpwardsModifier: 1
   damage: 150
   range: 12
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
@@ -235,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerID: 
   isDead: 0
   dieEvent:
     m_PersistentCalls:

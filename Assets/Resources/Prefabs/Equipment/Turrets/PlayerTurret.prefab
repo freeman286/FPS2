@@ -177,6 +177,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerID: 
+  placeable: 1
   colliders:
   - {fileID: 2954331252196360057}
   light: {fileID: 4844721981159112802}
@@ -227,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerID: 
   isDead: 0
   dieEvent:
     m_PersistentCalls:

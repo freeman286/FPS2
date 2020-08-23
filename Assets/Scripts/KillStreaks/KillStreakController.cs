@@ -5,8 +5,11 @@ using Mirror;
 
 public class KillStreakController : NetworkBehaviour
 {
-    [SyncVar]
+    [SyncVar(hook = nameof(playerIDChanged))]
     public string playerID;
+
+    [SerializeField]
+    private TurretController[] turrets;
 
     [SerializeField]
     private KillStreak killStreak = null;
@@ -19,6 +22,15 @@ public class KillStreakController : NetworkBehaviour
     public virtual void Start()
     {
         networkIdentity = GetComponent<NetworkIdentity>();
+    }
+
+    void playerIDChanged(string _oldID, string _newID)
+    {
+        playerID = _newID;
+        foreach(TurretController _turret in turrets)
+        {
+            _turret.playerID = _newID;
+        }
     }
 
     public override void OnStartClient()

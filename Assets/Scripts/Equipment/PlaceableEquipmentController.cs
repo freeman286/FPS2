@@ -10,6 +10,9 @@ public class PlaceableEquipmentController : NetworkBehaviour
     [SyncVar]
     public string playerID;
 
+    [SerializeField]
+    protected bool placeable;
+
     public Collider[] colliders;
 
     [SerializeField]
@@ -29,17 +32,22 @@ public class PlaceableEquipmentController : NetworkBehaviour
     {
         base.OnStartClient();
 
-        GameManager.RegisterEquipment(GetComponent<NetworkIdentity>().netId.ToString(), gameObject);
+        if (placeable)
+            GameManager.RegisterEquipment(GetComponent<NetworkIdentity>().netId.ToString(), gameObject);
     }
 
     public virtual void Start()
     {
         networkIdentity = GetComponent<NetworkIdentity>();
-        CmdReady(false);
+        if (placeable)
+            CmdReady(false);
     }
 
     public virtual void Update()
     {
+        if (!placeable)
+            return;
+
         if (!ready && targetPos != Vector3.zero)
         {
             if (networkIdentity.hasAuthority)

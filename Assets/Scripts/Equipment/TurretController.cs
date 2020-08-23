@@ -48,7 +48,7 @@ public class TurretController : PlaceableEquipmentController
     private ProjectileShoot projectileShoot;
     private ShootEffects shootEffects;
 
-
+    private float timeSinceShot;
 
     [SerializeField]
     private LayerMask mask = -1;
@@ -67,7 +67,7 @@ public class TurretController : PlaceableEquipmentController
     {
         base.OnStartClient();
 
-        if (GetComponent<NetworkIdentity>().hasAuthority)
+        if (GetComponent<NetworkIdentity>().hasAuthority && placeable)
             GameManager.RegisterTurret(gameObject);
 
     }
@@ -75,13 +75,15 @@ public class TurretController : PlaceableEquipmentController
     public override void Update()
     {
         base.Update();
-        if (ready && target != null)
+        if ((ready || !placeable) && target != null)
         {
             Track();
-        } else if (ready)
+        } else if (ready || !placeable)
         {
             Search();
         }
+
+        timeSinceShot += Time.deltaTime;
     }
 
     public void Kill()
@@ -114,7 +116,7 @@ public class TurretController : PlaceableEquipmentController
 
             turret.transform.rotation = Quaternion.RotateTowards(turret.transform.rotation, _lookAtRotation, speed * Time.deltaTime);
 
-            if (Quaternion.Angle(turret.transform.rotation, _lookAtRotation) < trackingAngle && !IsInvoking("Shoot"))
+            if (Quaternion.Angle(turret.transform.rotation, _lookAtRotation) < trackingAngle && !IsInvoking("Shoot") && timeSinceShot > 1f / weapon.fireRate)
             {
                 InvokeRepeating("Shoot", 0f, 1f / weapon.fireRate);
             }
@@ -165,7 +167,7 @@ public class TurretController : PlaceableEquipmentController
 
         RaycastHit _hit;
 
-        if (Vector3.Angle(_direction, transform.forward) <= maxAngle && Physics.Raycast(turret.transform.position, _direction, out _hit, weapon.range, mask) && _hit.transform.root == _target.transform)
+        if (Vector3.Angle(_direction, turret.transform.parent.forward) <= maxAngle && Physics.Raycast(turret.transform.position, _direction, out _hit, weapon.range, mask) && _hit.transform.root == _target.transform)
         {
             return _direction;
         }
@@ -186,6 +188,8 @@ public class TurretController : PlaceableEquipmentController
         {
             projectileShoot.Shoot(muzzle, turret.transform.forward, Vector3.zero, weapon.throwPower, weapon.projectile, playerID, weapon.roundsPerShot);
         }
+
+        timeSinceShot = 0;
     }
 
     [Command]
