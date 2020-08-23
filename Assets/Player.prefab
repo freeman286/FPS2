@@ -1673,6 +1673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerID: 
   isDead: 0
   dieEvent:
     m_PersistentCalls:
@@ -2067,7 +2068,7 @@ MonoBehaviour:
   cam: {fileID: 899551536351255448}
   mask:
     serializedVersion: 2
-    m_Bits: 109111
+    m_Bits: 240183
   laseButton: Fire2
   range: 100
   laserParticle: {fileID: 1734203832338817589, guid: faa8a56e1662d164985a098673f90336,

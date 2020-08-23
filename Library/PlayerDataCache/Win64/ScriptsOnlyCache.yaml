@@ -21,12 +21,12 @@ ScriptsOnlyBuild:
     - GravityGun
     - Grenade
     - Health
+    - HelicopterController
     - HighJump
     - Holdfast
     - Homing
     - ImpactController
     - KillStreak
-    - KillStreakController
     - KillStreakSpawnManager
     - KillStreakSpawnPoint
     - LaserController
@@ -126,7 +126,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.HighDefinition.Editor.dll:
     - UnityEditor.Rendering.HighDefinition.HDProjectSettings
-    - UnityEditor.VFX.VFXHDRPSubOutput
     Unity.RenderPipelines.HighDefinition.Runtime.dll:
     - UnityEngine.Rendering.HighDefinition.AmbientOcclusion
     - UnityEngine.Rendering.HighDefinition.Bloom
@@ -153,34 +152,14 @@ ScriptsOnlyBuild:
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.VisualEffectGraph.Editor.dll:
-    - UnityEditor.VFX.Block.Orient
-    - UnityEditor.VFX.Block.SetAttribute
     - UnityEditor.VFX.UI.VFXViewWindow
-    - UnityEditor.VFX.VFXBasicInitialize
-    - UnityEditor.VFX.VFXBasicSpawner
-    - UnityEditor.VFX.VFXBasicUpdate
-    - UnityEditor.VFX.VFXDataParticle
-    - UnityEditor.VFX.VFXGraph
-    - UnityEditor.VFX.VFXParameter
-    - UnityEditor.VFX.VFXPlanarPrimitiveOutput
-    - UnityEditor.VFX.VFXSlot
-    - UnityEditor.VFX.VFXSlotColor
-    - UnityEditor.VFX.VFXSlotFloat
-    - UnityEditor.VFX.VFXSlotFloat3
-    - UnityEditor.VFX.VFXSlotInt
-    - UnityEditor.VFX.VFXSlotTexture2D
-    - UnityEditor.VFX.VFXSpawnerConstantRate
-    - UnityEditor.VFX.VFXSpawnerCustomWrapper
-    - UnityEditor.VFX.VFXUI
     Unity.VisualEffectGraph.Runtime.dll:
     - UnityEditor.VFX.LoopAndDelay
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -318,8 +297,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12720}
     - Class: 114
       Script: {instanceID: 12724}
-    - Class: 114
-      Script: {instanceID: 12848}
     - Class: 114
       Script: {instanceID: 12868}
     - Class: 114
@@ -548,6 +525,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17472}
     - Class: 114
       Script: {instanceID: 17480}
+    - Class: 114
+      Script: {instanceID: 29916}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -679,8 +658,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12720}
     - Class: 114
       Script: {instanceID: 12724}
-    - Class: 114
-      Script: {instanceID: 12848}
     - Class: 114
       Script: {instanceID: 12868}
     - Class: 114
@@ -837,6 +814,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17344}
     - Class: 114
       Script: {instanceID: 17418}
+    - Class: 114
+      Script: {instanceID: 29916}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -966,8 +945,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12720}
     - Class: 114
       Script: {instanceID: 12724}
-    - Class: 114
-      Script: {instanceID: 12848}
     - Class: 114
       Script: {instanceID: 12868}
     - Class: 114
@@ -1132,6 +1109,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17344}
     - Class: 114
       Script: {instanceID: 17418}
+    - Class: 114
+      Script: {instanceID: 29916}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3551,6 +3530,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: aaa8352abe3d202dfda4d8221acbf9ae
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HelicopterController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

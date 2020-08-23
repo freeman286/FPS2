@@ -22,14 +22,19 @@ public class PlayerKillStreakManager : NetworkBehaviour
 
     void Update()
     {
-        if (isLocalPlayer && KillStreakAvailable && player.killStreak == killStreak.kills)
+        //if (isLocalPlayer && KillStreakAvailable && player.killStreak == killStreak.kills)
+        //{
+        //    KillStreakAvailable = false;
+        //    CmdSpawnKillStreak(transform.name, killStreak.name);
+        //}
+        //
+        //if (player.killStreak == 0 && killStreak != null)
+        //    KillStreakAvailable = true;
+
+        if (isLocalPlayer && Input.GetKeyDown("k"))
         {
-            KillStreakAvailable = false;
             CmdSpawnKillStreak(transform.name, killStreak.name);
         }
-
-        if (player.killStreak == 0 && killStreak != null)
-            KillStreakAvailable = true;
     }
 
     void SetDefaults()

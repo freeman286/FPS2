@@ -12,16 +12,23 @@ public class KillStreakController : NetworkBehaviour
     private TurretController[] turrets;
 
     [SerializeField]
-    private KillStreak killStreak = null;
+    protected KillStreak killStreak = null;
 
     [SerializeField]
     private GameObject impact = null;
 
     protected NetworkIdentity networkIdentity;
 
+    protected float timeSinceCalledIn = 0f;
+
     public virtual void Start()
     {
         networkIdentity = GetComponent<NetworkIdentity>();
+    }
+
+    public virtual void Update()
+    {
+        timeSinceCalledIn += Time.deltaTime;
     }
 
     void playerIDChanged(string _oldID, string _newID)
@@ -59,14 +66,15 @@ public class KillStreakController : NetworkBehaviour
     [ClientRpc]
     public void RpcDie(Vector3 _pos, Quaternion _rot, string _sourceID)
     {
-        GameObject _impact = (GameObject)Instantiate(impact, _pos, _rot);
-
         Player _source = GameManager.GetPlayer(_sourceID);
-        
-        if (_source != null)
-            GameManager.instance.messageCallback.Invoke("<b>" + _source.username + "</b> shot down <b>" + killStreak.name + "</b>");
 
-        Destroy(_impact, 4f);
+        if (_source != null)
+        {
+            GameManager.instance.messageCallback.Invoke("<b>" + _source.username + "</b> shot down <b>" + killStreak.name + "</b>");
+            GameObject _impact = (GameObject)Instantiate(impact, _pos, _rot);
+            Destroy(_impact, 4f);
+        }
+
         NetworkServer.Destroy(gameObject);
     }
 }
