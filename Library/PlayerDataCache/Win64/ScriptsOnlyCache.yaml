@@ -126,6 +126,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.HighDefinition.Editor.dll:
     - UnityEditor.Rendering.HighDefinition.HDProjectSettings
+    - UnityEditor.VFX.VFXHDRPSubOutput
     Unity.RenderPipelines.HighDefinition.Runtime.dll:
     - UnityEngine.Rendering.HighDefinition.AmbientOcclusion
     - UnityEngine.Rendering.HighDefinition.Bloom
@@ -152,7 +153,25 @@ ScriptsOnlyBuild:
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.VisualEffectGraph.Editor.dll:
+    - UnityEditor.VFX.Block.Orient
+    - UnityEditor.VFX.Block.SetAttribute
     - UnityEditor.VFX.UI.VFXViewWindow
+    - UnityEditor.VFX.VFXBasicInitialize
+    - UnityEditor.VFX.VFXBasicSpawner
+    - UnityEditor.VFX.VFXBasicUpdate
+    - UnityEditor.VFX.VFXDataParticle
+    - UnityEditor.VFX.VFXGraph
+    - UnityEditor.VFX.VFXParameter
+    - UnityEditor.VFX.VFXPlanarPrimitiveOutput
+    - UnityEditor.VFX.VFXSlot
+    - UnityEditor.VFX.VFXSlotColor
+    - UnityEditor.VFX.VFXSlotFloat
+    - UnityEditor.VFX.VFXSlotFloat3
+    - UnityEditor.VFX.VFXSlotInt
+    - UnityEditor.VFX.VFXSlotTexture2D
+    - UnityEditor.VFX.VFXSpawnerConstantRate
+    - UnityEditor.VFX.VFXSpawnerCustomWrapper
+    - UnityEditor.VFX.VFXUI
     Unity.VisualEffectGraph.Runtime.dll:
     - UnityEditor.VFX.LoopAndDelay
     UnityEditor.Graphs.dll:
@@ -1698,7 +1717,7 @@ ScriptsOnlyBuild:
     className: VFXPlaneBinder
   - hash:
       serializedVersion: 2
-      Hash: 80049dfad04b44f7156db8616cd5e863
+      Hash: 8b335e2aa026e186681dcd89ad297480
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: KillStreakController
@@ -2844,7 +2863,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: e56da6c3b34fd51dcdee9db510c4c6be
+      Hash: 1c8f06aa4a1b7dc3f8423b3d78e4b47b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HelicopterController

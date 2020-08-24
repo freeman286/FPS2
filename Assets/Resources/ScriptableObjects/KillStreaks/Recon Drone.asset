@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Recon Drone
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 8f65a6e2e573b5e45b4f187b204b435f, type: 3}
-  kills: 1
+  kills: 3
   time: 180
   prefab: {fileID: 156444120250483795, guid: de6a34305ac23c74c9edd282a7022d2b, type: 3}

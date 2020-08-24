@@ -74,7 +74,7 @@ MonoBehaviour:
   syncInterval: 0.01
   clientAuthority: 1
   localPositionSensitivity: 0.01
-  localRotationSensitivity: 1
+  localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
 --- !u!114 &208369698239625319
 MonoBehaviour:
@@ -110,8 +110,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerID: 
-  turrets:
-  - {fileID: 1917425305069605456}
+  turret: {fileID: 1917425305069605456}
   killStreak: {fileID: 11400000, guid: 321597530e4f52140aca7909f241b4c4, type: 2}
   impact: {fileID: 4308811345454485748, guid: 1c8dea926730ff149aeb20fcc67e5ff6, type: 3}
   altitude: 20
@@ -157,7 +156,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 100
+  maxHealth: 50
   healthRegenTime: 5
   healthRegenSpeed: 5
   lastDamagedPlayer: {fileID: 0}
@@ -252,7 +251,7 @@ MonoBehaviour:
   range: 20
   damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
   automatic: 1
-  fireRate: 0.3
+  fireRate: 0.1
   scoped: 0
   special: 0
   roundsPerShot: 1

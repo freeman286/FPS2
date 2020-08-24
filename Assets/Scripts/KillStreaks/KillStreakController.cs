@@ -9,7 +9,7 @@ public class KillStreakController : NetworkBehaviour
     public string playerID;
 
     [SerializeField]
-    private TurretController[] turrets;
+    private TurretController turret;
 
     [SerializeField]
     protected KillStreak killStreak = null;
@@ -34,10 +34,8 @@ public class KillStreakController : NetworkBehaviour
     void playerIDChanged(string _oldID, string _newID)
     {
         playerID = _newID;
-        foreach(TurretController _turret in turrets)
-        {
-            _turret.playerID = _newID;
-        }
+        
+        turret.playerID = _newID;
     }
 
     public override void OnStartClient()

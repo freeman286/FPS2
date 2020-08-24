@@ -60,6 +60,8 @@ public class HelicopterController : KillStreakController
     private Vector3 loiterLocation;
 
     private float loiterSwayAmount;
+    private float currentLoiterSwayAmount;
+    private float deltaSway = 0f;
 
     private Vector3 velocity = Vector3.zero;
     private Vector3 previousVelocity = Vector3.zero;
@@ -99,11 +101,11 @@ public class HelicopterController : KillStreakController
             if (trackingMode == TrackingMode.player)
             {
                 loiterLocation = Vector3.zero;
-                foreach (Health _health in GameManager.GetAllHealth())
+                foreach (Player _player in GameManager.GetAllPlayers())
                 {
-                    if (_health.gameObject.tag != "Projectile" && _health.playerID != playerID)
+                    if (_player.transform.name != playerID)
                     {
-                        Vector3 _loiterLocation = Util.Flatten(_health.transform.position) + altitude * Vector3.up;
+                        Vector3 _loiterLocation = Util.Flatten(_player.transform.position) + altitude * Vector3.up;
                         if (CheckRoute(_loiterLocation).point == Vector3.zero)
                         {
                             loiterLocation = _loiterLocation;
@@ -127,14 +129,16 @@ public class HelicopterController : KillStreakController
         {
             trackingState = TrackingState.loitering;
             loiterLocation = Vector3.zero;
-            loiterSwayAmount = Random.Range(-loiterSway, loiterSway);
         }
     }
 
     void Loiter()
     {
         currentLoiterTime += Time.deltaTime;
-        transform.Rotate(0.0f, loiterSwayAmount * Time.deltaTime, 0.0f, Space.World);
+
+        currentLoiterSwayAmount = Mathf.SmoothDamp(currentLoiterSwayAmount, loiterSwayAmount, ref deltaSway, Time.deltaTime * turnSpeed);
+
+        transform.Rotate(0.0f, currentLoiterSwayAmount * Time.deltaTime, 0.0f, Space.World);
         velocity = Vector3.zero;
     }
 
@@ -159,7 +163,10 @@ public class HelicopterController : KillStreakController
         if (_dir.magnitude < 0.1f)
         {
             trackingState = TrackingState.loitering;
+            loiterSwayAmount = Random.Range(-loiterSway, loiterSway);
             currentLoiterTime = 0f;
+            currentLoiterSwayAmount = 0f;
+            deltaSway = 0f;
             velocity = Vector3.zero;
             acceleration = Vector3.zero;
 
