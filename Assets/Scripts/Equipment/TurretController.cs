@@ -75,6 +75,10 @@ public class TurretController : PlaceableEquipmentController
     public override void Update()
     {
         base.Update();
+
+        if (!networkIdentity.hasAuthority)
+            return;
+
         if ((ready || !placeable) && target != null)
         {
             Track();

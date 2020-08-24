@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24c0ca6dc3f367498da69593a0121d6, type: 3}
   m_Name: Attack Helicopter
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 8f65a6e2e573b5e45b4f187b204b435f, type: 3}
+  icon: {fileID: 21300000, guid: 81f3c6edd1d681145819ee4807dcc2ff, type: 3}
   kills: 7
-  time: 300
+  time: 240
   prefab: {fileID: 156444120250483795, guid: 43f60a6c77408aa409efdbcf8613b6c3, type: 3}

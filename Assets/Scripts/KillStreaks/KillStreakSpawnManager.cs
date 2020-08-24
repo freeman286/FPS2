@@ -22,6 +22,7 @@ public class KillStreakSpawnManager : MonoBehaviour
 
     void Start()
     {
+        spawnPoints.Clear();
         foreach (Transform _child in transform)
         {
             KillStreakSpawnPoint _killStreakSpawnPoint = _child.GetComponent<KillStreakSpawnPoint>();

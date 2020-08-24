@@ -6,8 +6,6 @@ using System.Linq;
 public class CustomNetworkManager : NetworkManager
 {
 
-    private const string PLAYER_TAG = "Player";
-
     [SerializeField]
     private LayerMask mask = -1;
 
@@ -19,26 +17,26 @@ public class CustomNetworkManager : NetworkManager
 
     public override Transform GetStartPosition()
     {
-        Player[] players = GameManager.GetAllPlayers();
+        Health[] enemies = GameManager.GetAllHealth();
 
-        if (players.Length == 1)
+        if (enemies.Length == 1)
             return startPositions[Random.Range(0, startPositions.Count)];
         
         List<Transform> usableStartPositions = new List<Transform>(startPositions);
 
-        foreach (Player player in players)
+        foreach (Health _enemy in enemies)
         {
-            usableStartPositions.RemoveAll(t => Mathf.Abs(Vector3.Distance(t.position, player.transform.position) - spawnDistance) > spawnRange);
+            usableStartPositions.RemoveAll(t => Mathf.Abs(Vector3.Distance(t.position, _enemy.transform.position) - spawnDistance) > spawnRange);
         }
 
-        usableStartPositions = LineOfSight(usableStartPositions, players);
+        usableStartPositions = LineOfSight(usableStartPositions, enemies);
 
         if (usableStartPositions.Count > 0)
             return usableStartPositions[Random.Range(0, usableStartPositions.Count)];
 
 
         usableStartPositions = new List<Transform>(startPositions);
-        usableStartPositions = LineOfSight(usableStartPositions, players);
+        usableStartPositions = LineOfSight(usableStartPositions, enemies);
 
         if (usableStartPositions.Count > 0)
             return usableStartPositions[Random.Range(0, usableStartPositions.Count)];
@@ -47,18 +45,18 @@ public class CustomNetworkManager : NetworkManager
         return startPositions[Random.Range(0, startPositions.Count)];
     }
 
-    private List<Transform> LineOfSight(List<Transform> positions, Player[] players)
+    private List<Transform> LineOfSight(List<Transform> positions, Health[] enemies)
     {
         List<Transform> usablePositions = new List<Transform>(positions);
 
         foreach (Transform startPos in usablePositions.ToList())
         {
-            foreach (Player player in players)
+            foreach (Health _enemy in enemies)
             {
                 RaycastHit _hit;
-                if (Physics.Raycast(startPos.position + (2 * Vector3.up), player.transform.position - startPos.position - (2 * Vector3.up), out _hit, spawnDistance + spawnRange, mask))
+                if (Physics.Raycast(startPos.position + (2 * Vector3.up), _enemy.transform.position - startPos.position - (2 * Vector3.up), out _hit, spawnDistance + spawnRange, mask))
                 {
-                    if (_hit.collider.tag == PLAYER_TAG)
+                    if (_hit.collider.transform.root == _enemy)
                     {
                         usablePositions.Remove(startPos);
                     }
