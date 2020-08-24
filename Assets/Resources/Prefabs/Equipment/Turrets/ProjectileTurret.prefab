@@ -225,8 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
-    type: 3}
+  hitEffectPrefab: {fileID: 0}
 --- !u!114 &8183088718756907435
 MonoBehaviour:
   m_ObjectHideFlags: 0

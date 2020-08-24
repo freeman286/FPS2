@@ -6,13 +6,20 @@ using Mirror;
 [RequireComponent(typeof(DamageInflictor))]
 public class RaycastShoot : NetworkBehaviour
 {
-    public GameObject hitEffectPrefab;
+    [HideInInspector]
+    public GameObject hitEffectPrefab { get; set; }
 
     private DamageInflictor damageInflictor;
 
     void Start()
     {
         damageInflictor = GetComponent<DamageInflictor>();
+
+        WeaponGraphics _weaponGraphics = GetComponent<WeaponGraphics>();
+
+        if (_weaponGraphics != null)
+            hitEffectPrefab = _weaponGraphics.hitEffectPrefab;
+
     }
 
     public void Shoot(Transform _muzzleTrans, Vector3 _direction, Vector3 _devience, Weapon _weapon, LayerMask _mask, string _sourceID)
