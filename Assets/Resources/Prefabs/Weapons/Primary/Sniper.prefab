@@ -1031,15 +1031,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -1.7932289
-      outSlope: -1.7932289
+      inSlope: -3.9999998
+      outSlope: -3.9999998
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.12373977
-      value: 0.7781063
+      time: 0.05
+      value: 0.8
       inSlope: -0.27352273
       outSlope: -0.27352273
       tangentMode: 0
@@ -1047,8 +1047,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.060387
     - serializedVersion: 3
-      time: 0.50977564
-      value: 0.7282771
+      time: 0.62940454
+      value: 0.6781367
       inSlope: -0.5529251
       outSlope: -0.5529251
       tangentMode: 0
@@ -1058,8 +1058,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1.4855995
-      outSlope: -1.4855995
+      inSlope: -1.829857
+      outSlope: -1.829857
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -1067,7 +1067,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  range: 400
+  range: 600
   damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
   automatic: 0
   fireRate: 0.5
@@ -1114,7 +1114,7 @@ MonoBehaviour:
   speed: 0.8
   scopedSpeed: 0.4
   primary: 1
-  bullets: 1
+  bullets: 5
   reloadTime: 4
   scriptsToEnable: []
 --- !u!82 &792773704839598559

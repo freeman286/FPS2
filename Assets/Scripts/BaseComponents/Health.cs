@@ -76,7 +76,7 @@ public class Health : NetworkBehaviour
         if (lastDamagedPlayer != null)
             _amount = (int)(_amount * lastDamagedPlayer.GetComponent<PlayerStats>().GetDamageMultiplier(_damageType, false));
 
-        PlayerStats _stats = GetComponent<PlayerStats>();
+        Stats _stats = GetComponent<Stats>();
 
         if (_stats != null)
             _amount = (int)(_amount * _stats.GetDamageMultiplier(_damageType, true));

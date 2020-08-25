@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using Mirror;
 
-public class PlayerStats : NetworkBehaviour
+public class PlayerStats : Stats
 {
 
     private WeaponManager weaponManager;
@@ -27,10 +27,7 @@ public class PlayerStats : NetworkBehaviour
 
     [SyncVar(hook = nameof(OnMovementAbilityNameChanged))]
     public string movementAbilityName;
-
-
-    [Header("Cumulative effects")]
-    public List<DamageAttribute> damageAttributes = new List<DamageAttribute>();
+    
     public float speedMultiplier = 1f;
     public float jumpMultiplier = 1f;
 
@@ -168,19 +165,5 @@ public class PlayerStats : NetworkBehaviour
                 }
             }
         }
-    }
-
-    public float GetDamageMultiplier(string _damageType, bool _self)
-    {
-        DamageAttribute _damageAttribute = damageAttributes.FirstOrDefault(x => x.damageType.name == _damageType && x.self == _self);
-
-        if (_damageAttribute == null)
-        {
-            return 1;
-        } else
-        {
-            return _damageAttribute.multiplier;
-        }
-
     }
 }

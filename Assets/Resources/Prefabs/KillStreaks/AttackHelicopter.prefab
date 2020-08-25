@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 208369698239625319}
   - component: {fileID: 168835184322540932}
   - component: {fileID: -2497769578073780965}
+  - component: {fileID: 1442731481084301156}
   - component: {fileID: 1917425305069605456}
   - component: {fileID: 5178846693719246077}
   - component: {fileID: 9090075800389225683}
@@ -175,10 +176,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 1000
+  maxHealth: 1500
   healthRegenTime: 20
   healthRegenSpeed: 5
   lastDamagedPlayer: {fileID: 0}
+--- !u!114 &1442731481084301156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f0e890b18361741960fe51e30b3bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  damageAttributes:
+  - self: 1
+    damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
+    multiplier: 0.3
+  - self: 1
+    damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
+    multiplier: 0.6
 --- !u!114 &1917425305069605456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +969,7 @@ GameObject:
   - component: {fileID: 2483338112890971627}
   - component: {fileID: 670712014169371027}
   m_Layer: 17
-  m_Name: Capsule
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

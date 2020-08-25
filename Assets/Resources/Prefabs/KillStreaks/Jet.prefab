@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 208369698239625319}
   - component: {fileID: 168835184322540932}
   - component: {fileID: -2497769578073780965}
+  - component: {fileID: -8841195247559046266}
   - component: {fileID: 1917425305069605456}
   - component: {fileID: 5178846693719246077}
   - component: {fileID: 9090075800389225683}
@@ -173,10 +174,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 100
-  healthRegenTime: 1
-  healthRegenSpeed: 20
+  maxHealth: 150
+  healthRegenTime: 5
+  healthRegenSpeed: 5
   lastDamagedPlayer: {fileID: 0}
+--- !u!114 &-8841195247559046266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f0e890b18361741960fe51e30b3bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAttributes:
+  - self: 1
+    damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
+    multiplier: 2
 --- !u!114 &1917425305069605456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,7 +559,7 @@ GameObject:
   - component: {fileID: 2483338112890971627}
   - component: {fileID: 670712014169371027}
   m_Layer: 17
-  m_Name: Capsule
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,7 +838,7 @@ GameObject:
   - component: {fileID: 2731416333624046096}
   - component: {fileID: 3063652863267485098}
   m_Layer: 17
-  m_Name: Cylinder (2)
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -995,9 +1012,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!1 &3897502982288438578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,7 +1605,6 @@ GameObject:
   - component: {fileID: 851668440729474255}
   - component: {fileID: 5584976921587610493}
   - component: {fileID: 8643305362914845555}
-  - component: {fileID: 3607701243404704782}
   m_Layer: 17
   m_Name: Sphere
   m_TagString: Untagged
@@ -1657,19 +1673,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &3607701243404704782
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6797592376164499160}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6882280841430127209
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,7 +2124,7 @@ GameObject:
   - component: {fileID: 1835111070714289178}
   - component: {fileID: 3502249931847961844}
   m_Layer: 17
-  m_Name: Cylinder (1)
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

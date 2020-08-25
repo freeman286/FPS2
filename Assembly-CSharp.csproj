@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\BaseComponents\ProjectileShoot.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\RaycastShoot.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\ShootEffects.cs" />
+     <Compile Include="Assets\Scripts\BaseComponents\Stats.cs" />
      <Compile Include="Assets\Scripts\Equipment\ChargeController.cs" />
      <Compile Include="Assets\Scripts\Equipment\PlaceableEquipmentController.cs" />
      <Compile Include="Assets\Scripts\Equipment\TurretController.cs" />

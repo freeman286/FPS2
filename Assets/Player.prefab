@@ -900,7 +900,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 1500
+  far clip plane: 2500
   field of view: 88
   orthographic: 0
   orthographic size: 5
@@ -2069,7 +2069,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 240183
   laseButton: Fire2
-  range: 100
+  range: 600
   laserParticle: {fileID: 1734203832338817589, guid: faa8a56e1662d164985a098673f90336,
     type: 3}
   laserInstance: {fileID: 0}
