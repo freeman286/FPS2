@@ -136,7 +136,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 254775
   force: -500
-  forceUpwardsModifier: -15
+  forceUpwardsModifier: -2
   damage: 0
   range: 15
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerID: 
   isDead: 0
   dieEvent:
     m_PersistentCalls:

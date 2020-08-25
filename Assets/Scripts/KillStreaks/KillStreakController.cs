@@ -17,6 +17,12 @@ public class KillStreakController : NetworkBehaviour
     [SerializeField]
     private GameObject impact = null;
 
+    [SerializeField]
+    protected float footprint = 2f;
+
+    [SerializeField]
+    protected LayerMask layerMask = -1;
+
     protected NetworkIdentity networkIdentity;
 
     protected float timeSinceCalledIn = 0f;
@@ -74,5 +80,18 @@ public class KillStreakController : NetworkBehaviour
         }
 
         NetworkServer.Destroy(gameObject);
+    }
+
+    protected RaycastHit CheckRoute(Vector3 _destination)
+    {
+        Vector3 _dir = _destination - transform.position;
+
+        RaycastHit _hit;
+        if (Physics.SphereCast(transform.position + _dir.normalized * footprint, footprint, _dir, out _hit, _dir.magnitude - footprint, layerMask))
+        {
+            return _hit;
+        }
+
+        return new RaycastHit();
     }
 }

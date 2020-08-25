@@ -900,7 +900,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 1000
+  far clip plane: 1500
   field of view: 88
   orthographic: 0
   orthographic size: 5
@@ -1659,20 +1659,6 @@ MonoBehaviour:
   - 0.8
   - 0.2
   - 0.2
-  killEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 137112688233104669}
-        m_MethodName: Kill
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1633249208531942668
 MonoBehaviour:
   m_ObjectHideFlags: 0

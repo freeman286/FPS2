@@ -10,7 +10,7 @@ public class ExplosiveController : ProjectileController
     [Header("Explosive Operative")]
 
     [SerializeField]
-    private float fuse;
+    private float fuse = 3f;
 
     [SerializeField]
     private bool explodeOnImpact = true;

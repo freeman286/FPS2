@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum TrackingMode
-{
-    player,
-    random
-};
 
-enum TrackingState
-{
-    moving,
-    loitering
-};
 
 public class HelicopterController : KillStreakController
 {
+
+    enum TrackingMode
+    {
+        player,
+        random
+    };
+
+    enum TrackingState
+    {
+        moving,
+        loitering
+    };
+
     [Header("Loiter function")]
 
     [SerializeField]
@@ -42,16 +45,10 @@ public class HelicopterController : KillStreakController
     private float turnSpeed = 10f;
 
     [SerializeField]
-    private float footprint = 2f;
-
-    [SerializeField]
     private float tilt = 1f;
 
     [SerializeField]
     private TrackingMode trackingMode = TrackingMode.player;
-
-    [SerializeField]
-    private LayerMask layerMask = -1;
 
     private TrackingState trackingState = TrackingState.loitering;
 
@@ -101,7 +98,11 @@ public class HelicopterController : KillStreakController
             if (trackingMode == TrackingMode.player)
             {
                 loiterLocation = Vector3.zero;
-                foreach (Player _player in GameManager.GetAllPlayers())
+
+                Player[] _players = GameManager.GetAllPlayers();
+                Util.Randomise(_players);
+
+                foreach (Player _player in _players)
                 {
                     if (_player.transform.name != playerID)
                     {
@@ -175,16 +176,5 @@ public class HelicopterController : KillStreakController
         }
     }
 
-    private RaycastHit CheckRoute(Vector3 _destination)
-    {
-        Vector3 _dir = _destination - transform.position;
-
-        RaycastHit _hit;
-        if (Physics.SphereCast(transform.position + _dir.normalized * footprint, footprint, _dir, out _hit, _dir.magnitude - footprint, layerMask))
-        {
-            return _hit;
-        }
-
-        return new RaycastHit();
-    }
+    
 }

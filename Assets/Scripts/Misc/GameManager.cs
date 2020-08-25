@@ -295,4 +295,20 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Misc
+
+    public static GameObject[] GetAllPlayersAndKillStreaks()
+    {
+        List<GameObject> allPlayersAndKillStreaks = new List<GameObject>();
+
+        foreach (Player _player in players.Values)
+        {
+            allPlayersAndKillStreaks.Add(_player.gameObject);
+        }
+
+        return allPlayersAndKillStreaks.Concat(killStreaks.Values).ToArray();
+    }
+
+    #endregion
 }

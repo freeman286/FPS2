@@ -12,8 +12,6 @@ public class PlayerKillStreakManager : NetworkBehaviour
 
     private Player player;
 
-    private bool KillStreakAvailable = false;
-
     void Start()
     {
         player = GetComponent<Player>();

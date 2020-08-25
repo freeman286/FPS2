@@ -86,7 +86,7 @@ public class Explosive : NetworkBehaviour
             Rigidbody rb = _collider.attachedRigidbody;
 
             if (rb != null)
-                rb.AddExplosionForce(force, _pos, range, 1.0f);
+                rb.AddExplosionForce(force, _pos, range, forceUpwardsModifier);
         }
 
         Destroy(_impact, 4f);

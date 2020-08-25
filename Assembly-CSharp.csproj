@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\Equipment\PlaceableEquipmentController.cs" />
      <Compile Include="Assets\Scripts\Equipment\TurretController.cs" />
      <Compile Include="Assets\Scripts\KillStreaks\HelicopterController.cs" />
+     <Compile Include="Assets\Scripts\KillStreaks\JetController.cs" />
      <Compile Include="Assets\Scripts\KillStreaks\KillStreakController.cs" />
      <Compile Include="Assets\Scripts\KillStreaks\KillStreakSpawnManager.cs" />
      <Compile Include="Assets\Scripts\KillStreaks\KillStreakSpawnPoint.cs" />
