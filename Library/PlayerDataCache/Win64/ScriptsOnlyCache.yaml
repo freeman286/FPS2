@@ -159,10 +159,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -2239,7 +2237,7 @@ ScriptsOnlyBuild:
     className: LightCluster
   - hash:
       serializedVersion: 2
-      Hash: f0238301603ac4e70dce451a7015ade3
+      Hash: 405432afc1f1bfa74f50a451db58a38d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: JetController

@@ -13,7 +13,7 @@ public class JetController : KillStreakController
         strafing,
     };
 
-    [Header("Loiter function")]
+    [Header("Return function")]
 
     [SerializeField]
     private float altitude = 200f;
@@ -21,7 +21,7 @@ public class JetController : KillStreakController
     [SerializeField]
     private float returnRadius = 40f;
 
-    [Header("Tracking function")]
+    [Header("Strafe function")]
 
     [SerializeField]
     private float moveSpeed = 30f;
@@ -31,6 +31,14 @@ public class JetController : KillStreakController
 
     [SerializeField]
     private float strafeClearance = 50f;
+
+    [SerializeField]
+    private float floor = 30f;
+
+    [SerializeField]
+    private float maxStrafeTime = 30f;
+
+    private float strafeTime = 0f;
 
     private TrackingState trackingState = TrackingState.returning;
 
@@ -53,9 +61,10 @@ public class JetController : KillStreakController
 
         MoveForward();
 
-        if (CheckRoute(transform.position + transform.forward * strafeClearance).point != Vector3.zero)
+        Vector3 _forward = transform.position + transform.forward * strafeClearance;
+
+        if (_forward.y < floor || CheckRoute(_forward).point != Vector3.zero)
         {
-            currentTarget = null;
             Return();
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(transform.position + Vector3.up), turnSpeed * Time.deltaTime);
             return;
@@ -75,6 +84,7 @@ public class JetController : KillStreakController
     void Return()
     {
         trackingState = TrackingState.returning;
+        currentTarget = null;
 
         if (timeSinceCalledIn < killStreak.time)
         {
@@ -99,7 +109,8 @@ public class JetController : KillStreakController
         if (_dir.magnitude < 1f || Util.Flatten(transform.position).magnitude > returnRadius && FindTarget())
         {
             trackingState = TrackingState.strafing;
-            
+            strafeTime = 0f;
+
             if (returnLocation == KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position)
                 Kill(string.Empty); // Despawn
         }
@@ -107,6 +118,14 @@ public class JetController : KillStreakController
 
     void Strafe()
     {
+        strafeTime += Time.deltaTime;
+
+        if (strafeTime > maxStrafeTime)
+        {
+            Return();
+            return;
+        }
+
         if (currentTarget == null)
         {
             FindTarget();
@@ -115,6 +134,7 @@ public class JetController : KillStreakController
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentTarget.position - transform.position), turnSpeed * Time.deltaTime);
         }
+
 
     }
 

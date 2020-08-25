@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 4bb4d9a643818bc4195f5f37db43507d, type: 3}
   kills: 6
-  time: 240
+  time: 360
   prefab: {fileID: 156444120250483795, guid: 18085eb13991e604ca08f1baf13303da, type: 3}

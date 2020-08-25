@@ -289,7 +289,9 @@ public class WeaponManager : NetworkBehaviour
     private IEnumerator CancelShoot_Coroutine()
     {
         yield return new WaitForSeconds(1/currentWeapon.fireRate);
-        currentGraphics.animator.ResetTrigger("Shoot"); // Sometimes the shoot trigger is still set and a phantom animation could play
+
+        if (currentGraphics.animator != null)
+            currentGraphics.animator.ResetTrigger("Shoot"); // Sometimes the shoot trigger is still set and a phantom animation could play
     }
 
     public GameObject GetCurrentCasing()

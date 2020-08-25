@@ -98,7 +98,12 @@ public class GameManager : MonoBehaviour
 
     public static GameObject GetProjectile(string _projectileID)
     {
-        return projectiles[_projectileID];
+        if (projectiles.ContainsKey(_projectileID)) {
+            return projectiles[_projectileID];
+        } else
+        {
+            return null;
+        }
     }
 
     public static GameObject[] GetAllProjectile()

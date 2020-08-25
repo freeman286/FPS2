@@ -73,14 +73,15 @@ public class Health : NetworkBehaviour
 
         lastDamagedPlayer = GameManager.GetPlayer(_sourceID);
 
-        float _amountModified = _amount * lastDamagedPlayer.GetComponent<PlayerStats>().GetDamageMultiplier(_damageType, false);
+        if (lastDamagedPlayer != null)
+            _amount = (int)(_amount * lastDamagedPlayer.GetComponent<PlayerStats>().GetDamageMultiplier(_damageType, false));
 
         PlayerStats _stats = GetComponent<PlayerStats>();
 
         if (_stats != null)
-            _amountModified *= _stats.GetDamageMultiplier(_damageType, true);
+            _amount = (int)(_amount * _stats.GetDamageMultiplier(_damageType, true));
 
-        currentHealth -= _amountModified;
+        currentHealth -= _amount;
 
         timeSinceDamaged = 0f;
 

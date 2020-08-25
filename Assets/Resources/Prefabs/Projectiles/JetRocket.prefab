@@ -113,7 +113,7 @@ MonoBehaviour:
   particles: {fileID: 1624294047822376102}
   lightEffect: {fileID: 6140156983436394091}
   timeSinceCreated: 0
-  fuse: 8
+  fuse: 16
   explodeOnImpact: 1
 --- !u!114 &-4356853441728220555
 MonoBehaviour:
@@ -136,7 +136,7 @@ MonoBehaviour:
   force: 60
   forceUpwardsModifier: 1
   damage: 750
-  range: 12
+  range: 20
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2

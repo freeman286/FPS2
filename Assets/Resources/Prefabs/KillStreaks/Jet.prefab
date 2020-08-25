@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 156444120250483796}
+  - component: {fileID: -33142730946545888}
   - component: {fileID: 156444120250483799}
   - component: {fileID: 156444120250483797}
   - component: {fileID: 208369698239625319}
@@ -21,7 +22,6 @@ GameObject:
   - component: {fileID: 7463701718625790275}
   - component: {fileID: 8064900073747540239}
   - component: {fileID: 7648096760575298623}
-  - component: {fileID: -33142730946545888}
   m_Layer: 17
   m_Name: Jet
   m_TagString: Equipment
@@ -45,6 +45,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &-33142730946545888
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!114 &156444120250483799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +139,9 @@ MonoBehaviour:
   returnRadius: 800
   moveSpeed: 80
   turnSpeed: 0.3
-  strafeClearance: 500
+  strafeClearance: 300
+  floor: 30
+  maxStrafeTime: 30
   currentTarget: {fileID: 0}
 --- !u!114 &-2497769578073780965
 MonoBehaviour:
@@ -155,9 +173,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 1500
-  healthRegenTime: 20
-  healthRegenSpeed: 5
+  maxHealth: 100
+  healthRegenTime: 1
+  healthRegenSpeed: 20
   lastDamagedPlayer: {fileID: 0}
 --- !u!114 &1917425305069605456
 MonoBehaviour:
@@ -247,15 +265,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  range: 600
+  range: 400
   damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
   automatic: 1
-  fireRate: 2
+  fireRate: 1
   scoped: 0
   special: 0
   roundsPerShot: 1
   coneOfFire: 0
-  throwPower: 150
+  throwPower: 200
   projectile: {fileID: 156444120250483795, guid: 8cc1eb328a6edca4e99469257611322d,
     type: 3}
 --- !u!114 &9090075800389225683
@@ -329,12 +347,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156444120250483795}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8d1d0124ddec1f640918ef35ccd981b1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 08eca2bb4cb7b224d92c546f822a306e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.9
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -343,7 +361,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 150
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -418,22 +436,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!54 &-33142730946545888
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156444120250483795}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1027885990174861846
 GameObject:
   m_ObjectHideFlags: 0

@@ -125,11 +125,7 @@ public class GravityGun : EnableDuringRuntime
     {
         GameObject _projectile = GameManager.GetProjectile(_name);
 
-        if (_projectile == null)
-        {
-            Debug.LogError("No object found with name " + _name);
-        }
-        else
+        if (_projectile != null)
         {
             _projectile.GetComponent<NetworkIdentity>().RemoveClientAuthority();
             _projectile.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
@@ -151,16 +147,12 @@ public class GravityGun : EnableDuringRuntime
 
         if (_projectile == null)
         {
-            Debug.LogError("No game object found with name " + _name);
+            return;
         }
 
         ProjectileController _projectileController = _projectile.GetComponent<ProjectileController>();
 
-        if (_projectileController == null)
-        {
-            Debug.LogError("No projectile found with name " + _name);
-        }
-        else
+        if (_projectileController != null)
         {
 
             _projectileController.Activate(_playerID, _active);
