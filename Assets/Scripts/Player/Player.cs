@@ -143,7 +143,7 @@ public class Player : NetworkBehaviour
         {
             _sourcePlayer.kills++;
             _sourcePlayer.killStreak++;
-            GameManager.instance.onPlayerKilledCallback.Invoke(username, _sourcePlayer.username);
+            GameManager.instance.onPlayerKilledCallback.Invoke(transform.name, _sourceID);
         }
 
         killStreak = 0;

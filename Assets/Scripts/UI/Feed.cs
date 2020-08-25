@@ -14,9 +14,13 @@ public class Feed : MonoBehaviour
         GameManager.instance.messageCallback += Message;
     }
 
-    public void OnKill(string player, string source)
+    public void OnKill(string _playerID, string _sourceID)
     {
-        Message("<b>" + source + "</b>" + " killed " + "<b>" + player + "</b>");
+        Player _player = GameManager.GetPlayer(_playerID);
+        Player _sourcePlayer = GameManager.GetPlayer(_sourceID);
+
+        if (_player != null && _sourcePlayer != null)
+            Message("<b>" + _sourcePlayer.username + "</b>" + " killed " + "<b>" + _player.username + "</b>");
     }
 
     public void Message(string message)

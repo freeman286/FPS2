@@ -18,20 +18,21 @@ public class PlayerKillStreakManager : NetworkBehaviour
     {
         player = GetComponent<Player>();
         player.onPlayerSetDefaultsCallback += SetDefaults;
+        GameManager.instance.onPlayerKilledCallback += OnKill;
+
     }
 
     void Update()
     {
-        //if (isLocalPlayer && KillStreakAvailable && player.killStreak == killStreak.kills)
-        //{
-        //    KillStreakAvailable = false;
-        //    CmdSpawnKillStreak(transform.name, killStreak.name);
-        //}
-        //
-        //if (player.killStreak == 0 && killStreak != null)
-        //    KillStreakAvailable = true;
-
         if (isLocalPlayer && Input.GetKeyDown("k"))
+        {
+            CmdSpawnKillStreak(transform.name, killStreak.name);
+        }
+    }
+
+    public void OnKill(string _playerID, string _sourceID)
+    {
+        if (isLocalPlayer && _sourceID == transform.name && player.killStreak == killStreak.kills)
         {
             CmdSpawnKillStreak(transform.name, killStreak.name);
         }
