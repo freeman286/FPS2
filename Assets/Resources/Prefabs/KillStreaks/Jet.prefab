@@ -310,7 +310,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 7855693537473404247}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  shootSound: {fileID: 185320, guid: 79006053447eef74da4a597445b24959, type: 3}
+  shootSound: {fileID: 185320, guid: b1e92c93a460d66418423bdc34d14565, type: 3}
   firePoint: {fileID: 6882280841430127209}
   animator: {fileID: 8064900073747540239}
   light: {fileID: 7282809369604837976}

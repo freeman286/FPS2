@@ -137,6 +137,7 @@ MonoBehaviour:
     m_Bits: 141367
   altitude: 500
   cruiseRadius: 500
+  cruiseAngle: 45
   cruiseClearance: 100
   moveSpeed: 60
   slowDownSpeed: 10
@@ -307,7 +308,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1696290394921721918}
   hitEffectPrefab: {fileID: 1734203832338817589, guid: 99bd08d381d32374f80ea5092aa6bec6,
     type: 3}
-  shootSound: {fileID: 185320, guid: 79006053447eef74da4a597445b24959, type: 3}
+  shootSound: {fileID: 185320, guid: 6f5474d553396644a842c63d15d907bf, type: 3}
   firePoint: {fileID: 3309938348682805920}
   animator: {fileID: 8064900073747540239}
   light: {fileID: 0}

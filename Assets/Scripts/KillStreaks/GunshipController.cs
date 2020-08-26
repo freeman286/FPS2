@@ -19,6 +19,9 @@ public class GunshipController : KillStreakController
     private float cruiseRadius = 500f;
 
     [SerializeField]
+    private float cruiseAngle = 45f;
+
+    [SerializeField]
     private float cruiseClearance = 50f;
 
     [Header("Flying function")]
@@ -98,11 +101,11 @@ public class GunshipController : KillStreakController
 
     void Cruise()
     {
-        transform.rotation = Quaternion.Euler(0, theta, Mathf.Lerp(transform.rotation.eulerAngles.z, 45f, turnSpeed * Time.deltaTime));
+        transform.rotation = Quaternion.Euler(0, theta, Mathf.Lerp(transform.rotation.eulerAngles.z, cruiseAngle, turnSpeed * Time.deltaTime));
 
         float _deltaTheta = - Mathf.Rad2Deg * speed * Time.deltaTime / cruiseRadius;
 
-        transform.position = Quaternion.Euler(0, _deltaTheta, 0) * Util.Flatten(transform.position).normalized * cruiseRadius + altitude * Vector3.up;
+        transform.position = Quaternion.Euler(0, theta, 0) * Vector3.right * cruiseRadius + altitude * Vector3.up;
 
         theta += _deltaTheta;
 
