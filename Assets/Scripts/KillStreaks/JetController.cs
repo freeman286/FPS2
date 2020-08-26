@@ -10,6 +10,7 @@ public class JetController : KillStreakController
     enum TrackingState
     {
         returning,
+        turning,
         strafing,
     };
 
@@ -46,9 +47,13 @@ public class JetController : KillStreakController
 
     public Transform currentTarget = null;
 
+    private Vector3 lastPosition;
+    private Vector3 velocity;
+
     public override void Start()
     {
         base.Start();
+        velocity = transform.forward;
         Return();
     }
 
@@ -61,7 +66,12 @@ public class JetController : KillStreakController
 
         MoveForward();
 
+        velocity = (transform.position - lastPosition) / Time.deltaTime;
+        lastPosition = transform.position;
+
         Vector3 _forward = transform.position + transform.forward * strafeClearance;
+
+        strafeTime += Time.deltaTime;
 
         if (_forward.y < floor || CheckRoute(_forward).point != Vector3.zero)
         {
@@ -73,6 +83,9 @@ public class JetController : KillStreakController
         if (trackingState == TrackingState.returning)
         {
             FlyToPosition(returnLocation);
+        } else if (trackingState == TrackingState.turning)
+        {
+            FlyToPosition(altitude * Vector3.up);
         }
         else if (trackingState == TrackingState.strafing)
         {
@@ -88,7 +101,7 @@ public class JetController : KillStreakController
 
         if (timeSinceCalledIn < killStreak.time)
         {
-            returnLocation = -Util.Flatten(transform.position).normalized * returnRadius + altitude * Vector3.up; 
+            returnLocation = Util.Flatten(velocity).normalized * returnRadius + altitude * Vector3.up; 
         } else
         {
             returnLocation = KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position;
@@ -104,21 +117,32 @@ public class JetController : KillStreakController
     {
         Vector3 _dir = _pos - transform.position;
 
+        if (returnLocation == KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position) {
+
+            if (transform.position.y < returnLocation.y + floor)
+                Kill(string.Empty); // Despawn
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_dir), turnSpeed * Time.deltaTime);
+
+            return;
+        }
+
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, _dir) * Quaternion.LookRotation(_dir), turnSpeed * Time.deltaTime);
 
-        if (_dir.magnitude < 1f || Util.Flatten(transform.position).magnitude > returnRadius && FindTarget())
+        if (Util.Flatten(transform.position).magnitude > returnRadius && FindTarget())
+        {
+            trackingState = TrackingState.turning;
+            strafeTime = 0f;
+        } else if (Util.Flatten(transform.position).magnitude < returnRadius && trackingState == TrackingState.turning)
         {
             trackingState = TrackingState.strafing;
             strafeTime = 0f;
-
-            if (returnLocation == KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position)
-                Kill(string.Empty); // Despawn
         }
     }
 
     void Strafe()
     {
-        strafeTime += Time.deltaTime;
+        
 
         if (strafeTime > maxStrafeTime)
         {

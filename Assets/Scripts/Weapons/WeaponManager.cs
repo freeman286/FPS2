@@ -254,8 +254,9 @@ public class WeaponManager : NetworkBehaviour
     {
         if (isReloading)
             return;
+        if (currentGraphics.animator != null)
+            currentGraphics.animator.ResetTrigger("Shoot");
 
-        currentGraphics.animator.ResetTrigger("Shoot");
         reload = Reload_Coroutine();
         StartCoroutine(reload);
     }
