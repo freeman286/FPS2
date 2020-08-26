@@ -134,7 +134,7 @@ MonoBehaviour:
   footprint: 2
   layerMask:
     serializedVersion: 2
-    m_Bits: 145463
+    m_Bits: 141367
   altitude: 20
   loiterTime: 10
   loiterRadius: 40

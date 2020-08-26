@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24c0ca6dc3f367498da69593a0121d6, type: 3}
+  m_Name: Gunship
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 80bb1eac860cced4fabbdf872be2ab3d, type: 3}
+  kills: 10
+  time: 360
+  prefab: {fileID: 156444120250483795, guid: 99ccc7e52f2362c4eaa444066f391600, type: 3}

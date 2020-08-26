@@ -120,7 +120,7 @@ public class JetController : KillStreakController
         if (returnLocation == KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position) {
 
             if (transform.position.y < returnLocation.y + floor)
-                Kill(string.Empty); // Despawn
+                Despawn();
 
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_dir), turnSpeed * Time.deltaTime);
 

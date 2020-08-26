@@ -61,6 +61,11 @@ public class KillStreakController : NetworkBehaviour
         CmdDie(transform.position, transform.forward, _sourceID);
     }
 
+    public void Despawn()
+    {
+        Kill(string.Empty);
+    }
+
     [Command]
     void CmdDie(Vector3 _pos, Vector3 _dir, string _sourceID)
     {

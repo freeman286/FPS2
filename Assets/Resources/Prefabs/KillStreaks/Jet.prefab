@@ -135,7 +135,7 @@ MonoBehaviour:
   footprint: 8
   layerMask:
     serializedVersion: 2
-    m_Bits: 145463
+    m_Bits: 141367
   altitude: 2500
   returnRadius: 800
   moveSpeed: 80

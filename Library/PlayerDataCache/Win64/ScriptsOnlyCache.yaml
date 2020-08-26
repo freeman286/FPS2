@@ -20,6 +20,7 @@ ScriptsOnlyBuild:
     - GameManager
     - GravityGun
     - Grenade
+    - GunshipController
     - Health
     - HelicopterController
     - HighJump
@@ -160,8 +161,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -533,6 +536,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17478}
     - Class: 114
       Script: {instanceID: 17486}
+    - Class: 114
+      Script: {instanceID: 55334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -826,6 +831,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17350}
     - Class: 114
       Script: {instanceID: 17424}
+    - Class: 114
+      Script: {instanceID: 55334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1125,6 +1132,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17350}
     - Class: 114
       Script: {instanceID: 17424}
+    - Class: 114
+      Script: {instanceID: 55334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3562,6 +3571,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 29afc9d916b42133ee74ea4605b84ea4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GunshipController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

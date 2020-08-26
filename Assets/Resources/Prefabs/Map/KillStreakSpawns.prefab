@@ -44,6 +44,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killStreak: {fileID: 11400000, guid: bb98afdcc48b76c4ea3b1ddc0b11cdfc, type: 2}
+--- !u!1 &2146934752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2146934753}
+  - component: {fileID: 2146934754}
+  m_Layer: 0
+  m_Name: Gunship
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2146934753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146934752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500, y: 500, z: -2500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4814909161293478596}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2146934754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146934752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501debfe2302a1a42a6e1b72f678c021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killStreak: {fileID: 11400000, guid: 0b62c220d277ffe49bf866eaac8c4021, type: 2}
 --- !u!1 &1097954760699500080
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +207,7 @@ Transform:
   - {fileID: 4814909160854174502}
   - {fileID: 1219041591}
   - {fileID: 327223253865984234}
+  - {fileID: 2146934753}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

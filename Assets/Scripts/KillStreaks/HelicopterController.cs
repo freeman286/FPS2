@@ -172,7 +172,7 @@ public class HelicopterController : KillStreakController
             acceleration = Vector3.zero;
 
             if (loiterLocation == KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position)
-                Kill(string.Empty); // Despawn
+                Despawn();
         }
     }
 
