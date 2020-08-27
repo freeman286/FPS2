@@ -31,4 +31,10 @@ public class Feed : MonoBehaviour
 
         Destroy(go, 8f);
     }
+
+    void OnDestroy()
+    {
+        GameManager.instance.onPlayerKilledCallback -= OnKill;
+        GameManager.instance.messageCallback -= Message;
+    }
 }

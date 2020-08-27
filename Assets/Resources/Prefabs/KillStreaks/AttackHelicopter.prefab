@@ -145,7 +145,7 @@ MonoBehaviour:
   moveSpeed: 40
   turnSpeed: 0.3
   tilt: 1
-  trackingMode: 1
+  trackingMode: 2
 --- !u!114 &-2497769578073780965
 MonoBehaviour:
   m_ObjectHideFlags: 0

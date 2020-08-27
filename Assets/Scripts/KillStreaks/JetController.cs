@@ -45,7 +45,7 @@ public class JetController : KillStreakController
 
     private Vector3 returnLocation = Vector3.zero;
 
-    public Transform currentTarget = null;
+    private Transform currentTarget = null;
 
     private Vector3 lastPosition;
     private Vector3 velocity;

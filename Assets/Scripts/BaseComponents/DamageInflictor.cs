@@ -9,6 +9,7 @@ public class DamageInflictor : NetworkBehaviour
     public void CmdDamage(string _healthID, int _damage, string _sourceID, string _damageType)
     {
         Health _health = GameManager.GetHealth(_healthID);
-        _health.RpcTakeDamage(_damage, _sourceID, _damageType);
+        if (_health != null)
+            _health.RpcTakeDamage(_damage, _sourceID, _damageType);
     }
 }

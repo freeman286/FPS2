@@ -17,7 +17,6 @@ public class PlayerKillStreakManager : NetworkBehaviour
         player = GetComponent<Player>();
         player.onPlayerSetDefaultsCallback += SetDefaults;
         GameManager.instance.onPlayerKilledCallback += OnKill;
-
     }
 
     void Update()
@@ -76,6 +75,11 @@ public class PlayerKillStreakManager : NetworkBehaviour
         Player _player = GameManager.GetPlayer(_playerID);
 
         if (_player != null)
-            GameManager.instance.messageCallback.Invoke("<b>" + _player.username + "</b> called in a <b>" + _killStreakName + "</b>");
+            GameManager.instance.messageCallback.Invoke("<b>" + _player.username + "</b> called in <b>" + _killStreakName + "</b>");
+    }
+
+    void OnDestroy() {
+        player.onPlayerSetDefaultsCallback -= SetDefaults;
+        GameManager.instance.onPlayerKilledCallback -= OnKill;
     }
 }

@@ -291,7 +291,14 @@ public class GameManager : MonoBehaviour
 
     public static Health GetHealth(string _name)
     {
-        return healths[_name];
+        if (healths.ContainsKey(_name))
+        {
+            return healths[_name];
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public static Health[] GetAllHealth()

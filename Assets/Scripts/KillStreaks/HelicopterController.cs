@@ -10,6 +10,7 @@ public class HelicopterController : KillStreakController
     enum TrackingMode
     {
         player,
+        protect,
         random
     };
 
@@ -95,7 +96,24 @@ public class HelicopterController : KillStreakController
         else
         {
 
-            if (trackingMode == TrackingMode.player)
+            if (trackingMode == TrackingMode.protect)
+            {
+                if (playerID == null)
+                    return;
+
+                Player _player = GameManager.GetPlayer(playerID);
+                Vector3 _loiterLocation = Util.Flatten(_player.transform.position) + altitude * Vector3.up;
+
+                if (CheckRoute(_loiterLocation).point == Vector3.zero)
+                {
+                    loiterLocation = _loiterLocation;
+                } else
+                {
+                    loiterLocation = Vector3.zero;
+                }
+
+            }
+            else if (trackingMode == TrackingMode.player)
             {
                 loiterLocation = Vector3.zero;
 

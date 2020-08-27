@@ -145,7 +145,6 @@ MonoBehaviour:
   strafeClearance: 300
   floor: 30
   maxStrafeTime: 30
-  currentTarget: {fileID: 0}
 --- !u!114 &-2497769578073780965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,7 +1062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07998435076c0974181c07f24bd3210d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  speed: 500
 --- !u!1 &2569360984925446991
 GameObject:
   m_ObjectHideFlags: 0
