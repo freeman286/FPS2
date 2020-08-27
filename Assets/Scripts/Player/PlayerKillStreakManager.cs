@@ -23,7 +23,7 @@ public class PlayerKillStreakManager : NetworkBehaviour
     {
         if (isLocalPlayer && Input.GetKeyDown("k"))
         {
-            CmdSpawnKillStreak(transform.name, killStreak.name);
+            StartCoroutine(KillStreakCoroutine());
         }
     }
 
@@ -31,8 +31,21 @@ public class PlayerKillStreakManager : NetworkBehaviour
     {
         if (isLocalPlayer && _sourceID == transform.name && player.killStreak == killStreak.kills)
         {
+            StartCoroutine(KillStreakCoroutine());
+        }
+    }
+
+    private IEnumerator KillStreakCoroutine()
+    {
+        CmdAnnounceKillStreak(transform.name, killStreak.name);
+
+        for (int i = 0; i < killStreak.instanceNumber; i++)
+        {
+
+            yield return new WaitForSeconds(killStreak.spawnDelay);
             CmdSpawnKillStreak(transform.name, killStreak.name);
         }
+
     }
 
     void SetDefaults()
@@ -65,12 +78,17 @@ public class PlayerKillStreakManager : NetworkBehaviour
             Health _health = _killStreakPrefab.GetComponent<Health>();
             _health.playerID = _playerID;
         }
+            
+    }
 
-        RpcKillStreak(_playerID, _killStreakName);
+    [Command]
+    void CmdAnnounceKillStreak(string _playerID, string _killStreakName)
+    {
+        RpcAnnounceKillStreak(_playerID, _killStreakName);
     }
 
     [ClientRpc]
-    void RpcKillStreak(string _playerID, string _killStreakName)
+    void RpcAnnounceKillStreak(string _playerID, string _killStreakName)
     {
         Player _player = GameManager.GetPlayer(_playerID);
 

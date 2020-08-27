@@ -16,3 +16,6 @@ MonoBehaviour:
   kills: 10
   time: 360
   prefab: {fileID: 156444120250483795, guid: 99ccc7e52f2362c4eaa444066f391600, type: 3}
+  instanceName: Gunship
+  instanceNumber: 1
+  spawnDelay: 0

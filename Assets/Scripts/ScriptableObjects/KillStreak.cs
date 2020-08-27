@@ -9,4 +9,7 @@ public class KillStreak : ScriptableObject
     public int kills;
     public float time;
     public GameObject prefab;
+    public string instanceName;
+    public int instanceNumber = 1;
+    public float spawnDelay;
 }

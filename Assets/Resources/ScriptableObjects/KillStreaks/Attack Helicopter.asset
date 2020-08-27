@@ -16,3 +16,6 @@ MonoBehaviour:
   kills: 8
   time: 180
   prefab: {fileID: 156444120250483795, guid: 43f60a6c77408aa409efdbcf8613b6c3, type: 3}
+  instanceName: Attack Helicopter
+  instanceNumber: 1
+  spawnDelay: 0

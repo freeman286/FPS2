@@ -1075,7 +1075,7 @@ GameObject:
   - component: {fileID: 2122701990061782440}
   - component: {fileID: 8540573783497638249}
   - component: {fileID: 1798988324760957978}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1278,7 +1278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6046509446841546485}
   - component: {fileID: 8019622045951098555}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1924,7 +1924,7 @@ GameObject:
   - component: {fileID: 9106695120509190724}
   - component: {fileID: 1696290394921721918}
   - component: {fileID: 933392070896539932}
-  m_Layer: 8
+  m_Layer: 17
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2077,7 +2077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8608969971286258587}
   - component: {fileID: 4454450218325725629}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2958,7 +2958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8545739624226711377}
   - component: {fileID: 8094256141889103049}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3004,7 +3004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2807647146918108229}
   - component: {fileID: 3586070438165502180}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

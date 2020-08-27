@@ -382,7 +382,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  range: 300
+  range: 100
   damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
   automatic: 1
   fireRate: 10
@@ -575,7 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9041295923234789901}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 541290438459471368}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3079774586911546644}
   - component: {fileID: 2353152574373097610}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3438224717849405437}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1248,7 +1248,7 @@ GameObject:
   - component: {fileID: 7917801938815468066}
   - component: {fileID: 7855693537473404247}
   - component: {fileID: 5555604609130319014}
-  m_Layer: 8
+  m_Layer: 17
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1826,7 +1826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 297654075418195854}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: GunHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1950,7 +1950,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2053563196890888326}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RotorHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1982,7 +1982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2451913972579667726}
   - component: {fileID: 1633531215557767713}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2529,7 +2529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7274198860566085398}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2718,7 +2718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4234607074442754303}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3003,7 +3003,7 @@ GameObject:
   - component: {fileID: 7752810993200492932}
   - component: {fileID: 7282809369604837976}
   - component: {fileID: 8451788879961554760}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3505,7 +3505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8740677379325362425}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3537,7 +3537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7129942443813498103}
   - component: {fileID: 5983936117946875634}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: 'Rotor '
   m_TagString: Untagged
   m_Icon: {fileID: 0}

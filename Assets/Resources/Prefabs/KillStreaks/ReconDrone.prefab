@@ -359,7 +359,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 25
@@ -698,7 +698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9080765873552971941}
   - component: {fileID: 3177920590473930602}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1010,7 @@ GameObject:
   - component: {fileID: 7917801938815468066}
   - component: {fileID: 7855693537473404247}
   - component: {fileID: 5555604609130319014}
-  m_Layer: 8
+  m_Layer: 17
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1432,7 +1432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7145128311128489595}
   - component: {fileID: 6583016782555321046}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1715,7 +1715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 40134272380922077}
   - component: {fileID: 1873954966519820539}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2358,7 +2358,7 @@ GameObject:
   - component: {fileID: 7752810993200492932}
   - component: {fileID: 7282809369604837976}
   - component: {fileID: 8451788879961554760}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2925,7 +2925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6111562492968892718}
   - component: {fileID: 1200460468733303369}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rotor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

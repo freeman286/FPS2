@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 
 
 public class HelicopterController : KillStreakController
@@ -96,12 +96,17 @@ public class HelicopterController : KillStreakController
         else
         {
 
-            if (trackingMode == TrackingMode.protect)
+            List<Collider> _hitColliders = new List<Collider>(Physics.OverlapSphere(transform.position, footprint, layerMask));
+
+            _hitColliders.RemoveAll(collider => collider.transform.root == transform);
+
+            if (_hitColliders.Count() == 0 && trackingMode == TrackingMode.protect)
             {
-                if (playerID == null)
+                Player _player = GameManager.GetPlayer(playerID);
+
+                if (_player == null)
                     return;
 
-                Player _player = GameManager.GetPlayer(playerID);
                 Vector3 _loiterLocation = Util.Flatten(_player.transform.position) + altitude * Vector3.up;
 
                 if (CheckRoute(_loiterLocation).point == Vector3.zero)
@@ -113,7 +118,7 @@ public class HelicopterController : KillStreakController
                 }
 
             }
-            else if (trackingMode == TrackingMode.player)
+            else if (_hitColliders.Count() == 0 && trackingMode == TrackingMode.player)
             {
                 loiterLocation = Vector3.zero;
 
@@ -132,6 +137,9 @@ public class HelicopterController : KillStreakController
                         }
                     }
                 }
+            } else
+            {
+                loiterLocation = Vector3.zero;
             }
 
             if (trackingMode == TrackingMode.random || loiterLocation == Vector3.zero)

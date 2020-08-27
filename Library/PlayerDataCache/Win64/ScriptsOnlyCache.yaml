@@ -2109,7 +2109,7 @@ ScriptsOnlyBuild:
     className: IndirectLightingController
   - hash:
       serializedVersion: 2
-      Hash: 2b58aae3672179c25a10d577c8ac1292
+      Hash: c778f9b0038c3bc4b11616d6cd29d236
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: KillStreak

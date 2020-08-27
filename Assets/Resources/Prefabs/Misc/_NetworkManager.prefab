@@ -141,8 +141,9 @@ MonoBehaviour:
   - {fileID: 156444120250483795, guid: 3fd67622e2ad3e346a4488dcbd06ff34, type: 3}
   - {fileID: 156444120250483795, guid: 99ccc7e52f2362c4eaa444066f391600, type: 3}
   - {fileID: 156444120250483795, guid: ea93db1bc67a86e4cbc7eb5ea95181c3, type: 3}
+  - {fileID: 156444120250483795, guid: 2fc45547496e01a4bb14075f6a2f5949, type: 3}
   mask:
     serializedVersion: 2
-    m_Bits: 8960
+    m_Bits: 140032
   spawnDistance: 30
   spawnRange: 5

@@ -54,9 +54,9 @@ public class CustomNetworkManager : NetworkManager
             foreach (Health _enemy in enemies)
             {
                 RaycastHit _hit;
-                if (Physics.Raycast(startPos.position + (2 * Vector3.up), _enemy.transform.position - startPos.position - (2 * Vector3.up), out _hit, spawnDistance + spawnRange, mask))
+                if (Physics.Raycast(startPos.position, _enemy.transform.position - startPos.position, out _hit, spawnDistance + spawnRange, mask))
                 {
-                    if (_hit.collider.transform.root == _enemy)
+                    if (_hit.collider.transform.root == _enemy.transform)
                     {
                         usablePositions.Remove(startPos);
                     }

@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2881909117239939410}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8932261504591754789}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 7917801938815468066}
   - component: {fileID: 7855693537473404247}
   - component: {fileID: 5555604609130319014}
-  m_Layer: 8
+  m_Layer: 17
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1022,7 +1022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8286574662147587864}
   - component: {fileID: 8983684376408182211}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: 'Rotor '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 2468062826838532042}
   - component: {fileID: 1020377635207676575}
   - component: {fileID: 3728578294798859078}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Trail (1)
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -2038,7 +2038,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5443625743849674214}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2069,7 +2069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2459702806404417092}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2102,7 +2102,7 @@ GameObject:
   - component: {fileID: 7191407887595671069}
   - component: {fileID: 7112823481253951071}
   - component: {fileID: 6768576253786871931}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Trail
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -2250,7 +2250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 583529088914114133}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2360,7 +2360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7709210930940910109}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2393,7 +2393,7 @@ GameObject:
   - component: {fileID: 7752810993200492932}
   - component: {fileID: 7282809369604837976}
   - component: {fileID: 8451788879961554760}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2628,7 +2628,7 @@ GameObject:
   - component: {fileID: 4095023146971938579}
   - component: {fileID: 1681315171635926164}
   - component: {fileID: 257959706631665850}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Light (1)
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -2927,7 +2927,7 @@ GameObject:
   - component: {fileID: 6209861919431425862}
   - component: {fileID: 200626316499039742}
   - component: {fileID: 6914208816446404030}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Light
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -3248,7 +3248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2960811464924151345}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: GunHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

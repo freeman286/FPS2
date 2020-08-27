@@ -79,7 +79,7 @@ public class KillStreakController : NetworkBehaviour
 
         if (_source != null)
         {
-            GameManager.instance.messageCallback.Invoke("<b>" + _source.username + "</b> shot down <b>" + killStreak.name + "</b>");
+            GameManager.instance.messageCallback.Invoke("<b>" + _source.username + "</b> shot down <b>" + killStreak.instanceName + "</b>");
             GameObject _impact = (GameObject)Instantiate(impact, _pos, _rot);
             Destroy(_impact, 4f);
         }

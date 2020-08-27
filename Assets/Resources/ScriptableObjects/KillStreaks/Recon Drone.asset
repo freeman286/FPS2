@@ -16,3 +16,6 @@ MonoBehaviour:
   kills: 3
   time: 180
   prefab: {fileID: 156444120250483795, guid: de6a34305ac23c74c9edd282a7022d2b, type: 3}
+  instanceName: Recon Drone
+  instanceNumber: 1
+  spawnDelay: 0
