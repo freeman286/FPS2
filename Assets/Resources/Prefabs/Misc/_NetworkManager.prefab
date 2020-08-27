@@ -138,9 +138,8 @@ MonoBehaviour:
   - {fileID: 156444120250483795, guid: de6a34305ac23c74c9edd282a7022d2b, type: 3}
   - {fileID: 156444120250483795, guid: 43f60a6c77408aa409efdbcf8613b6c3, type: 3}
   - {fileID: 156444120250483795, guid: 18085eb13991e604ca08f1baf13303da, type: 3}
-  - {fileID: 156444120250483795, guid: 8cc1eb328a6edca4e99469257611322d, type: 3}
-  - {fileID: 156444120250483795, guid: 99ccc7e52f2362c4eaa444066f391600, type: 3}
   - {fileID: 156444120250483795, guid: 3fd67622e2ad3e346a4488dcbd06ff34, type: 3}
+  - {fileID: 156444120250483795, guid: 99ccc7e52f2362c4eaa444066f391600, type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 8960

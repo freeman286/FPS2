@@ -905,7 +905,7 @@ MonoBehaviour:
   speed: 1
   scopedSpeed: 1
   primary: 1
-  bullets: 3
+  bullets: 0
   reloadTime: 5.8
   scriptsToEnable: []
 --- !u!82 &792773704839598559

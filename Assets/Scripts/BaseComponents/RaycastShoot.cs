@@ -82,6 +82,6 @@ public class RaycastShoot : NetworkBehaviour
     {
         GameObject _hitEffect = (GameObject)Instantiate(hitEffectPrefab, _pos, Quaternion.LookRotation(_normal));
 
-        Destroy(_hitEffect, 2f);
+        Destroy(_hitEffect, 5f);
     }
 }
