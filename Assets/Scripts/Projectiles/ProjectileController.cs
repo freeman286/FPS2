@@ -66,7 +66,7 @@ public class ProjectileController : NetworkBehaviour
 
     void FixedUpdate()
     {
-        if (rb != null)
+        if (networkIdentity.hasAuthority && rb != null)
         {
             rb.AddForce(transform.forward * constantForce);
         }

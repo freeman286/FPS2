@@ -73,8 +73,9 @@
      <Compile Include="Assets\Scripts\KillStreaks\HelicopterController.cs" />
      <Compile Include="Assets\Scripts\KillStreaks\JetController.cs" />
      <Compile Include="Assets\Scripts\KillStreaks\KillStreakController.cs" />
-     <Compile Include="Assets\Scripts\KillStreaks\KillStreakSpawnManager.cs" />
+     <Compile Include="Assets\Scripts\KillStreaks\KillStreakManager.cs" />
      <Compile Include="Assets\Scripts\KillStreaks\KillStreakSpawnPoint.cs" />
+     <Compile Include="Assets\Scripts\KillStreaks\MissileController.cs" />
      <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainId.cs" />
      <Compile Include="Assets\Scripts\Map\TerrainTarget.cs" />

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4356853441728220555}
   - component: {fileID: -3217488655694574329}
   m_Layer: 16
-  m_Name: JetRocket
+  m_Name: GunshipRocket
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   impact: {fileID: 4308811345454485748, guid: 11aaf41ee4b1a1548bf8639fb1f8c71f, type: 3}
   mask:
     serializedVersion: 2
-    m_Bits: 254775
+    m_Bits: 501559
   force: 60
   forceUpwardsModifier: 1
   damage: 1500
@@ -258,7 +258,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 20
+  maxHealth: 60
   healthRegenTime: -1
   healthRegenSpeed: 0
   lastDamagedPlayer: {fileID: 0}

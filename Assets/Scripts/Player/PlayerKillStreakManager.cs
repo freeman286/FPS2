@@ -41,9 +41,8 @@ public class PlayerKillStreakManager : NetworkBehaviour
 
         for (int i = 0; i < killStreak.instanceNumber; i++)
         {
-
-            yield return new WaitForSeconds(killStreak.spawnDelay);
             CmdSpawnKillStreak(transform.name, killStreak.name);
+            yield return new WaitForSeconds(killStreak.spawnDelay);
         }
 
     }
@@ -67,7 +66,7 @@ public class PlayerKillStreakManager : NetworkBehaviour
 
         if (_killStreak != null)
         {
-            Transform _spawnPos = KillStreakSpawnManager.GetKillStreakSpawnPoint(_killStreak);
+            Transform _spawnPos = KillStreakManager.GetKillStreakSpawnPoint(_killStreak);
 
             GameObject _killStreakPrefab = (GameObject)Instantiate(_killStreak.prefab, _spawnPos.position, _spawnPos.rotation);
             NetworkServer.Spawn(_killStreakPrefab, connectionToClient);

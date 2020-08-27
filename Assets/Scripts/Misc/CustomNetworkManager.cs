@@ -26,6 +26,9 @@ public class CustomNetworkManager : NetworkManager
 
         foreach (Health _enemy in enemies)
         {
+            if (_enemy == null)
+                break;
+
             usableStartPositions.RemoveAll(t => Mathf.Abs(Vector3.Distance(t.position, _enemy.transform.position) - spawnDistance) > spawnRange);
         }
 

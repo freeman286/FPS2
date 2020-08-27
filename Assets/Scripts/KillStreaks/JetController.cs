@@ -104,7 +104,7 @@ public class JetController : KillStreakController
             returnLocation = Util.Flatten(velocity).normalized * returnRadius + altitude * Vector3.up; 
         } else
         {
-            returnLocation = KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position;
+            returnLocation = KillStreakManager.GetKillStreakSpawnPoint(killStreak).position;
         }
     }
 
@@ -117,7 +117,7 @@ public class JetController : KillStreakController
     {
         Vector3 _dir = _pos - transform.position;
 
-        if (returnLocation == KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position) {
+        if (returnLocation == KillStreakManager.GetKillStreakSpawnPoint(killStreak).position) {
 
             if (transform.position.y < returnLocation.y + floor)
                 Despawn();

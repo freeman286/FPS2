@@ -23,7 +23,8 @@ public class KillStreakController : NetworkBehaviour
     [SerializeField]
     protected LayerMask layerMask = -1;
 
-    protected NetworkIdentity networkIdentity;
+    [HideInInspector]
+    public NetworkIdentity networkIdentity;
 
     protected float timeSinceCalledIn = 0f;
 
@@ -41,7 +42,8 @@ public class KillStreakController : NetworkBehaviour
     {
         playerID = _newID;
         
-        turret.playerID = _newID;
+        if (turret != null)
+            turret.playerID = _newID;
     }
 
     public override void OnStartClient()
@@ -51,7 +53,7 @@ public class KillStreakController : NetworkBehaviour
         GameManager.RegisterKillStreak(GetComponent<NetworkIdentity>().netId.ToString(), gameObject);
     }
 
-    void OnDestroy()
+    public virtual void OnDestroy()
     {
         GameManager.UnRegisterKillStreak(transform.name);
     }

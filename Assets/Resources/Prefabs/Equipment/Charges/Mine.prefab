@@ -109,7 +109,7 @@ MonoBehaviour:
   impact: {fileID: 4308811345454485748, guid: 462cd60313daf124a828df04958ecce5, type: 3}
   mask:
     serializedVersion: 2
-    m_Bits: 254775
+    m_Bits: 501559
   force: 20
   forceUpwardsModifier: 1
   damage: 150
@@ -253,7 +253,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 20
+  maxHealth: 40
   healthRegenTime: -1
   healthRegenSpeed: 0
   lastDamagedPlayer: {fileID: 0}

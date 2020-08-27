@@ -131,7 +131,7 @@ MonoBehaviour:
   impact: {fileID: 4308811345454485748, guid: 0839efda5d2312343a83eb97cd18600c, type: 3}
   mask:
     serializedVersion: 2
-    m_Bits: 254775
+    m_Bits: 501559
   force: 40
   forceUpwardsModifier: 1
   damage: 200
@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerID: 
   isDead: 0
   dieEvent:
     m_PersistentCalls:

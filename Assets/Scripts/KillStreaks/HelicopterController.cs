@@ -91,7 +91,7 @@ public class HelicopterController : KillStreakController
 
         if (timeSinceCalledIn > killStreak.time && loiterLocation != Vector3.zero)
         {
-            loiterLocation = KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position;
+            loiterLocation = KillStreakManager.GetKillStreakSpawnPoint(killStreak).position;
         }
         else
         {
@@ -197,7 +197,7 @@ public class HelicopterController : KillStreakController
             velocity = Vector3.zero;
             acceleration = Vector3.zero;
 
-            if (loiterLocation == KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position)
+            if (loiterLocation == KillStreakManager.GetKillStreakSpawnPoint(killStreak).position)
                 Despawn();
         }
     }

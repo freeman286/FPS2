@@ -58,7 +58,7 @@ public class GunshipController : KillStreakController
 
         if (timeSinceCalledIn >= killStreak.time)
         {
-            returnLocation = KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position;
+            returnLocation = KillStreakManager.GetKillStreakSpawnPoint(killStreak).position;
             trackingState = TrackingState.returning;
         }
 
@@ -90,7 +90,7 @@ public class GunshipController : KillStreakController
         {
             trackingState = TrackingState.cruise;
             return;
-        } else if (_dir.magnitude < 10f && returnLocation == KillStreakSpawnManager.GetKillStreakSpawnPoint(killStreak).position)
+        } else if (_dir.magnitude < 10f && returnLocation == KillStreakManager.GetKillStreakSpawnPoint(killStreak).position)
         {
             Despawn();
         }

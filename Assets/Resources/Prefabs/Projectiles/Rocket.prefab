@@ -113,10 +113,8 @@ MonoBehaviour:
   particles: {fileID: 1624294047822376102}
   lightEffect: {fileID: 6140156983436394091}
   timeSinceCreated: 0
-  impact: {fileID: 4308811345454485748, guid: 11aaf41ee4b1a1548bf8639fb1f8c71f, type: 3}
   fuse: 4
   explodeOnImpact: 1
-  airburst: 0
 --- !u!114 &-4356853441728220555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +132,9 @@ MonoBehaviour:
   impact: {fileID: 4308811345454485748, guid: 11aaf41ee4b1a1548bf8639fb1f8c71f, type: 3}
   mask:
     serializedVersion: 2
-    m_Bits: 254775
+    m_Bits: 501559
   force: 60
+  forceUpwardsModifier: 1
   damage: 150
   range: 9
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
@@ -243,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerID: 
   isDead: 0
   dieEvent:
     m_PersistentCalls:

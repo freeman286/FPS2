@@ -29,7 +29,7 @@ ScriptsOnlyBuild:
     - ImpactController
     - JetController
     - KillStreak
-    - KillStreakSpawnManager
+    - KillStreakManager
     - KillStreakSpawnPoint
     - LaserController
     - LevelLoader
@@ -37,6 +37,7 @@ ScriptsOnlyBuild:
     - ListType
     - MapGenerator
     - MessageItem
+    - MissileController
     - MortarController
     - MortarPistol
     - MovementAbility
@@ -538,6 +539,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17480}
     - Class: 114
       Script: {instanceID: 17488}
+    - Class: 114
+      Script: {instanceID: 138038}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -833,6 +836,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17352}
     - Class: 114
       Script: {instanceID: 17426}
+    - Class: 114
+      Script: {instanceID: 138038}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1134,6 +1139,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17352}
     - Class: 114
       Script: {instanceID: 17426}
+    - Class: 114
+      Script: {instanceID: 138038}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1725,7 +1732,7 @@ ScriptsOnlyBuild:
     className: VFXPlaneBinder
   - hash:
       serializedVersion: 2
-      Hash: 9acb13acce707f31a2db82d722cd3a6d
+      Hash: d9694ecb9ed24f8d1cd24e0f9f37e137
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: KillStreakController
@@ -1803,7 +1810,7 @@ ScriptsOnlyBuild:
     className: StunController
   - hash:
       serializedVersion: 2
-      Hash: 6008b200a97c904735e3ed986bbb08b9
+      Hash: 00d92ba071817d58844b5e4bf723e847
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GunshipController
@@ -1836,7 +1843,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: KillStreakSpawnManager
+    className: KillStreakManager
   - hash:
       serializedVersion: 2
       Hash: f168899bfcaa0be5c82ff9ac3231a1ca
@@ -2265,7 +2272,7 @@ ScriptsOnlyBuild:
     className: LightCluster
   - hash:
       serializedVersion: 2
-      Hash: 9993943342d63708390b1991152207d6
+      Hash: 281be5f8e606f9412d34d52715656b10
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: JetController
@@ -2883,7 +2890,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: cc402d278bd72dafb3b8addec9e3cad6
+      Hash: 3a85cc984fe3088243bace61d41d8533
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HelicopterController
@@ -3577,6 +3584,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 9b6a8812115ee62f4bb6adc772d41f74
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MissileController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

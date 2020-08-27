@@ -907,7 +907,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 242487
+    m_Bits: 504631
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1770,7 +1770,7 @@ MonoBehaviour:
   weaponCam: {fileID: 9075518313636580678}
   mask:
     serializedVersion: 2
-    m_Bits: 238135
+    m_Bits: 500279
   timeSinceShot: 1
   timeSinceScoped: 100
   localAnim: {fileID: 0}
@@ -1914,6 +1914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  damageAttributes: []
   activeSets: []
   listTypes:
   - {fileID: 11400000, guid: da2f10e2887f7834093d07df05632511, type: 2}
@@ -1924,7 +1925,6 @@ MonoBehaviour:
   secondaryWeaponName: 
   equipmentName: 
   movementAbilityName: 
-  damageAttributes: []
   speedMultiplier: 1
   jumpMultiplier: 1
 --- !u!114 &3059421112803731098

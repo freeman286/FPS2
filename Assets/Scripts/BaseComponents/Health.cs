@@ -18,7 +18,7 @@ public class Health : NetworkBehaviour
     public DieEvent dieEvent;
 
     [SerializeField]
-    private int maxHealth = 100;
+    public int maxHealth = 100;
 
     [SyncVar]
     private float currentHealth;
