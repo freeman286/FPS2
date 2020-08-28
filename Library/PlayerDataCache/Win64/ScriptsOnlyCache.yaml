@@ -162,10 +162,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -532,15 +530,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17298}
     - Class: 114
-      Script: {instanceID: 17352}
+      Script: {instanceID: 17348}
     - Class: 114
-      Script: {instanceID: 17426}
+      Script: {instanceID: 17354}
     - Class: 114
-      Script: {instanceID: 17480}
+      Script: {instanceID: 17428}
     - Class: 114
-      Script: {instanceID: 17488}
+      Script: {instanceID: 17482}
     - Class: 114
-      Script: {instanceID: 138038}
+      Script: {instanceID: 17490}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -833,11 +831,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17296}
     - Class: 114
-      Script: {instanceID: 17352}
+      Script: {instanceID: 17348}
     - Class: 114
-      Script: {instanceID: 17426}
+      Script: {instanceID: 17354}
     - Class: 114
-      Script: {instanceID: 138038}
+      Script: {instanceID: 17428}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1136,11 +1134,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17296}
     - Class: 114
-      Script: {instanceID: 17352}
+      Script: {instanceID: 17348}
     - Class: 114
-      Script: {instanceID: 17426}
+      Script: {instanceID: 17354}
     - Class: 114
-      Script: {instanceID: 138038}
+      Script: {instanceID: 17428}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3508,6 +3506,12 @@ ScriptsOnlyBuild:
     className: VFXPropertyBinder
   - hash:
       serializedVersion: 2
+      Hash: 9b6a8812115ee62f4bb6adc772d41f74
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MissileController
+  - hash:
+      serializedVersion: 2
       Hash: 7072231382eb3c4871b3dd75ad0227e1
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -3584,12 +3588,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
-  - hash:
-      serializedVersion: 2
-      Hash: 9b6a8812115ee62f4bb6adc772d41f74
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MissileController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

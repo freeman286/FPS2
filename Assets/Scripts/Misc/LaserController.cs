@@ -32,4 +32,9 @@ public class LaserController : NetworkBehaviour
         
     }
 
+    void OnDestroy()
+    {
+        GameManager.UnRegisterParticle(transform.name);
+    }
+
 }

@@ -41,6 +41,7 @@ public class ProjectLaser : EnableDuringRuntime
                 {
                     CmdInstantiateLaser(_hit.point, Quaternion.LookRotation(_hit.normal), transform.name);
                     laserExists = true;
+                    laserActive = true;
                 }
                 else if (laserInstance == null)
                 {
