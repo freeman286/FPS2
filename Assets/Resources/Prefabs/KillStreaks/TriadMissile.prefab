@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4235962349346025054}
   m_Layer: 18
   m_Name: TriadMissile
-  m_TagString: Equipment
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 8031838921711532479}
   m_Layer: 18
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 8688596267354264943}
   m_Layer: 18
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 3728578294798859078}
   m_Layer: 18
   m_Name: Trail
-  m_TagString: Projectile
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 8921873944676479633}
   m_Layer: 18
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 8643305362914845555}
   m_Layer: 18
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 257959706631665850}
   m_Layer: 18
   m_Name: Light
-  m_TagString: Projectile
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 1491119991731949093}
   m_Layer: 18
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 6290071717401085683}
   m_Layer: 18
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

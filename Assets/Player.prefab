@@ -2067,9 +2067,9 @@ MonoBehaviour:
   cam: {fileID: 899551536351255448}
   mask:
     serializedVersion: 2
-    m_Bits: 240183
+    m_Bits: 502327
   laseButton: Fire2
-  range: 600
+  range: 1200
   laserParticle: {fileID: 1734203832338817589, guid: faa8a56e1662d164985a098673f90336,
     type: 3}
   laserInstance: {fileID: 0}

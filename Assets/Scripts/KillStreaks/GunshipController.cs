@@ -6,6 +6,7 @@ public class GunshipController : KillStreakController
 {
     enum TrackingState
     {
+        spawning,
         returning,
         cruise,
     };
@@ -37,7 +38,7 @@ public class GunshipController : KillStreakController
 
     private float speed;
 
-    private TrackingState trackingState = TrackingState.returning;
+    private TrackingState trackingState = TrackingState.spawning;
 
     private Vector3 returnLocation;
 
@@ -72,7 +73,7 @@ public class GunshipController : KillStreakController
             speed = moveSpeed - slowDownSpeed;
         }
 
-        if (trackingState == TrackingState.returning)
+        if (trackingState == TrackingState.returning || trackingState == TrackingState.spawning)
         {
             FlyToPosition(returnLocation);
         }
@@ -86,13 +87,15 @@ public class GunshipController : KillStreakController
     {
         Vector3 _dir = _pos - transform.position;
 
-        if (_dir.magnitude < 1f)
-        {
-            trackingState = TrackingState.cruise;
-            return;
-        } else if (_dir.magnitude < 10f && returnLocation == KillStreakManager.GetKillStreakSpawnPoint(killStreak).position)
+        if (_dir.magnitude < 10f && trackingState == TrackingState.returning)
         {
             Despawn();
+
+        }
+
+        if (transform.position.z > 0 && trackingState == TrackingState.spawning) {
+            trackingState = TrackingState.cruise;
+            return;
         }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_dir), turnSpeed * Time.deltaTime);

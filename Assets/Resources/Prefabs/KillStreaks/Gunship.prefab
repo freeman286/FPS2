@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 8064900073747540239}
   m_Layer: 18
   m_Name: Gunship
-  m_TagString: Equipment
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 6716132895807942754}
   m_Layer: 18
   m_Name: Arm (3)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 1144134512487630091}
   m_Layer: 18
   m_Name: Head (1)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 8924151467204493785}
   m_Layer: 18
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 8818872327209104080}
   m_Layer: 18
   m_Name: Cylinder
-  m_TagString: Equipment
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 8168235149630338545}
   m_Layer: 18
   m_Name: Arm (3)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 2132658901848970370}
   m_Layer: 18
   m_Name: Engine (2)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 670712014169371027}
   m_Layer: 18
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -985,7 +985,7 @@ GameObject:
   - component: {fileID: 8688596267354264943}
   m_Layer: 18
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1078,7 +1078,7 @@ GameObject:
   - component: {fileID: 1798988324760957978}
   m_Layer: 18
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1281,7 +1281,7 @@ GameObject:
   - component: {fileID: 8019622045951098555}
   m_Layer: 18
   m_Name: Rotor (1)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1329,7 +1329,7 @@ GameObject:
   - component: {fileID: 4835270981955960955}
   m_Layer: 18
   m_Name: Cylinder (1)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1423,7 +1423,7 @@ GameObject:
   - component: {fileID: 2234674235476844853}
   m_Layer: 18
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1516,7 +1516,7 @@ GameObject:
   - component: {fileID: 7553130431900444680}
   m_Layer: 18
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1608,7 +1608,7 @@ GameObject:
   - component: {fileID: 7304660600718095171}
   m_Layer: 18
   m_Name: Arm (3)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1687,7 +1687,7 @@ GameObject:
   - component: {fileID: 6064754808214489516}
   m_Layer: 18
   m_Name: Arm (2)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1766,7 +1766,7 @@ GameObject:
   - component: {fileID: 6946599262849595923}
   m_Layer: 18
   m_Name: Arm (2)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1845,7 +1845,7 @@ GameObject:
   - component: {fileID: 7944511245835410015}
   m_Layer: 18
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1927,7 +1927,7 @@ GameObject:
   - component: {fileID: 933392070896539932}
   m_Layer: 18
   m_Name: MuzzleFlash
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2080,7 +2080,7 @@ GameObject:
   - component: {fileID: 4454450218325725629}
   m_Layer: 18
   m_Name: Rotor (1)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2127,7 +2127,7 @@ GameObject:
   - component: {fileID: 1730050376679063481}
   m_Layer: 18
   m_Name: Arm (3)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2206,7 +2206,7 @@ GameObject:
   - component: {fileID: 6701139912333979932}
   m_Layer: 18
   m_Name: Sphere (1)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2285,7 +2285,7 @@ GameObject:
   - component: {fileID: 7824573423392666979}
   m_Layer: 18
   m_Name: Arm (2)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2365,7 +2365,7 @@ GameObject:
   - component: {fileID: 2619711704790214959}
   m_Layer: 18
   m_Name: Engine
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2459,7 +2459,7 @@ GameObject:
   - component: {fileID: 2150755179264189285}
   m_Layer: 18
   m_Name: Arm (2)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2538,7 +2538,7 @@ GameObject:
   - component: {fileID: 8643305362914845555}
   m_Layer: 18
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2618,7 +2618,7 @@ GameObject:
   - component: {fileID: 1444200443450388810}
   m_Layer: 18
   m_Name: Engine (1)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2712,7 +2712,7 @@ GameObject:
   - component: {fileID: 7453865624235024446}
   m_Layer: 18
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2792,7 +2792,7 @@ GameObject:
   - component: {fileID: 1212184139439032041}
   m_Layer: 18
   m_Name: Engine (3)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2884,7 +2884,7 @@ GameObject:
   - component: {fileID: 4807879901329943248}
   m_Layer: 18
   m_Name: Turret
-  m_TagString: Equipment
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2916,7 +2916,7 @@ GameObject:
   - component: {fileID: 1491119991731949093}
   m_Layer: 18
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2961,7 +2961,7 @@ GameObject:
   - component: {fileID: 8094256141889103049}
   m_Layer: 18
   m_Name: Rotor (1)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3007,7 +3007,7 @@ GameObject:
   - component: {fileID: 3586070438165502180}
   m_Layer: 18
   m_Name: Rotor (1)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3054,7 +3054,7 @@ GameObject:
   - component: {fileID: 5232934918743199776}
   m_Layer: 18
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3134,7 +3134,7 @@ GameObject:
   - component: {fileID: 229689848174582896}
   m_Layer: 18
   m_Name: Cylinder (2)
-  m_TagString: Untagged
+  m_TagString: KillStreak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -129,10 +129,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  impact: {fileID: 4308811345454485748, guid: 11aaf41ee4b1a1548bf8639fb1f8c71f, type: 3}
+  impact: {fileID: 4308811345454485748, guid: 24d2f91feab55ba44a07198a1231fd57, type: 3}
   mask:
     serializedVersion: 2
-    m_Bits: 501559
+    m_Bits: 493367
   force: 60
   forceUpwardsModifier: 1
   damage: 1500
@@ -258,7 +258,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 60
+  maxHealth: 80
   healthRegenTime: -1
   healthRegenSpeed: 0
   lastDamagedPlayer: {fileID: 0}
