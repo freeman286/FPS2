@@ -135,6 +135,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 403511
+  networkIdentity: {fileID: 0}
   altitude: 500
   cruiseRadius: 500
   cruiseAngle: 45
@@ -172,7 +173,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 800
+  maxHealth: 500
   healthRegenTime: 5
   healthRegenSpeed: 5
   lastDamagedPlayer: {fileID: 0}

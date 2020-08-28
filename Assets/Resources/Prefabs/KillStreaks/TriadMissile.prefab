@@ -109,7 +109,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 403511
   networkIdentity: {fileID: 0}
-  proximityFuse: 25
+  fuse: 60
+  proximityFuse: 10
   moveSpeed: 160
   turnSpeed: 5
   currentTarget: {fileID: 0}
@@ -167,8 +168,8 @@ MonoBehaviour:
     m_Bits: 493367
   force: 20
   forceUpwardsModifier: 2
-  damage: 6000
-  range: 45
+  damage: 10000
+  range: 20
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2
