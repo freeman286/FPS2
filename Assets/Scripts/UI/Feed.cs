@@ -20,7 +20,15 @@ public class Feed : MonoBehaviour
         Player _sourcePlayer = GameManager.GetPlayer(_sourceID);
 
         if (_player != null && _sourcePlayer != null)
-            Message("<b>" + _sourcePlayer.username + "</b>" + " killed " + "<b>" + _player.username + "</b>");
+        {
+            if (_playerID == _sourceID)
+            {
+                Message("<b>" + _sourcePlayer.username + "</b>" + " killed themselves");
+            } else
+            {
+                Message("<b>" + _sourcePlayer.username + "</b>" + " killed " + "<b>" + _player.username + "</b>");
+            }
+        }
     }
 
     public void Message(string message)

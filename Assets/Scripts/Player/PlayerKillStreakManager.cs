@@ -19,14 +19,6 @@ public class PlayerKillStreakManager : NetworkBehaviour
         GameManager.instance.onPlayerKilledCallback += OnKill;
     }
 
-    void Update()
-    {
-        if (isLocalPlayer && Input.GetKeyDown("k"))
-        {
-            StartCoroutine(KillStreakCoroutine());
-        }
-    }
-
     public void OnKill(string _playerID, string _sourceID)
     {
         if (isLocalPlayer && _sourceID == transform.name && player.killStreak == killStreak.kills)
@@ -55,13 +47,6 @@ public class PlayerKillStreakManager : NetworkBehaviour
     [Command]
     void CmdSpawnKillStreak(string _playerID, string _killStreakName)
     {
-        Player _player = GameManager.GetPlayer(_playerID);
-
-        if (_player == null)
-            return;
-
-        _player.killStreak = 0;
-
         KillStreak _killStreak = KillStreakUtil.NameToKillStreak(_killStreakName);
 
         if (_killStreak != null)
@@ -83,6 +68,13 @@ public class PlayerKillStreakManager : NetworkBehaviour
     [Command]
     void CmdAnnounceKillStreak(string _playerID, string _killStreakName)
     {
+        Player _player = GameManager.GetPlayer(_playerID);
+
+        if (_player == null)
+            return;
+
+        _player.killStreak = 0;
+
         RpcAnnounceKillStreak(_playerID, _killStreakName);
     }
 

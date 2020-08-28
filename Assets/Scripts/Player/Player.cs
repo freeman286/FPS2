@@ -141,8 +141,11 @@ public class Player : NetworkBehaviour
         Player _sourcePlayer = GameManager.GetPlayer(_sourceID);
         if (_sourcePlayer != null)
         {
-            _sourcePlayer.kills++;
-            _sourcePlayer.killStreak++;
+            if (_sourceID != transform.name)
+            {
+                _sourcePlayer.kills++;
+                _sourcePlayer.killStreak++;
+            }
             GameManager.instance.onPlayerKilledCallback.Invoke(transform.name, _sourceID);
         }
 

@@ -293,7 +293,7 @@ MonoBehaviour:
   range: 100
   damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
   automatic: 1
-  fireRate: 5
+  fireRate: 7
   scoped: 0
   special: 0
   roundsPerShot: 1
