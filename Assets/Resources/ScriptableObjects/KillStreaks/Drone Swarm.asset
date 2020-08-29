@@ -18,4 +18,5 @@ MonoBehaviour:
   prefab: {fileID: 156444120250483795, guid: 2fc45547496e01a4bb14075f6a2f5949, type: 3}
   instanceName: Drone
   instanceNumber: 6
-  spawnDelay: 2
+  spawnDelay: 0
+  spawnInterval: 0

@@ -270,9 +270,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 600
+  maxHealth: 1000
   healthRegenTime: 20
-  healthRegenSpeed: 5
+  healthRegenSpeed: 10
   lastDamagedPlayer: {fileID: 0}
 --- !u!114 &1442731481084301156
 MonoBehaviour:

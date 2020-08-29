@@ -11,8 +11,7 @@ public class KillStreakController : NetworkBehaviour
     [SerializeField]
     private TurretController turret;
 
-    [SerializeField]
-    protected KillStreak killStreak = null;
+    public KillStreak killStreak;
 
     [SerializeField]
     private GameObject impact = null;

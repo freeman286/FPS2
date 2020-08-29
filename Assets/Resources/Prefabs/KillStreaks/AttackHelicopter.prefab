@@ -177,7 +177,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 800
+  maxHealth: 1500
   healthRegenTime: 20
   healthRegenSpeed: 5
   lastDamagedPlayer: {fileID: 0}
@@ -198,7 +198,7 @@ MonoBehaviour:
   damageAttributes:
   - self: 1
     damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
-    multiplier: 0.3
+    multiplier: 0.5
   - self: 1
     damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
     multiplier: 0.6

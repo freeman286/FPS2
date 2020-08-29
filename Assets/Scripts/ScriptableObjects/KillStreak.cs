@@ -12,4 +12,5 @@ public class KillStreak : ScriptableObject
     public string instanceName;
     public int instanceNumber = 1;
     public float spawnDelay;
+    public float spawnInterval;
 }

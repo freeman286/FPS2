@@ -144,6 +144,17 @@ public class GameManager : MonoBehaviour
         return killStreaks.Values.ToArray();
     }
 
+    public static GameObject[] GetPlayersKillStreaks(string _playerID)
+    {
+        List<GameObject> _killStreaks = new List<GameObject>();
+        foreach(GameObject _killStreak in killStreaks.Values.ToArray())
+        {
+            if (_killStreak.GetComponent<Health>().playerID == _playerID)
+                _killStreaks.Add(_killStreak);
+        }
+        return _killStreaks.ToArray();
+    }
+
 
     #endregion
 

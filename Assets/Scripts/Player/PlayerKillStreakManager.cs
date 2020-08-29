@@ -12,6 +12,32 @@ public class PlayerKillStreakManager : NetworkBehaviour
 
     private Player player;
 
+    public delegate void OnKillStreakChangedCallback(Sprite icon);
+    public OnKillStreakChangedCallback onKillStreakChangedCallback;
+
+    public float GetKillStreakPct()
+    {
+        if (killStreak == null)
+            return 1;
+
+        GameObject[] _killSteaks = GameManager.GetPlayersKillStreaks(transform.name);
+
+        if (_killSteaks.Length > 0)
+        {
+            float _totalHealth = 0f;
+            foreach(GameObject _killSteak in _killSteaks)
+            {
+                if (_killSteak.GetComponent<KillStreakController>().killStreak == killStreak)
+                    _totalHealth += _killSteak.GetComponent<Health>().GetHealthPct();
+            }
+
+            if (_totalHealth > 0f)
+                return Mathf.Clamp(_totalHealth / killStreak.instanceNumber, 0, 1);
+        }
+
+        return Mathf.Clamp((float)player.killStreak / killStreak.kills, 0, 1);
+    }
+
     void Start()
     {
         player = GetComponent<Player>();
@@ -31,17 +57,23 @@ public class PlayerKillStreakManager : NetworkBehaviour
     {
         CmdAnnounceKillStreak(transform.name, killStreak.name);
 
+        yield return new WaitForSeconds(killStreak.spawnDelay);
+
         for (int i = 0; i < killStreak.instanceNumber; i++)
         {
             CmdSpawnKillStreak(transform.name, killStreak.name);
-            yield return new WaitForSeconds(killStreak.spawnDelay);
+            yield return new WaitForSeconds(killStreak.spawnInterval);
         }
 
     }
 
     void SetDefaults()
     {
-        killStreak = KillStreakUtil.NameToKillStreak(PlayerInfo.GetNameSelected(listType));
+        if (isLocalPlayer)
+        {
+            killStreak = KillStreakUtil.NameToKillStreak(PlayerInfo.GetNameSelected(listType));
+            onKillStreakChangedCallback.Invoke(killStreak.icon);
+        }
     }
 
     [Command]

@@ -133,50 +133,26 @@ ScriptsOnlyBuild:
     Unity.RenderPipelines.HighDefinition.Runtime.dll:
     - UnityEngine.Rendering.HighDefinition.AmbientOcclusion
     - UnityEngine.Rendering.HighDefinition.Bloom
-    - UnityEngine.Rendering.HighDefinition.ChannelMixer
     - UnityEngine.Rendering.HighDefinition.ChromaticAberration
-    - UnityEngine.Rendering.HighDefinition.ColorAdjustments
-    - UnityEngine.Rendering.HighDefinition.ColorCurves
     - UnityEngine.Rendering.HighDefinition.ContactShadows
     - UnityEngine.Rendering.HighDefinition.DepthOfField
-    - UnityEngine.Rendering.HighDefinition.DiffusionProfileOverride
     - UnityEngine.Rendering.HighDefinition.DiffusionProfileSettings
-    - UnityEngine.Rendering.HighDefinition.ExponentialFog
     - UnityEngine.Rendering.HighDefinition.Exposure
-    - UnityEngine.Rendering.HighDefinition.FilmGrain
     - UnityEngine.Rendering.HighDefinition.Fog
-    - UnityEngine.Rendering.HighDefinition.GlobalIllumination
-    - UnityEngine.Rendering.HighDefinition.GradientSky
     - UnityEngine.Rendering.HighDefinition.HDAdditionalCameraData
     - UnityEngine.Rendering.HighDefinition.HDAdditionalLightData
     - UnityEngine.Rendering.HighDefinition.HDRISky
     - UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset
     - UnityEngine.Rendering.HighDefinition.HDRenderPipelineEditorResources
     - UnityEngine.Rendering.HighDefinition.HDShadowSettings
-    - UnityEngine.Rendering.HighDefinition.IndirectLightingController
     - UnityEngine.Rendering.HighDefinition.LensDistortion
     - UnityEngine.Rendering.HighDefinition.LiftGammaGain
-    - UnityEngine.Rendering.HighDefinition.LightCluster
-    - UnityEngine.Rendering.HighDefinition.MicroShadowing
     - UnityEngine.Rendering.HighDefinition.MotionBlur
-    - UnityEngine.Rendering.HighDefinition.PaniniProjection
-    - UnityEngine.Rendering.HighDefinition.PathTracing
-    - UnityEngine.Rendering.HighDefinition.PhysicallyBasedSky
-    - UnityEngine.Rendering.HighDefinition.RayTracingSettings
-    - UnityEngine.Rendering.HighDefinition.RecursiveRendering
     - UnityEngine.Rendering.HighDefinition.RenderPipelineResources
     - UnityEngine.Rendering.HighDefinition.ScreenSpaceReflection
-    - UnityEngine.Rendering.HighDefinition.ScreenSpaceRefraction
-    - UnityEngine.Rendering.HighDefinition.ShadowsMidtonesHighlights
-    - UnityEngine.Rendering.HighDefinition.SplitToning
     - UnityEngine.Rendering.HighDefinition.StaticLightingSky
-    - UnityEngine.Rendering.HighDefinition.SubSurfaceScattering
     - UnityEngine.Rendering.HighDefinition.Tonemapping
-    - UnityEngine.Rendering.HighDefinition.Vignette
     - UnityEngine.Rendering.HighDefinition.VisualEnvironment
-    - UnityEngine.Rendering.HighDefinition.VolumetricFog
-    - UnityEngine.Rendering.HighDefinition.VolumetricLightingController
-    - UnityEngine.Rendering.HighDefinition.WhiteBalance
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.VisualEffectGraph.Editor.dll:
@@ -2138,7 +2114,7 @@ ScriptsOnlyBuild:
     className: IndirectLightingController
   - hash:
       serializedVersion: 2
-      Hash: c778f9b0038c3bc4b11616d6cd29d236
+      Hash: 98e6c31039a1c6a0855a6fb9a328ff15
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: KillStreak
@@ -2624,7 +2600,7 @@ ScriptsOnlyBuild:
     className: InputField
   - hash:
       serializedVersion: 2
-      Hash: 34152d4ae82e40ec76398f564726790b
+      Hash: 205ae80ea8301cf32c26622dcc8ec63c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerUI

@@ -9,9 +9,7 @@ using System.Collections.Generic;
 
 public class PlayerUI : MonoBehaviour
 {
-
-    [SerializeField]
-    public GameObject crosshair = null;
+    [Header("Health")]
 
     [SerializeField]
     private GameObject healthBar = null;
@@ -19,11 +17,15 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private RectTransform healthBarFill = null;
 
+    [Header("Ammo")]
+
     [SerializeField]
     private GameObject ammo = null;
 
     [SerializeField]
     private Text ammoText = null;
+
+    [Header("Equipment")]
 
     [SerializeField]
     private GameObject equipmentBar = null;
@@ -34,6 +36,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Image equipmentIcon = null;
 
+    [Header("Ability")]
+
     [SerializeField]
     private GameObject abilityBar = null;
 
@@ -43,8 +47,18 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Image abilityIcon = null;
 
+    [Header("Killstreak")]
+
     [SerializeField]
-    private GameObject scoreboard = null;
+    private GameObject killStreakBar = null;
+
+    [SerializeField]
+    private RectTransform killStreakBarFill = null;
+
+    [SerializeField]
+    private Image killStreakIcon = null;
+
+    [Header("Pause Menu")]
 
     [SerializeField]
     private GameObject pauseMenu = null;
@@ -61,6 +75,17 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Text lookSensitivityText = null;
 
+    [Header("Misc")]
+
+    [SerializeField]
+    public GameObject crosshair = null;
+
+    [SerializeField]
+    private GameObject scoreboard = null;
+
+    [SerializeField]
+    private float LerpSpeed = 20f;
+
     private Player player;
     private Health health;
     private PlayerController controller;
@@ -68,6 +93,7 @@ public class PlayerUI : MonoBehaviour
     private WeaponManager weaponManager;
     private PlayerEquipment playerEquipment;
     private PlayerMovementAbilityController movementAbilityController;
+    private PlayerKillStreakManager playerKillStreakManager;
 
     public bool enableInfoUI = true;
 
@@ -90,6 +116,9 @@ public class PlayerUI : MonoBehaviour
 
         movementAbilityController = player.GetComponent<PlayerMovementAbilityController>();
         movementAbilityController.onMovementAbilityChangedCallback += UpdateAbilitySprite;
+
+        playerKillStreakManager = player.GetComponent<PlayerKillStreakManager>();
+        playerKillStreakManager.onKillStreakChangedCallback += UpdateKillStreakSprite;
 
         player.onPlayerSetDefaultsCallback += SetDefaults;
         player.onPlayerDieCallback += Die;
@@ -120,6 +149,7 @@ public class PlayerUI : MonoBehaviour
         SetHealthAmount(health.GetHealthPct());
         SetEquipmentAmount(playerEquipment.GetEquipmentPct());
         SetAbilityAmount(movementAbilityController.GetAbilityPct());
+        SetKillStreakAmount(playerKillStreakManager.GetKillStreakPct());
 
         PlayerWeapon currentWeapon = weaponManager.GetCurrentWeapon();
 
@@ -160,17 +190,22 @@ public class PlayerUI : MonoBehaviour
 
     void SetHealthAmount(float _amount)
     {
-        healthBarFill.localScale = new Vector3(1f, Mathf.Lerp(healthBarFill.localScale.y, _amount, 20f * Time.deltaTime), 1f);
+        healthBarFill.localScale = new Vector3(1f, Mathf.Lerp(healthBarFill.localScale.y, _amount, LerpSpeed * Time.deltaTime), 1f);
     }
 
     void SetEquipmentAmount(float _amount)
     {
-        equipmentBarFill.localScale = new Vector3(1f, Mathf.Lerp(equipmentBarFill.localScale.y, _amount, 20f * Time.deltaTime), 1f);
+        equipmentBarFill.localScale = new Vector3(1f, Mathf.Lerp(equipmentBarFill.localScale.y, _amount, LerpSpeed * Time.deltaTime), 1f);
     }
 
     void SetAbilityAmount(float _amount)
     {
-        abilityBarFill.localScale = new Vector3(1f, Mathf.Lerp(abilityBarFill.localScale.y, _amount, 20f * Time.deltaTime), 1f);
+        abilityBarFill.localScale = new Vector3(1f, Mathf.Lerp(abilityBarFill.localScale.y, _amount, LerpSpeed * Time.deltaTime), 1f);
+    }
+
+    void SetKillStreakAmount(float _amount)
+    {
+        killStreakBarFill.localScale = new Vector3(1f, Mathf.Lerp(killStreakBarFill.localScale.y, _amount, LerpSpeed * Time.deltaTime), 1f);
     }
 
     void SetAmmoAmount(int _amount)
@@ -191,6 +226,11 @@ public class PlayerUI : MonoBehaviour
     void UpdateAbilitySprite(Sprite icon)
     {
         abilityIcon.sprite = icon;
+    }
+
+    void UpdateKillStreakSprite(Sprite icon)
+    {
+        killStreakIcon.sprite = icon;
     }
 
     public void Die()
@@ -237,6 +277,7 @@ public class PlayerUI : MonoBehaviour
         ammo.SetActive(_enabled);
         abilityBar.SetActive(_enabled);
         equipmentBar.SetActive(_enabled);
+        killStreakBar.SetActive(_enabled);
     }
 
 }

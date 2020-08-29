@@ -18,4 +18,5 @@ MonoBehaviour:
   prefab: {fileID: 156444120250483795, guid: d059c00ed09540c4b9360000e22c9bc5, type: 3}
   instanceName: Triad Missile
   instanceNumber: 3
-  spawnDelay: 1
+  spawnDelay: 10
+  spawnInterval: 2

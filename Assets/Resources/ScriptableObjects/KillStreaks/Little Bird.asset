@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Little Bird
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 90907430193097741a3878be2a4d6049, type: 3}
-  kills: 5
+  kills: 6
   time: 240
   prefab: {fileID: 156444120250483795, guid: ea93db1bc67a86e4cbc7eb5ea95181c3, type: 3}
   instanceName: Little Bird
