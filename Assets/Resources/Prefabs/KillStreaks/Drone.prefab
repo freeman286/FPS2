@@ -217,6 +217,7 @@ MonoBehaviour:
     m_Bits: 403511
   networkIdentity: {fileID: 0}
   altitude: 22
+  AggroRange: 5
   loiterTime: 10
   loiterRadius: 40
   loiterSway: 20
@@ -255,6 +256,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
   maxHealth: 55
   healthRegenTime: 5
   healthRegenSpeed: 5

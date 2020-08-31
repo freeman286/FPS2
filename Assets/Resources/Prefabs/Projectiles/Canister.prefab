@@ -137,8 +137,8 @@ MonoBehaviour:
     m_Bits: 501559
   force: 10
   forceUpwardsModifier: 1
-  damage: 600
-  range: 15
+  damage: 110
+  range: 20
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2
@@ -146,35 +146,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.26279238
-      outSlope: -0.26279238
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.08099413
-      value: 0.97871536
-      inSlope: -0.45805693
-      outSlope: -0.45805693
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.79272306
-      value: 0.51372755
-      inSlope: -1.5658906
-      outSlope: -1.5658906
-      tangentMode: 34
+      time: 0.9
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -2.4784596
-      outSlope: -2.4784596
+      inSlope: -9.999998
+      outSlope: -9.999998
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -237,8 +228,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.35
-      value: 0.15
+      time: 0.5
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -248,8 +239,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -0.23076925
-      outSlope: -0.23076925
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -287,6 +278,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
   maxHealth: 20
   healthRegenTime: -1
   healthRegenSpeed: 0

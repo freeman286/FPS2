@@ -26,6 +26,9 @@ public class HelicopterController : KillStreakController
     private float altitude = 20f;
 
     [SerializeField]
+    private float AggroRange = 10f;
+
+    [SerializeField]
     private float loiterTime = 30f;
 
     [SerializeField]
@@ -86,7 +89,7 @@ public class HelicopterController : KillStreakController
         }
     }
 
-    void PickLoiterLocation()
+    void PickLoiterLocation(Vector3 _locationOveride = default(Vector3))
     {
 
         if (timeSinceCalledIn > killStreak.time && loiterLocation != Vector3.zero)
@@ -100,8 +103,22 @@ public class HelicopterController : KillStreakController
 
             _hitColliders.RemoveAll(collider => collider.transform.root == transform);
 
-            if (_hitColliders.Count() == 0 && trackingMode == TrackingMode.protect)
+            if (_hitColliders.Count() == 0 && _locationOveride != default(Vector3))
             {
+                //A player has shot at us
+                if (CheckRoute(_locationOveride).point == Vector3.zero)
+                {
+                    loiterLocation = _locationOveride;
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+            else if (_hitColliders.Count() == 0 && trackingMode == TrackingMode.protect)
+            {
+                //We are protecting a player
                 Player _player = GameManager.GetPlayer(playerID);
 
                 if (_player == null)
@@ -112,7 +129,8 @@ public class HelicopterController : KillStreakController
                 if (CheckRoute(_loiterLocation).point == Vector3.zero)
                 {
                     loiterLocation = _loiterLocation;
-                } else
+                }
+                else
                 {
                     loiterLocation = Vector3.zero;
                 }
@@ -120,6 +138,7 @@ public class HelicopterController : KillStreakController
             }
             else if (_hitColliders.Count() == 0 && trackingMode == TrackingMode.player)
             {
+                //We are attacking a player
                 loiterLocation = Vector3.zero;
 
                 Player[] _players = GameManager.GetAllPlayers();
@@ -129,7 +148,8 @@ public class HelicopterController : KillStreakController
                 {
                     if (_player.transform.name != playerID)
                     {
-                        Vector3 _loiterLocation = Util.Flatten(_player.transform.position) + altitude * Vector3.up;
+                        Vector3 _dir = Util.Flatten(_player.transform.position - transform.position);
+                        Vector3 _loiterLocation = Util.Flatten(_player.transform.position) + altitude * Vector3.up - _dir.normalized * AggroRange;
                         if (CheckRoute(_loiterLocation).point == Vector3.zero)
                         {
                             loiterLocation = _loiterLocation;
@@ -137,13 +157,15 @@ public class HelicopterController : KillStreakController
                         }
                     }
                 }
-            } else
+            }
+            else
             {
                 loiterLocation = Vector3.zero;
             }
 
-            if (trackingMode == TrackingMode.random || loiterLocation == Vector3.zero)
+            if ((trackingMode == TrackingMode.random && _locationOveride == default(Vector3)) || loiterLocation == Vector3.zero)
             {
+                //Moving randomly or unable to find target
                 loiterLocation = Util.Flatten(Random.insideUnitSphere * loiterRadius) + altitude * Vector3.up;
             }
         }  
@@ -202,5 +224,24 @@ public class HelicopterController : KillStreakController
         }
     }
 
-    
+    public void AggroPlayer(string _playerID)
+    {
+        if (networkIdentity.hasAuthority && currentLoiterTime > 1f)
+        {
+
+            Player _player = GameManager.GetPlayer(_playerID);
+
+            if (_player == null || _playerID == playerID)
+                return;
+
+            Vector3 _dir = Util.Flatten(_player.transform.position - transform.position);
+
+            Vector3 _loiterLocation = Util.Flatten(_player.transform.position) + altitude * Vector3.up - _dir.normalized * AggroRange;
+
+            if ((_dir).magnitude > AggroRange)
+                PickLoiterLocation(_loiterLocation);
+
+        }
+    }
+
 }

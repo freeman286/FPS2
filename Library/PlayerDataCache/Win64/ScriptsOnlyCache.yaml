@@ -95,6 +95,8 @@ ScriptsOnlyBuild:
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
+    Mirror.Editor.dll:
+    - Mirror.NetworkManagerEditor
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
@@ -2462,7 +2464,7 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
-      Hash: 4b3247d6c9f6f36172683b1a0e3e617e
+      Hash: 17654e14dfadee1e2f1ecc5c9b39f912
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Health
@@ -2888,7 +2890,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 3a85cc984fe3088243bace61d41d8533
+      Hash: f6fb5293fb2ecb4ceaa1142a236f9c7d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HelicopterController
@@ -2900,7 +2902,7 @@ ScriptsOnlyBuild:
     className: NetworkRoomManagerExt
   - hash:
       serializedVersion: 2
-      Hash: 569f44603c5fc1ef4285f087a255c45a
+      Hash: 0474f2a9d034b76643443a3a15336567
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CustomNetworkManager

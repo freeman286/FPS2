@@ -139,6 +139,7 @@ MonoBehaviour:
     m_Bits: 403511
   networkIdentity: {fileID: 0}
   altitude: 30
+  AggroRange: 10
   loiterTime: 15
   loiterRadius: 50
   loiterSway: 15
@@ -177,6 +178,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 168835184322540932}
+        m_MethodName: AggroPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxHealth: 1500
   healthRegenTime: 20
   healthRegenSpeed: 5
@@ -197,11 +212,8 @@ MonoBehaviour:
   syncInterval: 0.1
   damageAttributes:
   - self: 1
-    damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
-    multiplier: 0.5
-  - self: 1
     damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
-    multiplier: 0.6
+    multiplier: 0.7
 --- !u!114 &1917425305069605456
 MonoBehaviour:
   m_ObjectHideFlags: 0

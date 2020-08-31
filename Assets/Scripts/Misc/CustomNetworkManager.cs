@@ -15,6 +15,9 @@ public class CustomNetworkManager : NetworkManager
     [SerializeField]
     private float spawnRange = 30f;
 
+    [SerializeField]
+    private float lineOfSightRange = 30f;
+
     public override Transform GetStartPosition()
     {
         Health[] enemies = GameManager.GetAllHealth();

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using Mirror;
 
 [System.Serializable]
-public class DieEvent : UnityEvent<string>{}
+public class DamageEvent : UnityEvent<string>{}
 
 public class Health : NetworkBehaviour
 {
@@ -15,7 +15,9 @@ public class Health : NetworkBehaviour
     [SyncVar]
     public bool isDead = false;
 
-    public DieEvent dieEvent;
+    public DamageEvent dieEvent;
+
+    public DamageEvent damageEvent;
 
     [SerializeField]
     public int maxHealth = 100;
@@ -81,11 +83,13 @@ public class Health : NetworkBehaviour
         if (_stats != null)
             _amount = (int)(_amount * _stats.GetDamageMultiplier(_damageType, true));
 
-        currentHealth -= _amount;
+        currentHealth = Mathf.Max(currentHealth - _amount, 0f);
 
         timeSinceDamaged = 0f;
 
-        if (currentHealth <= 0)
+        damageEvent.Invoke(_sourceID);
+
+        if (currentHealth == 0)
         {
             isDead = true;
 

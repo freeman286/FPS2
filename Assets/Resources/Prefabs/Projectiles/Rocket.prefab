@@ -135,7 +135,7 @@ MonoBehaviour:
     m_Bits: 501559
   force: 60
   forceUpwardsModifier: 1
-  damage: 150
+  damage: 300
   range: 9
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
@@ -160,19 +160,19 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.0825363
     - serializedVersion: 3
-      time: 0.48340967
-      value: 0.16269508
-      inSlope: -0.7530173
-      outSlope: -0.7530173
+      time: 0.3
+      value: 0.1
+      inSlope: -0.33378693
+      outSlope: -0.33378693
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.081249
+      inWeight: 0.16544703
       outWeight: 0.056460187
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -0.3149402
-      outSlope: -0.3149402
+      inSlope: -0.14285715
+      outSlope: -0.14285715
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -258,6 +258,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
   maxHealth: 20
   healthRegenTime: -1
   healthRegenSpeed: 0
