@@ -95,8 +95,6 @@ ScriptsOnlyBuild:
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
-    Mirror.Editor.dll:
-    - Mirror.NetworkManagerEditor
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
@@ -3590,6 +3588,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 0145ae6defd66ef623c50b1935f0ce10
+    assemblyName: Unity.VectorGraphics.dll
+    namespaceName: 
+    className: SVGImage
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

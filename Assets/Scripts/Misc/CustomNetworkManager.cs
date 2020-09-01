@@ -75,7 +75,7 @@ public class CustomNetworkManager : NetworkManager
 
     public override void OnStartClient() {
         //Stuff that happens when the client connects
-        LevelLoader.instance.DoTransition();
+        //LevelLoader.instance.DoTransition();
     }
 
     public override void OnStartHost() {

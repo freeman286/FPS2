@@ -23,6 +23,8 @@ public class OfflineUI : MonoBehaviour
 
     private bool ipValueChanged = true;
 
+    private bool loading = false;
+
     public void Start()
     {
         networkManager = NetworkManager.singleton;
@@ -41,11 +43,19 @@ public class OfflineUI : MonoBehaviour
         if (string.IsNullOrEmpty(PlayerInfo.playerName))
             return;
 
-        loadingImage.enabled = true;
-        InvokeRepeating("Loading", 0f, 0.01f);
+        Loading(true);
 
         StartCoroutine(Host_Coroutine());
 
+    }
+
+    void Update()
+    {
+        if (NetworkClient.active && ClientScene.ready)
+            LevelLoader.instance.DoTransition();
+
+        if (loading)
+            loadingRectTransform.Rotate(Vector3.forward * Time.deltaTime * 50f);
     }
 
     private IEnumerator Host_Coroutine()
@@ -62,18 +72,19 @@ public class OfflineUI : MonoBehaviour
 
         if (ipValueChanged && !string.IsNullOrEmpty(PlayerInfo.ipAddress))
         {
-            loadingImage.enabled = true;
-            InvokeRepeating("Loading", 0f, 0.01f);
             networkManager.networkAddress = PlayerInfo.ipAddress;
             networkManager.StartClient();
             ipValueChanged = false;
+
+            Loading(true);
         }
         
     }
 
-    void Loading()
+    void Loading(bool _enabled)
     {
-        loadingRectTransform.Rotate(new Vector3(0, 0, 1));
+        loading = _enabled;
+        loadingImage.enabled = _enabled;
     }
 
     public void IpValueChange()
