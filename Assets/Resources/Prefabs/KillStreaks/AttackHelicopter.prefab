@@ -214,6 +214,9 @@ MonoBehaviour:
   - self: 1
     damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
     multiplier: 0.7
+  - self: 1
+    damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
+    multiplier: 1.8
 --- !u!114 &1917425305069605456
 MonoBehaviour:
   m_ObjectHideFlags: 0

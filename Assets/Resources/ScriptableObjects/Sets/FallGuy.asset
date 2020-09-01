@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a745ecdec3205ec49b52bf9c17f2cda5, type: 3}
+  m_Name: FallGuy
+  m_EditorClassIdentifier: 
+  name: Fall Guy
+  description: Jump higher but take more impact damage.
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 0b091a11b985a074d8d46d670de7b51f, type: 2}
+  movementAbility: {fileID: 11400000, guid: 44b57155512ee6f4f8b164b11dce96fb, type: 2}
+  attributes:
+  - self: 1
+    damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
+    multiplier: 1.1
+  speedMultiplier: 1
+  jumpMultiplier: 1.5
+  scriptsToEnable: []

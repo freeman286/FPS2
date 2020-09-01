@@ -17,7 +17,8 @@ MonoBehaviour:
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 2721180637063796786, guid: aff9b94a662a81247b0a08e1b4008fe3,
     type: 3}
-  equipment: {fileID: 11400000, guid: e71a8d5681435bf4e892a5d0ce26039f, type: 2}
+  equipment: {fileID: 11400000, guid: 8ef3b4fa61c02fb48bc960f5594897da, type: 2}
+  movementAbility: {fileID: 0}
   attributes:
   - self: 0
     damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}

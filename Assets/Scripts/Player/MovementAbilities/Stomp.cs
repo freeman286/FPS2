@@ -37,6 +37,8 @@ public class Stomp : PlayerMovementAbility
         if (!isLocalPlayer || timeSinceMovementAbilityUsed >= ability.effectTime)
             return;
 
+        rb.velocity = Vector3.zero;
+
         CmdStomp(timeSinceMovementAbilityUsed);
 
         Health _health = collision.transform.root.GetComponent<Health>();
