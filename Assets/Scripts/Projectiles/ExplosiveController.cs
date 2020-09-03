@@ -41,7 +41,7 @@ public class ExplosiveController : ProjectileController
         if (_dir.magnitude < 1f)
             _dir = Vector3.up;
 
-        explosive.CmdExplode(transform.position, _dir, timeSinceCreated, playerID);
+        explosive.Explode(transform.position, _dir, timeSinceCreated, playerID);
     }
 
     public void ForceDetonate(string _sourceID)
@@ -61,7 +61,7 @@ public class ExplosiveController : ProjectileController
 
             impacted = true;
             rb.isKinematic = true;
-            explosive.CmdExplode(transform.position, collision.contacts[0].normal, timeSinceCreated, playerID);
+            explosive.Explode(transform.position, collision.contacts[0].normal, timeSinceCreated, playerID);
         }
     }
 

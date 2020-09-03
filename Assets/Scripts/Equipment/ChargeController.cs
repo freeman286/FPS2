@@ -26,7 +26,7 @@ public class ChargeController : PlaceableEquipmentController
     public void Detonate()
     {
         if (ready)
-            explosive.CmdExplode(transform.position + transform.forward * 0.01f, transform.forward, 0f, playerID);
+            explosive.Explode(transform.position + transform.forward * 0.01f, transform.forward, 0f, playerID);
     }
 
     public void ForceDetonate(string _sourceID)

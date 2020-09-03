@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6569690525480866274}
   - component: {fileID: -4356853441728220555}
   - component: {fileID: -3217488655694574329}
+  - component: {fileID: 6118659785310679997}
   m_Layer: 16
   m_Name: GunshipRocket
   m_TagString: Projectile
@@ -228,6 +229,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  damageModifiers: []
 --- !u!114 &-3217488655694574329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +268,20 @@ MonoBehaviour:
   healthRegenTime: -1
   healthRegenSpeed: 0
   lastDamagedPlayer: {fileID: 0}
+--- !u!114 &6118659785310679997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2d2a80e9b794c4cae0b41b795aca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!1 &1797291569636143139
 GameObject:
   m_ObjectHideFlags: 0

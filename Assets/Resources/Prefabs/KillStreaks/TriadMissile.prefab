@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6237083378675349637}
   - component: {fileID: -2497769578073780965}
   - component: {fileID: 4235962349346025054}
+  - component: {fileID: 6219263580247742852}
   - component: {fileID: 6944164122921236572}
   m_Layer: 18
   m_Name: TriadMissile
@@ -266,6 +267,21 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  damageModifiers: []
+--- !u!114 &6219263580247742852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156444120250483795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2d2a80e9b794c4cae0b41b795aca16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!82 &6944164122921236572
 AudioSource:
   m_ObjectHideFlags: 0

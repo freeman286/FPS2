@@ -97,14 +97,14 @@ public class MissileController : KillStreakController
 
     public void Detonate(string _playerID)
     {
-        explosive.CmdExplode(transform.position, rb.velocity, timeSinceCalledIn, _playerID);
+        explosive.Explode(transform.position, rb.velocity, timeSinceCalledIn, _playerID);
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (networkIdentity.hasAuthority)
         {
-            explosive.CmdExplode(transform.position, collision.contacts[0].normal, timeSinceCalledIn, playerID);
+            explosive.Explode(transform.position, collision.contacts[0].normal, timeSinceCalledIn, playerID);
         }
     }
 

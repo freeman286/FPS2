@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+[RequireComponent(typeof(DamageInflictor))]
 public class Explosive : NetworkBehaviour
 {
     [SerializeField]
@@ -42,12 +43,18 @@ public class Explosive : NetworkBehaviour
     [SerializeField]
     private List<DamageModifier> damageModifiers = new List<DamageModifier>();
 
-    [Command]
-    public void CmdExplode(Vector3 _pos, Vector3 _dir, float _timeSinceCreated, string _playerID)
+    private DamageInflictor damageInflictor;
+
+    void Start()
+    {
+        damageInflictor = GetComponent<DamageInflictor>();
+    }
+
+    public void Explode(Vector3 _pos, Vector3 _dir, float _timeSinceCreated, string _playerID)
     {
         List<Transform> _hitTransforms = new List<Transform>();
 
-        RpcExplode(_pos, Quaternion.LookRotation(_dir), _playerID);
+        CmdExplode(_pos, Quaternion.LookRotation(_dir), _playerID);
 
         Collider[] colliders = Physics.OverlapSphere(_pos, range);
 
@@ -74,12 +81,18 @@ public class Explosive : NetworkBehaviour
 
                     _damage = (int)(_damage * DamageUtil.GetDamageModifier(damageModifiers, _health.healthType));
 
-                    _health.RpcTakeDamage(_damage, _playerID, damageType.name);
+                    damageInflictor.CmdDamage(_health.transform.name, _damage, _playerID, damageType.name);
                 }
             }
 
         }
 
+    }
+
+    [Command]
+    void CmdExplode(Vector3 _pos, Quaternion _rot, string _playerID)
+    {
+        RpcExplode(_pos, _rot, _playerID);
     }
 
     [ClientRpc]
