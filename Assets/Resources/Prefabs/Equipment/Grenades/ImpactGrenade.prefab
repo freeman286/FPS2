@@ -135,7 +135,7 @@ MonoBehaviour:
   force: 40
   forceUpwardsModifier: 1
   damage: 200
-  range: 7
+  range: 6
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
     serializedVersion: 2
@@ -227,6 +227,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  damageModifiers:
+  - healthType: {fileID: 11400000, guid: 1dc1ec41e75a55949b6859d3e703032b, type: 2}
+    multiplier: 3
 --- !u!114 &-4192722717585000997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  healthType: {fileID: 11400000, guid: 009e59d7f84bf5742b168490521b76c5, type: 2}
   playerID: 
   isDead: 0
   dieEvent:
@@ -270,6 +274,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
   maxHealth: 20
   healthRegenTime: -1
   healthRegenSpeed: 0

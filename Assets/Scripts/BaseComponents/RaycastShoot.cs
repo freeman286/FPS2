@@ -41,7 +41,11 @@ public class RaycastShoot : NetworkBehaviour
                 Health _health = _hit.collider.transform.root.GetComponent<Health>();
 
                 if (_health != null)
+                {
+                    _damage = (int)(_damage * DamageUtil.GetDamageModifier(_weapon.damageModifiers, _health.healthType));
+
                     damageInflictor.CmdDamage(_health.transform.name, _damage, _sourceID, _weapon.damageType.name);
+                }
 
                 Rigidbody rb = _hit.collider.attachedRigidbody;
 

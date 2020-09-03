@@ -115,6 +115,7 @@ MonoBehaviour:
   damage: 30
   damageType: {fileID: 11400000, guid: b8de35d11ecd45e4eaed37b836ec35eb, type: 2}
   headShotMultiplier: 2
+  damageModifiers: []
 --- !u!114 &-7843734110643166177
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class Explosive : NetworkBehaviour
     [SerializeField]
     private LayerMask mask = -1;
 
-    [Header("Damage")]
+    [Header("Force")]
 
     [SerializeField]
     private float force = 10f;
@@ -39,6 +39,9 @@ public class Explosive : NetworkBehaviour
     [SerializeField]
     private AnimationCurve damageOverAngle = null;
 
+    [SerializeField]
+    private List<DamageModifier> damageModifiers = new List<DamageModifier>();
+
     [Command]
     public void CmdExplode(Vector3 _pos, Vector3 _dir, float _timeSinceCreated, string _playerID)
     {
@@ -65,9 +68,13 @@ public class Explosive : NetworkBehaviour
 
                 if (Physics.Raycast(_pos, target_vector, out _hit, range, mask) && _hit.transform.root == _baseTransform)
                 {
-                    float _distance = Vector3.Distance(_baseTransform.position, _pos);
+                    float _distance = Mathf.Min(_hit.distance, Vector3.Distance(_baseTransform.position, _pos));
 
-                    _health.RpcTakeDamage((int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector) / 180f)), _playerID, damageType.name);
+                    int _damage = (int)(damage * damageFallOff.Evaluate(_distance / range) * damageOverTime.Evaluate(_timeSinceCreated) * damageOverAngle.Evaluate(Vector3.Angle(_dir, target_vector) / 180f));
+
+                    _damage = (int)(_damage * DamageUtil.GetDamageModifier(damageModifiers, _health.healthType));
+
+                    _health.RpcTakeDamage(_damage, _playerID, damageType.name);
                 }
             }
 

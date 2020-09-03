@@ -10,6 +10,8 @@ public class Weapon : MonoBehaviour
     public float range = 100f;
     public DamageType damageType;
 
+    public List<DamageModifier> damageModifiers = new List<DamageModifier>();
+
     [Header("Fire Mode(s)")]
     public bool automatic;
     public float fireRate;

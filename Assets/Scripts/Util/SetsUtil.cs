@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SetsUtil : MonoBehaviour
 {
@@ -9,20 +10,6 @@ public class SetsUtil : MonoBehaviour
         Set[] allSets = Resources.LoadAll<Set>("ScriptableObjects/Sets");
 
         return allSets;
-    }
-
-    public static DamageType[] AllDamageDamageTypes()
-    {
-        DamageType[] allDamageDamageTypes = Resources.LoadAll<DamageType>("ScriptableObjects/DamageTypes");
-
-        return allDamageDamageTypes;
-    }
-
-    public static DamageType[] DamageTypes()
-    {
-        DamageType[] allDamageDamageTypes = Resources.LoadAll<DamageType>("ScriptableObjects/DamageTypes");
-
-        return allDamageDamageTypes;
     }
 
     public static bool SetMatch(Set _set, string _primaryWeaponName, string _secondaryWeaponName, string _equipmentName, string _movementAbilityName)
@@ -39,5 +26,20 @@ public class SetsUtil : MonoBehaviour
             return false;
 
         return true;
+    }
+
+    public static float GetDamageMultiplier(List<DamageAttribute> _damageAttributes, string _damageType, bool _self)
+    {
+        DamageAttribute _damageAttribute = _damageAttributes.FirstOrDefault(x => x.damageType.name == _damageType && x.self == _self);
+
+        if (_damageAttribute == null)
+        {
+            return 1;
+        }
+        else
+        {
+            return _damageAttribute.multiplier;
+        }
+
     }
 }

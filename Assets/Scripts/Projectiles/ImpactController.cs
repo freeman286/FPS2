@@ -27,6 +27,9 @@ public class ImpactController : ProjectileController
     [SerializeField]
     private float headShotMultiplier = 2f;
 
+    [SerializeField]
+    private List<DamageModifier> damageModifiers = new List<DamageModifier>();
+
     private DamageInflictor damageInflictor;
 
     public override void Start()
@@ -84,11 +87,6 @@ public class ImpactController : ProjectileController
             }
        
         } 
-            
-
-        int _damage = damage;
-        if (collision.collider.name == "Head")
-            _damage = (int)(_damage * headShotMultiplier);
 
         if (!_stick)
             CmdImpact(Quaternion.LookRotation(collision.contacts[0].normal));
@@ -96,7 +94,16 @@ public class ImpactController : ProjectileController
         Health _health = collision.transform.root.GetComponent<Health>();
 
         if (_health != null)
+        {
+            int _damage = damage;
+
+            if (collision.collider.name == "Head")
+                _damage = (int)(_damage * headShotMultiplier);
+
+            _damage = (int)(_damage * DamageUtil.GetDamageModifier(damageModifiers, _health.healthType));
+
             damageInflictor.CmdDamage(_health.transform.name, _damage, playerID, damageType.name);
+        }
     }
 
 

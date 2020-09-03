@@ -22,6 +22,7 @@ ScriptsOnlyBuild:
     - Grenade
     - GunshipController
     - Health
+    - HealthType
     - HelicopterController
     - HighJump
     - Holdfast
@@ -162,8 +163,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -539,6 +542,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17634}
     - Class: 114
       Script: {instanceID: 17642}
+    - Class: 114
+      Script: {instanceID: 27938}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -836,6 +841,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17504}
     - Class: 114
       Script: {instanceID: 17580}
+    - Class: 114
+      Script: {instanceID: 27938}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1139,6 +1146,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17504}
     - Class: 114
       Script: {instanceID: 17580}
+    - Class: 114
+      Script: {instanceID: 27938}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1256,7 +1265,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerHUD
   - hash:
       serializedVersion: 2
-      Hash: 168b0ec73d85fc041bd45f99259e862e
+      Hash: 3fe1ee367bc360085ef52b9a3ad4e337
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerWeapon
@@ -1286,7 +1295,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerBitField
   - hash:
       serializedVersion: 2
-      Hash: 9961ad0a0ece9954fb43f76667700b38
+      Hash: dab7fab437abf064068dfcd23a8bb8b6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Weapon
@@ -2006,7 +2015,7 @@ ScriptsOnlyBuild:
     className: CentreOfMass
   - hash:
       serializedVersion: 2
-      Hash: 777d6a48b99b448cf870a60b01d7e42b
+      Hash: 4acde5e2f00eff6c7471d4fd4a6282e8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Explosive
@@ -2462,7 +2471,7 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
-      Hash: 17654e14dfadee1e2f1ecc5c9b39f912
+      Hash: a3ddca676ae3e2077e612f0b80f2a104
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Health
@@ -2864,7 +2873,7 @@ ScriptsOnlyBuild:
     className: NetworkManagerPong
   - hash:
       serializedVersion: 2
-      Hash: 0c8e638e23dec6320b6013ad0fc672d8
+      Hash: 7b6b29a61ae695cb24bb6ef9c500346b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ImpactController
@@ -3594,6 +3603,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HealthType
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DamageUtil
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

@@ -248,6 +248,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  damageModifiers:
+  - healthType: {fileID: 11400000, guid: 2cb7627799608e84dae9fb30831dc0e9, type: 2}
+    multiplier: 0.3
 --- !u!114 &6752763440419888389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  healthType: {fileID: 11400000, guid: 009e59d7f84bf5742b168490521b76c5, type: 2}
   playerID: 
   isDead: 0
   dieEvent:

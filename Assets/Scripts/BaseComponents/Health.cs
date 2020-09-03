@@ -9,6 +9,8 @@ public class DamageEvent : UnityEvent<string>{}
 
 public class Health : NetworkBehaviour
 {
+    public HealthType healthType;
+
     [SyncVar]
     public string playerID;
 
@@ -76,12 +78,12 @@ public class Health : NetworkBehaviour
         lastDamagedPlayer = GameManager.GetPlayer(_sourceID);
 
         if (lastDamagedPlayer != null)
-            _amount = (int)(_amount * lastDamagedPlayer.GetComponent<PlayerStats>().GetDamageMultiplier(_damageType, false));
+            _amount = (int)(_amount * SetsUtil.GetDamageMultiplier(lastDamagedPlayer.GetComponent<PlayerStats>().damageAttributes, _damageType, false));
 
         Stats _stats = GetComponent<Stats>();
 
         if (_stats != null)
-            _amount = (int)(_amount * _stats.GetDamageMultiplier(_damageType, true));
+            _amount = (int)(_amount * SetsUtil.GetDamageMultiplier(_stats.damageAttributes, _damageType, true));
 
         currentHealth = Mathf.Max(currentHealth - _amount, 0f);
 

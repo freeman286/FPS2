@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  healthType: {fileID: 11400000, guid: 2cb7627799608e84dae9fb30831dc0e9, type: 2}
   playerID: 
   isDead: 0
   dieEvent:
@@ -178,6 +179,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
   maxHealth: 100
   healthRegenTime: 5
   healthRegenSpeed: 5
