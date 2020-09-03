@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Mirror;
 
 public class MissileController : KillStreakController
 {
@@ -33,13 +34,20 @@ public class MissileController : KillStreakController
     {
         base.Start();
 
-        if (!networkIdentity.hasAuthority)
-            return;
-
-        FindTarget();
+        
         explosive = GetComponent<Explosive>();
         rb = GetComponent<Rigidbody>();
     }
+
+    public override void playerIDChanged(string _oldID, string _newID)
+    {
+        base.playerIDChanged(_oldID, _newID);
+
+        if (GetComponent<NetworkIdentity>().hasAuthority)
+            FindTarget();
+    }
+
+
 
     public override void Update()
     {
@@ -71,7 +79,7 @@ public class MissileController : KillStreakController
 
         foreach(MissileController _missileController in _missileControllers)
         {
-            if (_missileController.networkIdentity.hasAuthority && !_currentTargets.Contains(_missileController.currentTarget))
+            if (_missileController != this && _missileController.networkIdentity.hasAuthority && !_currentTargets.Contains(_missileController.currentTarget))
                 _currentTargets.Add(_missileController.currentTarget);
         }
 
@@ -87,7 +95,7 @@ public class MissileController : KillStreakController
         foreach (GameObject _target in _targets)
         {
             Health _health = _target.GetComponent<Health>();
-            if (_currentTargets.Contains(_target) == _repeat && _health.maxHealth >= _maxHealth && _health.playerID != playerID)
+            if (_target != gameObject && _currentTargets.Contains(_target) == _repeat && _health.maxHealth >= _maxHealth && _health.playerID != playerID)
             {
                 _maxHealth = _health.maxHealth;
                 currentTarget = _target;

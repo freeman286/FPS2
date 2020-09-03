@@ -37,7 +37,7 @@ public class KillStreakController : NetworkBehaviour
         timeSinceCalledIn += Time.deltaTime;
     }
 
-    void playerIDChanged(string _oldID, string _newID)
+    public virtual void playerIDChanged(string _oldID, string _newID)
     {
         playerID = _newID;
         
