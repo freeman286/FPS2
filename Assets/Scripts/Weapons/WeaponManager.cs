@@ -322,6 +322,13 @@ public class WeaponManager : NetworkBehaviour
     public void Die()
     {
 
+        if (isLocalPlayer)
+        {
+            shoot.Unscope(); // Scope out
+            shoot.weaponCam.enabled = false;
+            DisableScripts();
+        }
+
         currentGraphics.light.enabled = false;
 
         // Change the current weapon into a prop
@@ -342,12 +349,6 @@ public class WeaponManager : NetworkBehaviour
 
         Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer("Prop"));
         Destroy(weaponIns.GetComponent<Animator>());
-
-        if (isLocalPlayer)
-        {
-            shoot.Unscope(); // Scope out
-            shoot.weaponCam.enabled = false;
-            DisableScripts();
-        }
+        
     }
 }

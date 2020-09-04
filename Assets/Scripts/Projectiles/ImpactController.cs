@@ -134,7 +134,7 @@ public class ImpactController : ProjectileController
     void RpcSetParent(int _index, string _playerID, Vector3 _pos)
     {
         Destroy(GetComponent<Rigidbody>());
-        Destroy(GetComponent<NetworkTransform>());
+        GetComponent<NetworkTransform>().enabled = false;
 
         foreach (Collider _collider in colliders)
         {
