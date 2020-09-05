@@ -517,8 +517,8 @@ MonoBehaviour:
   projectile: {fileID: 0}
   name: Pistol
   spreadDefault: 0.05
-  spreadWhileMoving: 0.2
-  spreadWhileJumping: 0.6
+  spreadWhileMoving: 0.1
+  spreadWhileJumping: 0.5
   spreadWhileScoped: 0
   timeTillMaxSpread: 0.5
   spreadCurve:

@@ -45,6 +45,15 @@ public class PlayerKillStreakManager : NetworkBehaviour
         GameManager.instance.onPlayerKilledCallback += OnKill;
     }
 
+    void Update()
+    {
+        if (isLocalPlayer && Input.GetKeyDown("k"))
+        {
+            StartCoroutine(KillStreakCoroutine());
+        }
+    }
+
+
     public void OnKill(string _playerID, string _sourceID)
     {
         if (isLocalPlayer && _sourceID == transform.name && player.killStreak == killStreak.kills)

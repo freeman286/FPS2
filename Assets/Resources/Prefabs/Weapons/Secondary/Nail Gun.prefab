@@ -870,6 +870,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   range: 16
   damageType: {fileID: 11400000, guid: 0086921e56b275d468a67a32994c32a7, type: 2}
+  damageModifiers: []
   automatic: 1
   fireRate: 4
   scoped: 0
@@ -880,9 +881,9 @@ MonoBehaviour:
   projectile: {fileID: 156444120250483795, guid: 1fcbbb0d18d393b46bc671873802fcee,
     type: 3}
   name: Nail Gun
-  spreadDefault: 0.08
-  spreadWhileMoving: 0.12
-  spreadWhileJumping: 0.3
+  spreadDefault: 0.04
+  spreadWhileMoving: 0.08
+  spreadWhileJumping: 0.2
   spreadWhileScoped: 0
   timeTillMaxSpread: 1.2
   spreadCurve:
@@ -916,7 +917,7 @@ MonoBehaviour:
   speed: 1.1
   scopedSpeed: 1
   primary: 0
-  bullets: 1
+  bullets: 10
   reloadTime: 2.5
   scriptsToEnable: []
 --- !u!82 &3317242424504107631
