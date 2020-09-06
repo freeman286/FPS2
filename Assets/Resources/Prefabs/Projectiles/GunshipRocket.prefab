@@ -136,7 +136,7 @@ MonoBehaviour:
     m_Bits: 493367
   force: 60
   forceUpwardsModifier: 1
-  damage: 1500
+  damage: 1100
   range: 20
   damageType: {fileID: 11400000, guid: 0544705a53b6fec40b62b498651f4671, type: 2}
   damageFallOff:
@@ -229,7 +229,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  damageModifiers: []
+  damageModifiers:
+  - healthType: {fileID: 11400000, guid: 2cb7627799608e84dae9fb30831dc0e9, type: 2}
+    multiplier: 3
 --- !u!114 &-3217488655694574329
 MonoBehaviour:
   m_ObjectHideFlags: 0

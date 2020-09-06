@@ -206,7 +206,7 @@ MonoBehaviour:
   ready: 0
   target: {fileID: 0}
   targetMode: 0
-  speed: 25
+  speed: 40
   trackingAngle: 10
   maxAngle: 60
   turret: {fileID: 6902219563618710447}
@@ -272,15 +272,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  range: 20
+  range: 40
   damageType: {fileID: 11400000, guid: 2afa62e83dca8f843a12969c5365d4f6, type: 2}
+  damageModifiers: []
   automatic: 1
   fireRate: 0.1
   scoped: 0
   special: 0
   roundsPerShot: 1
   coneOfFire: 0
-  throwPower: 5
+  throwPower: 20
   projectile: {fileID: 156444120250483795, guid: fbf1e70436a7b1748aa3dbed590b086d,
     type: 3}
 --- !u!114 &9090075800389225683

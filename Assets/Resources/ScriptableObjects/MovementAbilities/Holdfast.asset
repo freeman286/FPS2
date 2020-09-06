@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b3afca476931340a147ec7d52e4e5c, type: 3}
   m_Name: Holdfast
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 98532118335ac4f4280b5426ad595b9f, type: 3}
+  icon: {fileID: 21300000, guid: f36759f772774714bb70301393a478c8, type: 3}
   cooldown: 0
   magnitude: 0
   effectTime: 0
