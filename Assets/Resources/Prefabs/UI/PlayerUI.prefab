@@ -372,7 +372,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 70d8306870d218940b3544a97eb5da71, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 70d8306870d218940b3544a97eb5da71, type: 3}
     m_FontSize: 26
     m_FontStyle: 1
     m_BestFit: 0
@@ -601,7 +601,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 70d8306870d218940b3544a97eb5da71, type: 3}
     m_FontSize: 26
     m_FontStyle: 1
     m_BestFit: 0
@@ -1138,7 +1138,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 70d8306870d218940b3544a97eb5da71, type: 3}
     m_FontSize: 26
     m_FontStyle: 1
     m_BestFit: 0
@@ -1682,7 +1682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 0}
+  m_AnchoredPosition: {x: -25, y: -2}
   m_SizeDelta: {x: 35, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3373749779769000076
@@ -1712,7 +1712,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 70d8306870d218940b3544a97eb5da71, type: 3}
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
@@ -2161,11 +2161,11 @@ RectTransform:
   - {fileID: 6452553123188715121}
   - {fileID: 1355291484442214229}
   - {fileID: 6896811353990309292}
-  - {fileID: 6135457685380574233}
-  - {fileID: 2560201719144264051}
+  - {fileID: 3325820908676340461}
+  - {fileID: 2818021011877741912}
   - {fileID: 1630840036143041836}
-  - {fileID: 2933748833246299818}
-  - {fileID: 9100818897247680232}
+  - {fileID: 6937891933855238315}
+  - {fileID: 3216833355787517882}
   m_Father: {fileID: 4452862453348152231}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2637,7 +2637,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 70d8306870d218940b3544a97eb5da71, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
@@ -2990,7 +2990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de6ca9a62623f1c4a9727478287f252b, type: 3}
---- !u!224 &2560201719144264051 stripped
+--- !u!224 &2818021011877741912 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 332200705685148529, guid: de6ca9a62623f1c4a9727478287f252b,
     type: 3}
@@ -3115,7 +3115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5d30ebc0f2402d45bdc448b805380ee, type: 3}
---- !u!224 &9100818897247680232 stripped
+--- !u!224 &3216833355787517882 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5974278297482931844, guid: d5d30ebc0f2402d45bdc448b805380ee,
     type: 3}
@@ -3240,7 +3240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ff0e1f2dcc902c4183585374eb52b0e, type: 3}
---- !u!224 &6135457685380574233 stripped
+--- !u!224 &3325820908676340461 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8863706661495561978, guid: 4ff0e1f2dcc902c4183585374eb52b0e,
     type: 3}
@@ -3490,7 +3490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d75b9e61acd7c418a3f37f9de1c9c8, type: 3}
---- !u!224 &2933748833246299818 stripped
+--- !u!224 &6937891933855238315 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5259802981395704255, guid: f4d75b9e61acd7c418a3f37f9de1c9c8,
     type: 3}
