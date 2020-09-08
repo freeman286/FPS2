@@ -47,6 +47,8 @@ public class WeaponManager : NetworkBehaviour
 
     private Behaviour[] scripts;
 
+    public delegate void OnWeaponChangedCallback(Component[] gunModelRenderers);
+    public OnWeaponChangedCallback onWeaponChangedCallback;
 
     void Start()
     {
@@ -232,6 +234,8 @@ public class WeaponManager : NetworkBehaviour
 
         weaponIns = (GameObject)Instantiate(currentWeapon.gameObject, weaponHolder.position, weaponHolder.rotation);
         weaponIns.transform.SetParent(weaponHolder);
+
+        onWeaponChangedCallback.Invoke(weaponIns.GetComponentsInChildren(typeof(Renderer)));
 
         currentGraphics = weaponIns.GetComponent<PlayerWeaponGraphics>();
         if (currentGraphics == null)

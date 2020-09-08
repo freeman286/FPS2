@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Gun2
-  m_Shader: {fileID: -6465566751694194690, guid: acc65c867564c3a448bc3e62d9a70f14,
+  m_Shader: {fileID: -6465566751694194690, guid: cfeb0a95b6faade4a9e17667bdaa10a6,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -60,8 +60,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Boolean_A64C22A9: 1
+    - Vector1_1CBEC8D5: 0.1
     - Vector1_82E42744: 6
     - Vector1_83A127E5: 0.1
+    - Vector1_92FC71F4: 30
+    - Vector1_BCEE2681: 0
     - Vector1_E3ABB034: 4
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -82,6 +85,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - Color_14014305: {r: 64, g: 25.80215, b: 0, a: 0}
     - Color_7190A60B: {r: 0.044811323, g: 0.009511839, b: 0.009511839, a: 0}
     - Color_83DF4905: {r: 0.21342114, g: 0.21813564, b: 0.41509432, a: 0}
     - Color_E7F2BEFD: {r: 0.1872549, g: 0.032352943, b: 0, a: 0}

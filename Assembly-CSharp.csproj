@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Animation\AnimateFeet.cs" />
+     <Compile Include="Assets\Scripts\Animation\FadeOut.cs" />
      <Compile Include="Assets\Scripts\Animation\Rotor.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\DamageInflictor.cs" />
      <Compile Include="Assets\Scripts\BaseComponents\EnableDuringRuntime.cs" />
