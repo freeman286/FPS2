@@ -1,2 +1,130 @@
 Base path: 'C:/Program Files/Unity/Hub/Editor/2019.3.8f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.3.8f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: compileSnippet
+  error: 2 plat 4 at (3686): invalid subscript 'cullFace'\nCompiling Fragment program with UNITY_PASS_MOTIONVECTORS WRITE_NORMAL_BUFFER
+Platform defines: UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR
+  api=4 type=1 insize=31669 outsize=0 kw=UNITY_PASS_MOTIONVECTORS WRITE_NORMAL_BUFFER pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=0
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=811 outsize=209 ok=1
+Cmd: preprocess
+  insize=8183 outsize=873 ok=1
+Cmd: preprocess
+  insize=4954 outsize=883 ok=1
+Cmd: preprocess
+  insize=7304 outsize=879 ok=1
+Cmd: preprocess
+  insize=9368 outsize=874 ok=1
+Cmd: preprocess
+  insize=7311 outsize=879 ok=1
+Cmd: preprocess
+  insize=5651 outsize=881 ok=1
+Cmd: preprocess
+  insize=3955 outsize=882 ok=1
+Cmd: preprocess
+  insize=3919 outsize=873 ok=1
+Cmd: preprocess
+  insize=122184 outsize=4123 ok=1
+Cmd: preprocess
+  insize=6062 outsize=880 ok=1
+Cmd: preprocess
+  insize=4945 outsize=883 ok=1
+Cmd: preprocess
+  insize=5488 outsize=878 ok=1
+Cmd: preprocess
+  insize=5159 outsize=878 ok=1
+Cmd: preprocess
+  insize=5488 outsize=877 ok=1
+Cmd: preprocess
+  insize=4354 outsize=874 ok=1
+Cmd: preprocess
+  insize=5627 outsize=879 ok=1
+Cmd: preprocess
+  insize=5913 outsize=879 ok=1
+Cmd: preprocess
+  insize=5002 outsize=877 ok=1
+Cmd: preprocess
+  insize=6070 outsize=881 ok=1
+Cmd: preprocess
+  insize=4029 outsize=883 ok=1
+Cmd: preprocess
+  insize=5888 outsize=881 ok=1
+Cmd: preprocess
+  insize=6183 outsize=874 ok=1
+Cmd: preprocess
+  insize=6517 outsize=878 ok=1
+Cmd: preprocess
+  insize=12345 outsize=874 ok=1
+Cmd: preprocess
+  insize=3949 outsize=878 ok=1

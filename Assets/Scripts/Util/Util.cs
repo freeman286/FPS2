@@ -7,6 +7,23 @@ using UnityEngine;
 
 public class Util : MonoBehaviour
 {
+    public static string LocalIPAddress()
+    {
+        IPHostEntry host;
+        string localIP = "";
+        host = Dns.GetHostEntry(Dns.GetHostName());
+        foreach (IPAddress ip in host.AddressList)
+        {
+            if (ip.AddressFamily == AddressFamily.InterNetwork)
+            {
+                localIP = ip.ToString();
+                break;
+            }
+        }
+        return localIP;
+    }
+
+    #region Gameobject Helpers
 
     public static void SetLayerRecursively(GameObject _obj, int _newLayer)
     {
@@ -40,21 +57,9 @@ public class Util : MonoBehaviour
         }
     }
 
-    public static string LocalIPAddress()
-    {
-        IPHostEntry host;
-        string localIP = "";
-        host = Dns.GetHostEntry(Dns.GetHostName());
-        foreach (IPAddress ip in host.AddressList)
-        {
-            if (ip.AddressFamily == AddressFamily.InterNetwork)
-            {
-                localIP = ip.ToString();
-                break;
-            }
-        }
-        return localIP;
-    }
+    #endregion
+
+    #region Vector Helpers
 
     public static Vector2 SnapTo(Vector2 _vector)
     {
@@ -71,12 +76,22 @@ public class Util : MonoBehaviour
         return basis[0];
     }
 
+    public static Vector3 Flatten(Vector3 _vector)
+    {
+        return new Vector3(_vector.x, 0f, _vector.z);
+    }
+
+    #endregion
+
+    #region Angle Helpers
+
     public static float ClampAngle(float _angle, float _min, float _max)
     {
         if (_angle >= 0)
         {
             _angle = Mathf.Repeat(_angle, 360);
-        } else
+        }
+        else
         {
             _angle = -Mathf.Repeat(-_angle, 360);
         }
@@ -84,7 +99,8 @@ public class Util : MonoBehaviour
         if (_angle > 180)
         {
             _angle -= 360;
-        } else if (_angle < -180)
+        }
+        else if (_angle < -180)
         {
             _angle += 360;
         }
@@ -97,10 +113,9 @@ public class Util : MonoBehaviour
         return new Vector3(ClampAngle(_angle.x, -180, 180), ClampAngle(_angle.y, -180, 180), ClampAngle(_angle.z, -180, 180));
     }
 
-    public static Vector3 Flatten(Vector3 _vector)
-    {
-        return new Vector3(_vector.x, 0f, _vector.z);
-    }
+    #endregion
+
+    #region Matrix Helpers
 
     public static int[,,] TransposeMatrix(int[,,] _matrix)
     {
@@ -224,6 +239,10 @@ public class Util : MonoBehaviour
         return FlipGameObjectMatrix(TransposeGameObjectMatrix(_matrix));
     }
 
+    #endregion
+
+    #region File Helpers
+
     public static GameObject[] GetPrefabs(string _dir)
     {
         List<GameObject> allPrefabs = new List<GameObject>();
@@ -262,36 +281,6 @@ public class Util : MonoBehaviour
 
     }
 
-    public static Behaviour EnableScipt(GameObject _gameObject, ScriptID _scriptID, bool _enable)
-    {
-        EnableDuringRuntime[] _components = GameObject.FindObjectsOfType<EnableDuringRuntime>();
-
-        foreach(EnableDuringRuntime _component in _components)
-        {
-            if (_component.scriptID == _scriptID && _component.gameObject == _gameObject)
-            {
-                _component.enabled = _enable;
-                return (_component as Behaviour);
-            }
-        }
-
-        return null;
-    }
-
-    public static ScriptID NameToScriptID(string _name)
-    {
-        ScriptableObject[] allScriptIDs = GetScriptableObjects("Assets/Resources/ScriptableObjects/ScriptIDs");
-
-        foreach (var _scriptID in allScriptIDs)
-        {
-            if (_scriptID.name == _name)
-            {
-                return (ScriptID)_scriptID;
-            }
-        }
-        return null;
-    }
-
     public static string[] GetSubAllFilesInDirectory(string _dir, string _ext)
     {
         return Directory.GetFiles(_dir, "*." + _ext, SearchOption.AllDirectories);
@@ -321,6 +310,46 @@ public class Util : MonoBehaviour
 
     }
 
+    #endregion
+
+    #region Script Helpers
+
+    public static Behaviour EnableScipt(GameObject _gameObject, ScriptID _scriptID, bool _enable)
+    {
+        EnableDuringRuntime[] _components = GameObject.FindObjectsOfType<EnableDuringRuntime>();
+
+        foreach (EnableDuringRuntime _component in _components)
+        {
+            if (_component.scriptID == _scriptID && _component.gameObject == _gameObject)
+            {
+                _component.enabled = _enable;
+                return (_component as Behaviour);
+            }
+        }
+
+        return null;
+    }
+
+
+
+    public static ScriptID NameToScriptID(string _name)
+    {
+        ScriptableObject[] allScriptIDs = GetScriptableObjects("Assets/Resources/ScriptableObjects/ScriptIDs");
+
+        foreach (var _scriptID in allScriptIDs)
+        {
+            if (_scriptID.name == _name)
+            {
+                return (ScriptID)_scriptID;
+            }
+        }
+        return null;
+    }
+
+    #endregion
+
+    #region Collection Helpers
+
     public static void Randomise<T>(T[] items)
     {
         System.Random rand = new System.Random();
@@ -333,4 +362,19 @@ public class Util : MonoBehaviour
             items[j] = temp;
         }
     }
+
+    public static int GetNextWrappedIndex<T>(IList<T> collection, int currentIndex)
+    {
+        if (collection.Count < 1) return 0;
+        return (currentIndex + 1) % collection.Count;
+    }
+
+    public static int GetPreviousWrappedIndex<T>(IList<T> collection, int currentIndex)
+    {
+        if (collection.Count < 1) return 0;
+        if ((currentIndex - 1) < 0) return collection.Count - 1;
+        return (currentIndex - 1) % collection.Count;
+    }
+
+    #endregion
 }
