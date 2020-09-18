@@ -151,6 +151,7 @@
      <Compile Include="Assets\Scripts\UI\SetItem.cs" />
      <Compile Include="Assets\Scripts\UI\SetList.cs" />
      <Compile Include="Assets\Scripts\UI\UIItem.cs" />
+     <Compile Include="Assets\Scripts\UI\WindowManager.cs" />
      <Compile Include="Assets\Scripts\Util\DamageUtil.cs" />
      <Compile Include="Assets\Scripts\Util\EquipmentUtil.cs" />
      <Compile Include="Assets\Scripts\Util\KillStreakUtil.cs" />

@@ -94,6 +94,7 @@ ScriptsOnlyBuild:
     - WeaponGraphics
     - WeaponManager
     - Wiggle
+    - WindowManager
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
@@ -157,8 +158,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.HighDefinition.VisualEnvironment
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.ShaderGraph.Editor.dll:
-    - UnityEditor.ShaderGraph.Drawing.MaterialGraphEditWindow
     Unity.VisualEffectGraph.Editor.dll:
     - UnityEditor.VFX.UI.VFXViewWindow
     Unity.VisualEffectGraph.Runtime.dll:
@@ -547,6 +546,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17646}
     - Class: 114
       Script: {instanceID: 17654}
+    - Class: 114
+      Script: {instanceID: 28342}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -848,6 +849,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17516}
     - Class: 114
       Script: {instanceID: 17592}
+    - Class: 114
+      Script: {instanceID: 28342}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1155,6 +1158,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 17516}
     - Class: 114
       Script: {instanceID: 17592}
+    - Class: 114
+      Script: {instanceID: 28342}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3628,6 +3633,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXUISliderBinder
+  - hash:
+      serializedVersion: 2
+      Hash: ec4321d3aef5e99ce125679f044c9775
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WindowManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

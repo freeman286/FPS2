@@ -377,4 +377,26 @@ public class Util : MonoBehaviour
     }
 
     #endregion
+
+    #region PlayerPref Helpers
+
+    public static bool GetPlayerPrefBool(string key)
+    {
+        var value = PlayerPrefs.GetInt(key);
+        return value > 0;
+    }
+
+    public static bool GetPlayerPrefBool(string key, bool defaultValue)
+    {
+        if (!PlayerPrefs.HasKey(key)) return defaultValue;
+        return GetPlayerPrefBool(key);
+    }
+
+    public static void SetPlayerPrefBool(string key, bool value)
+    {
+        int integerVersion = (value == true) ? 1 : 0;
+        PlayerPrefs.SetInt(key, integerVersion);
+    }
+
+    #endregion
 }
