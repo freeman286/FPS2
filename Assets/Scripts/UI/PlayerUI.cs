@@ -173,16 +173,10 @@ public class PlayerUI : MonoBehaviour
         ipAddress.SetActive(scoreboard.activeSelf || pauseMenu.activeSelf);
     }
 
-    void OnApplicationFocus(bool pauseStatus)
+    void OnApplicationFocus(bool _pauseStatus)
     {
-        if (pauseStatus)
-        {
-            pauseMenu.SetActive(true);
-            Pause.isOn = true;
-
-            if (Pause.instance.pausedCallback != null)
-                Pause.instance.pausedCallback.Invoke();
-        }
+        if (_pauseStatus && !Pause.isOn)
+            TogglePauseMenu();
     }
 
     public void TogglePauseMenu()
