@@ -19,7 +19,7 @@ public class MortarPistol : EnableDuringRuntime
         if (!isLocalPlayer)
             return;
 
-        if (Input.GetButtonDown(detonateButton) && !Pause.IsOn)
+        if (Input.GetButtonDown(detonateButton) && !Pause.isOn)
         {
             mortar = GameManager.GetMortar();
             if (mortar != null && mortar.GetComponent<NetworkIdentity>().hasAuthority)

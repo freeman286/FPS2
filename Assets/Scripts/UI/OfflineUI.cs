@@ -92,4 +92,9 @@ public class OfflineUI : MonoBehaviour
         ipValueChanged = true;
         PlayerInfo.ipAddress = ipAddress.text;
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

@@ -67,7 +67,7 @@ public class WeaponManager : NetworkBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Switch") && isLocalPlayer && !switchingWeapon && !Pause.IsOn)
+        if (Input.GetButtonDown("Switch") && isLocalPlayer && !switchingWeapon && !Pause.isOn)
         {
             if (reload != null)
             {

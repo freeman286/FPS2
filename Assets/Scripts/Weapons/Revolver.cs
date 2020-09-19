@@ -39,7 +39,7 @@ public class Revolver : EnableDuringRuntime
 
     void Update()
     {
-        if (!isLocalPlayer || Pause.IsOn || weaponManager.isReloading)
+        if (!isLocalPlayer || Pause.isOn || weaponManager.isReloading)
             return;
         
         if (Input.GetButton("Fire2") && deadEyeState == DeadEyeState.off && shoot.CanShoot())

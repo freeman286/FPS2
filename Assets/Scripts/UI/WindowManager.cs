@@ -14,12 +14,21 @@ public class WindowManager : MonoBehaviour
 
     private int currentResolutionIndex = 0;
 
-    private void Start()
+    private int screenResolutionIndex = 0;
+
+    void Start()
     {
         resolutions = Screen.resolutions;
 
         currentResolutionIndex = PlayerPrefs.GetInt(RESOLUTION_PREF_KEY, resolutions.Length - 1);
         ApplyResolution(resolutions[currentResolutionIndex]);
+
+        Pause.instance.pausedCallback += ResetResolutionText;
+    }
+
+    public void ResetResolutionText()
+    {
+        SetResolutionText(resolutions[screenResolutionIndex]);
     }
 
     private void SetResolutionText(Resolution resolution)
@@ -39,28 +48,17 @@ public class WindowManager : MonoBehaviour
         SetResolutionText(resolutions[currentResolutionIndex]);
     }
 
-
-    private void SetAndApplyResolution(int newResolutionIndex)
-    {
-        currentResolutionIndex = newResolutionIndex;
-        ApplyCurrentResolution();
-    }
-
-    private void ApplyCurrentResolution()
+    public void ApplyCurrentResolution()
     {
         ApplyResolution(resolutions[currentResolutionIndex]);
     }
 
-    private void ApplyResolution(Resolution resolution)
+    private void ApplyResolution(Resolution _resolution)
     {
-        SetResolutionText(resolution);
+        SetResolutionText(_resolution);
 
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Screen.SetResolution(_resolution.width, _resolution.height, Screen.fullScreen);
         PlayerPrefs.SetInt(RESOLUTION_PREF_KEY, currentResolutionIndex);
-    }
-
-    public void ApplyChanges()
-    {
-        SetAndApplyResolution(currentResolutionIndex);
+        screenResolutionIndex = currentResolutionIndex;
     }
 }

@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (Pause.IsOn)
+        if (Pause.isOn)
         {
             motor.Move(Vector3.zero);
             motor.Rotate(Vector3.zero);

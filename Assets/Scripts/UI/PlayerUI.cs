@@ -135,7 +135,7 @@ public class PlayerUI : MonoBehaviour
     void Update()
     {
 
-        if (Pause.IsOn)
+        if (Pause.isOn)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -178,14 +178,20 @@ public class PlayerUI : MonoBehaviour
         if (pauseStatus)
         {
             pauseMenu.SetActive(true);
-            Pause.IsOn = true;
+            Pause.isOn = true;
+
+            if (Pause.instance.pausedCallback != null)
+                Pause.instance.pausedCallback.Invoke();
         }
     }
 
     public void TogglePauseMenu()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
-        Pause.IsOn = pauseMenu.activeSelf;
+        Pause.isOn = pauseMenu.activeSelf;
+
+        if (Pause.isOn && Pause.instance.pausedCallback != null)
+            Pause.instance.pausedCallback.Invoke();
     }
 
     void SetHealthAmount(float _amount)

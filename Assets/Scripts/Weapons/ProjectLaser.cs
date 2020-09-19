@@ -33,7 +33,7 @@ public class ProjectLaser : EnableDuringRuntime
             return;
 
         RaycastHit _hit;
-        if (Input.GetButton(laseButton) && !Pause.IsOn)
+        if (Input.GetButton(laseButton) && !Pause.isOn)
         {
             if (Physics.Raycast(transform.position, cam.transform.forward, out _hit, range, mask))
             {

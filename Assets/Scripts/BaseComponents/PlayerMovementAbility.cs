@@ -45,7 +45,7 @@ public abstract class PlayerMovementAbility : EnableDuringRuntime
     {
         timeSinceMovementAbilityUsed += Time.deltaTime;
 
-        if (Pause.IsOn)
+        if (Pause.isOn)
             return;
 
         if (isLocalPlayer && active && Input.GetButton("MovementAbility") && timeSinceMovementAbilityUsed >= ability.cooldown)

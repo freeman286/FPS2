@@ -123,7 +123,7 @@ public class PlayerShoot : NetworkBehaviour {
             weaponManager.Reload();
         }
 
-        if (Pause.IsOn)
+        if (Pause.isOn)
         {
             if (IsInvoking("Shoot"))
             {

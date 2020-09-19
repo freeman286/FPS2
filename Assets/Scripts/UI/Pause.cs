@@ -2,20 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Mirror;
-
 public class Pause : MonoBehaviour
 {
+
+    public static Pause instance;
 
     [SerializeField]
     private PlayerUI ui = null;
 
-    public static bool IsOn = false;
+    public static bool isOn = false;
+
+    public delegate void PausedCallback();
+    public PausedCallback pausedCallback;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one Pause in scene.");
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     public void Disconnect()
     {
         LevelLoader.instance.DoTransition();
-        IsOn = false;
+        isOn = false;
         ui.Disconnect();
     }
 

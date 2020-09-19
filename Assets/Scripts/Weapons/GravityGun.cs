@@ -49,7 +49,7 @@ public class GravityGun : EnableDuringRuntime
 
         if (heldObject == null)
         {
-            if (Input.GetButton(catchButton) && shoot.CanShoot() && !Pause.IsOn)
+            if (Input.GetButton(catchButton) && shoot.CanShoot() && !Pause.isOn)
             {
                 RaycastHit hit;
                 if (Physics.SphereCast(transform.position, grabRadius, cam.transform.forward, out hit, grabDistance, layerMask))
@@ -70,7 +70,7 @@ public class GravityGun : EnableDuringRuntime
 
             Util.SetLayerRecursively(heldObject, LayerMask.NameToLayer("Weapon"));
 
-            if (Input.GetButton(fireButton) && shoot.CanShoot() && !Pause.IsOn)
+            if (Input.GetButton(fireButton) && shoot.CanShoot() && !Pause.isOn)
             {
                 Vector3 _direction;
 

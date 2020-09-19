@@ -53,7 +53,7 @@ public class PlayerEquipment : NetworkBehaviour
     {
         timeSinceEquipmentUsed += Time.deltaTime;
 
-        if (isLocalPlayer && Input.GetButtonDown("Equipment") && timeSinceEquipmentUsed > equipment.cooldown && !weaponManager.isReloading && !Pause.IsOn) {
+        if (isLocalPlayer && Input.GetButtonDown("Equipment") && timeSinceEquipmentUsed > equipment.cooldown && !weaponManager.isReloading && !Pause.isOn) {
 
             Vector3 _throwDirection = raycastShoot.ShootDirection(cam.transform, equipmentSpawnPoint, equipment.range, mask);
 
