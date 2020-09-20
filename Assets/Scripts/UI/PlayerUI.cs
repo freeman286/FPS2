@@ -97,7 +97,6 @@ public class PlayerUI : MonoBehaviour
 
     public bool enableInfoUI = true;
 
-
     [HideInInspector]
     public NetworkManager networkManager;
     [HideInInspector]
@@ -129,7 +128,7 @@ public class PlayerUI : MonoBehaviour
 
         IpAddressText.text = "IP Address: " + Util.LocalIPAddress();
 
-        lookSensitivitySlider.value = PlayerInfo.lookSensitivity;
+        lookSensitivitySlider.value = PlayerPrefs.GetFloat(PlayerUtil.LOOK_SENSITIVITY_KEY, 3f);
     }
 
     void Update()
@@ -240,12 +239,13 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateLookSensitivity()
     {
-        PlayerInfo.lookSensitivity = (float)System.Math.Round(lookSensitivitySlider.value, 1);
+        float _lookSensitivity = (float)System.Math.Round(lookSensitivitySlider.value, 1);
+
         if (controller != null)
-        {
-            controller.lookSensitivity = PlayerInfo.lookSensitivity;
-        }
-        lookSensitivityText.text = string.Format("Sensitivity: {0:F1}", PlayerInfo.lookSensitivity); ;
+            controller.lookSensitivity = _lookSensitivity;
+        lookSensitivityText.text = string.Format("Sensitivity: {0:F1}", _lookSensitivity);
+
+        PlayerPrefs.SetFloat(PlayerUtil.LOOK_SENSITIVITY_KEY, _lookSensitivity);
     }
 
     public void Disconnect()

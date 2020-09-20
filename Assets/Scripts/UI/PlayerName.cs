@@ -10,12 +10,12 @@ public class PlayerName : MonoBehaviour
 
     void Start()
     {
-        playerName.text = PlayerInfo.playerName;
+        playerName.text = PlayerPrefs.GetString(PlayerUtil.PLAYER_NAME_KEY, "Player");
     }
 
     public void Changed()
     {
-        PlayerInfo.playerName = playerName.text;
+        PlayerPrefs.SetString(PlayerUtil.PLAYER_NAME_KEY, playerName.text);
 
         if (string.IsNullOrEmpty(playerName.text))
         {

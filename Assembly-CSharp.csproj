@@ -155,6 +155,7 @@
      <Compile Include="Assets\Scripts\Util\DamageUtil.cs" />
      <Compile Include="Assets\Scripts\Util\EquipmentUtil.cs" />
      <Compile Include="Assets\Scripts\Util\KillStreakUtil.cs" />
+     <Compile Include="Assets\Scripts\Util\PlayerUtil.cs" />
      <Compile Include="Assets\Scripts\Util\SetsUtil.cs" />
      <Compile Include="Assets\Scripts\Util\Util.cs" />
      <Compile Include="Assets\Scripts\Util\WeaponsUtil.cs" />

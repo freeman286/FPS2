@@ -40,7 +40,7 @@ public class OfflineUI : MonoBehaviour
 
     public void Host()
     {
-        if (string.IsNullOrEmpty(PlayerInfo.playerName))
+        if (string.IsNullOrEmpty(PlayerPrefs.GetString(PlayerUtil.PLAYER_NAME_KEY)))
             return;
 
         Loading(true);
@@ -67,7 +67,7 @@ public class OfflineUI : MonoBehaviour
 
     public void Client()
     {
-        if (string.IsNullOrEmpty(PlayerInfo.playerName))
+        if (string.IsNullOrEmpty(PlayerPrefs.GetString(PlayerUtil.PLAYER_NAME_KEY)))
             return;
 
         if (ipValueChanged && !string.IsNullOrEmpty(PlayerInfo.ipAddress))

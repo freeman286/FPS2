@@ -52,7 +52,7 @@ public class PlayerSetup : NetworkBehaviour
 
             player.SetupPlayer();
 
-            CmdSetUsername(transform.name, PlayerInfo.playerName);
+            CmdSetUsername(transform.name, PlayerPrefs.GetString(PlayerUtil.PLAYER_NAME_KEY));
 
             GetComponent<WeaponManager>().SyncAllWepaons();
         }
